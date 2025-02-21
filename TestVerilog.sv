@@ -11,6 +11,8 @@ module I2C_main (
 // system works, or I could just make both and we could try both on the chip knowing one of the 
 // methods should work
 
+logic testingCommitfunction;
+
 
 // TODO: 
 // 1. Find out how to get rid of scl_1x, since essentially useless, but when replace in testbench,
