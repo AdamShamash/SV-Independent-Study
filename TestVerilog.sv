@@ -5,19 +5,13 @@ module I2C_main (
     output wire scl_o 
 );
 
-// Main Question:
-// What should we do regarding the read process, since the memory behaves differently than the 
-// one TI uses, and there seems to be an online discrepancy. I think I need to figure out which 
-// system works, or I could just make both and we could try both on the chip knowing one of the 
-// methods should work
-
 // TODO: 
 // 1. Find out how to get rid of scl_1x, since essentially useless, but when replace in testbench,
 //    the clock goes haywire
 // 2. Check if some of the repetative cases when writing address bits can be converted to for loops
 // 3. Make seperate modules/classes to refer to for ease of main file reading and simulating
 
-logic scl_1x, negEdgeSwitch, sda_o2, rw, writeComplete, sendStart, tester; 
+logic scl_1x, negEdgeSwitch , sda_o2, rw, writeComplete, repeated_start, sendStart, tester; 
 logic [1:0] counter;
 logic [2:0] stateHolder, stateHolderNeg, address_check;
 logic [3:0] bit_count;
@@ -45,6 +39,7 @@ logic [2:0] state;
 // 001 = writing device(slave) address
 // 010 = writing register address
 // 011 = writing byte to register OR signal repeated start
+// 101 = send sda high for repeated start
 // 110 = reading byte from register
 // 111 = stop state
 
@@ -60,24 +55,27 @@ initial begin
     stateHolderNeg = 0;
     writeComplete = 0;
     sendStart = 1;
+    repeated_start = 0;
 
     // user input:
-    rw = 0; // 0 = write, 1 = read
-    addressFromMaster = 7'h08;
+    rw = 1; // 0 = write, 1 = read
+    addressFromMaster = 7'h50;
     registerAddress [7:0] = 8'b10010010;
     dataByte [7:0] = 8'b10101100;
 end
 
 assign scl_1x = counter[1]; // DO NOT DELETE THIS CLOCK. NECESSARY FOR TESTBENCH
-assign scl_o = scl_1x; // establish regular clk at half speed of scl_2x
+assign scl_o = counter[1]; // establish regular clk at half speed of scl_2x
 assign state = (stateHolderNeg == 0) ? stateHolderNeg : stateHolder; // allows state to access pos and neg edge
-assign sda_o = (state == 0) ? negEdgeSwitch : sda_o2; // allows sda_o to access pos and neg edge
+assign sda_o = (negEdgeSwitch == 1) ? negEdgeSwitch : sda_o2; // allows sda_o to access pos and neg edge
 
-// neg edge used for start/stop conditions
-always_ff @(negedge scl_4x) begin
+
+always_ff @(posedge scl_4x) begin
+
     // start condition
-    if(counter == 3 && state == 0) begin
+    if(counter == 2 && state == 0) begin
         if(sendStart) begin
+            tester <= 1;
             negEdgeSwitch <= 0;
             stateHolderNeg <= 1;
         end
@@ -87,14 +85,10 @@ always_ff @(negedge scl_4x) begin
         stateHolderNeg <= 0;
         sendStart <= 0;
     end
-    
-end
 
-always_ff @(posedge scl_4x) begin
     // establishing the counter
     counter <= counter + 1;
     if(counter == 0) begin
-        tester <= 0;
 
         //check for ACK/NACK after byte of info (1 = NACK, 0 = ACK)
         if(bit_count == 8) begin
@@ -102,9 +96,11 @@ always_ff @(posedge scl_4x) begin
                 stateHolder <= 3'b111; // activate STOP condition
                 writeComplete <= 0;
             end
+            if(repeated_start) begin
+                stateHolder <= 3'b101;
+            end
             bit_count <= 0;
             sda_o2 <= sda_i;
-
         end
 
         else begin
@@ -117,15 +113,17 @@ always_ff @(posedge scl_4x) begin
                 end
                 // once address sent, send read or write bit + go to next state
                 if(address_check == 0) begin
-                    sda_o2 <= rw;
-                    if(~rw)
-                        stateHolder [2:0] <= 3'b010; 
-                    else
+                    if(repeated_start) begin
+                        sda_o2 <= rw;
+                        repeated_start <= 0;
                         stateHolder [2:0] <= 3'b110; // if repeated start, skip to reading byte
+                    end
+                    else begin
+                        sda_o2 <= 0;
+                        stateHolder [2:0] <= 3'b010; 
+                    end
                     address_check <= 7;
                 end
-                else
-                    stateHolder[2:0] <= 3'b001;
             end
 
             // generating register address
@@ -135,7 +133,10 @@ always_ff @(posedge scl_4x) begin
                 address_check <= address_check - 1;
                 // once address sent, go to next state
                 if(address_check == 0) begin
-                    stateHolder [2:0] <= 3'b011;
+                    if(~rw)
+                        stateHolder [2:0] <= 3'b011;
+                    else 
+                        repeated_start <= 1;
                     address_check <= 7;
                 end
             end
@@ -164,6 +165,13 @@ always_ff @(posedge scl_4x) begin
                 if(bit_count == 7)
                     writeComplete <= 1; // signal STOP condition
             end
+
+            // send SDA high for repeated start condition
+            if(state == 3'b101) begin
+                negEdgeSwitch <= 1;
+                stateHolderNeg <= 0;
+                stateHolder [2:0] <= 3'b001;
+            end
            
         end
 
@@ -171,4 +179,3 @@ always_ff @(posedge scl_4x) begin
 end
 
 endmodule
-

@@ -41,7 +41,8 @@ VL_ATTR_COLD void Vtop___024root___eval_initial__TOP(Vtop___024root* vlSelf) {
     vlSelfRef.I2C_main__DOT__stateHolderNeg = 0U;
     vlSelfRef.I2C_main__DOT__writeComplete = 0U;
     vlSelfRef.I2C_main__DOT__sendStart = 1U;
-    vlSelfRef.I2C_main__DOT__rw = 0U;
+    vlSelfRef.I2C_main__DOT__repeated_start = 0U;
+    vlSelfRef.I2C_main__DOT__rw = 1U;
     vlSelfRef.I2C_main__DOT__addressFromMaster = 8U;
     vlSelfRef.I2C_main__DOT__registerAddress = 0x92U;
     vlSelfRef.I2C_main__DOT__dataByte = 0xacU;
@@ -161,10 +162,7 @@ VL_ATTR_COLD void Vtop___024root___dump_triggers__act(Vtop___024root* vlSelf) {
         VL_DBG_MSGF("         No triggers active\n");
     }
     if ((1ULL & vlSelfRef.__VactTriggered.word(0U))) {
-        VL_DBG_MSGF("         'act' region trigger index 0 is active: @(negedge scl_4x)\n");
-    }
-    if ((2ULL & vlSelfRef.__VactTriggered.word(0U))) {
-        VL_DBG_MSGF("         'act' region trigger index 1 is active: @(posedge scl_4x)\n");
+        VL_DBG_MSGF("         'act' region trigger index 0 is active: @(posedge scl_4x)\n");
     }
 }
 #endif  // VL_DEBUG
@@ -180,10 +178,7 @@ VL_ATTR_COLD void Vtop___024root___dump_triggers__nba(Vtop___024root* vlSelf) {
         VL_DBG_MSGF("         No triggers active\n");
     }
     if ((1ULL & vlSelfRef.__VnbaTriggered.word(0U))) {
-        VL_DBG_MSGF("         'nba' region trigger index 0 is active: @(negedge scl_4x)\n");
-    }
-    if ((2ULL & vlSelfRef.__VnbaTriggered.word(0U))) {
-        VL_DBG_MSGF("         'nba' region trigger index 1 is active: @(posedge scl_4x)\n");
+        VL_DBG_MSGF("         'nba' region trigger index 0 is active: @(posedge scl_4x)\n");
     }
 }
 #endif  // VL_DEBUG
@@ -207,6 +202,7 @@ VL_ATTR_COLD void Vtop___024root___ctor_var_reset(Vtop___024root* vlSelf) {
     vlSelf->I2C_main__DOT__sda_o2 = VL_RAND_RESET_I(1);
     vlSelf->I2C_main__DOT__rw = VL_RAND_RESET_I(1);
     vlSelf->I2C_main__DOT__writeComplete = VL_RAND_RESET_I(1);
+    vlSelf->I2C_main__DOT__repeated_start = VL_RAND_RESET_I(1);
     vlSelf->I2C_main__DOT__sendStart = VL_RAND_RESET_I(1);
     vlSelf->I2C_main__DOT__tester = VL_RAND_RESET_I(1);
     vlSelf->I2C_main__DOT__counter = VL_RAND_RESET_I(2);

@@ -37,17 +37,18 @@ void Vtop___024root__trace_chg_0_sub_0(Vtop___024root* vlSelf, VerilatedFst::Buf
     bufp->chgBit(oldp+10,(vlSelfRef.I2C_main__DOT__sda_o2));
     bufp->chgBit(oldp+11,(vlSelfRef.I2C_main__DOT__rw));
     bufp->chgBit(oldp+12,(vlSelfRef.I2C_main__DOT__writeComplete));
-    bufp->chgBit(oldp+13,(vlSelfRef.I2C_main__DOT__sendStart));
-    bufp->chgBit(oldp+14,(vlSelfRef.I2C_main__DOT__tester));
-    bufp->chgCData(oldp+15,(vlSelfRef.I2C_main__DOT__counter),2);
-    bufp->chgCData(oldp+16,(vlSelfRef.I2C_main__DOT__stateHolder),3);
-    bufp->chgCData(oldp+17,(vlSelfRef.I2C_main__DOT__stateHolderNeg),3);
-    bufp->chgCData(oldp+18,(vlSelfRef.I2C_main__DOT__address_check),3);
-    bufp->chgCData(oldp+19,(vlSelfRef.I2C_main__DOT__bit_count),4);
-    bufp->chgCData(oldp+20,(vlSelfRef.I2C_main__DOT__addressFromMaster),7);
-    bufp->chgCData(oldp+21,(vlSelfRef.I2C_main__DOT__registerAddress),8);
-    bufp->chgCData(oldp+22,(vlSelfRef.I2C_main__DOT__dataByte),8);
-    bufp->chgCData(oldp+23,(vlSelfRef.I2C_main__DOT__state),3);
+    bufp->chgBit(oldp+13,(vlSelfRef.I2C_main__DOT__repeated_start));
+    bufp->chgBit(oldp+14,(vlSelfRef.I2C_main__DOT__sendStart));
+    bufp->chgBit(oldp+15,(vlSelfRef.I2C_main__DOT__tester));
+    bufp->chgCData(oldp+16,(vlSelfRef.I2C_main__DOT__counter),2);
+    bufp->chgCData(oldp+17,(vlSelfRef.I2C_main__DOT__stateHolder),3);
+    bufp->chgCData(oldp+18,(vlSelfRef.I2C_main__DOT__stateHolderNeg),3);
+    bufp->chgCData(oldp+19,(vlSelfRef.I2C_main__DOT__address_check),3);
+    bufp->chgCData(oldp+20,(vlSelfRef.I2C_main__DOT__bit_count),4);
+    bufp->chgCData(oldp+21,(vlSelfRef.I2C_main__DOT__addressFromMaster),7);
+    bufp->chgCData(oldp+22,(vlSelfRef.I2C_main__DOT__registerAddress),8);
+    bufp->chgCData(oldp+23,(vlSelfRef.I2C_main__DOT__dataByte),8);
+    bufp->chgCData(oldp+24,(vlSelfRef.I2C_main__DOT__state),3);
 }
 
 void Vtop___024root__trace_cleanup(void* voidSelf, VerilatedFst* /*unused*/) {

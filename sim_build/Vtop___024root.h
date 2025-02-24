@@ -27,6 +27,7 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final : public VerilatedModule
     CData/*0:0*/ I2C_main__DOT__sda_o2;
     CData/*0:0*/ I2C_main__DOT__rw;
     CData/*0:0*/ I2C_main__DOT__writeComplete;
+    CData/*0:0*/ I2C_main__DOT__repeated_start;
     CData/*0:0*/ I2C_main__DOT__sendStart;
     CData/*0:0*/ I2C_main__DOT__tester;
     CData/*1:0*/ I2C_main__DOT__counter;
@@ -45,8 +46,8 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final : public VerilatedModule
     IData/*31:0*/ __VactIterCount;
     VlTriggerVec<1> __VstlTriggered;
     VlTriggerVec<1> __VicoTriggered;
-    VlTriggerVec<2> __VactTriggered;
-    VlTriggerVec<2> __VnbaTriggered;
+    VlTriggerVec<1> __VactTriggered;
+    VlTriggerVec<1> __VnbaTriggered;
 
     // INTERNAL VARIABLES
     Vtop__Syms* const vlSymsp;

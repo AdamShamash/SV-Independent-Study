@@ -34,9 +34,7 @@ void Vtop___024root___eval_triggers__act(Vtop___024root* vlSelf) {
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___eval_triggers__act\n"); );
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
-    vlSelfRef.__VactTriggered.set(0U, ((~ (IData)(vlSelfRef.scl_4x)) 
-                                       & (IData)(vlSelfRef.__Vtrigprevexpr___TOP__scl_4x__0)));
-    vlSelfRef.__VactTriggered.set(1U, ((IData)(vlSelfRef.scl_4x) 
+    vlSelfRef.__VactTriggered.set(0U, ((IData)(vlSelfRef.scl_4x) 
                                        & (~ (IData)(vlSelfRef.__Vtrigprevexpr___TOP__scl_4x__0))));
     vlSelfRef.__Vtrigprevexpr___TOP__scl_4x__0 = vlSelfRef.scl_4x;
 #ifdef VL_DEBUG

@@ -53,14 +53,14 @@ def runCocotbTests(pytestconfig):
 async def test_notGate(dut):
     # Instantiate your I2C memory model (assuming I2cMemory is imported)
     i2c_memory = I2cMemory(sda=dut.sda_o, sda_o=dut.sda_i,
-                           scl=dut.scl_o, scl_o=dut.scl_1x, addr=0x08, size=256)
+                           scl=dut.scl_o, scl_o=dut.scl_1x, addr=0x50, size=256)
 
     # Create and start a clock on scl_2x
     proc_clock = Clock(dut.scl_4x, 4, units="ns")
     cocotb.start_soon(proc_clock.start(start_high=True))
 
     # wait for some additional clock cycles to observe behavior
-    await ClockCycles(dut.scl_4x, 130)
+    await ClockCycles(dut.scl_4x, 180)
 
     #def read_mem(self, address, length):
     readByte = i2c_memory.read_mem(0x08, 1)
