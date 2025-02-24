@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="12345" />
+    <testcase name="test_notGate" classname="testbench" file="/MYSTUFF/SV-Independent-Study/testbench.py" lineno="52" time="0.01771259307861328" sim_time_ns="516.001" ratio_time="29131.87231874226" />
+  </testsuite>
+</testsuites>

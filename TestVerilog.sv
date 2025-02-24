@@ -62,7 +62,7 @@ initial begin
     sendStart = 1;
 
     // user input:
-    rw = 1; // 0 = write, 1 = read
+    rw = 0; // 0 = write, 1 = read
     addressFromMaster = 7'h08;
     registerAddress [7:0] = 8'b10010010;
     dataByte [7:0] = 8'b10101100;
