@@ -43,6 +43,8 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final : public VerilatedModule
     CData/*0:0*/ __VicoFirstIteration;
     CData/*0:0*/ __Vtrigprevexpr___TOP__scl_4x__0;
     CData/*0:0*/ __VactContinue;
+    SData/*10:0*/ I2C_main__DOT__mem_count;
+    VlWide<64>/*2047:0*/ I2C_main__DOT__my_mem;
     IData/*31:0*/ __VactIterCount;
     VlTriggerVec<1> __VstlTriggered;
     VlTriggerVec<1> __VicoTriggered;

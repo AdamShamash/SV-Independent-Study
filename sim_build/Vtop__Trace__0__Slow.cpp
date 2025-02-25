@@ -37,7 +37,9 @@ VL_ATTR_COLD void Vtop___024root__trace_init_sub__TOP__0(Vtop___024root* vlSelf,
     tracep->declBus(c+22,0,"addressFromMaster",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::VAR, VerilatedTraceSigType::LOGIC, false,-1, 6,0);
     tracep->declBus(c+23,0,"registerAddress",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::VAR, VerilatedTraceSigType::LOGIC, false,-1, 7,0);
     tracep->declBus(c+24,0,"dataByte",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::VAR, VerilatedTraceSigType::LOGIC, false,-1, 7,0);
-    tracep->declBus(c+25,0,"state",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::VAR, VerilatedTraceSigType::LOGIC, false,-1, 2,0);
+    tracep->declArray(c+25,0,"my_mem",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::VAR, VerilatedTraceSigType::LOGIC, false,-1, 2047,0);
+    tracep->declBus(c+89,0,"mem_count",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::VAR, VerilatedTraceSigType::LOGIC, false,-1, 10,0);
+    tracep->declBus(c+90,0,"state",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::VAR, VerilatedTraceSigType::LOGIC, false,-1, 2,0);
     tracep->popPrefix();
 }
 
@@ -117,5 +119,7 @@ VL_ATTR_COLD void Vtop___024root__trace_full_0_sub_0(Vtop___024root* vlSelf, Ver
     bufp->fullCData(oldp+22,(vlSelfRef.I2C_main__DOT__addressFromMaster),7);
     bufp->fullCData(oldp+23,(vlSelfRef.I2C_main__DOT__registerAddress),8);
     bufp->fullCData(oldp+24,(vlSelfRef.I2C_main__DOT__dataByte),8);
-    bufp->fullCData(oldp+25,(vlSelfRef.I2C_main__DOT__state),3);
+    bufp->fullWData(oldp+25,(vlSelfRef.I2C_main__DOT__my_mem),2048);
+    bufp->fullSData(oldp+89,(vlSelfRef.I2C_main__DOT__mem_count),11);
+    bufp->fullCData(oldp+90,(vlSelfRef.I2C_main__DOT__state),3);
 }

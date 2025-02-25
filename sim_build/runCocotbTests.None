@@ -1,0 +1,8 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="12345" />
+    <testcase name="test_writeByte" classname="testbench" file="/MYSTUFF/SV-Independent-Study/testbench.py" lineno="52" time="0.015229940414428711" sim_time_ns="103750.0" ratio_time="6812239.390096902">
+      <failure message="Test failed with RANDOM_SEED=12345" />
+    </testcase>
+  </testsuite>
+</testsuites>

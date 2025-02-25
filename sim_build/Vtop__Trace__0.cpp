@@ -48,7 +48,9 @@ void Vtop___024root__trace_chg_0_sub_0(Vtop___024root* vlSelf, VerilatedFst::Buf
     bufp->chgCData(oldp+21,(vlSelfRef.I2C_main__DOT__addressFromMaster),7);
     bufp->chgCData(oldp+22,(vlSelfRef.I2C_main__DOT__registerAddress),8);
     bufp->chgCData(oldp+23,(vlSelfRef.I2C_main__DOT__dataByte),8);
-    bufp->chgCData(oldp+24,(vlSelfRef.I2C_main__DOT__state),3);
+    bufp->chgWData(oldp+24,(vlSelfRef.I2C_main__DOT__my_mem),2048);
+    bufp->chgSData(oldp+88,(vlSelfRef.I2C_main__DOT__mem_count),11);
+    bufp->chgCData(oldp+89,(vlSelfRef.I2C_main__DOT__state),3);
 }
 
 void Vtop___024root__trace_cleanup(void* voidSelf, VerilatedFst* /*unused*/) {

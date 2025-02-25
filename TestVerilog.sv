@@ -7,9 +7,9 @@ module SystemConnect (
 
 wire ignore;
 
-I2C_main instance1 (.sda_i(gpdi_sda), .sda_o(gpdi_sda), .scl_o(ignore))
+I2C_main instance1 (.sda_i(gpdi_sda), .sda_o(gpdi_sda), .scl_o(ignore));
 
-endmodule
+endmodule 
 
 module pll
 (
@@ -60,7 +60,7 @@ EHXPLLL #(
         .ENCLKOP(1'b0),
         .LOCK(locked)
         );
-endmodule
+endmodule 
 
 module I2C_main (
     input  wire sda_i,
@@ -81,6 +81,9 @@ logic [2:0] stateHolder, stateHolderNeg, address_check;
 logic [3:0] bit_count;
 logic [6:0] addressFromMaster;
 logic [7:0] registerAddress, dataByte;
+
+logic [2047:0] my_mem;
+logic [10:0] mem_count;
 
 // Variables:
 // negEdgeSwitch = activates start and stop by pulsing sda_o low/high when scl_o high
@@ -144,7 +147,7 @@ always_ff @(posedge scl_4x) begin
             stateHolderNeg <= 1;
         end
     end
-    if(state == 3'b111) begin
+    if(counter == 2 && state == 3'b111) begin
         negEdgeSwitch <= 1;
         stateHolderNeg <= 0;
         sendStart <= 0;
@@ -158,6 +161,7 @@ always_ff @(posedge scl_4x) begin
         if(bit_count == 8) begin
             if(sda_i | writeComplete) begin
                 stateHolder <= 3'b111; // activate STOP condition
+                mem_count <= 0;
                 writeComplete <= 0;
             end
             if(repeated_start) begin
@@ -226,6 +230,9 @@ always_ff @(posedge scl_4x) begin
             if(state == 3'b110) begin 
                 bit_count <= bit_count + 1;
                 sda_o2 <= sda_i;
+                // saving data to memory
+                my_mem[mem_count] <= sda_i;
+                mem_count <= mem_count + 1;
                 if(bit_count == 7)
                     writeComplete <= 1; // signal STOP condition
             end
