@@ -18,9 +18,9 @@ SIM_BUILD_DIR = "sim_build"
 def runCocotbTests(pytestconfig):
     """setup cocotb tests, based on https://docs.cocotb.org/en/stable/runner.html"""
 
-    sim = os.getenv("SIM", "verilator")
+    sim = os.getenv("SIM", "verilator") # or icarus
     proj_path = Path(__file__).resolve().parent
-    verilog_sources = [proj_path / "TestVerilog.sv" ]
+    verilog_sources = [proj_path / "TestVerilogZ.sv" ]
 
     top_module = "I2C_main"
 
@@ -32,7 +32,8 @@ def runCocotbTests(pytestconfig):
         includes=[proj_path],
         build_dir=SIM_BUILD_DIR,
         waves=True,
-        build_args=['--assert','-Wall','-Wno-DECLFILENAME','--trace-fst','--trace-structs']
+        #build_args=['-Wall','-g2005-sv'] # icarus
+        build_args=['--assert','-Wall','-Wno-DECLFILENAME','--trace-fst','--trace-structs'] # verilator
     ),
 
     results_file = runr.test(
@@ -59,7 +60,7 @@ async def test_writeByte(dut):
     i2c_memory.write_mem(0x50, b'\xab\xaa\xdb')
 
     # Create and start a clock on scl_2x
-    proc_clock = Clock(dut.scl_4x, 4, units="ns")
+    proc_clock = Clock(dut.scl_4x, 4)
     cocotb.start_soon(proc_clock.start(start_high=True))
 
 
