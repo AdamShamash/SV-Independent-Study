@@ -43,6 +43,8 @@ VL_ATTR_COLD void Vtop___024root___eval_initial__TOP(Vtop___024root* vlSelf) {
     vlSelfRef.I2C_main__DOT__sendStart = 1U;
     vlSelfRef.I2C_main__DOT__repeated_start = 0U;
     vlSelfRef.I2C_main__DOT__rw = 1U;
+    vlSelfRef.I2C_main__DOT__mem_count = 0xfU;
+    vlSelfRef.I2C_main__DOT__byte_count = 2U;
     vlSelfRef.I2C_main__DOT__addressFromMaster = 0x50U;
     vlSelfRef.I2C_main__DOT__registerAddress = 0x50U;
     vlSelfRef.I2C_main__DOT__dataByte = 0xacU;
@@ -215,6 +217,7 @@ VL_ATTR_COLD void Vtop___024root___ctor_var_reset(Vtop___024root* vlSelf) {
     vlSelf->I2C_main__DOT__dataByte = VL_RAND_RESET_I(8);
     vlSelf->I2C_main__DOT__my_mem = VL_RAND_RESET_I(16);
     vlSelf->I2C_main__DOT__mem_count = VL_RAND_RESET_I(4);
+    vlSelf->I2C_main__DOT__byte_count = VL_RAND_RESET_I(4);
     vlSelf->I2C_main__DOT__state = VL_RAND_RESET_I(3);
     vlSelf->__Vtrigprevexpr___TOP__scl_4x__0 = VL_RAND_RESET_I(1);
 }

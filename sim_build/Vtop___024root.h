@@ -39,6 +39,7 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final : public VerilatedModule
     CData/*7:0*/ I2C_main__DOT__registerAddress;
     CData/*7:0*/ I2C_main__DOT__dataByte;
     CData/*3:0*/ I2C_main__DOT__mem_count;
+    CData/*3:0*/ I2C_main__DOT__byte_count;
     CData/*2:0*/ I2C_main__DOT__state;
     CData/*0:0*/ __VstlFirstIteration;
     CData/*0:0*/ __VicoFirstIteration;

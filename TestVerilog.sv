@@ -76,7 +76,7 @@ logic [6:0] addressFromMaster;
 logic [7:0] registerAddress, dataByte;
 
 logic [15:0] my_mem;
-logic [3:0] mem_count;
+logic [3:0] mem_count, byte_count;
 
 // Variables:
 // negEdgeSwitch = activates start and stop by pulsing sda_o low/high when scl_o high
@@ -119,6 +119,8 @@ initial begin
 
     // user input:
     rw = 1; // 0 = write, 1 = read
+    mem_count = 15; // set to # bits to be read from device
+    byte_count = 2; // set to # bytes expected to read
     addressFromMaster = 7'h50;
     registerAddress [7:0] = 8'h50;
     dataByte [7:0] = 8'b10101100;
@@ -135,7 +137,6 @@ always_ff @(posedge scl_4x) begin
     // start condition
     if(counter == 2 && state == 0) begin
         if(sendStart) begin
-            tester <= 1;
             negEdgeSwitch <= 0;
             stateHolderNeg <= 1;
         end
@@ -152,19 +153,22 @@ always_ff @(posedge scl_4x) begin
 
         //check for ACK/NACK after byte of info (1 = NACK, 0 = ACK)
         if(bit_count == 8) begin
-            if(sda_i | writeComplete) begin
+            tester <= 1;
+            if(sda_i | writeComplete | byte_count == 0) begin
                 stateHolder <= 3'b111; // activate STOP condition
-                mem_count <= 0;
                 writeComplete <= 0;
             end
             if(repeated_start) begin
                 stateHolder <= 3'b101;
-                my_mem[mem_count] <= sda_i;
-                mem_count <= mem_count + 1;
-                
+            end
+            if(byte_count < 2 & byte_count > 0) begin // if in read state, master will send ACK bit
+                sda_o2 <= 0;
+                stateHolder <= 3'b110;
+            end
+            else begin
+                sda_o2 <= sda_i;
             end
             bit_count <= 0;
-            sda_o2 <= sda_i;
         end
 
         else begin
@@ -228,9 +232,10 @@ always_ff @(posedge scl_4x) begin
                 sda_o2 <= sda_i;
                 // saving data to memory
                 my_mem[mem_count] <= sda_i;
-                mem_count <= mem_count + 1;
-                if(bit_count == 7)
-                    writeComplete <= 1; // signal STOP condition
+                mem_count <= mem_count - 1;
+                if(bit_count == 7) begin
+                    byte_count <= byte_count - 1;
+                end
             end
 
             // send SDA high for repeated start condition

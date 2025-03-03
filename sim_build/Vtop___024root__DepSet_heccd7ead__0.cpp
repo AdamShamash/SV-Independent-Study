@@ -85,21 +85,17 @@ VL_INLINE_OPT void Vtop___024root___nba_sequent__TOP__0(Vtop___024root* vlSelf) 
     // Init
     CData/*1:0*/ __Vdly__I2C_main__DOT__counter;
     __Vdly__I2C_main__DOT__counter = 0;
-    CData/*3:0*/ __Vdly__I2C_main__DOT__mem_count;
-    __Vdly__I2C_main__DOT__mem_count = 0;
     CData/*3:0*/ __Vdly__I2C_main__DOT__bit_count;
     __Vdly__I2C_main__DOT__bit_count = 0;
     CData/*2:0*/ __Vdly__I2C_main__DOT__address_check;
     __Vdly__I2C_main__DOT__address_check = 0;
     // Body
-    __Vdly__I2C_main__DOT__mem_count = vlSelfRef.I2C_main__DOT__mem_count;
     __Vdly__I2C_main__DOT__bit_count = vlSelfRef.I2C_main__DOT__bit_count;
     __Vdly__I2C_main__DOT__address_check = vlSelfRef.I2C_main__DOT__address_check;
     __Vdly__I2C_main__DOT__counter = vlSelfRef.I2C_main__DOT__counter;
     if (((2U == (IData)(vlSelfRef.I2C_main__DOT__counter)) 
          & (0U == (IData)(vlSelfRef.I2C_main__DOT__state)))) {
         if (vlSelfRef.I2C_main__DOT__sendStart) {
-            vlSelfRef.I2C_main__DOT__tester = 1U;
             vlSelfRef.I2C_main__DOT__negEdgeSwitch = 0U;
             vlSelfRef.I2C_main__DOT__stateHolderNeg = 1U;
         }
@@ -114,25 +110,22 @@ VL_INLINE_OPT void Vtop___024root___nba_sequent__TOP__0(Vtop___024root* vlSelf) 
                                             + (IData)(vlSelfRef.I2C_main__DOT__counter)));
     if ((0U == (IData)(vlSelfRef.I2C_main__DOT__counter))) {
         if ((8U == (IData)(vlSelfRef.I2C_main__DOT__bit_count))) {
-            if (((IData)(vlSelfRef.sda_i) | (IData)(vlSelfRef.I2C_main__DOT__writeComplete))) {
+            vlSelfRef.I2C_main__DOT__tester = 1U;
+            if ((((IData)(vlSelfRef.sda_i) | (IData)(vlSelfRef.I2C_main__DOT__writeComplete)) 
+                 | (0U == (IData)(vlSelfRef.I2C_main__DOT__byte_count)))) {
                 vlSelfRef.I2C_main__DOT__stateHolder = 7U;
-                __Vdly__I2C_main__DOT__mem_count = 0U;
                 vlSelfRef.I2C_main__DOT__writeComplete = 0U;
             }
             __Vdly__I2C_main__DOT__bit_count = 0U;
-            vlSelfRef.I2C_main__DOT__sda_o2 = vlSelfRef.sda_i;
             if (vlSelfRef.I2C_main__DOT__repeated_start) {
                 vlSelfRef.I2C_main__DOT__stateHolder = 5U;
-                vlSelfRef.I2C_main__DOT__my_mem = (
-                                                   ((~ 
-                                                     ((IData)(1U) 
-                                                      << (IData)(vlSelfRef.I2C_main__DOT__mem_count))) 
-                                                    & (IData)(vlSelfRef.I2C_main__DOT__my_mem)) 
-                                                   | (0xffffU 
-                                                      & ((IData)(vlSelfRef.sda_i) 
-                                                         << (IData)(vlSelfRef.I2C_main__DOT__mem_count))));
-                __Vdly__I2C_main__DOT__mem_count = 
-                    (0xfU & ((IData)(1U) + (IData)(vlSelfRef.I2C_main__DOT__mem_count)));
+            }
+            if (((2U > (IData)(vlSelfRef.I2C_main__DOT__byte_count)) 
+                 & (0U < (IData)(vlSelfRef.I2C_main__DOT__byte_count)))) {
+                vlSelfRef.I2C_main__DOT__sda_o2 = 0U;
+                vlSelfRef.I2C_main__DOT__stateHolder = 6U;
+            } else {
+                vlSelfRef.I2C_main__DOT__sda_o2 = vlSelfRef.sda_i;
             }
         } else {
             if ((1U == (IData)(vlSelfRef.I2C_main__DOT__state))) {
@@ -194,14 +187,19 @@ VL_INLINE_OPT void Vtop___024root___nba_sequent__TOP__0(Vtop___024root* vlSelf) 
                                  - (IData)(1U)));
                     if ((0U == (IData)(vlSelfRef.I2C_main__DOT__address_check))) {
                         __Vdly__I2C_main__DOT__address_check = 7U;
-                        vlSelfRef.I2C_main__DOT__stateHolder = 4U;
                         vlSelfRef.I2C_main__DOT__writeComplete = 1U;
+                        vlSelfRef.I2C_main__DOT__stateHolder = 4U;
                     }
                 }
             }
             if ((6U == (IData)(vlSelfRef.I2C_main__DOT__state))) {
                 __Vdly__I2C_main__DOT__bit_count = 
                     (0xfU & ((IData)(1U) + (IData)(vlSelfRef.I2C_main__DOT__bit_count)));
+                if ((7U == (IData)(vlSelfRef.I2C_main__DOT__bit_count))) {
+                    vlSelfRef.I2C_main__DOT__byte_count 
+                        = (0xfU & ((IData)(vlSelfRef.I2C_main__DOT__byte_count) 
+                                   - (IData)(1U)));
+                }
                 vlSelfRef.I2C_main__DOT__sda_o2 = vlSelfRef.sda_i;
                 vlSelfRef.I2C_main__DOT__my_mem = (
                                                    ((~ 
@@ -211,11 +209,9 @@ VL_INLINE_OPT void Vtop___024root___nba_sequent__TOP__0(Vtop___024root* vlSelf) 
                                                    | (0xffffU 
                                                       & ((IData)(vlSelfRef.sda_i) 
                                                          << (IData)(vlSelfRef.I2C_main__DOT__mem_count))));
-                if ((7U == (IData)(vlSelfRef.I2C_main__DOT__bit_count))) {
-                    vlSelfRef.I2C_main__DOT__writeComplete = 1U;
-                }
-                __Vdly__I2C_main__DOT__mem_count = 
-                    (0xfU & ((IData)(1U) + (IData)(vlSelfRef.I2C_main__DOT__mem_count)));
+                vlSelfRef.I2C_main__DOT__mem_count 
+                    = (0xfU & ((IData)(vlSelfRef.I2C_main__DOT__mem_count) 
+                               - (IData)(1U)));
             }
             if ((5U == (IData)(vlSelfRef.I2C_main__DOT__state))) {
                 vlSelfRef.I2C_main__DOT__negEdgeSwitch = 1U;
@@ -224,7 +220,6 @@ VL_INLINE_OPT void Vtop___024root___nba_sequent__TOP__0(Vtop___024root* vlSelf) 
             }
         }
     }
-    vlSelfRef.I2C_main__DOT__mem_count = __Vdly__I2C_main__DOT__mem_count;
     vlSelfRef.I2C_main__DOT__bit_count = __Vdly__I2C_main__DOT__bit_count;
     vlSelfRef.I2C_main__DOT__address_check = __Vdly__I2C_main__DOT__address_check;
     vlSelfRef.I2C_main__DOT__counter = __Vdly__I2C_main__DOT__counter;
