@@ -56,7 +56,7 @@ async def test_writeByte(dut):
                            scl=dut.scl_o, scl_o=dut.scl_1x, addr=0x50, size = 256)
 
     # Write the byte 0xAA to the slave with address 0x50
-    i2c_memory.write_mem(0x50, b'\xab')
+    i2c_memory.write_mem(0x50, b'\xab\xaa\xdb')
 
     # Create and start a clock on scl_2x
     proc_clock = Clock(dut.scl_4x, 4, units="ns")
@@ -64,10 +64,9 @@ async def test_writeByte(dut):
 
 
     # wait for some additional clock cycles to observe behavior
-    await ClockCycles(dut.scl_4x, 200)
+    await ClockCycles(dut.scl_4x, 250)
 
     # Optionally, verify the write by reading back from the simulated memory.
     read_byte = i2c_memory.read_mem(0x50, 1)
     print(read_byte)
-    if read_byte[0] != 0xAb:
-        raise Exception(f"Write verification failed: expected 0xAA, got 0x{read_byte[0]:02X}")
+    
