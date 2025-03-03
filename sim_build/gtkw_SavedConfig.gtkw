@@ -1,0 +1,27 @@
+[*]
+[*] GTKWave Analyzer v3.3.100 (w)1999-2019 BSI
+[*] Mon Mar 03 19:35:28 2025
+[*]
+[dumpfile] "C:\Users\adam2\OneDrive\Documents\SystemVerilogStudy\SV-Independent-Study\sim_build\dump.fst"
+[dumpfile_mtime] "Mon Mar 03 19:34:27 2025"
+[dumpfile_size] 1207
+[savefile] "C:\Users\adam2\OneDrive\Documents\SystemVerilogStudy\SV-Independent-Study\sim_build\gtkw_SavedConfig.gtkw"
+[timestart] 0
+[size] 1000 600
+[pos] -1 -1
+*-18.338425 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[sst_width] 197
+[signals_width] 150
+[sst_expanded] 1
+[sst_vpaned_height] 153
+@28
+I2C_main.scl_o
+I2C_main.sda_o
+I2C_main.sda_i
+I2C_main.state[2:0]
+@22
+I2C_main.mem_count[4:0]
+I2C_main.my_mem[31:0]
+I2C_main.byte_count[4:0]
+[pattern_trace] 1
+[pattern_trace] 0

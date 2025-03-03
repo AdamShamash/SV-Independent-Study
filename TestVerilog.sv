@@ -5,9 +5,32 @@ module SystemConnect (
     output wire gpdi_scl
 );
 
+wire clk_locked, clk_4MHz;
+wire rst = ~btn[0] || !clk_locked;
+logic clk_400KHz;
+
+// take 25 MHz clock down to 4 MHz
+MyClockGen mcg (.input_clk_25MHz(external_clk_25MHz), .clk_4MHz(clk_4MHz), .locked(clk_locked));
+
+logic [33:0] hacky_clk_div;
+always_ff @(posedge clk_4MHz) begin
+    if (rst) begin
+        hacky_clk_div <= 0;
+        clk_400KHz <= 0;
+        led_out <= 0;
+    end else begin
+        if (hacky_clk_div < 5) begin
+            hacky_clk_div <= hacky_clk_div + 1;
+        end else begin
+            hacky_clk_div <= 0;
+            clk_400KHz <= ~clk_400KHz;
+        end
+    end
+end
+
 wire ignore;
 
-I2C_main instance1 (.sda_i(gpdi_sda), .sda_o(gpdi_sda), .scl_o(ignore));
+I2C_main instance1 (.sda_i(gpdi_sda), .sda_o(gpdi_sda), .scl_i(clk_400KHz), .scl_o(ignore));
 
 endmodule 
 
