@@ -44,7 +44,7 @@ VL_ATTR_COLD void Vtop___024root___eval_initial__TOP(Vtop___024root* vlSelf) {
     vlSelfRef.I2C_main__DOT__repeated_start = 0U;
     vlSelfRef.I2C_main__DOT__rw = 1U;
     vlSelfRef.I2C_main__DOT__addressFromMaster = 0x50U;
-    vlSelfRef.I2C_main__DOT__registerAddress = 0x92U;
+    vlSelfRef.I2C_main__DOT__registerAddress = 0x50U;
     vlSelfRef.I2C_main__DOT__dataByte = 0xacU;
 }
 
@@ -77,7 +77,7 @@ VL_ATTR_COLD void Vtop___024root___eval_settle(Vtop___024root* vlSelf) {
 #ifdef VL_DEBUG
             Vtop___024root___dump_triggers__stl(vlSelf);
 #endif
-            VL_FATAL_MT("/MYSTUFF/SV-Independent-Study/TestVerilog.sv", 65, "", "Settle region did not converge.");
+            VL_FATAL_MT("/MYSTUFF/SV-Independent-Study/TestVerilog.sv", 58, "", "Settle region did not converge.");
         }
         __VstlIterCount = ((IData)(1U) + __VstlIterCount);
         __VstlContinue = 0U;
@@ -213,8 +213,8 @@ VL_ATTR_COLD void Vtop___024root___ctor_var_reset(Vtop___024root* vlSelf) {
     vlSelf->I2C_main__DOT__addressFromMaster = VL_RAND_RESET_I(7);
     vlSelf->I2C_main__DOT__registerAddress = VL_RAND_RESET_I(8);
     vlSelf->I2C_main__DOT__dataByte = VL_RAND_RESET_I(8);
-    VL_RAND_RESET_W(2048, vlSelf->I2C_main__DOT__my_mem);
-    vlSelf->I2C_main__DOT__mem_count = VL_RAND_RESET_I(11);
+    vlSelf->I2C_main__DOT__my_mem = VL_RAND_RESET_I(16);
+    vlSelf->I2C_main__DOT__mem_count = VL_RAND_RESET_I(4);
     vlSelf->I2C_main__DOT__state = VL_RAND_RESET_I(3);
     vlSelf->__Vtrigprevexpr___TOP__scl_4x__0 = VL_RAND_RESET_I(1);
 }

@@ -11,17 +11,15 @@ I2C_main instance1 (.sda_i(gpdi_sda), .sda_o(gpdi_sda), .scl_o(ignore));
 
 endmodule 
 
-module pll
+module MyClockGen
 (
     input input_clk_25MHz, // 25 MHz, 0 deg
-    output clk_4x, // 6.25 MHz, 0 deg
-    output clkout1, // 3.20856 MHz, 0 deg
+    output clk_4MHz, // 4.16667 MHz, 0 deg
     output locked
 );
 wire clkfb;
 (* FREQUENCY_PIN_CLKI="25" *)
-(* FREQUENCY_PIN_CLKOP="6.25" *)
-(* FREQUENCY_PIN_CLKOS="3.20856" *)
+(* FREQUENCY_PIN_CLKOP="4.16667" *)
 (* ICP_CURRENT="12" *) (* LPF_RESISTOR="8" *) (* MFG_ENABLE_FILTEROPAMP="1" *) (* MFG_GMCREF_SEL="2" *)
 EHXPLLL #(
         .PLLRST_ENA("DISABLED"),
@@ -32,23 +30,18 @@ EHXPLLL #(
         .OUTDIVIDER_MUXB("DIVB"),
         .OUTDIVIDER_MUXC("DIVC"),
         .OUTDIVIDER_MUXD("DIVD"),
-        .CLKI_DIV(4),
+        .CLKI_DIV(6),
         .CLKOP_ENABLE("ENABLED"),
-        .CLKOP_DIV(96),
-        .CLKOP_CPHASE(47),
+        .CLKOP_DIV(128),
+        .CLKOP_CPHASE(64),
         .CLKOP_FPHASE(0),
-        .CLKOS_ENABLE("ENABLED"),
-        .CLKOS_DIV(187),
-        .CLKOS_CPHASE(47),
-        .CLKOS_FPHASE(0),
         .FEEDBK_PATH("INT_OP"),
         .CLKFB_DIV(1)
     ) pll_i (
         .RST(1'b0),
         .STDBY(1'b0),
         .CLKI(input_clk_25MHz),
-        .CLKOP(clk_4x),
-        .CLKOS(clkout1),
+        .CLKOP(clk_4MHz),
         .CLKFB(clkfb),
         .CLKINTFB(clkfb),
         .PHASESEL0(1'b0),
@@ -59,8 +52,8 @@ EHXPLLL #(
         .PLLWAKESYNC(1'b0),
         .ENCLKOP(1'b0),
         .LOCK(locked)
-        );
-endmodule 
+);
+endmodule
 
 module I2C_main (
     input  wire sda_i,
@@ -82,8 +75,8 @@ logic [3:0] bit_count;
 logic [6:0] addressFromMaster;
 logic [7:0] registerAddress, dataByte;
 
-logic [2047:0] my_mem;
-logic [10:0] mem_count;
+logic [15:0] my_mem;
+logic [3:0] mem_count;
 
 // Variables:
 // negEdgeSwitch = activates start and stop by pulsing sda_o low/high when scl_o high
@@ -127,7 +120,7 @@ initial begin
     // user input:
     rw = 1; // 0 = write, 1 = read
     addressFromMaster = 7'h50;
-    registerAddress [7:0] = 8'b10010010;
+    registerAddress [7:0] = 8'h50;
     dataByte [7:0] = 8'b10101100;
 end
 
@@ -166,6 +159,9 @@ always_ff @(posedge scl_4x) begin
             end
             if(repeated_start) begin
                 stateHolder <= 3'b101;
+                my_mem[mem_count] <= sda_i;
+                mem_count <= mem_count + 1;
+                
             end
             bit_count <= 0;
             sda_o2 <= sda_i;
