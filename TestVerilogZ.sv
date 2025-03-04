@@ -32,7 +32,7 @@ end
 
 wire ignore;
 
-I2C_main instance1 (.sda_i(gpdi_sda), .sda_o(gpdi_sda), .scl_i(clk_400KHz), .scl_o(ignore));
+I2C_main instance1 (.sda_i(gpdi_sda), .sda_o(gpdi_sda), .scl_4x(clk_400KHz), .scl_o(ignore));
 
 endmodule 
 
