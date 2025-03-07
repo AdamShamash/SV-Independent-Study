@@ -1,6 +1,6 @@
 <testsuites name="results">
   <testsuite name="all" package="all">
     <property name="random_seed" value="12345" />
-    <testcase name="test_writeByte" classname="testbench" file="/MYSTUFF/SV-Independent-Study/testbench.py" lineno="53" time="0.06052279472351074" sim_time_ns="0.997" ratio_time="16.473132223233314" />
+    <testcase name="test_writeByte" classname="testbench" file="/MYSTUFF/SV-Independent-Study/testbench.py" lineno="53" time="0.053826332092285156" sim_time_ns="0.997" ratio_time="18.52253276873195" />
   </testsuite>
 </testsuites>
