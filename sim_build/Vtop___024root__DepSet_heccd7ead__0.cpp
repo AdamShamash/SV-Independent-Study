@@ -26,7 +26,9 @@ VL_INLINE_OPT void Vtop___024root___ico_sequent__TOP__0(Vtop___024root* vlSelf) 
     // Body
     vlSelfRef.I2C_main__DOT__sda_i = vlSelfRef.sda_i;
     vlSelfRef.I2C_main__DOT__scl_4x = vlSelfRef.scl_4x;
+    vlSelfRef.I2C_main__DOT__addressI2C = vlSelfRef.addressI2C;
     vlSelfRef.sda_o = vlSelfRef.I2C_main__DOT__sda_o;
+    vlSelfRef.ledByte = vlSelfRef.I2C_main__DOT__ledByte;
     vlSelfRef.I2C_main__DOT__scl_o = (1U & ((IData)(vlSelfRef.I2C_main__DOT__counter) 
                                             >> 1U));
     vlSelfRef.scl_o = vlSelfRef.I2C_main__DOT__scl_o;
@@ -93,6 +95,12 @@ VL_INLINE_OPT void Vtop___024root___nba_sequent__TOP__0(Vtop___024root* vlSelf) 
     __Vdly__I2C_main__DOT__bit_count = vlSelfRef.I2C_main__DOT__bit_count;
     __Vdly__I2C_main__DOT__address_check = vlSelfRef.I2C_main__DOT__address_check;
     __Vdly__I2C_main__DOT__counter = vlSelfRef.I2C_main__DOT__counter;
+    vlSelfRef.I2C_main__DOT__ledByte = (0xffU & (IData)(
+                                                        (vlSelfRef.I2C_main__DOT__my_mem 
+                                                         >> 
+                                                         (0x3fU 
+                                                          & VL_SHIFTL_III(6,32,32, (IData)(vlSelfRef.addressI2C), 3U)))));
+    vlSelfRef.ledByte = vlSelfRef.I2C_main__DOT__ledByte;
     if (((2U == (IData)(vlSelfRef.I2C_main__DOT__counter)) 
          & (0U == (IData)(vlSelfRef.I2C_main__DOT__state)))) {
         if (vlSelfRef.I2C_main__DOT__sendStart) {
@@ -126,7 +134,8 @@ VL_INLINE_OPT void Vtop___024root___nba_sequent__TOP__0(Vtop___024root* vlSelf) 
             if (vlSelfRef.I2C_main__DOT__repeated_start) {
                 __Vdly__I2C_main__DOT__state = 5U;
             }
-            if (((3U > (IData)(vlSelfRef.I2C_main__DOT__byte_count)) 
+            if ((((IData)(vlSelfRef.I2C_main__DOT__byte_count) 
+                  < (IData)(vlSelfRef.I2C_main__DOT__byte_count_max)) 
                  & (0U < (IData)(vlSelfRef.I2C_main__DOT__byte_count)))) {
                 vlSelfRef.I2C_main__DOT__sda_o = 0U;
                 __Vdly__I2C_main__DOT__state = 6U;
@@ -203,20 +212,19 @@ VL_INLINE_OPT void Vtop___024root___nba_sequent__TOP__0(Vtop___024root* vlSelf) 
                     (0xfU & ((IData)(1U) + (IData)(vlSelfRef.I2C_main__DOT__bit_count)));
                 if ((7U == (IData)(vlSelfRef.I2C_main__DOT__bit_count))) {
                     vlSelfRef.I2C_main__DOT__byte_count 
-                        = (0x1fU & ((IData)(vlSelfRef.I2C_main__DOT__byte_count) 
+                        = (0x3fU & ((IData)(vlSelfRef.I2C_main__DOT__byte_count) 
                                     - (IData)(1U)));
                 }
                 vlSelfRef.I2C_main__DOT__sda_o = vlSelfRef.sda_i;
                 vlSelfRef.I2C_main__DOT__my_mem = (
                                                    ((~ 
-                                                     ((IData)(1U) 
+                                                     (1ULL 
                                                       << (IData)(vlSelfRef.I2C_main__DOT__mem_count))) 
                                                     & vlSelfRef.I2C_main__DOT__my_mem) 
-                                                   | (0xffffffffULL 
-                                                      & ((IData)(vlSelfRef.sda_i) 
-                                                         << (IData)(vlSelfRef.I2C_main__DOT__mem_count))));
+                                                   | ((QData)((IData)(vlSelfRef.sda_i)) 
+                                                      << (IData)(vlSelfRef.I2C_main__DOT__mem_count)));
                 vlSelfRef.I2C_main__DOT__mem_count 
-                    = (0x1fU & ((IData)(vlSelfRef.I2C_main__DOT__mem_count) 
+                    = (0x3fU & ((IData)(vlSelfRef.I2C_main__DOT__mem_count) 
                                 - (IData)(1U)));
             }
             if ((5U == (IData)(vlSelfRef.I2C_main__DOT__state))) {
@@ -303,7 +311,7 @@ void Vtop___024root___eval(Vtop___024root* vlSelf) {
 #ifdef VL_DEBUG
             Vtop___024root___dump_triggers__ico(vlSelf);
 #endif
-            VL_FATAL_MT("/MYSTUFF/SV-Independent-Study/TestVerilogZ.sv", 83, "", "Input combinational region did not converge.");
+            VL_FATAL_MT("/MYSTUFF/SV-Independent-Study/TestVerilogZ.sv", 86, "", "Input combinational region did not converge.");
         }
         __VicoIterCount = ((IData)(1U) + __VicoIterCount);
         __VicoContinue = 0U;
@@ -319,7 +327,7 @@ void Vtop___024root___eval(Vtop___024root* vlSelf) {
 #ifdef VL_DEBUG
             Vtop___024root___dump_triggers__nba(vlSelf);
 #endif
-            VL_FATAL_MT("/MYSTUFF/SV-Independent-Study/TestVerilogZ.sv", 83, "", "NBA region did not converge.");
+            VL_FATAL_MT("/MYSTUFF/SV-Independent-Study/TestVerilogZ.sv", 86, "", "NBA region did not converge.");
         }
         __VnbaIterCount = ((IData)(1U) + __VnbaIterCount);
         __VnbaContinue = 0U;
@@ -330,7 +338,7 @@ void Vtop___024root___eval(Vtop___024root* vlSelf) {
 #ifdef VL_DEBUG
                 Vtop___024root___dump_triggers__act(vlSelf);
 #endif
-                VL_FATAL_MT("/MYSTUFF/SV-Independent-Study/TestVerilogZ.sv", 83, "", "Active region did not converge.");
+                VL_FATAL_MT("/MYSTUFF/SV-Independent-Study/TestVerilogZ.sv", 86, "", "Active region did not converge.");
             }
             vlSelfRef.__VactIterCount = ((IData)(1U) 
                                          + vlSelfRef.__VactIterCount);
@@ -356,5 +364,7 @@ void Vtop___024root___eval_debug_assertions(Vtop___024root* vlSelf) {
         Verilated::overWidthError("sda_i");}
     if (VL_UNLIKELY((vlSelfRef.scl_4x & 0xfeU))) {
         Verilated::overWidthError("scl_4x");}
+    if (VL_UNLIKELY((vlSelfRef.addressI2C & 0xf0U))) {
+        Verilated::overWidthError("addressI2C");}
 }
 #endif  // VL_DEBUG

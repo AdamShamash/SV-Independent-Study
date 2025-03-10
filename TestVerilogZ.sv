@@ -3,9 +3,12 @@
 module SystemConnect (
     input wire external_clk_25MHz,
     output wire [7:0] led,
+    input wire [6:0] btn,
     inout wire gpdi_sda,
     output wire gpdi_scl
 );
+
+wire [3:0] btnExtract = {btn[3],btn[5],btn[4],btn[6]};
 
 wire clk_locked, clk_4MHz;
 wire rst = ~btn[0] || !clk_locked;
@@ -32,7 +35,7 @@ end
 
 wire ignore;
 
-I2C_main instance1 (.sda_i(gpdi_sda), .sda_o(gpdi_sda), .scl_4x(clk_400KHz), .scl_o(ignore));
+I2C_main instance1 (.sda_i(gpdi_sda), .sda_o(gpdi_sda), .scl_4x(clk_400KHz), .scl_o(ignore), .addressI2C(btnExtract), .ledByte(led));
 
 endmodule 
 
@@ -84,7 +87,9 @@ module I2C_main (
     input  wire sda_i,
     output logic sda_o,
     input wire scl_4x, // phantom wire at 4x the clock speed
-    output wire scl_o 
+    output wire scl_o,
+    input wire [3:0] addressI2C,
+    output logic [7:0] ledByte
 );
 
 // TODO: 
@@ -100,8 +105,8 @@ logic [3:0] bit_count;
 logic [6:0] addressFromMaster;
 logic [7:0] registerAddress, dataByte;
 
-logic [31:0] my_mem;
-logic [4:0] mem_count, byte_count;
+logic [63:0] my_mem;
+logic [5:0] mem_count, byte_count, byte_count_max;
 
 // Variables:
 // rw = sets read/write bit (w = 0, r = 1)
@@ -125,6 +130,14 @@ logic [2:0] state;
 // 111 = stop state
 
 initial begin 
+    // user input:
+    rw = 1; // 0 = write, 1 = read
+    byte_count = 7; // set to total # bytes expected to read (0 inclusive)
+    addressFromMaster = 7'h50;
+    registerAddress [7:0] = 8'h50;
+    dataByte [7:0] = 8'b10101100;
+
+    // Initial Conditions (don't change)
     state = 0;
     address_check = 7;
     bit_count = 0;
@@ -135,14 +148,8 @@ initial begin
     sendStart = 1;
     sendStop = 0;
     repeated_start = 0;
-
-    // user input:
-    rw = 1; // 0 = write, 1 = read
-    mem_count = 23; // set to # bits to be read from device
-    byte_count = 3; // set to # bytes expected to read
-    addressFromMaster = 7'h50;
-    registerAddress [7:0] = 8'h50;
-    dataByte [7:0] = 8'b10101100;
+    byte_count_max = byte_count; 
+    mem_count = (byte_count+1)*8 - 1; // total # bits to be read from device (0 inclusive)
 end
 
 assign scl_1x = counter[1]; // DO NOT DELETE THIS CLOCK. NECESSARY FOR TESTBENCH
@@ -150,6 +157,9 @@ assign scl_o = counter[1]; // establish regular clk at half speed of scl_2x
 
 
 always_ff @(posedge scl_4x) begin
+
+    // btn memory extraction
+    ledByte <= my_mem[addressI2C*8 +: 8];
 
     // start condition
     if(counter == 2 && state == 0) begin
@@ -186,7 +196,7 @@ always_ff @(posedge scl_4x) begin
             if(repeated_start) begin
                 state <= 3'b101;
             end
-            if(byte_count < 3 & byte_count > 0) begin // if in read state, master will send ACK bit
+            if((byte_count < byte_count_max) & byte_count > 0) begin // if in read state, master will send ACK bit
                 sda_o <= 0;
                 state <= 3'b110;
             end
