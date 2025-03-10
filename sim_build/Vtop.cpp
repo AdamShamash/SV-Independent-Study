@@ -16,6 +16,7 @@ Vtop::Vtop(VerilatedContext* _vcontextp__, const char* _vcname__)
     , scl_o{vlSymsp->TOP.scl_o}
     , addressI2C{vlSymsp->TOP.addressI2C}
     , ledByte{vlSymsp->TOP.ledByte}
+    , debug{vlSymsp->TOP.debug}
     , rootp{&(vlSymsp->TOP)}
 {
     // Register model with the context

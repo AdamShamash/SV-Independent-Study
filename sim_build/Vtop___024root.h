@@ -20,12 +20,14 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final : public VerilatedModule
     VL_OUT8(scl_o,0,0);
     VL_IN8(addressI2C,3,0);
     VL_OUT8(ledByte,7,0);
+    VL_OUT8(debug,4,0);
     CData/*0:0*/ I2C_main__DOT__sda_i;
     CData/*0:0*/ I2C_main__DOT__sda_o;
     CData/*0:0*/ I2C_main__DOT__scl_4x;
     CData/*0:0*/ I2C_main__DOT__scl_o;
     CData/*3:0*/ I2C_main__DOT__addressI2C;
     CData/*7:0*/ I2C_main__DOT__ledByte;
+    CData/*4:0*/ I2C_main__DOT__debug;
     CData/*0:0*/ I2C_main__DOT__scl_1x;
     CData/*0:0*/ I2C_main__DOT__rw;
     CData/*0:0*/ I2C_main__DOT__writeComplete;
@@ -41,7 +43,6 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final : public VerilatedModule
     CData/*7:0*/ I2C_main__DOT__dataByte;
     CData/*5:0*/ I2C_main__DOT__mem_count;
     CData/*5:0*/ I2C_main__DOT__byte_count;
-    CData/*5:0*/ I2C_main__DOT__byte_count_max;
     CData/*2:0*/ I2C_main__DOT__state;
     CData/*0:0*/ __VstlFirstIteration;
     CData/*0:0*/ __VicoFirstIteration;
@@ -56,6 +57,9 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final : public VerilatedModule
 
     // INTERNAL VARIABLES
     Vtop__Syms* const vlSymsp;
+
+    // PARAMETERS
+    static constexpr CData/*5:0*/ I2C_main__DOT__byte_count_max = 7U;
 
     // CONSTRUCTORS
     Vtop___024root(Vtop__Syms* symsp, const char* v__name);

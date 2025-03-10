@@ -1,4 +1,4 @@
-`define SIMULATION // turns on and off simulation mode
+//`define SIMULATION // turns on and off simulation mode
 
 module SystemConnect (
     input wire external_clk_25MHz,
@@ -9,6 +9,13 @@ module SystemConnect (
 );
 
 wire [3:0] btnExtract = {btn[3],btn[5],btn[4],btn[6]};
+wire [7:0] ledTest;
+wire [4:0] debug;
+
+assign led[0] = 1;
+assign led[1] = btn[3];
+assign led[2] = btn[5];
+assign led[7:3] = debug;
 
 wire clk_locked, clk_4MHz;
 wire rst = ~btn[0] || !clk_locked;
@@ -35,7 +42,7 @@ end
 
 wire ignore;
 
-I2C_main instance1 (.sda_i(gpdi_sda), .sda_o(gpdi_sda), .scl_4x(clk_400KHz), .scl_o(ignore), .addressI2C(btnExtract), .ledByte(led));
+I2C_main instance1 (.sda_i(gpdi_sda), .sda_o(gpdi_sda), .scl_4x(clk_400KHz), .scl_o(ignore), .addressI2C(btnExtract), .ledByte(ledTest), .debug(debug));
 
 endmodule 
 
@@ -89,7 +96,8 @@ module I2C_main (
     input wire scl_4x, // phantom wire at 4x the clock speed
     output wire scl_o,
     input wire [3:0] addressI2C,
-    output logic [7:0] ledByte
+    output logic [7:0] ledByte,
+    output logic [4:0] debug
 );
 
 // TODO: 
@@ -105,8 +113,11 @@ logic [3:0] bit_count;
 logic [6:0] addressFromMaster;
 logic [7:0] registerAddress, dataByte;
 
-logic [63:0] my_mem;
-logic [5:0] mem_count, byte_count, byte_count_max;
+logic [((byte_count_max+1)*8)-1:0] my_mem;
+logic [5:0] mem_count, byte_count;
+localparam bit [5:0] byte_count_max = 7; // set to total # bytes expected to read (0 inclusive)
+
+
 
 // Variables:
 // rw = sets read/write bit (w = 0, r = 1)
@@ -132,10 +143,10 @@ logic [2:0] state;
 initial begin 
     // user input:
     rw = 1; // 0 = write, 1 = read
-    byte_count = 7; // set to total # bytes expected to read (0 inclusive)
     addressFromMaster = 7'h50;
     registerAddress [7:0] = 8'h50;
     dataByte [7:0] = 8'b10101100;
+    debug = 0;
 
     // Initial Conditions (don't change)
     state = 0;
@@ -148,8 +159,8 @@ initial begin
     sendStart = 1;
     sendStop = 0;
     repeated_start = 0;
-    byte_count_max = byte_count; 
-    mem_count = (byte_count+1)*8 - 1; // total # bits to be read from device (0 inclusive)
+    byte_count = byte_count_max; 
+    mem_count = (byte_count_max+1)*8 - 1; // total # bits to be read from device (0 inclusive)
 end
 
 assign scl_1x = counter[1]; // DO NOT DELETE THIS CLOCK. NECESSARY FOR TESTBENCH
@@ -166,6 +177,7 @@ always_ff @(posedge scl_4x) begin
         if(sendStart) begin
             sda_o <= 0;
             state <= 1;
+            //debug <= 1;
         end
     end
     if(counter == 2 && state == 3'b111) begin
@@ -195,6 +207,7 @@ always_ff @(posedge scl_4x) begin
             end
             if(repeated_start) begin
                 state <= 3'b101;
+                //debug <= 4;
             end
             if((byte_count < byte_count_max) & byte_count > 0) begin // if in read state, master will send ACK bit
                 sda_o <= 0;
@@ -205,6 +218,7 @@ always_ff @(posedge scl_4x) begin
                 sda_o <= sda_i;
                 `else
                 sda_o <= 1'bZ;
+                debug[0] <= ~sda_i;
                 `endif
             end
             bit_count <= 0;
@@ -224,10 +238,13 @@ always_ff @(posedge scl_4x) begin
                         sda_o <= rw;
                         repeated_start <= 0;
                         state [2:0] <= 3'b110; // if repeated start, skip to reading byte
+                        //debug <= 4;
+
                     end
                     else begin
                         sda_o <= 0;
                         state [2:0] <= 3'b010; 
+                        //debug <= 2;
                     end
                     address_check <= 7;
                 end
@@ -235,6 +252,7 @@ always_ff @(posedge scl_4x) begin
 
             // generating register address
             if(state == 3'd2) begin
+                //debug <= 3;
                 bit_count <= bit_count + 1;
                 sda_o <= registerAddress [address_check];
                 address_check <= address_check - 1;
@@ -267,6 +285,7 @@ always_ff @(posedge scl_4x) begin
 
             // reading byte from register
             if(state == 3'b110) begin 
+                //debug <= 5;
                 bit_count <= bit_count + 1;
                 `ifdef SIMULATION
                 sda_o <= sda_i;

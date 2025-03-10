@@ -33,7 +33,7 @@ def runCocotbTests(pytestconfig):
         build_dir=SIM_BUILD_DIR,
         waves=True,
         #build_args=['-Wall','-g2005-sv'] # icarus
-        build_args=['--assert','-Wall','-Wno-DECLFILENAME','--trace-fst','--trace-structs'] # verilator
+        build_args=['--assert','-Wall','-Wno-DECLFILENAME','--trace-fst','--trace-structs', '-DSIMULATION'] # verilator
     ),
 
     results_file = runr.test(
