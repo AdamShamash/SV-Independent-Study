@@ -12,41 +12,13 @@ VL_ATTR_COLD void Vtop___024root___eval_static(Vtop___024root* vlSelf) {
     auto& vlSelfRef = std::ref(*vlSelf).get();
 }
 
-VL_ATTR_COLD void Vtop___024root___eval_initial__TOP(Vtop___024root* vlSelf);
-
 VL_ATTR_COLD void Vtop___024root___eval_initial(Vtop___024root* vlSelf) {
     (void)vlSelf;  // Prevent unused variable warning
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___eval_initial\n"); );
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
-    Vtop___024root___eval_initial__TOP(vlSelf);
     vlSelfRef.__Vtrigprevexpr___TOP__scl_4x__0 = vlSelfRef.scl_4x;
-}
-
-VL_ATTR_COLD void Vtop___024root___eval_initial__TOP(Vtop___024root* vlSelf) {
-    (void)vlSelf;  // Prevent unused variable warning
-    Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___eval_initial__TOP\n"); );
-    auto& vlSelfRef = std::ref(*vlSelf).get();
-    // Body
-    vlSelfRef.I2C_main__DOT__rw = 1U;
-    vlSelfRef.I2C_main__DOT__addressFromMaster = 0x50U;
-    vlSelfRef.I2C_main__DOT__registerAddress = 0x50U;
-    vlSelfRef.I2C_main__DOT__dataByte = 0xacU;
-    vlSelfRef.I2C_main__DOT__debug = 0U;
-    vlSelfRef.I2C_main__DOT__state = 0U;
-    vlSelfRef.I2C_main__DOT__address_check = 7U;
-    vlSelfRef.I2C_main__DOT__bit_count = 0U;
-    vlSelfRef.I2C_main__DOT__sda_o = 1U;
-    vlSelfRef.I2C_main__DOT__counter = 0U;
-    vlSelfRef.I2C_main__DOT__tester = 0U;
-    vlSelfRef.I2C_main__DOT__writeComplete = 0U;
-    vlSelfRef.I2C_main__DOT__sendStart = 1U;
-    vlSelfRef.I2C_main__DOT__sendStop = 0U;
-    vlSelfRef.I2C_main__DOT__repeated_start = 0U;
-    vlSelfRef.I2C_main__DOT__byte_count = 7U;
-    vlSelfRef.I2C_main__DOT__mem_count = 0x3fU;
 }
 
 VL_ATTR_COLD void Vtop___024root___eval_final(Vtop___024root* vlSelf) {
@@ -78,7 +50,7 @@ VL_ATTR_COLD void Vtop___024root___eval_settle(Vtop___024root* vlSelf) {
 #ifdef VL_DEBUG
             Vtop___024root___dump_triggers__stl(vlSelf);
 #endif
-            VL_FATAL_MT("/MYSTUFF/SV-Independent-Study/TestVerilogZ.sv", 93, "", "Settle region did not converge.");
+            VL_FATAL_MT("/MYSTUFF/SV-Independent-Study/TestVerilogZ.sv", 108, "", "Settle region did not converge.");
         }
         __VstlIterCount = ((IData)(1U) + __VstlIterCount);
         __VstlContinue = 0U;
@@ -197,6 +169,8 @@ VL_ATTR_COLD void Vtop___024root___ctor_var_reset(Vtop___024root* vlSelf) {
     vlSelf->addressI2C = VL_RAND_RESET_I(4);
     vlSelf->ledByte = VL_RAND_RESET_I(8);
     vlSelf->debug = VL_RAND_RESET_I(5);
+    vlSelf->reset = VL_RAND_RESET_I(1);
+    vlSelf->receiving = VL_RAND_RESET_I(1);
     vlSelf->I2C_main__DOT__sda_i = VL_RAND_RESET_I(1);
     vlSelf->I2C_main__DOT__sda_o = VL_RAND_RESET_I(1);
     vlSelf->I2C_main__DOT__scl_4x = VL_RAND_RESET_I(1);
@@ -204,6 +178,8 @@ VL_ATTR_COLD void Vtop___024root___ctor_var_reset(Vtop___024root* vlSelf) {
     vlSelf->I2C_main__DOT__addressI2C = VL_RAND_RESET_I(4);
     vlSelf->I2C_main__DOT__ledByte = VL_RAND_RESET_I(8);
     vlSelf->I2C_main__DOT__debug = VL_RAND_RESET_I(5);
+    vlSelf->I2C_main__DOT__reset = VL_RAND_RESET_I(1);
+    vlSelf->I2C_main__DOT__receiving = VL_RAND_RESET_I(1);
     vlSelf->I2C_main__DOT__scl_1x = VL_RAND_RESET_I(1);
     vlSelf->I2C_main__DOT__rw = VL_RAND_RESET_I(1);
     vlSelf->I2C_main__DOT__writeComplete = VL_RAND_RESET_I(1);

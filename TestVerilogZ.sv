@@ -1,4 +1,5 @@
 //`define SIMULATION // turns on and off simulation mode
+`default_nettype none
 
 module SystemConnect (
     input wire external_clk_25MHz,
@@ -11,11 +12,16 @@ module SystemConnect (
 wire [3:0] btnExtract = {btn[3],btn[5],btn[4],btn[6]};
 wire [7:0] ledTest;
 wire [4:0] debug;
+wire receiving, sda_o;
 
 assign led[0] = 1;
-assign led[1] = btn[3];
-assign led[2] = btn[5];
+assign led[1] = rst;
+assign led[2] = gpdi_scl;
 assign led[7:3] = debug;
+
+`ifndef SIMULATION
+    assign gpdi_sda = (receiving) ? 1'bZ : sda_o;
+`endif
 
 wire clk_locked, clk_4MHz;
 wire rst = ~btn[0] || !clk_locked;
@@ -29,7 +35,6 @@ always_ff @(posedge clk_4MHz) begin
     if (rst) begin
         hacky_clk_div <= 0;
         clk_400KHz <= 0;
-        led_out <= 0;
     end else begin
         if (hacky_clk_div < 5) begin
             hacky_clk_div <= hacky_clk_div + 1;
@@ -42,7 +47,16 @@ end
 
 wire ignore;
 
-I2C_main instance1 (.sda_i(gpdi_sda), .sda_o(gpdi_sda), .scl_4x(clk_400KHz), .scl_o(ignore), .addressI2C(btnExtract), .ledByte(ledTest), .debug(debug));
+I2C_main instance1 (.sda_i(gpdi_sda), 
+                    .sda_o(sda_o), 
+                    .scl_4x(clk_400KHz), 
+                    .scl_o(gpdi_scl), 
+                    .addressI2C(btnExtract), 
+                    .ledByte(ledTest), 
+                    .debug(debug), 
+                    .reset(rst),
+                    .receiving(receiving)
+                    );
 
 endmodule 
 
@@ -97,7 +111,9 @@ module I2C_main (
     output wire scl_o,
     input wire [3:0] addressI2C,
     output logic [7:0] ledByte,
-    output logic [4:0] debug
+    output logic [4:0] debug,
+    input wire reset, 
+    output logic receiving
 );
 
 // TODO: 
@@ -140,28 +156,6 @@ logic [2:0] state;
 // 110 = reading byte from register
 // 111 = stop state
 
-initial begin 
-    // user input:
-    rw = 1; // 0 = write, 1 = read
-    addressFromMaster = 7'h50;
-    registerAddress [7:0] = 8'h50;
-    dataByte [7:0] = 8'b10101100;
-    debug = 0;
-
-    // Initial Conditions (don't change)
-    state = 0;
-    address_check = 7;
-    bit_count = 0;
-    sda_o = 1;
-    counter [1:0] = 2'b00;
-    tester = 0;
-    writeComplete = 0;
-    sendStart = 1;
-    sendStop = 0;
-    repeated_start = 0;
-    byte_count = byte_count_max; 
-    mem_count = (byte_count_max+1)*8 - 1; // total # bits to be read from device (0 inclusive)
-end
 
 assign scl_1x = counter[1]; // DO NOT DELETE THIS CLOCK. NECESSARY FOR TESTBENCH
 assign scl_o = counter[1]; // establish regular clk at half speed of scl_2x
@@ -169,145 +163,165 @@ assign scl_o = counter[1]; // establish regular clk at half speed of scl_2x
 
 always_ff @(posedge scl_4x) begin
 
-    // btn memory extraction
-    ledByte <= my_mem[addressI2C*8 +: 8];
+    if(reset) begin
+        // user input:
+        rw <= 1; // 0 = write, 1 = read
+        addressFromMaster <= 7'h50;
+        registerAddress [7:0] <= 8'h50;
+        dataByte [7:0] <= 8'b10101100;
+        debug <= 31;
 
-    // start condition
-    if(counter == 2 && state == 0) begin
-        if(sendStart) begin
-            sda_o <= 0;
-            state <= 1;
-            //debug <= 1;
-        end
-    end
-    if(counter == 2 && state == 3'b111) begin
-        sendStop <= 1;
-        if(sendStop) begin
-            state <= 0;
-            sendStop <= 0;
-        end
+        // Initial Conditions (don't change)
+        state <= 0;
+        address_check <= 7;
+        bit_count <= 0;
         sda_o <= 1;
-        sendStart <= 0;
+        counter [1:0] <= 2'b00;
+        tester <= 0;
+        writeComplete <= 0;
+        sendStart <= 1;
+        sendStop <= 0;
+        repeated_start <= 0;
+        byte_count <= byte_count_max; 
+        mem_count <= (byte_count_max+1)*8 - 1; // total # bits to be read from device (0 inclusive)
     end
+    else begin
+        // btn memory extraction
+        ledByte <= my_mem[addressI2C*8 +: 8];
 
-    // establishing the counter
-    counter <= counter + 1;
-    if(counter == 0) begin
-
-        if(sendStop) begin
-            sda_o <= 0;
-        end
-
-        //check for ACK/NACK after byte of info (1 = NACK, 0 = ACK)
-        else if(bit_count == 8) begin
-            tester <= 1;
-            if(sda_i | writeComplete | byte_count == 0) begin
-                state <= 3'b111; // activate STOP condition
-                writeComplete <= 0;
-            end
-            if(repeated_start) begin
-                state <= 3'b101;
-                //debug <= 4;
-            end
-            if((byte_count < byte_count_max) & byte_count > 0) begin // if in read state, master will send ACK bit
+        // start condition
+        if(counter == 2 && state == 0) begin
+            if(sendStart) begin
                 sda_o <= 0;
-                state <= 3'b110;
+                state <= 1;
+                debug <= 1;
             end
-            else begin
-                `ifdef SIMULATION
-                sda_o <= sda_i;
-                `else
-                sda_o <= 1'bZ;
-                debug[0] <= ~sda_i;
-                `endif
+        end
+        if(counter == 2 && state == 3'b111) begin
+            sendStop <= 1;
+            if(sendStop) begin
+                state <= 0;
+                sendStop <= 0;
             end
-            bit_count <= 0;
+            sda_o <= 1;
+            sendStart <= 0;
         end
 
-        else begin
-        // generating device address + r/w bit
-            if(state == 1) begin
-                bit_count <= bit_count + 1;
-                if(address_check > 0) begin
-                sda_o <= addressFromMaster [address_check - 1];
-                address_check <= address_check - 1;
-                end
-                // once address sent, send read or write bit + go to next state
-                if(address_check == 0) begin
-                    if(repeated_start) begin
-                        sda_o <= rw;
-                        repeated_start <= 0;
-                        state [2:0] <= 3'b110; // if repeated start, skip to reading byte
-                        //debug <= 4;
+        // establishing the counter
+        counter <= counter + 1;
+        if(counter == 0) begin
 
-                    end
-                    else begin
-                        sda_o <= 0;
-                        state [2:0] <= 3'b010; 
-                        //debug <= 2;
-                    end
-                    address_check <= 7;
-                end
+            if(sendStop) begin
+                sda_o <= 0;
             end
 
-            // generating register address
-            if(state == 3'd2) begin
-                //debug <= 3;
-                bit_count <= bit_count + 1;
-                sda_o <= registerAddress [address_check];
-                address_check <= address_check - 1;
-                // once address sent, go to next state
-                if(address_check == 0) begin
-                    if(~rw)
-                        state [2:0] <= 3'b011;
-                    else 
-                        repeated_start <= 1;
-                    address_check <= 7;
+            //check for ACK/NACK after byte of info (1 = NACK, 0 = ACK)
+            else if(bit_count == 8) begin
+                tester <= 1;
+                if(sda_i | writeComplete | byte_count == 0) begin
+                    state <= 3'b111; // activate STOP condition
+                    writeComplete <= 0;
                 end
+                if(repeated_start) begin
+                    state <= 3'b101;
+                    debug <= 4;
+                end
+                if((byte_count < byte_count_max) & byte_count > 0) begin // if in read state, master will send ACK bit
+                    sda_o <= 0;
+                    state <= 3'b110;
+                end
+                else begin
+                    sda_o <= sda_i;
+                    receiving <= 1;
+                    //debug[0] <= ~sda_i;
+                end
+                bit_count <= 0;
             end
 
-            if(state == 3'd3) begin
-                if(~rw) begin // if rw = 0, proceed with write process
+            else begin
+            // generating device address + r/w bit
+                if(state == 1) begin
+                    receiving <= 0;
                     bit_count <= bit_count + 1;
-                    sda_o <= dataByte [address_check];
+                    if(address_check > 0) begin
+                    sda_o <= addressFromMaster [address_check - 1];
                     address_check <= address_check - 1;
-                    // after data byte sent, go to next state
+                    end
+                    // once address sent, send read or write bit + go to next state
                     if(address_check == 0) begin
-                        state [2:0] <= 3'b100; // can remove line if writeComplete set to 1 here
+                        if(repeated_start) begin
+                            sda_o <= rw;
+                            repeated_start <= 0;
+                            state [2:0] <= 3'b110; // if repeated start, skip to reading byte
+                            //debug <= 4;
+
+                        end
+                        else begin
+                            sda_o <= 0;
+                            state [2:0] <= 3'b010; 
+                            debug <= 2;
+                        end
                         address_check <= 7;
-                        writeComplete <= 1; // IMPORTANT: set writeComplete to 1 whenever done sending data
                     end
                 end
-                else begin // if rw = 1, proceed with read process
+
+                // generating register address
+                if(state == 3'd2) begin
+                    receiving <= 0;
+                    //debug <= 3;
+                    bit_count <= bit_count + 1;
+                    sda_o <= registerAddress [address_check];
+                    address_check <= address_check - 1;
+                    // once address sent, go to next state
+                    if(address_check == 0) begin
+                        if(~rw)
+                            state [2:0] <= 3'b011;
+                        else 
+                            repeated_start <= 1;
+                        address_check <= 7;
+                    end
+                end
+
+                if(state == 3'd3) begin
+                    if(~rw) begin // if rw = 0, proceed with write process
+                        bit_count <= bit_count + 1;
+                        sda_o <= dataByte [address_check];
+                        address_check <= address_check - 1;
+                        // after data byte sent, go to next state
+                        if(address_check == 0) begin
+                            state [2:0] <= 3'b100; // can remove line if writeComplete set to 1 here
+                            address_check <= 7;
+                            writeComplete <= 1; // IMPORTANT: set writeComplete to 1 whenever done sending data
+                        end
+                    end
+                    else begin // if rw = 1, proceed with read process
+                        state <= 0;
+                    end
+                end
+
+                // reading byte from register
+                if(state == 3'b110) begin 
+                    //debug <= 5;
+                    bit_count <= bit_count + 1;
+                    sda_o <= sda_i;
+                    receiving <= 1;
+                    // saving data to memory
+                    my_mem[mem_count] <= sda_i;
+                    mem_count <= mem_count - 1;
+                    if(bit_count == 7) begin
+                        byte_count <= byte_count - 1;
+                    end
+                end
+
+                // send SDA high for repeated start condition
+                if(state == 3'b101) begin
+                    sda_o <= 1;
                     state <= 0;
                 end
+            
             end
 
-            // reading byte from register
-            if(state == 3'b110) begin 
-                //debug <= 5;
-                bit_count <= bit_count + 1;
-                `ifdef SIMULATION
-                sda_o <= sda_i;
-                `else
-                sda_o <= 1'bZ;
-                `endif
-                // saving data to memory
-                my_mem[mem_count] <= sda_i;
-                mem_count <= mem_count - 1;
-                if(bit_count == 7) begin
-                    byte_count <= byte_count - 1;
-                end
-            end
-
-            // send SDA high for repeated start condition
-            if(state == 3'b101) begin
-                sda_o <= 1;
-                state <= 0;
-            end
-           
         end
-
     end
 end
 

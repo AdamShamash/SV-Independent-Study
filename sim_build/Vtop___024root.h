@@ -21,6 +21,8 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final : public VerilatedModule
     VL_IN8(addressI2C,3,0);
     VL_OUT8(ledByte,7,0);
     VL_OUT8(debug,4,0);
+    VL_IN8(reset,0,0);
+    VL_OUT8(receiving,0,0);
     CData/*0:0*/ I2C_main__DOT__sda_i;
     CData/*0:0*/ I2C_main__DOT__sda_o;
     CData/*0:0*/ I2C_main__DOT__scl_4x;
@@ -28,6 +30,8 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final : public VerilatedModule
     CData/*3:0*/ I2C_main__DOT__addressI2C;
     CData/*7:0*/ I2C_main__DOT__ledByte;
     CData/*4:0*/ I2C_main__DOT__debug;
+    CData/*0:0*/ I2C_main__DOT__reset;
+    CData/*0:0*/ I2C_main__DOT__receiving;
     CData/*0:0*/ I2C_main__DOT__scl_1x;
     CData/*0:0*/ I2C_main__DOT__rw;
     CData/*0:0*/ I2C_main__DOT__writeComplete;
