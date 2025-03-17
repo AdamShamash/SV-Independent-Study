@@ -173,7 +173,6 @@ VL_INLINE_OPT void Vtop___024root___nba_sequent__TOP__0(Vtop___024root* vlSelf) 
                 __Vdly__I2C_main__DOT__bit_count = 0U;
                 if (vlSelfRef.I2C_main__DOT__repeated_start) {
                     __Vdly__I2C_main__DOT__state = 5U;
-                    vlSelfRef.I2C_main__DOT__debug = 4U;
                 }
                 if (((7U > (IData)(vlSelfRef.I2C_main__DOT__byte_count)) 
                      & (0U < (IData)(vlSelfRef.I2C_main__DOT__byte_count)))) {
@@ -260,7 +259,6 @@ VL_INLINE_OPT void Vtop___024root___nba_sequent__TOP__0(Vtop___024root* vlSelf) 
                             = (0x3fU & ((IData)(vlSelfRef.I2C_main__DOT__byte_count) 
                                         - (IData)(1U)));
                     }
-                    vlSelfRef.I2C_main__DOT__debug = 5U;
                     vlSelfRef.I2C_main__DOT__sda_o 
                         = vlSelfRef.sda_i;
                     vlSelfRef.I2C_main__DOT__receiving = 1U;
@@ -365,7 +363,7 @@ void Vtop___024root___eval(Vtop___024root* vlSelf) {
 #ifdef VL_DEBUG
             Vtop___024root___dump_triggers__ico(vlSelf);
 #endif
-            VL_FATAL_MT("/MYSTUFF/SV-Independent-Study/TestVerilogZ.sv", 132, "", "Input combinational region did not converge.");
+            VL_FATAL_MT("/MYSTUFF/SV-Independent-Study/TestVerilogZ.sv", 177, "", "Input combinational region did not converge.");
         }
         __VicoIterCount = ((IData)(1U) + __VicoIterCount);
         __VicoContinue = 0U;
@@ -381,7 +379,7 @@ void Vtop___024root___eval(Vtop___024root* vlSelf) {
 #ifdef VL_DEBUG
             Vtop___024root___dump_triggers__nba(vlSelf);
 #endif
-            VL_FATAL_MT("/MYSTUFF/SV-Independent-Study/TestVerilogZ.sv", 132, "", "NBA region did not converge.");
+            VL_FATAL_MT("/MYSTUFF/SV-Independent-Study/TestVerilogZ.sv", 177, "", "NBA region did not converge.");
         }
         __VnbaIterCount = ((IData)(1U) + __VnbaIterCount);
         __VnbaContinue = 0U;
@@ -392,7 +390,7 @@ void Vtop___024root___eval(Vtop___024root* vlSelf) {
 #ifdef VL_DEBUG
                 Vtop___024root___dump_triggers__act(vlSelf);
 #endif
-                VL_FATAL_MT("/MYSTUFF/SV-Independent-Study/TestVerilogZ.sv", 132, "", "Active region did not converge.");
+                VL_FATAL_MT("/MYSTUFF/SV-Independent-Study/TestVerilogZ.sv", 177, "", "Active region did not converge.");
             }
             vlSelfRef.__VactIterCount = ((IData)(1U) 
                                          + vlSelfRef.__VactIterCount);

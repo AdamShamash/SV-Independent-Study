@@ -63,9 +63,12 @@ async def test_writeByte(dut):
     proc_clock = Clock(dut.scl_4x, 4)
     cocotb.start_soon(proc_clock.start(start_high=True))
 
+    dut.reset.value = 1
+    await ClockCycles(dut.scl_4x, 2)
+    dut.reset.value = 0
 
     # wait for some additional clock cycles to observe behavior
-    await ClockCycles(dut.scl_4x, 250)
+    await ClockCycles(dut.scl_4x, 500)
 
     # Optionally, verify the write by reading back from the simulated memory.
     read_byte = i2c_memory.read_mem(0x50, 1)

@@ -14,23 +14,39 @@ wire [7:0] ledTest;
 wire [4:0] debug;
 wire receiving, sda_o;
 
-assign led[0] = 1;
+/*assign led[0] = 1;
 assign led[1] = rst;
 assign led[2] = gpdi_scl;
 assign led[7:3] = debug;
+*/
+assign led = ledTest;
 
 `ifndef SIMULATION
     assign gpdi_sda = (receiving) ? 1'bZ : sda_o;
 `endif
 
-wire clk_locked, clk_4MHz;
+wire clk_locked, clk_5MHz, clk_1_4MHz;
 wire rst = ~btn[0] || !clk_locked;
 logic clk_400KHz;
 
 // take 25 MHz clock down to 4 MHz
-MyClockGen mcg (.input_clk_25MHz(external_clk_25MHz), .clk_4MHz(clk_4MHz), .locked(clk_locked));
+MyClockGen mcg (.input_clk_25MHz(external_clk_25MHz), .clk_5MHz(clk_5MHz), .locked(clk_locked));
 
-logic [33:0] hacky_clk_div;
+CLKDIVF #(.DIV("3.5")) clkdiv0 (
+.RST(1'b0)
+,.CLKI(clk_5MHz)
+,.ALIGNWD(1'b0)
+,.CDIVX(clk_1_4MHz));
+
+CLKDIVF #(.DIV("3.5")) clkdiv1 (
+.RST(1'b0)
+,.CLKI(clk_1_4MHz)
+,.ALIGNWD(1'b0)
+,.CDIVX(clk_400KHz));
+
+
+
+/*logic [33:0] hacky_clk_div;
 always_ff @(posedge clk_4MHz) begin
     if (rst) begin
         hacky_clk_div <= 0;
@@ -43,7 +59,7 @@ always_ff @(posedge clk_4MHz) begin
             clk_400KHz <= ~clk_400KHz;
         end
     end
-end
+end */
 
 wire ignore;
 
@@ -60,7 +76,52 @@ I2C_main instance1 (.sda_i(gpdi_sda),
 
 endmodule 
 
+
 module MyClockGen
+(
+    input input_clk_25MHz, // 25 MHz, 0 deg
+    output clk_5MHz, // 5 MHz, 0 deg
+    output locked
+);
+wire clkfb;
+(* FREQUENCY_PIN_CLKI="25" *)
+(* FREQUENCY_PIN_CLKOP="5" *)
+(* ICP_CURRENT="12" *) (* LPF_RESISTOR="8" *) (* MFG_ENABLE_FILTEROPAMP="1" *) (* MFG_GMCREF_SEL="2" *)
+EHXPLLL #(
+        .PLLRST_ENA("DISABLED"),
+        .INTFB_WAKE("DISABLED"),
+        .STDBY_ENABLE("DISABLED"),
+        .DPHASE_SOURCE("DISABLED"),
+        .OUTDIVIDER_MUXA("DIVA"),
+        .OUTDIVIDER_MUXB("DIVB"),
+        .OUTDIVIDER_MUXC("DIVC"),
+        .OUTDIVIDER_MUXD("DIVD"),
+        .CLKI_DIV(5),
+        .CLKOP_ENABLE("ENABLED"),
+        .CLKOP_DIV(120),
+        .CLKOP_CPHASE(60),
+        .CLKOP_FPHASE(0),
+        .FEEDBK_PATH("INT_OP"),
+        .CLKFB_DIV(1)
+    ) pll_i (
+        .RST(1'b0),
+        .STDBY(1'b0),
+        .CLKI(input_clk_25MHz),
+        .CLKOP(clk_5MHz),
+        .CLKFB(clkfb),
+        .CLKINTFB(clkfb),
+        .PHASESEL0(1'b0),
+        .PHASESEL1(1'b0),
+        .PHASEDIR(1'b1),
+        .PHASESTEP(1'b1),
+        .PHASELOADREG(1'b1),
+        .PLLWAKESYNC(1'b0),
+        .ENCLKOP(1'b0),
+        .LOCK(locked)
+        );
+endmodule
+
+/*module MyClockGen_Old4
 (
     input input_clk_25MHz, // 25 MHz, 0 deg
     output clk_4MHz, // 4.16667 MHz, 0 deg
@@ -102,7 +163,7 @@ EHXPLLL #(
         .ENCLKOP(1'b0),
         .LOCK(locked)
 );
-endmodule
+endmodule */
 
 module Ewnz (
     input wire clk,
@@ -197,7 +258,7 @@ always_ff @(posedge scl_4x) begin
         addressFromMaster <= 7'h50;
         registerAddress [7:0] <= 8'h50;
         dataByte [7:0] <= 8'b10101100;
-        //debug <= 31;
+        debug <= 31;
 
         // Initial Conditions (don't change)
         state <= 0;
