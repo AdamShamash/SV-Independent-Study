@@ -1,13 +1,13 @@
 Info: constraining clock net 'external_clk_25MHz' to 25.00 MHz
 
 Info: Logic utilisation before packing:
-Info:     Total LUT4s:       186/83640     0%
-Info:         logic LUTs:    108/83640     0%
+Info:     Total LUT4s:       182/83640     0%
+Info:         logic LUTs:    104/83640     0%
 Info:         carry LUTs:     78/83640     0%
 Info:           RAM LUTs:      0/10455     0%
 Info:          RAMW LUTs:      0/20910     0%
 
-Info:      Total DFFs:        67/83640     0%
+Info:      Total DFFs:        62/83640     0%
 
 Info: Packing IOs..
 Info: $gpdi_sda$iobuf_i: gpdi_sda_$_TBUF__Y.Y
@@ -34,14 +34,14 @@ Info: Packing carries...
 Info: Packing LUTs...
 Info: Packing LUT5-7s...
 Info: Packing FFs...
-Info:     61 FFs paired with LUTs.
+Info:     53 FFs paired with LUTs.
 Info: Generating derived timing constraints...
 Info:     Input frequency of PLL 'mcg.pll_i' is constrained to 25.0 MHz
 Info:     Derived frequency constraint of 4.2 MHz for net clk_4MHz
 Info: Promoting globals...
 Info:     promoting clock net clk_4MHz to global network
 Info:     promoting clock net clk_400KHz to global network
-Info: Checksum: 0x96c6b6ac
+Info: Checksum: 0x9863396b
 
 Info: Device utilisation:
 Info: 	          TRELLIS_IO:      18/    365     4%
@@ -69,415 +69,429 @@ Info: 	             DQSBUFM:       0/     14     0%
 Info: 	     TRELLIS_ECLKBUF:       0/      8     0%
 Info: 	        ECLKBRIDGECS:       0/      2     0%
 Info: 	                DCSC:       0/      2     0%
-Info: 	          TRELLIS_FF:      67/  83640     0%
-Info: 	        TRELLIS_COMB:     205/  83640     0%
+Info: 	          TRELLIS_FF:      62/  83640     0%
+Info: 	        TRELLIS_COMB:     201/  83640     0%
 Info: 	        TRELLIS_RAMW:       0/  10455     0%
 
 Info: Placed 19 cells based on constraints.
-Info: Creating initial analytic placement for 85 cells, random placement wirelen = 13018.
-Info:     at initial placer iter 0, wirelen = 1141
-Info:     at initial placer iter 1, wirelen = 1022
-Info:     at initial placer iter 2, wirelen = 944
-Info:     at initial placer iter 3, wirelen = 927
-Info: Running main analytical placer, max placement attempts per cell = 10731.
-Info:     at iteration #1, type ALL: wirelen solved = 922, spread = 1177, legal = 1212; time = 0.03s
-Info:     at iteration #2, type ALL: wirelen solved = 975, spread = 1212, legal = 1238; time = 0.01s
-Info:     at iteration #3, type ALL: wirelen solved = 983, spread = 1266, legal = 1277; time = 0.01s
-Info:     at iteration #4, type ALL: wirelen solved = 969, spread = 1144, legal = 1188; time = 0.01s
-Info: HeAP Placer Time: 0.16s
+Info: Creating initial analytic placement for 83 cells, random placement wirelen = 10696.
+Info:     at initial placer iter 0, wirelen = 889
+Info:     at initial placer iter 1, wirelen = 761
+Info:     at initial placer iter 2, wirelen = 743
+Info:     at initial placer iter 3, wirelen = 737
+Info: Running main analytical placer, max placement attempts per cell = 10082.
+Info:     at iteration #1, type ALL: wirelen solved = 740, spread = 1288, legal = 1297; time = 0.01s
+Info:     at iteration #2, type ALL: wirelen solved = 754, spread = 1044, legal = 1090; time = 0.00s
+Info:     at iteration #3, type ALL: wirelen solved = 777, spread = 1080, legal = 1127; time = 0.00s
+Info:     at iteration #4, type ALL: wirelen solved = 754, spread = 1002, legal = 1059; time = 0.00s
+Info:     at iteration #5, type ALL: wirelen solved = 770, spread = 1007, legal = 1069; time = 0.00s
+Info:     at iteration #6, type ALL: wirelen solved = 780, spread = 995, legal = 1072; time = 0.00s
+Info:     at iteration #7, type ALL: wirelen solved = 785, spread = 985, legal = 1013; time = 0.00s
+Info:     at iteration #8, type ALL: wirelen solved = 793, spread = 985, legal = 1009; time = 0.00s
+Info:     at iteration #9, type ALL: wirelen solved = 810, spread = 1011, legal = 1136; time = 0.00s
+Info:     at iteration #10, type ALL: wirelen solved = 811, spread = 1019, legal = 1144; time = 0.00s
+Info:     at iteration #11, type ALL: wirelen solved = 805, spread = 1030, legal = 1069; time = 0.00s
+Info:     at iteration #12, type ALL: wirelen solved = 833, spread = 1034, legal = 1115; time = 0.00s
+Info:     at iteration #13, type ALL: wirelen solved = 830, spread = 1024, legal = 1105; time = 0.00s
+Info: HeAP Placer Time: 0.11s
 Info:   of which solving equations: 0.03s
-Info:   of which spreading cells: 0.01s
+Info:   of which spreading cells: 0.02s
 Info:   of which strict legalisation: 0.00s
 
 Info: Running simulated annealing placer for refinement.
-Info:   at iteration #1: temp = 0.000000, timing cost = 65, wirelen = 1188
-Info:   at iteration #5: temp = 0.000000, timing cost = 55, wirelen = 1140
-Info:   at iteration #7: temp = 0.000000, timing cost = 60, wirelen = 1134 
-Info: SA placement time 0.07s
+Info:   at iteration #1: temp = 0.000000, timing cost = 82, wirelen = 1009
+Info:   at iteration #5: temp = 0.000000, timing cost = 62, wirelen = 942
+Info:   at iteration #7: temp = 0.000000, timing cost = 60, wirelen = 936 
+Info: SA placement time 0.03s
 
-Info: Max frequency for clock   '$glbnet$clk_4MHz': 172.59 MHz (PASS at 4.17 MHz)
-Info: Max frequency for clock '$glbnet$clk_400KHz': 153.09 MHz (PASS at 12.00 MHz)
+Info: Max frequency for clock '$glbnet$clk_400KHz': 145.94 MHz (PASS at 12.00 MHz)
+Info: Max frequency for clock   '$glbnet$clk_4MHz': 163.56 MHz (PASS at 4.17 MHz)
 
 Info: Max delay <async>                    -> <async>                   : 5.68 ns
-Info: Max delay <async>                    -> posedge $glbnet$clk_400KHz: 13.69 ns
-Info: Max delay <async>                    -> posedge $glbnet$clk_4MHz  : 4.90 ns
-Info: Max delay posedge $glbnet$clk_400KHz -> <async>                   : 13.40 ns
+Info: Max delay <async>                    -> posedge $glbnet$clk_400KHz: 10.41 ns
+Info: Max delay <async>                    -> posedge $glbnet$clk_4MHz  : 8.66 ns
+Info: Max delay posedge $glbnet$clk_400KHz -> <async>                   : 9.40 ns
 
 Info: Slack histogram:
 Info:  legend: * represents 1 endpoint(s)
 Info:          + represents [1,1) endpoint(s)
-Info: [ 76801,  84923) |****************************************** 
-Info: [ 84923,  93045) | 
-Info: [ 93045, 101167) | 
-Info: [101167, 109289) | 
-Info: [109289, 117411) | 
-Info: [117411, 125533) | 
-Info: [125533, 133655) | 
-Info: [133655, 141777) | 
-Info: [141777, 149899) | 
-Info: [149899, 158021) | 
-Info: [158021, 166143) | 
-Info: [166143, 174265) | 
-Info: [174265, 182387) | 
-Info: [182387, 190509) | 
-Info: [190509, 198631) | 
-Info: [198631, 206753) | 
-Info: [206753, 214875) | 
-Info: [214875, 222997) | 
-Info: [222997, 231119) | 
-Info: [231119, 239241) |************************************************************ 
-Info: Checksum: 0x7e5aa07a
+Info: [ 76481,  84619) |*************************************+
+Info: [ 84619,  92757) | 
+Info: [ 92757, 100895) | 
+Info: [100895, 109033) | 
+Info: [109033, 117171) | 
+Info: [117171, 125309) | 
+Info: [125309, 133447) | 
+Info: [133447, 141585) | 
+Info: [141585, 149723) | 
+Info: [149723, 157861) | 
+Info: [157861, 165999) | 
+Info: [165999, 174137) | 
+Info: [174137, 182275) | 
+Info: [182275, 190413) | 
+Info: [190413, 198551) | 
+Info: [198551, 206689) | 
+Info: [206689, 214827) | 
+Info: [214827, 222965) | 
+Info: [222965, 231103) | 
+Info: [231103, 239241) |************************************************************ 
+Info: Checksum: 0x65bf19a7
 Info: Routing globals...
 Info:     routing clock net $glbnet$clk_400KHz using global 0
 Info:     routing clock net $glbnet$clk_4MHz using global 1
 
 Info: Routing..
 Info: Setting up routing queue.
-Info: Routing 668 arcs.
+Info: Routing 646 arcs.
 Info:            |   (re-)routed arcs  |   delta    | remaining|       time spent     |
 Info:    IterCnt |  w/ripup   wo/ripup |  w/r  wo/r |      arcs| batch(sec) total(sec)|
-Info:        793 |      123        598 |  123   598 |         0|       0.17       0.17|
+Info:        734 |       87        574 |   87   574 |         0|       0.06       0.06|
 Info: Routing complete.
-Info: Router1 time 0.17s
-Info: Checksum: 0x59441a36
+Info: Router1 time 0.06s
+Info: Checksum: 0x7ea583db
+
+Info: Critical path report for clock '$glbnet$clk_400KHz' (posedge -> posedge):
+Info:       type curr  total name
+Info:   clk-to-q  0.52  0.52 Source instance1.byte_count_TRELLIS_FF_Q_5.Q
+Info:    routing  1.10  1.63 Net instance1.byte_count[0] (58,5) -> (58,6)
+Info:                          Sink gpdi_sda_LUT4_C_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_COMB0.B
+Info:                          Defined in:
+Info:                               TestVerilogZ.sv.v:136.12-136.22
+Info:      logic  0.45  2.08 Source gpdi_sda_LUT4_C_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_COMB0.FCO
+Info:    routing  0.00  2.08 Net gpdi_sda_LUT4_C_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_FCI_INT (58,6) -> (58,6)
+Info:                          Sink gpdi_sda_LUT4_C_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_COMB1.FCI
+Info:      logic  0.00  2.08 Source gpdi_sda_LUT4_C_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_COMB1.FCO
+Info:    routing  0.00  2.08 Net gpdi_sda_LUT4_C_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN (58,6) -> (58,6)
+Info:                          Sink gpdi_sda_LUT4_C_D_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_COMB0.FCI
+Info:                          Defined in:
+Info:                               TestVerilogZ.sv.v:189.43-189.57
+Info:                               /tools/oss-cad-suite/lib/../share/yosys/ecp5/arith_map.v:74.7-80.4
+Info:                               /tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:82.9-82.13
+Info:      logic  0.07  2.15 Source gpdi_sda_LUT4_C_D_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_COMB0.FCO
+Info:    routing  0.00  2.15 Net gpdi_sda_LUT4_C_D_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_FCI_INT (58,6) -> (58,6)
+Info:                          Sink gpdi_sda_LUT4_C_D_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_COMB1.FCI
+Info:      logic  0.00  2.15 Source gpdi_sda_LUT4_C_D_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_COMB1.FCO
+Info:    routing  0.00  2.15 Net gpdi_sda_LUT4_C_D_CCU2C_COUT_CIN (58,6) -> (58,6)
+Info:                          Sink gpdi_sda_LUT4_C_D_CCU2C_COUT$CCU2_COMB0.FCI
+Info:                          Defined in:
+Info:                               TestVerilogZ.sv.v:189.43-189.57
+Info:                               /tools/oss-cad-suite/lib/../share/yosys/ecp5/arith_map.v:74.7-80.4
+Info:                               /tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:82.9-82.13
+Info:      logic  0.07  2.22 Source gpdi_sda_LUT4_C_D_CCU2C_COUT$CCU2_COMB0.FCO
+Info:    routing  0.00  2.22 Net gpdi_sda_LUT4_C_D_CCU2C_COUT$CCU2_FCI_INT (58,6) -> (58,6)
+Info:                          Sink gpdi_sda_LUT4_C_D_CCU2C_COUT$CCU2_COMB1.FCI
+Info:      logic  0.00  2.22 Source gpdi_sda_LUT4_C_D_CCU2C_COUT$CCU2_COMB1.FCO
+Info:    routing  0.00  2.22 Net $nextpnr_CCU2C_5$CIN (58,6) -> (59,6)
+Info:                          Sink $nextpnr_CCU2C_5$CCU2_COMB0.FCI
+Info:      logic  0.44  2.66 Source $nextpnr_CCU2C_5$CCU2_COMB0.F
+Info:    routing  0.50  3.16 Net gpdi_sda_LUT4_C_D[3] (59,6) -> (59,5)
+Info:                          Sink gpdi_scl_LUT4_A_Z_PFUMX_Z_BLUT_LUT4_Z.D
+Info:                          Defined in:
+Info:                               /tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_map.v:108.23-108.24
+Info:      logic  0.40  3.57 Source gpdi_scl_LUT4_A_Z_PFUMX_Z_BLUT_LUT4_Z.OFX
+Info:    routing  1.02  4.58 Net gpdi_scl_LUT4_A_Z[4] (59,5) -> (63,3)
+Info:                          Sink gpdi_sda_LUT4_C_Z_LUT4_Z_1.C
+Info:                          Defined in:
+Info:                               /tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_map.v:108.23-108.24
+Info:      logic  0.24  4.82 Source gpdi_sda_LUT4_C_Z_LUT4_Z_1.F
+Info:    routing  0.75  5.57 Net gpdi_sda_LUT4_C_1_Z[4] (63,3) -> (64,5)
+Info:                          Sink instance1.sendStart_LUT4_D_Z_LUT4_A_Z_L6MUX21_SD_Z_L6MUX21_Z_2_D1_PFUMX_Z_BLUT_LUT4_Z.M
+Info:                          Defined in:
+Info:                               /tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_map.v:108.23-108.24
+Info:      logic  0.26  5.82 Source instance1.sendStart_LUT4_D_Z_LUT4_A_Z_L6MUX21_SD_Z_L6MUX21_Z_2_D1_PFUMX_Z_BLUT_LUT4_Z.OFX
+Info:    routing  0.00  5.82 Net instance1.sendStart_LUT4_D_Z_LUT4_A_Z_L6MUX21_SD_Z_L6MUX21_Z_2_D1 (64,5) -> (64,5)
+Info:                          Sink instance1.sendStart_LUT4_D_Z_LUT4_A_Z_L6MUX21_SD_Z_L6MUX21_Z_2_D1_PFUMX_Z_ALUT_LUT4_Z.FXB
+Info:                          Defined in:
+Info:                               /tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_map.v:141.38-141.40
+Info:      logic  0.24  6.06 Source instance1.sendStart_LUT4_D_Z_LUT4_A_Z_L6MUX21_SD_Z_L6MUX21_Z_2_D1_PFUMX_Z_ALUT_LUT4_Z.OFX
+Info:    routing  0.46  6.53 Net instance1.sendStart_LUT4_D_Z_LUT4_A_Z_L6MUX21_SD_Z[4] (64,5) -> (64,5)
+Info:                          Sink instance1.state_TRELLIS_FF_Q_3.M
+Info:      setup  0.00  6.53 Source instance1.state_TRELLIS_FF_Q_3.M
+Info: 2.69 ns logic, 3.84 ns routing
 
 Info: Critical path report for clock '$glbnet$clk_4MHz' (posedge -> posedge):
 Info:       type curr  total name
 Info:   clk-to-q  0.52  0.52 Source hacky_clk_div_TRELLIS_FF_Q_31.Q
-Info:    routing  1.08  1.60 Net hacky_clk_div[2] (2,2) -> (2,3)
+Info:    routing  1.08  1.60 Net hacky_clk_div[2] (54,3) -> (54,4)
 Info:                          Sink clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_COMB1.B
 Info:                          Defined in:
 Info:                               TestVerilogZ.sv.v:33.13-33.26
 Info:      logic  0.45  2.05 Source clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_COMB1.FCO
-Info:    routing  0.00  2.05 Net clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN (2,3) -> (2,3)
+Info:    routing  0.00  2.05 Net clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN (54,4) -> (54,4)
 Info:                          Sink clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_COMB0.FCI
 Info:                          Defined in:
 Info:                               TestVerilogZ.sv.v:39.12-39.29
 Info:                               /tools/oss-cad-suite/lib/../share/yosys/ecp5/arith_map.v:74.7-80.4
 Info:                               /tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:82.9-82.13
 Info:      logic  0.07  2.12 Source clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_COMB0.FCO
-Info:    routing  0.00  2.12 Net clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_FCI_INT (2,3) -> (2,3)
+Info:    routing  0.00  2.12 Net clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_FCI_INT (54,4) -> (54,4)
 Info:                          Sink clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_COMB1.FCI
 Info:      logic  0.00  2.12 Source clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_COMB1.FCO
-Info:    routing  0.00  2.12 Net clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN (2,3) -> (2,3)
+Info:    routing  0.00  2.12 Net clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN (54,4) -> (54,4)
 Info:                          Sink clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_COMB0.FCI
 Info:                          Defined in:
 Info:                               TestVerilogZ.sv.v:39.12-39.29
 Info:                               /tools/oss-cad-suite/lib/../share/yosys/ecp5/arith_map.v:74.7-80.4
 Info:                               /tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:82.9-82.13
 Info:      logic  0.07  2.19 Source clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_COMB0.FCO
-Info:    routing  0.00  2.19 Net clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_FCI_INT (2,3) -> (2,3)
+Info:    routing  0.00  2.19 Net clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_FCI_INT (54,4) -> (54,4)
 Info:                          Sink clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_COMB1.FCI
 Info:      logic  0.00  2.19 Source clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_COMB1.FCO
-Info:    routing  0.00  2.19 Net clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN (2,3) -> (3,3)
+Info:    routing  0.00  2.19 Net clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN (54,4) -> (55,4)
 Info:                          Sink clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_COMB0.FCI
 Info:                          Defined in:
 Info:                               TestVerilogZ.sv.v:39.12-39.29
 Info:                               /tools/oss-cad-suite/lib/../share/yosys/ecp5/arith_map.v:74.7-80.4
 Info:                               /tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:82.9-82.13
 Info:      logic  0.07  2.26 Source clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_COMB0.FCO
-Info:    routing  0.00  2.26 Net clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_FCI_INT (3,3) -> (3,3)
+Info:    routing  0.00  2.26 Net clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_FCI_INT (55,4) -> (55,4)
 Info:                          Sink clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_COMB1.FCI
 Info:      logic  0.00  2.26 Source clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_COMB1.FCO
-Info:    routing  0.00  2.26 Net clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN (3,3) -> (3,3)
+Info:    routing  0.00  2.26 Net clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN (55,4) -> (55,4)
 Info:                          Sink clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_COMB0.FCI
 Info:                          Defined in:
 Info:                               TestVerilogZ.sv.v:39.12-39.29
 Info:                               /tools/oss-cad-suite/lib/../share/yosys/ecp5/arith_map.v:74.7-80.4
 Info:                               /tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:82.9-82.13
 Info:      logic  0.07  2.33 Source clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_COMB0.FCO
-Info:    routing  0.00  2.33 Net clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_FCI_INT (3,3) -> (3,3)
+Info:    routing  0.00  2.33 Net clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_FCI_INT (55,4) -> (55,4)
 Info:                          Sink clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_COMB1.FCI
 Info:      logic  0.00  2.33 Source clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_COMB1.FCO
-Info:    routing  0.00  2.33 Net clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN (3,3) -> (3,3)
+Info:    routing  0.00  2.33 Net clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN (55,4) -> (55,4)
 Info:                          Sink clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_COMB0.FCI
 Info:                          Defined in:
 Info:                               TestVerilogZ.sv.v:39.12-39.29
 Info:                               /tools/oss-cad-suite/lib/../share/yosys/ecp5/arith_map.v:74.7-80.4
 Info:                               /tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:82.9-82.13
 Info:      logic  0.07  2.40 Source clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_COMB0.FCO
-Info:    routing  0.00  2.40 Net clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_FCI_INT (3,3) -> (3,3)
+Info:    routing  0.00  2.40 Net clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_FCI_INT (55,4) -> (55,4)
 Info:                          Sink clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_COMB1.FCI
 Info:      logic  0.00  2.40 Source clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_COMB1.FCO
-Info:    routing  0.00  2.40 Net clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN (3,3) -> (3,3)
+Info:    routing  0.00  2.40 Net clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN (55,4) -> (55,4)
 Info:                          Sink clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_COMB0.FCI
 Info:                          Defined in:
 Info:                               TestVerilogZ.sv.v:39.12-39.29
 Info:                               /tools/oss-cad-suite/lib/../share/yosys/ecp5/arith_map.v:74.7-80.4
 Info:                               /tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:82.9-82.13
 Info:      logic  0.07  2.48 Source clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_COMB0.FCO
-Info:    routing  0.00  2.48 Net clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_FCI_INT (3,3) -> (3,3)
+Info:    routing  0.00  2.48 Net clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_FCI_INT (55,4) -> (55,4)
 Info:                          Sink clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_COMB1.FCI
 Info:      logic  0.00  2.48 Source clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_COMB1.FCO
-Info:    routing  0.00  2.48 Net clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN (3,3) -> (4,3)
+Info:    routing  0.00  2.48 Net clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN (55,4) -> (56,4)
 Info:                          Sink clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_COMB0.FCI
 Info:                          Defined in:
 Info:                               TestVerilogZ.sv.v:39.12-39.29
 Info:                               /tools/oss-cad-suite/lib/../share/yosys/ecp5/arith_map.v:74.7-80.4
 Info:                               /tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:82.9-82.13
 Info:      logic  0.07  2.55 Source clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_COMB0.FCO
-Info:    routing  0.00  2.55 Net clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_FCI_INT (4,3) -> (4,3)
+Info:    routing  0.00  2.55 Net clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_FCI_INT (56,4) -> (56,4)
 Info:                          Sink clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_COMB1.FCI
 Info:      logic  0.00  2.55 Source clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_COMB1.FCO
-Info:    routing  0.00  2.55 Net clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN (4,3) -> (4,3)
+Info:    routing  0.00  2.55 Net clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN (56,4) -> (56,4)
 Info:                          Sink clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_COMB0.FCI
 Info:                          Defined in:
 Info:                               TestVerilogZ.sv.v:39.12-39.29
 Info:                               /tools/oss-cad-suite/lib/../share/yosys/ecp5/arith_map.v:74.7-80.4
 Info:                               /tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:82.9-82.13
 Info:      logic  0.07  2.62 Source clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_COMB0.FCO
-Info:    routing  0.00  2.62 Net clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_FCI_INT (4,3) -> (4,3)
+Info:    routing  0.00  2.62 Net clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_FCI_INT (56,4) -> (56,4)
 Info:                          Sink clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_COMB1.FCI
 Info:      logic  0.00  2.62 Source clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_COMB1.FCO
-Info:    routing  0.00  2.62 Net clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN (4,3) -> (4,3)
+Info:    routing  0.00  2.62 Net clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN (56,4) -> (56,4)
 Info:                          Sink clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_COMB0.FCI
 Info:                          Defined in:
 Info:                               TestVerilogZ.sv.v:39.12-39.29
 Info:                               /tools/oss-cad-suite/lib/../share/yosys/ecp5/arith_map.v:74.7-80.4
 Info:                               /tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:82.9-82.13
 Info:      logic  0.07  2.69 Source clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_COMB0.FCO
-Info:    routing  0.00  2.69 Net clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_FCI_INT (4,3) -> (4,3)
+Info:    routing  0.00  2.69 Net clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_FCI_INT (56,4) -> (56,4)
 Info:                          Sink clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_COMB1.FCI
 Info:      logic  0.00  2.69 Source clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_COMB1.FCO
-Info:    routing  0.00  2.69 Net clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN (4,3) -> (4,3)
+Info:    routing  0.00  2.69 Net clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN (56,4) -> (56,4)
 Info:                          Sink clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_COMB0.FCI
 Info:                          Defined in:
 Info:                               TestVerilogZ.sv.v:39.12-39.29
 Info:                               /tools/oss-cad-suite/lib/../share/yosys/ecp5/arith_map.v:74.7-80.4
 Info:                               /tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:82.9-82.13
 Info:      logic  0.07  2.76 Source clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_COMB0.FCO
-Info:    routing  0.00  2.76 Net clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_FCI_INT (4,3) -> (4,3)
+Info:    routing  0.00  2.76 Net clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_FCI_INT (56,4) -> (56,4)
 Info:                          Sink clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_COMB1.FCI
 Info:      logic  0.00  2.76 Source clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_COMB1.FCO
-Info:    routing  0.00  2.76 Net clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN (4,3) -> (5,3)
+Info:    routing  0.00  2.76 Net clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN (56,4) -> (57,4)
 Info:                          Sink clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_COMB0.FCI
 Info:                          Defined in:
 Info:                               TestVerilogZ.sv.v:39.12-39.29
 Info:                               /tools/oss-cad-suite/lib/../share/yosys/ecp5/arith_map.v:74.7-80.4
 Info:                               /tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:82.9-82.13
 Info:      logic  0.07  2.83 Source clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_COMB0.FCO
-Info:    routing  0.00  2.83 Net clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_FCI_INT (5,3) -> (5,3)
+Info:    routing  0.00  2.83 Net clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_FCI_INT (57,4) -> (57,4)
 Info:                          Sink clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_COMB1.FCI
 Info:      logic  0.00  2.83 Source clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_COMB1.FCO
-Info:    routing  0.00  2.83 Net clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN (5,3) -> (5,3)
+Info:    routing  0.00  2.83 Net clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN (57,4) -> (57,4)
 Info:                          Sink clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_COMB0.FCI
 Info:                          Defined in:
 Info:                               TestVerilogZ.sv.v:39.12-39.29
 Info:                               /tools/oss-cad-suite/lib/../share/yosys/ecp5/arith_map.v:74.7-80.4
 Info:                               /tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:82.9-82.13
 Info:      logic  0.07  2.90 Source clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_COMB0.FCO
-Info:    routing  0.00  2.90 Net clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_FCI_INT (5,3) -> (5,3)
+Info:    routing  0.00  2.90 Net clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_FCI_INT (57,4) -> (57,4)
 Info:                          Sink clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_COMB1.FCI
 Info:      logic  0.00  2.90 Source clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_COMB1.FCO
-Info:    routing  0.00  2.90 Net clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN (5,3) -> (5,3)
+Info:    routing  0.00  2.90 Net clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN (57,4) -> (57,4)
 Info:                          Sink clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_COMB0.FCI
 Info:                          Defined in:
 Info:                               TestVerilogZ.sv.v:39.12-39.29
 Info:                               /tools/oss-cad-suite/lib/../share/yosys/ecp5/arith_map.v:74.7-80.4
 Info:                               /tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:82.9-82.13
 Info:      logic  0.07  2.97 Source clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_COMB0.FCO
-Info:    routing  0.00  2.97 Net clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_FCI_INT (5,3) -> (5,3)
+Info:    routing  0.00  2.97 Net clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_FCI_INT (57,4) -> (57,4)
 Info:                          Sink clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_COMB1.FCI
 Info:      logic  0.00  2.97 Source clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_COMB1.FCO
-Info:    routing  0.00  2.97 Net clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN (5,3) -> (5,3)
+Info:    routing  0.00  2.97 Net clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT_CIN (57,4) -> (57,4)
 Info:                          Sink clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_COMB0.FCI
 Info:                          Defined in:
 Info:                               TestVerilogZ.sv.v:39.12-39.29
 Info:                               /tools/oss-cad-suite/lib/../share/yosys/ecp5/arith_map.v:74.7-80.4
 Info:                               /tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:82.9-82.13
 Info:      logic  0.07  3.04 Source clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_COMB0.FCO
-Info:    routing  0.00  3.04 Net clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_FCI_INT (5,3) -> (5,3)
+Info:    routing  0.00  3.04 Net clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_FCI_INT (57,4) -> (57,4)
 Info:                          Sink clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_COMB1.FCI
 Info:      logic  0.00  3.04 Source clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_COMB1.FCO
-Info:    routing  0.00  3.04 Net clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN (5,3) -> (6,3)
+Info:    routing  0.00  3.04 Net clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT_CIN (57,4) -> (58,4)
 Info:                          Sink clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT$CCU2_COMB0.FCI
 Info:                          Defined in:
 Info:                               TestVerilogZ.sv.v:39.12-39.29
 Info:                               /tools/oss-cad-suite/lib/../share/yosys/ecp5/arith_map.v:74.7-80.4
 Info:                               /tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:82.9-82.13
 Info:      logic  0.07  3.12 Source clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT$CCU2_COMB0.FCO
-Info:    routing  0.00  3.12 Net clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT$CCU2_FCI_INT (6,3) -> (6,3)
+Info:    routing  0.00  3.12 Net clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT$CCU2_FCI_INT (58,4) -> (58,4)
 Info:                          Sink clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT$CCU2_COMB1.FCI
 Info:      logic  0.00  3.12 Source clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_D_CCU2C_COUT$CCU2_COMB1.FCO
-Info:    routing  0.00  3.12 Net $nextpnr_CCU2C_5$CIN (6,3) -> (6,3)
-Info:                          Sink $nextpnr_CCU2C_5$CCU2_COMB0.FCI
-Info:      logic  0.44  3.56 Source $nextpnr_CCU2C_5$CCU2_COMB0.F
-Info:    routing  0.21  3.77 Net clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_B[2] (6,3) -> (6,3)
+Info:    routing  0.00  3.12 Net $nextpnr_CCU2C_7$CIN (58,4) -> (58,4)
+Info:                          Sink $nextpnr_CCU2C_7$CCU2_COMB0.FCI
+Info:      logic  0.44  3.56 Source $nextpnr_CCU2C_7$CCU2_COMB0.F
+Info:    routing  0.21  3.77 Net clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z_B[2] (58,4) -> (58,4)
 Info:                          Sink clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z.D
 Info:                          Defined in:
 Info:                               TestVerilogZ.sv.v:39.12-39.29
 Info:                               /tools/oss-cad-suite/lib/../share/yosys/ecp5/arith_map.v:74.7-80.4
 Info:                               /tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:82.9-82.13
 Info:      logic  0.24  4.01 Source clk_400KHz_TRELLIS_FF_Q_CE_LUT4_Z.F
-Info:    routing  0.50  4.51 Net clk_400KHz_TRELLIS_FF_Q_CE[0] (6,3) -> (6,2)
+Info:    routing  0.73  4.74 Net clk_400KHz_TRELLIS_FF_Q_CE[0] (58,4) -> (56,2)
 Info:                          Sink clk_400KHz_TRELLIS_FF_Q_CE_LUT4_C.C
 Info:                          Defined in:
 Info:                               /tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_map.v:108.23-108.24
-Info:      logic  0.24  4.75 Source clk_400KHz_TRELLIS_FF_Q_CE_LUT4_C.F
-Info:    routing  0.62  5.36 Net clk_400KHz_TRELLIS_FF_Q_CE_LUT4_C_Z (6,2) -> (4,2)
-Info:                          Sink hacky_clk_div_TRELLIS_FF_Q_19.LSR
-Info:      setup  0.42  5.79 Source hacky_clk_div_TRELLIS_FF_Q_19.LSR
-Info: 3.38 ns logic, 2.41 ns routing
-
-Info: Critical path report for clock '$glbnet$clk_400KHz' (posedge -> posedge):
-Info:       type curr  total name
-Info:   clk-to-q  0.52  0.52 Source instance1.byte_count_TRELLIS_FF_Q_5.Q
-Info:    routing  1.10  1.63 Net instance1.byte_count[0] (2,4) -> (2,5)
-Info:                          Sink instance1.byte_count_CCU2C_B0_2$CCU2_COMB0.B
-Info:                          Defined in:
-Info:                               TestVerilogZ.sv.v:136.12-136.22
-Info:      logic  0.45  2.08 Source instance1.byte_count_CCU2C_B0_2$CCU2_COMB0.FCO
-Info:    routing  0.00  2.08 Net instance1.byte_count_CCU2C_B0_2$CCU2_FCI_INT (2,5) -> (2,5)
-Info:                          Sink instance1.byte_count_CCU2C_B0_2$CCU2_COMB1.FCI
-Info:      logic  0.00  2.08 Source instance1.byte_count_CCU2C_B0_2$CCU2_COMB1.FCO
-Info:    routing  0.00  2.08 Net instance1.byte_count_CCU2C_B0_2_COUT (2,5) -> (2,5)
-Info:                          Sink instance1.byte_count_CCU2C_B0_1$CCU2_COMB0.FCI
-Info:                          Defined in:
-Info:                               TestVerilogZ.sv.v:192.43-192.57
-Info:                               /tools/oss-cad-suite/lib/../share/yosys/ecp5/arith_map.v:74.7-80.4
-Info:                               /tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:82.9-82.13
-Info:      logic  0.07  2.15 Source instance1.byte_count_CCU2C_B0_1$CCU2_COMB0.FCO
-Info:    routing  0.00  2.15 Net instance1.byte_count_CCU2C_B0_1$CCU2_FCI_INT (2,5) -> (2,5)
-Info:                          Sink instance1.byte_count_CCU2C_B0_1$CCU2_COMB1.FCI
-Info:      logic  0.00  2.15 Source instance1.byte_count_CCU2C_B0_1$CCU2_COMB1.FCO
-Info:    routing  0.00  2.15 Net instance1.byte_count_CCU2C_B0_1_COUT (2,5) -> (2,5)
-Info:                          Sink instance1.byte_count_CCU2C_B0$CCU2_COMB0.FCI
-Info:                          Defined in:
-Info:                               TestVerilogZ.sv.v:192.43-192.57
-Info:                               /tools/oss-cad-suite/lib/../share/yosys/ecp5/arith_map.v:74.7-80.4
-Info:                               /tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:82.9-82.13
-Info:      logic  0.07  2.22 Source instance1.byte_count_CCU2C_B0$CCU2_COMB0.FCO
-Info:    routing  0.00  2.22 Net instance1.byte_count_CCU2C_B0$CCU2_FCI_INT (2,5) -> (2,5)
-Info:                          Sink instance1.byte_count_CCU2C_B0$CCU2_COMB1.FCI
-Info:      logic  0.00  2.22 Source instance1.byte_count_CCU2C_B0$CCU2_COMB1.FCO
-Info:    routing  0.00  2.22 Net $nextpnr_CCU2C_3$CIN (2,5) -> (3,5)
-Info:                          Sink $nextpnr_CCU2C_3$CCU2_COMB0.FCI
-Info:      logic  0.44  2.66 Source $nextpnr_CCU2C_3$CCU2_COMB0.F
-Info:    routing  0.42  3.08 Net gpdi_sda_LUT4_C_D[3] (3,5) -> (4,5)
-Info:                          Sink instance1.repeated_start_LUT4_C_Z_PFUMX_BLUT_Z_L6MUX21_Z_D1_PFUMX_Z_BLUT_LUT4_Z.D
-Info:                          Defined in:
-Info:                               /tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_map.v:108.23-108.24
-Info:      logic  0.40  3.48 Source instance1.repeated_start_LUT4_C_Z_PFUMX_BLUT_Z_L6MUX21_Z_D1_PFUMX_Z_BLUT_LUT4_Z.OFX
-Info:    routing  0.00  3.48 Net instance1.repeated_start_LUT4_C_Z_PFUMX_BLUT_Z_L6MUX21_Z_D1 (4,5) -> (4,5)
-Info:                          Sink instance1.repeated_start_LUT4_C_Z_PFUMX_BLUT_Z_L6MUX21_Z_D1_PFUMX_Z_ALUT_LUT4_Z.FXB
-Info:                          Defined in:
-Info:                               /tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_map.v:141.38-141.40
-Info:      logic  0.24  3.72 Source instance1.repeated_start_LUT4_C_Z_PFUMX_BLUT_Z_L6MUX21_Z_D1_PFUMX_Z_ALUT_LUT4_Z.OFX
-Info:    routing  0.83  4.55 Net gpdi_sda_LUT4_A_1_C[3] (4,5) -> (6,5)
-Info:                          Sink gpdi_sda_LUT4_C_Z_LUT4_A.D
-Info:                          Defined in:
-Info:                               /tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_map.v:108.23-108.24
-Info:      logic  0.24  4.79 Source gpdi_sda_LUT4_C_Z_LUT4_A.F
-Info:    routing  1.01  5.80 Net btn_LUT4_A_Z_LUT4_B_Z[0] (6,5) -> (3,7)
-Info:                          Sink btn_LUT4_A_Z_LUT4_B_Z_LUT4_C_Z_PFUMX_Z_1_BLUT_LUT4_Z.M
-Info:                          Defined in:
-Info:                               /tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_map.v:108.23-108.24
-Info:      logic  0.26  6.05 Source btn_LUT4_A_Z_LUT4_B_Z_LUT4_C_Z_PFUMX_Z_1_BLUT_LUT4_Z.OFX
-Info:    routing  0.46  6.51 Net btn_LUT4_A_Z_LUT4_B_Z_LUT4_C_Z[2] (3,7) -> (3,7)
-Info:                          Sink instance1.state_TRELLIS_FF_Q_5.M
-Info:      setup  0.00  6.51 Source instance1.state_TRELLIS_FF_Q_5.M
-Info: 2.69 ns logic, 3.82 ns routing
+Info:      logic  0.24  4.97 Source clk_400KHz_TRELLIS_FF_Q_CE_LUT4_C.F
+Info:    routing  0.33  5.30 Net clk_400KHz_TRELLIS_FF_Q_CE_LUT4_C_Z (56,2) -> (59,2)
+Info:                          Sink hacky_clk_div_TRELLIS_FF_Q_33.LSR
+Info:      setup  0.42  5.72 Source hacky_clk_div_TRELLIS_FF_Q_33.LSR
+Info: 3.38 ns logic, 2.35 ns routing
 
 Info: Critical path report for cross-domain path '<async>' -> '<async>':
 Info:       type curr  total name
 Info:     source  0.00  0.00 Source btn[0]$tr_io.O
-Info:    routing  1.57  1.57 Net btn[0]$TRELLIS_IO_IN (6,0) -> (3,4)
+Info:    routing  1.11  1.11 Net btn[0]$TRELLIS_IO_IN (6,0) -> (4,4)
 Info:                          Sink instance1.reset_LUT4_Z.C
 Info:                          Defined in:
-Info:                               /tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_map.v:108.23-108.24
-Info:      logic  0.24  1.80 Source instance1.reset_LUT4_Z.F
-Info:    routing  3.28  5.09 Net clk_400KHz_TRELLIS_FF_Q_CE[1] (3,4) -> (0,35)
+Info:                               TestVerilogZ.sv.v:11.19-11.22
+Info:      logic  0.24  1.34 Source instance1.reset_LUT4_Z.F
+Info:    routing  2.51  3.85 Net clk_400KHz_TRELLIS_FF_Q_CE[1] (4,4) -> (0,35)
 Info:                          Sink led[1]$tr_io.I
 Info:                          Defined in:
 Info:                               TestVerilogZ.sv.v:21.7-21.10
-Info: 0.24 ns logic, 4.85 ns routing
+Info: 0.24 ns logic, 3.62 ns routing
 
 Info: Critical path report for cross-domain path '<async>' -> 'posedge $glbnet$clk_400KHz':
 Info:       type curr  total name
-Info:     source  0.00  0.00 Source gpdi_sda$tr_io.O
-Info:    routing  6.53  6.53 Net gpdi_sda$TRELLIS_IO_IN (119,0) -> (6,5)
-Info:                          Sink gpdi_sda_LUT4_C.C
+Info:     source  0.00  0.00 Source btn[0]$tr_io.O
+Info:    routing  1.11  1.11 Net btn[0]$TRELLIS_IO_IN (6,0) -> (4,4)
+Info:                          Sink instance1.reset_LUT4_Z.C
 Info:                          Defined in:
-Info:                               TestVerilogZ.sv.v:111.13-111.18
-Info:      logic  0.24  6.77 Source gpdi_sda_LUT4_C.F
-Info:    routing  0.42  7.18 Net gpdi_sda_LUT4_C_Z[0] (6,5) -> (6,5)
-Info:                          Sink gpdi_sda_LUT4_C_Z_LUT4_A.A
+Info:                               TestVerilogZ.sv.v:11.19-11.22
+Info:      logic  0.24  1.34 Source instance1.reset_LUT4_Z.F
+Info:    routing  4.24  5.58 Net clk_400KHz_TRELLIS_FF_Q_CE[1] (4,4) -> (61,4)
+Info:                          Sink instance1.repeated_start_LUT4_A_Z_PFUMX_ALUT_Z_LUT4_Z.B
+Info:                          Defined in:
+Info:                               TestVerilogZ.sv.v:21.7-21.10
+Info:      logic  0.24  5.82 Source instance1.repeated_start_LUT4_A_Z_PFUMX_ALUT_Z_LUT4_Z.F
+Info:    routing  0.63  6.45 Net instance1.repeated_start_LUT4_A_Z_PFUMX_ALUT_Z[4] (61,4) -> (64,4)
+Info:                          Sink instance1.sendStart_LUT4_D_Z_LUT4_A.D
 Info:                          Defined in:
 Info:                               /tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_map.v:108.23-108.24
-Info:      logic  0.24  7.42 Source gpdi_sda_LUT4_C_Z_LUT4_A.F
-Info:    routing  1.01  8.43 Net btn_LUT4_A_Z_LUT4_B_Z[0] (6,5) -> (3,7)
-Info:                          Sink btn_LUT4_A_Z_LUT4_B_Z_LUT4_C_Z_PFUMX_Z_1_BLUT_LUT4_Z.M
+Info:      logic  0.24  6.69 Source instance1.sendStart_LUT4_D_Z_LUT4_A.F
+Info:    routing  0.40  7.09 Net instance1.sendStart_LUT4_D_Z_LUT4_A_Z[5] (64,4) -> (63,4)
+Info:                          Sink instance1.sendStart_LUT4_D_Z_LUT4_A_Z_L6MUX21_SD_D1_PFUMX_Z_ALUT_LUT4_Z.M
 Info:                          Defined in:
 Info:                               /tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_map.v:108.23-108.24
-Info:      logic  0.26  8.68 Source btn_LUT4_A_Z_LUT4_B_Z_LUT4_C_Z_PFUMX_Z_1_BLUT_LUT4_Z.OFX
-Info:    routing  0.46  9.14 Net btn_LUT4_A_Z_LUT4_B_Z_LUT4_C_Z[2] (3,7) -> (3,7)
-Info:                          Sink instance1.state_TRELLIS_FF_Q_5.M
-Info:      setup  0.00  9.14 Source instance1.state_TRELLIS_FF_Q_5.M
-Info: 0.73 ns logic, 8.41 ns routing
+Info:      logic  0.26  7.34 Source instance1.sendStart_LUT4_D_Z_LUT4_A_Z_L6MUX21_SD_D1_PFUMX_Z_ALUT_LUT4_Z.OFX
+Info:    routing  0.46  7.80 Net instance1.sendStart_LUT4_D_Z_LUT4_A_Z_L6MUX21_SD_Z[0] (63,4) -> (63,4)
+Info:                          Sink instance1.state_TRELLIS_FF_Q_6.M
+Info:      setup  0.00  7.80 Source instance1.state_TRELLIS_FF_Q_6.M
+Info: 0.96 ns logic, 6.84 ns routing
 
 Info: Critical path report for cross-domain path '<async>' -> 'posedge $glbnet$clk_4MHz':
 Info:       type curr  total name
 Info:     source  0.00  0.00 Source btn[0]$tr_io.O
-Info:    routing  1.57  1.57 Net btn[0]$TRELLIS_IO_IN (6,0) -> (3,4)
+Info:    routing  1.11  1.11 Net btn[0]$TRELLIS_IO_IN (6,0) -> (4,4)
 Info:                          Sink instance1.reset_LUT4_Z.C
 Info:                          Defined in:
-Info:                               /tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_map.v:108.23-108.24
-Info:      logic  0.24  1.80 Source instance1.reset_LUT4_Z.F
-Info:    routing  1.01  2.82 Net clk_400KHz_TRELLIS_FF_Q_CE[1] (3,4) -> (6,2)
+Info:                               TestVerilogZ.sv.v:11.19-11.22
+Info:      logic  0.24  1.34 Source instance1.reset_LUT4_Z.F
+Info:    routing  3.66  5.00 Net clk_400KHz_TRELLIS_FF_Q_CE[1] (4,4) -> (56,2)
 Info:                          Sink clk_400KHz_TRELLIS_FF_Q_CE_LUT4_C.D
 Info:                          Defined in:
 Info:                               TestVerilogZ.sv.v:21.7-21.10
-Info:      logic  0.24  3.05 Source clk_400KHz_TRELLIS_FF_Q_CE_LUT4_C.F
-Info:    routing  0.62  3.67 Net clk_400KHz_TRELLIS_FF_Q_CE_LUT4_C_Z (6,2) -> (4,2)
-Info:                          Sink hacky_clk_div_TRELLIS_FF_Q_19.LSR
-Info:      setup  0.42  4.09 Source hacky_clk_div_TRELLIS_FF_Q_19.LSR
-Info: 0.90 ns logic, 3.20 ns routing
+Info:      logic  0.24  5.24 Source clk_400KHz_TRELLIS_FF_Q_CE_LUT4_C.F
+Info:    routing  0.33  5.56 Net clk_400KHz_TRELLIS_FF_Q_CE_LUT4_C_Z (56,2) -> (59,2)
+Info:                          Sink hacky_clk_div_TRELLIS_FF_Q_33.LSR
+Info:      setup  0.42  5.99 Source hacky_clk_div_TRELLIS_FF_Q_33.LSR
+Info: 0.90 ns logic, 5.09 ns routing
 
 Info: Critical path report for cross-domain path 'posedge $glbnet$clk_400KHz' -> '<async>':
 Info:       type curr  total name
 Info:   clk-to-q  0.52  0.52 Source instance1.receiving_TRELLIS_FF_Q.Q
-Info:    routing  1.58  2.11 Net receiving (5,4) -> (23,4)
+Info:    routing  0.69  1.21 Net receiving (63,3) -> (64,3)
 Info:                          Sink instance1.receiving_LUT4_D.D
 Info:                          Defined in:
 Info:                               TestVerilogZ.sv.v:17.7-17.16
-Info:      logic  0.24  2.34 Source instance1.receiving_LUT4_D.F
-Info:    routing  1.60  3.94 Net gpdi_sda_$_TBUF__Y_E (23,4) -> (43,2)
+Info:      logic  0.24  1.45 Source instance1.receiving_LUT4_D.F
+Info:    routing  1.85  3.30 Net gpdi_sda_$_TBUF__Y_E (64,3) -> (86,2)
 Info:                          Sink gpdi_sda$tr_io$invert_T.A
-Info:      logic  0.24  4.18 Source gpdi_sda$tr_io$invert_T.F
-Info:    routing  4.68  8.86 Net gpdi_sda$tr_io$invert_T$conn$Z (43,2) -> (119,0)
+Info:      logic  0.24  3.53 Source gpdi_sda$tr_io$invert_T.F
+Info:    routing  2.72  6.25 Net gpdi_sda$tr_io$invert_T$conn$Z (86,2) -> (119,0)
 Info:                          Sink gpdi_sda$tr_io.T
-Info: 1.00 ns logic, 7.87 ns routing
+Info: 1.00 ns logic, 5.25 ns routing
 
-Info: Max frequency for clock   '$glbnet$clk_4MHz': 172.74 MHz (PASS at 4.17 MHz)
-Info: Max frequency for clock '$glbnet$clk_400KHz': 153.54 MHz (PASS at 12.00 MHz)
+Info: Max frequency for clock '$glbnet$clk_400KHz': 153.21 MHz (PASS at 12.00 MHz)
+Info: Max frequency for clock   '$glbnet$clk_4MHz': 174.73 MHz (PASS at 4.17 MHz)
 
-Info: Max delay <async>                    -> <async>                   : 5.09 ns
-Info: Max delay <async>                    -> posedge $glbnet$clk_400KHz: 9.14 ns
-Info: Max delay <async>                    -> posedge $glbnet$clk_4MHz  : 4.09 ns
-Info: Max delay posedge $glbnet$clk_400KHz -> <async>                   : 8.86 ns
+Info: Max delay <async>                    -> <async>                   : 3.85 ns
+Info: Max delay <async>                    -> posedge $glbnet$clk_400KHz: 7.80 ns
+Info: Max delay <async>                    -> posedge $glbnet$clk_4MHz  : 5.99 ns
+Info: Max delay posedge $glbnet$clk_400KHz -> <async>                   : 6.25 ns
 
 Info: Slack histogram:
 Info:  legend: * represents 1 endpoint(s)
 Info:          + represents [1,1) endpoint(s)
-Info: [ 76820,  84924) |****************************************** 
-Info: [ 84924,  93028) | 
-Info: [ 93028, 101132) | 
-Info: [101132, 109236) | 
-Info: [109236, 117340) | 
-Info: [117340, 125444) | 
-Info: [125444, 133548) | 
-Info: [133548, 141652) | 
-Info: [141652, 149756) | 
-Info: [149756, 157860) | 
-Info: [157860, 165964) | 
-Info: [165964, 174068) | 
-Info: [174068, 182172) | 
-Info: [182172, 190276) | 
-Info: [190276, 198380) | 
-Info: [198380, 206484) | 
-Info: [206484, 214588) | 
-Info: [214588, 222692) | 
-Info: [222692, 230796) | 
-Info: [230796, 238900) |************************************************************ 
+Info: [ 76806,  84910) |*************************************+
+Info: [ 84910,  93014) | 
+Info: [ 93014, 101118) | 
+Info: [101118, 109222) | 
+Info: [109222, 117326) | 
+Info: [117326, 125430) | 
+Info: [125430, 133534) | 
+Info: [133534, 141638) | 
+Info: [141638, 149742) | 
+Info: [149742, 157846) | 
+Info: [157846, 165950) | 
+Info: [165950, 174054) | 
+Info: [174054, 182158) | 
+Info: [182158, 190262) | 
+Info: [190262, 198366) | 
+Info: [198366, 206470) | 
+Info: [206470, 214574) | 
+Info: [214574, 222678) | 
+Info: [222678, 230782) | 
+Info: [230782, 238886) |************************************************************ 
 
 Info: Program finished normally.

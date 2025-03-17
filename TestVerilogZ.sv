@@ -104,6 +104,31 @@ EHXPLLL #(
 );
 endmodule
 
+module Ewnz (
+    input wire clk,
+    input wire rst,
+    input wire [7:0] signals,
+    output wire [7:0] ewnz
+);
+  localparam bit True = 1'b1;
+  logic [7:0] sticky_bits;
+  assign ewnz = sticky_bits;
+  always_ff @(posedge clk) begin
+    if (rst) begin
+        sticky_bits <= 0;
+    end else if (init_done) begin
+        if (signals[0]) sticky_bits[0] <= True;
+        if (signals[1]) sticky_bits[1] <= True;
+        if (signals[2]) sticky_bits[2] <= True;
+        if (signals[3]) sticky_bits[3] <= True;
+        if (signals[4]) sticky_bits[4] <= True;
+        if (signals[5]) sticky_bits[5] <= True;
+        if (signals[6]) sticky_bits[6] <= True;
+        if (signals[7]) sticky_bits[7] <= True;
+    end
+  end
+endmodule
+
 module I2C_main (
     input  wire sda_i,
     output logic sda_o,
@@ -163,13 +188,16 @@ assign scl_o = counter[1]; // establish regular clk at half speed of scl_2x
 
 always_ff @(posedge scl_4x) begin
 
+    // establishing the counter
+    counter <= counter + 1;
+
     if(reset) begin
         // user input:
         rw <= 1; // 0 = write, 1 = read
         addressFromMaster <= 7'h50;
         registerAddress [7:0] <= 8'h50;
         dataByte [7:0] <= 8'b10101100;
-        debug <= 31;
+        //debug <= 31;
 
         // Initial Conditions (don't change)
         state <= 0;
@@ -194,21 +222,23 @@ always_ff @(posedge scl_4x) begin
             if(sendStart) begin
                 sda_o <= 0;
                 state <= 1;
-                debug <= 1;
+                //debug <= 7;
             end
+            //else 
+                //debug <= 10; 
         end
         if(counter == 2 && state == 3'b111) begin
             sendStop <= 1;
             if(sendStop) begin
                 state <= 0;
                 sendStop <= 0;
+                debug <= 8;
             end
             sda_o <= 1;
             sendStart <= 0;
         end
 
-        // establishing the counter
-        counter <= counter + 1;
+        
         if(counter == 0) begin
 
             if(sendStop) begin
@@ -224,16 +254,16 @@ always_ff @(posedge scl_4x) begin
                 end
                 if(repeated_start) begin
                     state <= 3'b101;
-                    debug <= 4;
+                    //debug <= 4;
                 end
                 if((byte_count < byte_count_max) & byte_count > 0) begin // if in read state, master will send ACK bit
                     sda_o <= 0;
                     state <= 3'b110;
+                    //debug <= 22;
                 end
                 else begin
                     sda_o <= sda_i;
                     receiving <= 1;
-                    //debug[0] <= ~sda_i;
                 end
                 bit_count <= 0;
             end
@@ -259,7 +289,6 @@ always_ff @(posedge scl_4x) begin
                         else begin
                             sda_o <= 0;
                             state [2:0] <= 3'b010; 
-                            debug <= 2;
                         end
                         address_check <= 7;
                     end
@@ -317,11 +346,12 @@ always_ff @(posedge scl_4x) begin
                 if(state == 3'b101) begin
                     sda_o <= 1;
                     state <= 0;
+                    //debug <= 12;
                 end
             
-            end
+            end 
 
-        end
+        end 
     end
 end
 

@@ -154,7 +154,7 @@ Marked 2 switch rules as full_case in process $proc$TestVerilogZ.sv.v:34$230 in 
 Removed a total of 0 dead cases.
 
 2.5.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
-Removed 2 redundant assignments.
+Removed 1 redundant assignment.
 Promoted 45 assignments to connections.
 
 2.5.4. Executing PROC_INIT pass (extract init attributes).
@@ -184,16 +184,16 @@ Creating decoders for process `\TRELLIS_DPR16X4.$proc$/tools/oss-cad-suite/lib/.
 Creating decoders for process `\TRELLIS_DPR16X4.$proc$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:213$117'.
 Creating decoders for process `\I2C_main.$proc$TestVerilogZ.sv.v:140$236'.
      1/29: $5$lookahead\my_mem$235[63:0]$286
-     2/29: $5$bitselwrite$pos$TestVerilogZ.sv.v:255$234[5:0]$285
+     2/29: $5$bitselwrite$pos$TestVerilogZ.sv.v:251$234[5:0]$285
      3/29: $4$lookahead\my_mem$235[63:0]$258
-     4/29: $4$bitselwrite$pos$TestVerilogZ.sv.v:255$234[5:0]$257
+     4/29: $4$bitselwrite$pos$TestVerilogZ.sv.v:251$234[5:0]$257
      5/29: $3$lookahead\my_mem$235[63:0]$255
-     6/29: $3$bitselwrite$pos$TestVerilogZ.sv.v:255$234[5:0]$254
+     6/29: $3$bitselwrite$pos$TestVerilogZ.sv.v:251$234[5:0]$254
      7/29: $2$lookahead\my_mem$235[63:0]$253
-     8/29: $2$bitselwrite$pos$TestVerilogZ.sv.v:255$234[5:0]$252
-     9/29: $0\counter[1:0]
-    10/29: $1$lookahead\my_mem$235[63:0]$240
-    11/29: $1$bitselwrite$pos$TestVerilogZ.sv.v:255$234[5:0]$239
+     8/29: $2$bitselwrite$pos$TestVerilogZ.sv.v:251$234[5:0]$252
+     9/29: $1$lookahead\my_mem$235[63:0]$241
+    10/29: $1$bitselwrite$pos$TestVerilogZ.sv.v:251$234[5:0]$240
+    11/29: $0\counter[1:0]
     12/29: $0\state[2:0]
     13/29: $0\byte_count[5:0]
     14/29: $0\mem_count[5:0]
@@ -220,7 +220,7 @@ Creating decoders for process `\SystemConnect.$proc$TestVerilogZ.sv.v:34$230'.
 
 2.5.9. Executing PROC_DFF pass (convert process syncs to FFs).
 Creating register for signal `\TRELLIS_FF.\Q' using process `\TRELLIS_FF.$proc$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:350$224'.
-  created $dff cell `$procdff$737' with positive edge clock.
+  created $dff cell `$procdff$719' with positive edge clock.
 Creating register for signal `\DPR16X4C.\i' using process `\DPR16X4C.$proc$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:0$199'.
   created direct connection (no actual register cell created).
 Creating register for signal `\DPR16X4C.$memwr$\ram$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:281$160_EN' using process `\DPR16X4C.$proc$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:0$199'.
@@ -254,11 +254,11 @@ Creating register for signal `\DPR16X4C.$memwr$\ram$/tools/oss-cad-suite/lib/../
 Creating register for signal `\DPR16X4C.$memwr$\ram$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:281$174_EN' using process `\DPR16X4C.$proc$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:0$199'.
   created direct connection (no actual register cell created).
 Creating register for signal `\DPR16X4C.$memwr$\ram$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:287$175_ADDR' using process `\DPR16X4C.$proc$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:285$176'.
-  created $dff cell `$procdff$738' with positive edge clock.
+  created $dff cell `$procdff$720' with positive edge clock.
 Creating register for signal `\DPR16X4C.$memwr$\ram$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:287$175_DATA' using process `\DPR16X4C.$proc$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:285$176'.
-  created $dff cell `$procdff$739' with positive edge clock.
+  created $dff cell `$procdff$721' with positive edge clock.
 Creating register for signal `\DPR16X4C.$memwr$\ram$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:287$175_EN' using process `\DPR16X4C.$proc$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:285$176'.
-  created $dff cell `$procdff$740' with positive edge clock.
+  created $dff cell `$procdff$722' with positive edge clock.
 Creating register for signal `\TRELLIS_DPR16X4.\i' using process `\TRELLIS_DPR16X4.$proc$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:0$142'.
   created direct connection (no actual register cell created).
 Creating register for signal `\TRELLIS_DPR16X4.$memwr$\mem$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:207$100_EN' using process `\TRELLIS_DPR16X4.$proc$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:0$142'.
@@ -294,61 +294,61 @@ Creating register for signal `\TRELLIS_DPR16X4.$memwr$\mem$/tools/oss-cad-suite/
 Creating register for signal `\TRELLIS_DPR16X4.$memwr$\mem$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:207$115_EN' using process `\TRELLIS_DPR16X4.$proc$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:0$142'.
   created direct connection (no actual register cell created).
 Creating register for signal `\TRELLIS_DPR16X4.$memwr$\mem$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:223$116_ADDR' using process `\TRELLIS_DPR16X4.$proc$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:221$118'.
-  created $dff cell `$procdff$741' with positive edge clock.
+  created $dff cell `$procdff$723' with positive edge clock.
 Creating register for signal `\TRELLIS_DPR16X4.$memwr$\mem$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:223$116_DATA' using process `\TRELLIS_DPR16X4.$proc$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:221$118'.
-  created $dff cell `$procdff$742' with positive edge clock.
+  created $dff cell `$procdff$724' with positive edge clock.
 Creating register for signal `\TRELLIS_DPR16X4.$memwr$\mem$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:223$116_EN' using process `\TRELLIS_DPR16X4.$proc$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:221$118'.
-  created $dff cell `$procdff$743' with positive edge clock.
+  created $dff cell `$procdff$725' with positive edge clock.
 Creating register for signal `\TRELLIS_DPR16X4.\muxwre' using process `\TRELLIS_DPR16X4.$proc$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:213$117'.
   created direct connection (no actual register cell created).
 Creating register for signal `\I2C_main.\debug' using process `\I2C_main.$proc$TestVerilogZ.sv.v:140$236'.
-  created $dff cell `$procdff$744' with positive edge clock.
+  created $dff cell `$procdff$726' with positive edge clock.
 Creating register for signal `\I2C_main.\receiving' using process `\I2C_main.$proc$TestVerilogZ.sv.v:140$236'.
-  created $dff cell `$procdff$745' with positive edge clock.
+  created $dff cell `$procdff$727' with positive edge clock.
 Creating register for signal `\I2C_main.\sda_o' using process `\I2C_main.$proc$TestVerilogZ.sv.v:140$236'.
-  created $dff cell `$procdff$746' with positive edge clock.
+  created $dff cell `$procdff$728' with positive edge clock.
 Creating register for signal `\I2C_main.\ledByte' using process `\I2C_main.$proc$TestVerilogZ.sv.v:140$236'.
-  created $dff cell `$procdff$747' with positive edge clock.
+  created $dff cell `$procdff$729' with positive edge clock.
 Creating register for signal `\I2C_main.\rw' using process `\I2C_main.$proc$TestVerilogZ.sv.v:140$236'.
-  created $dff cell `$procdff$748' with positive edge clock.
+  created $dff cell `$procdff$730' with positive edge clock.
 Creating register for signal `\I2C_main.\writeComplete' using process `\I2C_main.$proc$TestVerilogZ.sv.v:140$236'.
-  created $dff cell `$procdff$749' with positive edge clock.
+  created $dff cell `$procdff$731' with positive edge clock.
 Creating register for signal `\I2C_main.\repeated_start' using process `\I2C_main.$proc$TestVerilogZ.sv.v:140$236'.
-  created $dff cell `$procdff$750' with positive edge clock.
+  created $dff cell `$procdff$732' with positive edge clock.
 Creating register for signal `\I2C_main.\sendStart' using process `\I2C_main.$proc$TestVerilogZ.sv.v:140$236'.
-  created $dff cell `$procdff$751' with positive edge clock.
+  created $dff cell `$procdff$733' with positive edge clock.
 Creating register for signal `\I2C_main.\sendStop' using process `\I2C_main.$proc$TestVerilogZ.sv.v:140$236'.
-  created $dff cell `$procdff$752' with positive edge clock.
+  created $dff cell `$procdff$734' with positive edge clock.
 Creating register for signal `\I2C_main.\tester' using process `\I2C_main.$proc$TestVerilogZ.sv.v:140$236'.
-  created $dff cell `$procdff$753' with positive edge clock.
+  created $dff cell `$procdff$735' with positive edge clock.
 Creating register for signal `\I2C_main.\counter' using process `\I2C_main.$proc$TestVerilogZ.sv.v:140$236'.
-  created $dff cell `$procdff$754' with positive edge clock.
+  created $dff cell `$procdff$736' with positive edge clock.
 Creating register for signal `\I2C_main.\address_check' using process `\I2C_main.$proc$TestVerilogZ.sv.v:140$236'.
-  created $dff cell `$procdff$755' with positive edge clock.
+  created $dff cell `$procdff$737' with positive edge clock.
 Creating register for signal `\I2C_main.\bit_count' using process `\I2C_main.$proc$TestVerilogZ.sv.v:140$236'.
-  created $dff cell `$procdff$756' with positive edge clock.
+  created $dff cell `$procdff$738' with positive edge clock.
 Creating register for signal `\I2C_main.\addressFromMaster' using process `\I2C_main.$proc$TestVerilogZ.sv.v:140$236'.
-  created $dff cell `$procdff$757' with positive edge clock.
+  created $dff cell `$procdff$739' with positive edge clock.
 Creating register for signal `\I2C_main.\registerAddress' using process `\I2C_main.$proc$TestVerilogZ.sv.v:140$236'.
-  created $dff cell `$procdff$758' with positive edge clock.
+  created $dff cell `$procdff$740' with positive edge clock.
 Creating register for signal `\I2C_main.\dataByte' using process `\I2C_main.$proc$TestVerilogZ.sv.v:140$236'.
-  created $dff cell `$procdff$759' with positive edge clock.
+  created $dff cell `$procdff$741' with positive edge clock.
 Creating register for signal `\I2C_main.\my_mem' using process `\I2C_main.$proc$TestVerilogZ.sv.v:140$236'.
-  created $dff cell `$procdff$760' with positive edge clock.
+  created $dff cell `$procdff$742' with positive edge clock.
 Creating register for signal `\I2C_main.\mem_count' using process `\I2C_main.$proc$TestVerilogZ.sv.v:140$236'.
-  created $dff cell `$procdff$761' with positive edge clock.
+  created $dff cell `$procdff$743' with positive edge clock.
 Creating register for signal `\I2C_main.\byte_count' using process `\I2C_main.$proc$TestVerilogZ.sv.v:140$236'.
-  created $dff cell `$procdff$762' with positive edge clock.
+  created $dff cell `$procdff$744' with positive edge clock.
 Creating register for signal `\I2C_main.\state' using process `\I2C_main.$proc$TestVerilogZ.sv.v:140$236'.
-  created $dff cell `$procdff$763' with positive edge clock.
-Creating register for signal `\I2C_main.$bitselwrite$pos$TestVerilogZ.sv.v:255$234' using process `\I2C_main.$proc$TestVerilogZ.sv.v:140$236'.
-  created $dff cell `$procdff$764' with positive edge clock.
+  created $dff cell `$procdff$745' with positive edge clock.
+Creating register for signal `\I2C_main.$bitselwrite$pos$TestVerilogZ.sv.v:251$234' using process `\I2C_main.$proc$TestVerilogZ.sv.v:140$236'.
+  created $dff cell `$procdff$746' with positive edge clock.
 Creating register for signal `\I2C_main.$lookahead\my_mem$235' using process `\I2C_main.$proc$TestVerilogZ.sv.v:140$236'.
-  created $dff cell `$procdff$765' with positive edge clock.
+  created $dff cell `$procdff$747' with positive edge clock.
 Creating register for signal `\SystemConnect.\clk_400KHz' using process `\SystemConnect.$proc$TestVerilogZ.sv.v:34$230'.
-  created $dff cell `$procdff$766' with positive edge clock.
+  created $dff cell `$procdff$748' with positive edge clock.
 Creating register for signal `\SystemConnect.\hacky_clk_div' using process `\SystemConnect.$proc$TestVerilogZ.sv.v:34$230'.
-  created $dff cell `$procdff$767' with positive edge clock.
+  created $dff cell `$procdff$749' with positive edge clock.
 
 2.5.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
 
@@ -388,7 +388,7 @@ Optimizing module SystemConnect.
 
 2.10. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \SystemConnect..
-Removed 57 unused cells and 252 unused wires.
+Removed 57 unused cells and 245 unused wires.
 <suppressed ~65 debug messages>
 
 2.11. Executing CHECK pass (checking for obvious problems).
@@ -412,7 +412,7 @@ Running muxtree optimizer on module \SystemConnect..
       Replacing known input bits on port A of cell $flatten\instance1.$procmux$585: \instance1.repeated_start -> 1'0
   Analyzing evaluation results.
 Removed 0 multiplexer ports.
-<suppressed ~30 debug messages>
+<suppressed ~29 debug messages>
 
 2.12.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
   Optimizing cells in module \SystemConnect.
@@ -442,7 +442,7 @@ Running muxtree optimizer on module \SystemConnect..
   Evaluating internal representation of mux trees.
   Analyzing evaluation results.
 Removed 0 multiplexer ports.
-<suppressed ~31 debug messages>
+<suppressed ~30 debug messages>
 
 2.12.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
   Optimizing cells in module \SystemConnect.
@@ -478,42 +478,42 @@ Found FSM state register SystemConnect.instance1.state.
 
 2.13.2. Executing FSM_EXTRACT pass (extracting FSM from design).
 Extracting FSM `\instance1.state' from module `\SystemConnect'.
-  found $dff cell for state register: $flatten\instance1.$procdff$763
+  found $dff cell for state register: $flatten\instance1.$procdff$745
   root of input selection tree: $flatten\instance1.$0\state[2:0]
   found reset state: 3'000 (guessed from mux tree)
   found ctrl input: \instance1.reset
-  found ctrl input: $flatten\instance1.$eq$TestVerilogZ.sv.v:179$251_Y
-  found ctrl input: $flatten\instance1.$logic_and$TestVerilogZ.sv.v:169$249_Y
-  found ctrl input: $flatten\instance1.$logic_and$TestVerilogZ.sv.v:162$246_Y
+  found ctrl input: $flatten\instance1.$eq$TestVerilogZ.sv.v:178$251_Y
+  found ctrl input: $flatten\instance1.$logic_and$TestVerilogZ.sv.v:168$250_Y
+  found ctrl input: $flatten\instance1.$logic_and$TestVerilogZ.sv.v:162$247_Y
   found ctrl input: \instance1.sendStart
   found state code: 3'001
   found ctrl input: \instance1.sendStop
   found state code: 3'000
-  found ctrl input: $flatten\instance1.$eq$TestVerilogZ.sv.v:182$256_Y
-  found ctrl input: $flatten\instance1.$eq$TestVerilogZ.sv.v:260$298_Y
-  found ctrl input: $flatten\instance1.$eq$TestVerilogZ.sv.v:237$278_Y
-  found ctrl input: $flatten\instance1.$eq$TestVerilogZ.sv.v:224$272_Y
-  found ctrl input: $flatten\instance1.$eq$TestVerilogZ.sv.v:203$265_Y
-  found ctrl input: $flatten\instance1.$eq$TestVerilogZ.sv.v:210$271_Y
+  found ctrl input: $flatten\instance1.$eq$TestVerilogZ.sv.v:181$256_Y
+  found ctrl input: $flatten\instance1.$eq$TestVerilogZ.sv.v:256$298_Y
+  found ctrl input: $flatten\instance1.$eq$TestVerilogZ.sv.v:233$278_Y
+  found ctrl input: $flatten\instance1.$eq$TestVerilogZ.sv.v:220$272_Y
+  found ctrl input: $flatten\instance1.$eq$TestVerilogZ.sv.v:200$265_Y
+  found ctrl input: $flatten\instance1.$eq$TestVerilogZ.sv.v:207$271_Y
   found ctrl input: \instance1.repeated_start
   found state code: 3'010
   found state code: 3'110
   found ctrl input: \instance1.rw
   found state code: 3'011
   found state code: 3'100
-  found ctrl input: $flatten\instance1.$and$TestVerilogZ.sv.v:192$264_Y
-  found ctrl input: $flatten\instance1.$or$TestVerilogZ.sv.v:184$261_Y
+  found ctrl input: $flatten\instance1.$and$TestVerilogZ.sv.v:189$264_Y
+  found ctrl input: $flatten\instance1.$or$TestVerilogZ.sv.v:183$261_Y
   found state code: 3'111
   found state code: 3'101
-  found ctrl output: $flatten\instance1.$eq$TestVerilogZ.sv.v:260$298_Y
-  found ctrl output: $flatten\instance1.$eq$TestVerilogZ.sv.v:251$284_Y
-  found ctrl output: $flatten\instance1.$eq$TestVerilogZ.sv.v:237$278_Y
-  found ctrl output: $flatten\instance1.$eq$TestVerilogZ.sv.v:224$272_Y
-  found ctrl output: $flatten\instance1.$eq$TestVerilogZ.sv.v:203$265_Y
-  found ctrl output: $flatten\instance1.$eq$TestVerilogZ.sv.v:169$248_Y
-  found ctrl output: $flatten\instance1.$eq$TestVerilogZ.sv.v:162$245_Y
-  ctrl inputs: { \instance1.reset \instance1.rw \instance1.repeated_start \instance1.sendStart \instance1.sendStop $flatten\instance1.$logic_and$TestVerilogZ.sv.v:162$246_Y $flatten\instance1.$logic_and$TestVerilogZ.sv.v:169$249_Y $flatten\instance1.$eq$TestVerilogZ.sv.v:179$251_Y $flatten\instance1.$eq$TestVerilogZ.sv.v:182$256_Y $flatten\instance1.$or$TestVerilogZ.sv.v:184$261_Y $flatten\instance1.$and$TestVerilogZ.sv.v:192$264_Y $flatten\instance1.$eq$TestVerilogZ.sv.v:210$271_Y }
-  ctrl outputs: { $flatten\instance1.$0\state[2:0] $flatten\instance1.$eq$TestVerilogZ.sv.v:162$245_Y $flatten\instance1.$eq$TestVerilogZ.sv.v:169$248_Y $flatten\instance1.$eq$TestVerilogZ.sv.v:203$265_Y $flatten\instance1.$eq$TestVerilogZ.sv.v:224$272_Y $flatten\instance1.$eq$TestVerilogZ.sv.v:237$278_Y $flatten\instance1.$eq$TestVerilogZ.sv.v:251$284_Y $flatten\instance1.$eq$TestVerilogZ.sv.v:260$298_Y }
+  found ctrl output: $flatten\instance1.$eq$TestVerilogZ.sv.v:256$298_Y
+  found ctrl output: $flatten\instance1.$eq$TestVerilogZ.sv.v:247$284_Y
+  found ctrl output: $flatten\instance1.$eq$TestVerilogZ.sv.v:233$278_Y
+  found ctrl output: $flatten\instance1.$eq$TestVerilogZ.sv.v:220$272_Y
+  found ctrl output: $flatten\instance1.$eq$TestVerilogZ.sv.v:200$265_Y
+  found ctrl output: $flatten\instance1.$eq$TestVerilogZ.sv.v:168$249_Y
+  found ctrl output: $flatten\instance1.$eq$TestVerilogZ.sv.v:162$246_Y
+  ctrl inputs: { \instance1.reset \instance1.rw \instance1.repeated_start \instance1.sendStart \instance1.sendStop $flatten\instance1.$logic_and$TestVerilogZ.sv.v:162$247_Y $flatten\instance1.$logic_and$TestVerilogZ.sv.v:168$250_Y $flatten\instance1.$eq$TestVerilogZ.sv.v:178$251_Y $flatten\instance1.$eq$TestVerilogZ.sv.v:181$256_Y $flatten\instance1.$or$TestVerilogZ.sv.v:183$261_Y $flatten\instance1.$and$TestVerilogZ.sv.v:189$264_Y $flatten\instance1.$eq$TestVerilogZ.sv.v:207$271_Y }
+  ctrl outputs: { $flatten\instance1.$0\state[2:0] $flatten\instance1.$eq$TestVerilogZ.sv.v:162$246_Y $flatten\instance1.$eq$TestVerilogZ.sv.v:168$249_Y $flatten\instance1.$eq$TestVerilogZ.sv.v:200$265_Y $flatten\instance1.$eq$TestVerilogZ.sv.v:220$272_Y $flatten\instance1.$eq$TestVerilogZ.sv.v:233$278_Y $flatten\instance1.$eq$TestVerilogZ.sv.v:247$284_Y $flatten\instance1.$eq$TestVerilogZ.sv.v:256$298_Y }
   transition:      3'000 12'0----000---- ->      3'000 10'0001000000
   transition:      3'000 12'0--0-100---- ->      3'000 10'0001000000
   transition:      3'000 12'0--1-100---- ->      3'001 10'0011000000
@@ -738,7 +738,7 @@ Extracting FSM `\instance1.state' from module `\SystemConnect'.
   transition:      3'111 12'1----------- ->      3'000 10'0000100000
 
 2.13.3. Executing FSM_OPT pass (simple optimizations of FSMs).
-Optimizing FSM `$fsm$\instance1.state$772' from module `\SystemConnect'.
+Optimizing FSM `$fsm$\instance1.state$754' from module `\SystemConnect'.
   Merging pattern 12'0---1-10---- and 12'0---1-11---- from group (0 0 10'0001000000).
   Merging pattern 12'0---1-11---- and 12'0---1-10---- from group (0 0 10'0001000000).
   Merging pattern 12'0-0-0001100- and 12'0-0-0011100- from group (0 0 10'0001000000).
@@ -878,13 +878,13 @@ Removed 29 unused cells and 29 unused wires.
 <suppressed ~30 debug messages>
 
 2.13.5. Executing FSM_OPT pass (simple optimizations of FSMs).
-Optimizing FSM `$fsm$\instance1.state$772' from module `\SystemConnect'.
+Optimizing FSM `$fsm$\instance1.state$754' from module `\SystemConnect'.
   Removing unused output signal $flatten\instance1.$0\state[2:0] [0].
   Removing unused output signal $flatten\instance1.$0\state[2:0] [1].
   Removing unused output signal $flatten\instance1.$0\state[2:0] [2].
 
 2.13.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
-Recoding FSM `$fsm$\instance1.state$772' from module `\SystemConnect' using `auto' encoding:
+Recoding FSM `$fsm$\instance1.state$754' from module `\SystemConnect' using `auto' encoding:
   mapping auto encoding to `one-hot` for this FSM.
   000 -> -------1
   100 -> ------1-
@@ -897,23 +897,23 @@ Recoding FSM `$fsm$\instance1.state$772' from module `\SystemConnect' using `aut
 
 2.13.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
 
-FSM `$fsm$\instance1.state$772' from module `SystemConnect':
+FSM `$fsm$\instance1.state$754' from module `SystemConnect':
 -------------------------------------
 
-  Information on FSM $fsm$\instance1.state$772 (\instance1.state):
+  Information on FSM $fsm$\instance1.state$754 (\instance1.state):
 
   Number of input signals:   12
   Number of output signals:   7
   Number of state bits:       8
 
   Input signals:
-    0: $flatten\instance1.$eq$TestVerilogZ.sv.v:210$271_Y
-    1: $flatten\instance1.$and$TestVerilogZ.sv.v:192$264_Y
-    2: $flatten\instance1.$or$TestVerilogZ.sv.v:184$261_Y
-    3: $flatten\instance1.$eq$TestVerilogZ.sv.v:182$256_Y
-    4: $flatten\instance1.$eq$TestVerilogZ.sv.v:179$251_Y
-    5: $flatten\instance1.$logic_and$TestVerilogZ.sv.v:169$249_Y
-    6: $flatten\instance1.$logic_and$TestVerilogZ.sv.v:162$246_Y
+    0: $flatten\instance1.$eq$TestVerilogZ.sv.v:207$271_Y
+    1: $flatten\instance1.$and$TestVerilogZ.sv.v:189$264_Y
+    2: $flatten\instance1.$or$TestVerilogZ.sv.v:183$261_Y
+    3: $flatten\instance1.$eq$TestVerilogZ.sv.v:181$256_Y
+    4: $flatten\instance1.$eq$TestVerilogZ.sv.v:178$251_Y
+    5: $flatten\instance1.$logic_and$TestVerilogZ.sv.v:168$250_Y
+    6: $flatten\instance1.$logic_and$TestVerilogZ.sv.v:162$247_Y
     7: \instance1.sendStop
     8: \instance1.sendStart
     9: \instance1.repeated_start
@@ -921,13 +921,13 @@ FSM `$fsm$\instance1.state$772' from module `SystemConnect':
    11: \instance1.reset
 
   Output signals:
-    0: $flatten\instance1.$eq$TestVerilogZ.sv.v:260$298_Y
-    1: $flatten\instance1.$eq$TestVerilogZ.sv.v:251$284_Y
-    2: $flatten\instance1.$eq$TestVerilogZ.sv.v:237$278_Y
-    3: $flatten\instance1.$eq$TestVerilogZ.sv.v:224$272_Y
-    4: $flatten\instance1.$eq$TestVerilogZ.sv.v:203$265_Y
-    5: $flatten\instance1.$eq$TestVerilogZ.sv.v:169$248_Y
-    6: $flatten\instance1.$eq$TestVerilogZ.sv.v:162$245_Y
+    0: $flatten\instance1.$eq$TestVerilogZ.sv.v:256$298_Y
+    1: $flatten\instance1.$eq$TestVerilogZ.sv.v:247$284_Y
+    2: $flatten\instance1.$eq$TestVerilogZ.sv.v:233$278_Y
+    3: $flatten\instance1.$eq$TestVerilogZ.sv.v:220$272_Y
+    4: $flatten\instance1.$eq$TestVerilogZ.sv.v:200$265_Y
+    5: $flatten\instance1.$eq$TestVerilogZ.sv.v:168$249_Y
+    6: $flatten\instance1.$eq$TestVerilogZ.sv.v:162$246_Y
 
   State encoding:
     0: 8'-------1  <RESET STATE>
@@ -1100,7 +1100,7 @@ FSM `$fsm$\instance1.state$772' from module `SystemConnect':
 -------------------------------------
 
 2.13.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
-Mapping FSM `$fsm$\instance1.state$772' from module `\SystemConnect'.
+Mapping FSM `$fsm$\instance1.state$754' from module `\SystemConnect'.
 
 2.14. Executing OPT pass (performing simple optimizations).
 
@@ -1119,7 +1119,7 @@ Running muxtree optimizer on module \SystemConnect..
   Evaluating internal representation of mux trees.
   Analyzing evaluation results.
 Removed 0 multiplexer ports.
-<suppressed ~24 debug messages>
+<suppressed ~23 debug messages>
 
 2.14.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
   Optimizing cells in module \SystemConnect.
@@ -1130,60 +1130,65 @@ Finding identical cells in module `\SystemConnect'.
 Removed a total of 0 cells.
 
 2.14.6. Executing OPT_DFF pass (perform DFF optimizations).
-Adding SRST signal on $procdff$767 ($dff) from module SystemConnect (D = $add$TestVerilogZ.sv.v:40$232_Y, Q = \hacky_clk_div, rval = 34'0000000000000000000000000000000000).
-Adding SRST signal on $procdff$766 ($dff) from module SystemConnect (D = $procmux$732_Y, Q = \clk_400KHz, rval = 1'0).
-Adding EN signal on $auto$ff.cc:266:slice$1158 ($sdff) from module SystemConnect (D = $not$TestVerilogZ.sv.v:43$233_Y, Q = \clk_400KHz).
-Adding SRST signal on $flatten\instance1.$procdff$762 ($dff) from module SystemConnect (D = $flatten\instance1.$procmux$477_Y, Q = \instance1.byte_count, rval = 6'000111).
-Adding EN signal on $auto$ff.cc:266:slice$1160 ($sdff) from module SystemConnect (D = $flatten\instance1.$sub$TestVerilogZ.sv.v:258$297_Y [5:0], Q = \instance1.byte_count).
-Adding EN signal on $flatten\instance1.$procdff$759 ($dff) from module SystemConnect (D = 8'10101100, Q = \instance1.dataByte).
-Adding EN signal on $flatten\instance1.$procdff$758 ($dff) from module SystemConnect (D = 8'01010000, Q = \instance1.registerAddress).
-Adding EN signal on $flatten\instance1.$procdff$757 ($dff) from module SystemConnect (D = 7'1010000, Q = \instance1.addressFromMaster).
-Adding SRST signal on $flatten\instance1.$procdff$756 ($dff) from module SystemConnect (D = $flatten\instance1.$procmux$525_Y, Q = \instance1.bit_count, rval = 4'0000).
-Adding EN signal on $auto$ff.cc:266:slice$1171 ($sdff) from module SystemConnect (D = $flatten\instance1.$procmux$520_Y, Q = \instance1.bit_count).
-Adding SRST signal on $flatten\instance1.$procdff$755 ($dff) from module SystemConnect (D = $flatten\instance1.$procmux$554_Y, Q = \instance1.address_check, rval = 3'111).
-Adding EN signal on $auto$ff.cc:266:slice$1177 ($sdff) from module SystemConnect (D = $flatten\instance1.$procmux$546_Y, Q = \instance1.address_check).
-Adding SRST signal on $flatten\instance1.$procdff$754 ($dff) from module SystemConnect (D = $flatten\instance1.$add$TestVerilogZ.sv.v:178$250_Y [1:0], Q = \instance1.counter, rval = 2'00).
-Adding SRST signal on $flatten\instance1.$procdff$752 ($dff) from module SystemConnect (D = $flatten\instance1.$procmux$573_Y, Q = \instance1.sendStop, rval = 1'0).
-Adding EN signal on $auto$ff.cc:266:slice$1186 ($sdff) from module SystemConnect (D = $flatten\instance1.$procmux$571_Y, Q = \instance1.sendStop).
-Adding SRST signal on $flatten\instance1.$procdff$751 ($dff) from module SystemConnect (D = $flatten\instance1.$procmux$578_Y, Q = \instance1.sendStart, rval = 1'1).
-Adding EN signal on $auto$ff.cc:266:slice$1188 ($sdff) from module SystemConnect (D = 1'0, Q = \instance1.sendStart).
-Adding SRST signal on $flatten\instance1.$procdff$750 ($dff) from module SystemConnect (D = $flatten\instance1.$procmux$604_Y, Q = \instance1.repeated_start, rval = 1'0).
-Adding EN signal on $auto$ff.cc:266:slice$1190 ($sdff) from module SystemConnect (D = $flatten\instance1.$procmux$596_Y, Q = \instance1.repeated_start).
-Adding SRST signal on $flatten\instance1.$procdff$749 ($dff) from module SystemConnect (D = $flatten\instance1.$procmux$625_Y, Q = \instance1.writeComplete, rval = 1'0).
-Adding EN signal on $auto$ff.cc:266:slice$1198 ($sdff) from module SystemConnect (D = $flatten\instance1.$procmux$620_Y, Q = \instance1.writeComplete).
-Adding EN signal on $flatten\instance1.$procdff$748 ($dff) from module SystemConnect (D = 1'1, Q = \instance1.rw).
-Adding SRST signal on $flatten\instance1.$procdff$746 ($dff) from module SystemConnect (D = $flatten\instance1.$procmux$673_Y, Q = \instance1.sda_o, rval = 1'1).
-Adding EN signal on $flatten\instance1.$procdff$745 ($dff) from module SystemConnect (D = $flatten\instance1.$procmux$690_Y, Q = \instance1.receiving).
-Adding SRST signal on $flatten\instance1.$procdff$744 ($dff) from module SystemConnect (D = $flatten\instance1.$procmux$720_Y, Q = \instance1.debug, rval = 5'11111).
-Setting constant 1-bit at position 0 on $auto$ff.cc:266:slice$1212 ($dffe) from module SystemConnect.
-Setting constant 0-bit at position 0 on $auto$ff.cc:266:slice$1170 ($dffe) from module SystemConnect.
-Setting constant 0-bit at position 1 on $auto$ff.cc:266:slice$1170 ($dffe) from module SystemConnect.
-Setting constant 0-bit at position 2 on $auto$ff.cc:266:slice$1170 ($dffe) from module SystemConnect.
-Setting constant 0-bit at position 3 on $auto$ff.cc:266:slice$1170 ($dffe) from module SystemConnect.
-Setting constant 1-bit at position 4 on $auto$ff.cc:266:slice$1170 ($dffe) from module SystemConnect.
-Setting constant 0-bit at position 5 on $auto$ff.cc:266:slice$1170 ($dffe) from module SystemConnect.
-Setting constant 1-bit at position 6 on $auto$ff.cc:266:slice$1170 ($dffe) from module SystemConnect.
-Setting constant 0-bit at position 0 on $auto$ff.cc:266:slice$1169 ($dffe) from module SystemConnect.
-Setting constant 0-bit at position 1 on $auto$ff.cc:266:slice$1169 ($dffe) from module SystemConnect.
-Setting constant 0-bit at position 2 on $auto$ff.cc:266:slice$1169 ($dffe) from module SystemConnect.
-Setting constant 0-bit at position 3 on $auto$ff.cc:266:slice$1169 ($dffe) from module SystemConnect.
-Setting constant 1-bit at position 4 on $auto$ff.cc:266:slice$1169 ($dffe) from module SystemConnect.
-Setting constant 0-bit at position 5 on $auto$ff.cc:266:slice$1169 ($dffe) from module SystemConnect.
-Setting constant 1-bit at position 6 on $auto$ff.cc:266:slice$1169 ($dffe) from module SystemConnect.
-Setting constant 0-bit at position 7 on $auto$ff.cc:266:slice$1169 ($dffe) from module SystemConnect.
-Setting constant 0-bit at position 0 on $auto$ff.cc:266:slice$1168 ($dffe) from module SystemConnect.
-Setting constant 0-bit at position 1 on $auto$ff.cc:266:slice$1168 ($dffe) from module SystemConnect.
-Setting constant 1-bit at position 2 on $auto$ff.cc:266:slice$1168 ($dffe) from module SystemConnect.
-Setting constant 1-bit at position 3 on $auto$ff.cc:266:slice$1168 ($dffe) from module SystemConnect.
-Setting constant 0-bit at position 4 on $auto$ff.cc:266:slice$1168 ($dffe) from module SystemConnect.
-Setting constant 1-bit at position 5 on $auto$ff.cc:266:slice$1168 ($dffe) from module SystemConnect.
-Setting constant 0-bit at position 6 on $auto$ff.cc:266:slice$1168 ($dffe) from module SystemConnect.
-Setting constant 1-bit at position 7 on $auto$ff.cc:266:slice$1168 ($dffe) from module SystemConnect.
+Adding SRST signal on $procdff$749 ($dff) from module SystemConnect (D = $add$TestVerilogZ.sv.v:40$232_Y, Q = \hacky_clk_div, rval = 34'0000000000000000000000000000000000).
+Adding SRST signal on $procdff$748 ($dff) from module SystemConnect (D = $procmux$714_Y, Q = \clk_400KHz, rval = 1'0).
+Adding EN signal on $auto$ff.cc:266:slice$1140 ($sdff) from module SystemConnect (D = $not$TestVerilogZ.sv.v:43$233_Y, Q = \clk_400KHz).
+Adding SRST signal on $flatten\instance1.$procdff$744 ($dff) from module SystemConnect (D = $flatten\instance1.$procmux$477_Y, Q = \instance1.byte_count, rval = 6'000111).
+Adding EN signal on $auto$ff.cc:266:slice$1142 ($sdff) from module SystemConnect (D = $flatten\instance1.$sub$TestVerilogZ.sv.v:254$297_Y [5:0], Q = \instance1.byte_count).
+Adding EN signal on $flatten\instance1.$procdff$741 ($dff) from module SystemConnect (D = 8'10101100, Q = \instance1.dataByte).
+Adding EN signal on $flatten\instance1.$procdff$740 ($dff) from module SystemConnect (D = 8'01010000, Q = \instance1.registerAddress).
+Adding EN signal on $flatten\instance1.$procdff$739 ($dff) from module SystemConnect (D = 7'1010000, Q = \instance1.addressFromMaster).
+Adding SRST signal on $flatten\instance1.$procdff$738 ($dff) from module SystemConnect (D = $flatten\instance1.$procmux$525_Y, Q = \instance1.bit_count, rval = 4'0000).
+Adding EN signal on $auto$ff.cc:266:slice$1153 ($sdff) from module SystemConnect (D = $flatten\instance1.$procmux$520_Y, Q = \instance1.bit_count).
+Adding SRST signal on $flatten\instance1.$procdff$737 ($dff) from module SystemConnect (D = $flatten\instance1.$procmux$554_Y, Q = \instance1.address_check, rval = 3'111).
+Adding EN signal on $auto$ff.cc:266:slice$1159 ($sdff) from module SystemConnect (D = $flatten\instance1.$procmux$546_Y, Q = \instance1.address_check).
+Adding SRST signal on $flatten\instance1.$procdff$736 ($dff) from module SystemConnect (D = $flatten\instance1.$add$TestVerilogZ.sv.v:141$239_Y [1:0], Q = \instance1.counter, rval = 2'00).
+Adding SRST signal on $flatten\instance1.$procdff$734 ($dff) from module SystemConnect (D = $flatten\instance1.$procmux$573_Y, Q = \instance1.sendStop, rval = 1'0).
+Adding EN signal on $auto$ff.cc:266:slice$1168 ($sdff) from module SystemConnect (D = $flatten\instance1.$procmux$571_Y, Q = \instance1.sendStop).
+Adding SRST signal on $flatten\instance1.$procdff$733 ($dff) from module SystemConnect (D = $flatten\instance1.$procmux$578_Y, Q = \instance1.sendStart, rval = 1'1).
+Adding EN signal on $auto$ff.cc:266:slice$1170 ($sdff) from module SystemConnect (D = 1'0, Q = \instance1.sendStart).
+Adding SRST signal on $flatten\instance1.$procdff$732 ($dff) from module SystemConnect (D = $flatten\instance1.$procmux$604_Y, Q = \instance1.repeated_start, rval = 1'0).
+Adding EN signal on $auto$ff.cc:266:slice$1172 ($sdff) from module SystemConnect (D = $flatten\instance1.$procmux$596_Y, Q = \instance1.repeated_start).
+Adding SRST signal on $flatten\instance1.$procdff$731 ($dff) from module SystemConnect (D = $flatten\instance1.$procmux$625_Y, Q = \instance1.writeComplete, rval = 1'0).
+Adding EN signal on $auto$ff.cc:266:slice$1180 ($sdff) from module SystemConnect (D = $flatten\instance1.$procmux$620_Y, Q = \instance1.writeComplete).
+Adding EN signal on $flatten\instance1.$procdff$730 ($dff) from module SystemConnect (D = 1'1, Q = \instance1.rw).
+Adding SRST signal on $flatten\instance1.$procdff$728 ($dff) from module SystemConnect (D = $flatten\instance1.$procmux$673_Y, Q = \instance1.sda_o, rval = 1'1).
+Adding EN signal on $flatten\instance1.$procdff$727 ($dff) from module SystemConnect (D = $flatten\instance1.$procmux$690_Y, Q = \instance1.receiving).
+Adding EN signal on $flatten\instance1.$procdff$726 ($dff) from module SystemConnect (D = 5'01000, Q = \instance1.debug).
+Setting constant 0-bit at position 0 on $auto$ff.cc:266:slice$1207 ($dffe) from module SystemConnect.
+Setting constant 0-bit at position 1 on $auto$ff.cc:266:slice$1207 ($dffe) from module SystemConnect.
+Setting constant 0-bit at position 2 on $auto$ff.cc:266:slice$1207 ($dffe) from module SystemConnect.
+Setting constant 1-bit at position 3 on $auto$ff.cc:266:slice$1207 ($dffe) from module SystemConnect.
+Setting constant 0-bit at position 4 on $auto$ff.cc:266:slice$1207 ($dffe) from module SystemConnect.
+Setting constant 1-bit at position 0 on $auto$ff.cc:266:slice$1194 ($dffe) from module SystemConnect.
+Setting constant 0-bit at position 0 on $auto$ff.cc:266:slice$1152 ($dffe) from module SystemConnect.
+Setting constant 0-bit at position 1 on $auto$ff.cc:266:slice$1152 ($dffe) from module SystemConnect.
+Setting constant 0-bit at position 2 on $auto$ff.cc:266:slice$1152 ($dffe) from module SystemConnect.
+Setting constant 0-bit at position 3 on $auto$ff.cc:266:slice$1152 ($dffe) from module SystemConnect.
+Setting constant 1-bit at position 4 on $auto$ff.cc:266:slice$1152 ($dffe) from module SystemConnect.
+Setting constant 0-bit at position 5 on $auto$ff.cc:266:slice$1152 ($dffe) from module SystemConnect.
+Setting constant 1-bit at position 6 on $auto$ff.cc:266:slice$1152 ($dffe) from module SystemConnect.
+Setting constant 0-bit at position 0 on $auto$ff.cc:266:slice$1151 ($dffe) from module SystemConnect.
+Setting constant 0-bit at position 1 on $auto$ff.cc:266:slice$1151 ($dffe) from module SystemConnect.
+Setting constant 0-bit at position 2 on $auto$ff.cc:266:slice$1151 ($dffe) from module SystemConnect.
+Setting constant 0-bit at position 3 on $auto$ff.cc:266:slice$1151 ($dffe) from module SystemConnect.
+Setting constant 1-bit at position 4 on $auto$ff.cc:266:slice$1151 ($dffe) from module SystemConnect.
+Setting constant 0-bit at position 5 on $auto$ff.cc:266:slice$1151 ($dffe) from module SystemConnect.
+Setting constant 1-bit at position 6 on $auto$ff.cc:266:slice$1151 ($dffe) from module SystemConnect.
+Setting constant 0-bit at position 7 on $auto$ff.cc:266:slice$1151 ($dffe) from module SystemConnect.
+Setting constant 0-bit at position 0 on $auto$ff.cc:266:slice$1150 ($dffe) from module SystemConnect.
+Setting constant 0-bit at position 1 on $auto$ff.cc:266:slice$1150 ($dffe) from module SystemConnect.
+Setting constant 1-bit at position 2 on $auto$ff.cc:266:slice$1150 ($dffe) from module SystemConnect.
+Setting constant 1-bit at position 3 on $auto$ff.cc:266:slice$1150 ($dffe) from module SystemConnect.
+Setting constant 0-bit at position 4 on $auto$ff.cc:266:slice$1150 ($dffe) from module SystemConnect.
+Setting constant 1-bit at position 5 on $auto$ff.cc:266:slice$1150 ($dffe) from module SystemConnect.
+Setting constant 0-bit at position 6 on $auto$ff.cc:266:slice$1150 ($dffe) from module SystemConnect.
+Setting constant 1-bit at position 7 on $auto$ff.cc:266:slice$1150 ($dffe) from module SystemConnect.
 
 2.14.7. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \SystemConnect..
-Removed 38 unused cells and 104 unused wires.
-<suppressed ~39 debug messages>
+Removed 42 unused cells and 108 unused wires.
+<suppressed ~43 debug messages>
 
 2.14.8. Executing OPT_EXPR pass (perform const folding).
 Optimizing module SystemConnect.
@@ -1199,14 +1204,14 @@ Running muxtree optimizer on module \SystemConnect..
     dead port 1/2 on $mux $flatten\instance1.$procmux$611.
     dead port 2/2 on $mux $flatten\instance1.$procmux$611.
 Removed 2 multiplexer ports.
-<suppressed ~11 debug messages>
+<suppressed ~9 debug messages>
 
 2.14.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
   Optimizing cells in module \SystemConnect.
-    New input vector for $reduce_or cell $auto$fsm_map.cc:144:implement_pattern_cache$882: { $auto$fsm_map.cc:118:implement_pattern_cache$844 $auto$fsm_map.cc:118:implement_pattern_cache$848 $auto$fsm_map.cc:118:implement_pattern_cache$852 $auto$fsm_map.cc:118:implement_pattern_cache$856 $auto$fsm_map.cc:118:implement_pattern_cache$860 $auto$fsm_map.cc:118:implement_pattern_cache$864 $auto$fsm_map.cc:118:implement_pattern_cache$868 $auto$fsm_map.cc:118:implement_pattern_cache$872 $auto$fsm_map.cc:118:implement_pattern_cache$876 $auto$fsm_map.cc:118:implement_pattern_cache$880 }
-    New input vector for $reduce_or cell $auto$fsm_map.cc:144:implement_pattern_cache$1109: { $auto$fsm_map.cc:118:implement_pattern_cache$1103 $auto$fsm_map.cc:118:implement_pattern_cache$1107 $auto$fsm_map.cc:118:implement_pattern_cache$1079 $auto$fsm_map.cc:118:implement_pattern_cache$1083 $auto$fsm_map.cc:118:implement_pattern_cache$1087 $auto$fsm_map.cc:118:implement_pattern_cache$1091 $auto$fsm_map.cc:118:implement_pattern_cache$1095 $auto$fsm_map.cc:118:implement_pattern_cache$1099 }
-    New input vector for $reduce_or cell $auto$fsm_map.cc:144:implement_pattern_cache$1029: { $auto$fsm_map.cc:118:implement_pattern_cache$989 $auto$fsm_map.cc:118:implement_pattern_cache$993 $auto$fsm_map.cc:118:implement_pattern_cache$997 $auto$fsm_map.cc:74:implement_pattern_cache$999 $auto$fsm_map.cc:118:implement_pattern_cache$1003 $auto$fsm_map.cc:118:implement_pattern_cache$1009 $auto$fsm_map.cc:74:implement_pattern_cache$1011 $auto$fsm_map.cc:118:implement_pattern_cache$1015 $auto$fsm_map.cc:74:implement_pattern_cache$1017 $auto$fsm_map.cc:118:implement_pattern_cache$1021 $auto$fsm_map.cc:74:implement_pattern_cache$1023 $auto$fsm_map.cc:118:implement_pattern_cache$1027 }
-    New input vector for $reduce_and cell $auto$opt_dff.cc:220:make_patterns_logic$1211: { $flatten\instance1.$eq$TestVerilogZ.sv.v:179$251_Y $auto$opt_dff.cc:194:make_patterns_logic$1202 $auto$opt_dff.cc:194:make_patterns_logic$1204 $auto$opt_dff.cc:194:make_patterns_logic$1206 $auto$rtlil.cc:2739:Not$1209 }
+    New input vector for $reduce_or cell $auto$fsm_map.cc:144:implement_pattern_cache$864: { $auto$fsm_map.cc:118:implement_pattern_cache$826 $auto$fsm_map.cc:118:implement_pattern_cache$830 $auto$fsm_map.cc:118:implement_pattern_cache$834 $auto$fsm_map.cc:118:implement_pattern_cache$838 $auto$fsm_map.cc:118:implement_pattern_cache$842 $auto$fsm_map.cc:118:implement_pattern_cache$846 $auto$fsm_map.cc:118:implement_pattern_cache$850 $auto$fsm_map.cc:118:implement_pattern_cache$854 $auto$fsm_map.cc:118:implement_pattern_cache$858 $auto$fsm_map.cc:118:implement_pattern_cache$862 }
+    New input vector for $reduce_or cell $auto$fsm_map.cc:144:implement_pattern_cache$1091: { $auto$fsm_map.cc:118:implement_pattern_cache$1081 $auto$fsm_map.cc:118:implement_pattern_cache$1085 $auto$fsm_map.cc:118:implement_pattern_cache$1089 $auto$fsm_map.cc:118:implement_pattern_cache$1061 $auto$fsm_map.cc:118:implement_pattern_cache$1065 $auto$fsm_map.cc:118:implement_pattern_cache$1069 $auto$fsm_map.cc:118:implement_pattern_cache$1073 $auto$fsm_map.cc:118:implement_pattern_cache$1077 }
+    New input vector for $reduce_or cell $auto$fsm_map.cc:144:implement_pattern_cache$1011: { $auto$fsm_map.cc:118:implement_pattern_cache$971 $auto$fsm_map.cc:118:implement_pattern_cache$975 $auto$fsm_map.cc:118:implement_pattern_cache$979 $auto$fsm_map.cc:74:implement_pattern_cache$981 $auto$fsm_map.cc:118:implement_pattern_cache$985 $auto$fsm_map.cc:118:implement_pattern_cache$991 $auto$fsm_map.cc:74:implement_pattern_cache$993 $auto$fsm_map.cc:118:implement_pattern_cache$997 $auto$fsm_map.cc:74:implement_pattern_cache$999 $auto$fsm_map.cc:118:implement_pattern_cache$1003 $auto$fsm_map.cc:74:implement_pattern_cache$1005 $auto$fsm_map.cc:118:implement_pattern_cache$1009 }
+    New input vector for $reduce_and cell $auto$opt_dff.cc:220:make_patterns_logic$1193: { $flatten\instance1.$eq$TestVerilogZ.sv.v:178$251_Y $auto$opt_dff.cc:194:make_patterns_logic$1184 $auto$opt_dff.cc:194:make_patterns_logic$1186 $auto$opt_dff.cc:194:make_patterns_logic$1188 $auto$rtlil.cc:2739:Not$1191 }
   Optimizing cells in module \SystemConnect.
 Performed a total of 4 changes.
 
@@ -1216,7 +1221,7 @@ Finding identical cells in module `\SystemConnect'.
 Removed a total of 9 cells.
 
 2.14.13. Executing OPT_DFF pass (perform DFF optimizations).
-Adding EN signal on $auto$ff.cc:266:slice$1172 ($sdffe) from module SystemConnect (D = $flatten\instance1.$procmux$520_Y, Q = \instance1.bit_count).
+Adding EN signal on $auto$ff.cc:266:slice$1154 ($sdffe) from module SystemConnect (D = $flatten\instance1.$procmux$520_Y, Q = \instance1.bit_count).
 
 2.14.14. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \SystemConnect..
@@ -1235,11 +1240,11 @@ Running muxtree optimizer on module \SystemConnect..
   Evaluating internal representation of mux trees.
   Analyzing evaluation results.
 Removed 0 multiplexer ports.
-<suppressed ~11 debug messages>
+<suppressed ~9 debug messages>
 
 2.14.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
   Optimizing cells in module \SystemConnect.
-    New input vector for $reduce_and cell $auto$opt_dff.cc:220:make_patterns_logic$1230: { $auto$rtlil.cc:2739:Not$1165 $flatten\instance1.$eq$TestVerilogZ.sv.v:179$251_Y $auto$opt_dff.cc:194:make_patterns_logic$1227 }
+    New input vector for $reduce_and cell $auto$opt_dff.cc:220:make_patterns_logic$1216: { $auto$rtlil.cc:2739:Not$1147 $flatten\instance1.$eq$TestVerilogZ.sv.v:178$251_Y $auto$opt_dff.cc:194:make_patterns_logic$1213 }
   Optimizing cells in module \SystemConnect.
 Performed a total of 1 changes.
 
@@ -1249,7 +1254,7 @@ Finding identical cells in module `\SystemConnect'.
 Removed a total of 1 cells.
 
 2.14.20. Executing OPT_DFF pass (perform DFF optimizations).
-Adding EN signal on $auto$ff.cc:266:slice$1178 ($sdffe) from module SystemConnect (D = $flatten\instance1.$procmux$539_Y, Q = \instance1.address_check).
+Adding EN signal on $auto$ff.cc:266:slice$1160 ($sdffe) from module SystemConnect (D = $flatten\instance1.$procmux$539_Y, Q = \instance1.address_check).
 
 2.14.21. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \SystemConnect..
@@ -1268,11 +1273,11 @@ Running muxtree optimizer on module \SystemConnect..
   Evaluating internal representation of mux trees.
   Analyzing evaluation results.
 Removed 0 multiplexer ports.
-<suppressed ~11 debug messages>
+<suppressed ~9 debug messages>
 
 2.14.25. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
   Optimizing cells in module \SystemConnect.
-    New input vector for $reduce_and cell $auto$opt_dff.cc:220:make_patterns_logic$1237: { $auto$rtlil.cc:2739:Not$1163 $auto$rtlil.cc:2739:Not$1165 $flatten\instance1.$eq$TestVerilogZ.sv.v:179$251_Y $auto$opt_dff.cc:194:make_patterns_logic$1232 $auto$opt_dff.cc:194:make_patterns_logic$1234 }
+    New input vector for $reduce_and cell $auto$opt_dff.cc:220:make_patterns_logic$1223: { $auto$rtlil.cc:2739:Not$1145 $auto$rtlil.cc:2739:Not$1147 $flatten\instance1.$eq$TestVerilogZ.sv.v:178$251_Y $auto$opt_dff.cc:194:make_patterns_logic$1218 $auto$opt_dff.cc:194:make_patterns_logic$1220 }
   Optimizing cells in module \SystemConnect.
 Performed a total of 1 changes.
 
@@ -1296,7 +1301,7 @@ Running muxtree optimizer on module \SystemConnect..
   Evaluating internal representation of mux trees.
   Analyzing evaluation results.
 Removed 0 multiplexer ports.
-<suppressed ~11 debug messages>
+<suppressed ~9 debug messages>
 
 2.14.32. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
   Optimizing cells in module \SystemConnect.
@@ -1319,59 +1324,60 @@ Optimizing module SystemConnect.
 2.15. Executing WREDUCE pass (reducing word size of cells).
 Removed top 29 bits (of 32) from port B of cell SystemConnect.$lt$TestVerilogZ.sv.v:39$231 ($lt).
 Removed top 31 bits (of 32) from port B of cell SystemConnect.$add$TestVerilogZ.sv.v:40$232 ($add).
-Removed top 1 bits (of 4) from port B of cell SystemConnect.$auto$opt_dff.cc:195:make_patterns_logic$1233 ($ne).
-Removed top 1 bits (of 6) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$1039 ($eq).
-Removed top 1 bits (of 4) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$1026 ($eq).
-Removed top 1 bits (of 6) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$1024 ($eq).
-Removed top 2 bits (of 4) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$1020 ($eq).
-Removed top 1 bits (of 6) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$1018 ($eq).
-Removed top 1 bits (of 5) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$1012 ($eq).
+Removed top 1 bits (of 4) from port B of cell SystemConnect.$auto$opt_dff.cc:195:make_patterns_logic$1219 ($ne).
+Removed top 1 bits (of 6) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$1021 ($eq).
+Removed top 1 bits (of 4) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$1008 ($eq).
 Removed top 1 bits (of 6) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$1006 ($eq).
-Removed top 3 bits (of 7) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$1002 ($eq).
-Removed top 2 bits (of 9) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$1000 ($eq).
-Removed top 1 bits (of 7) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$996 ($eq).
-Removed top 2 bits (of 5) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$992 ($eq).
-Removed top 1 bits (of 7) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$988 ($eq).
-Removed top 2 bits (of 4) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$802 ($eq).
-Removed top 1 bits (of 2) from port B of cell SystemConnect.$auto$opt_dff.cc:195:make_patterns_logic$1205 ($ne).
-Removed top 2 bits (of 5) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$949 ($eq).
-Removed top 1 bits (of 6) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$937 ($eq).
-Removed top 3 bits (of 6) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$900 ($eq).
-Removed top 3 bits (of 7) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$896 ($eq).
-Removed top 3 bits (of 6) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$892 ($eq).
-Removed top 3 bits (of 7) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$888 ($eq).
-Removed top 3 bits (of 6) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$884 ($eq).
-Removed top 2 bits (of 6) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$1149 ($eq).
-Removed top 1 bits (of 5) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$1145 ($eq).
-Removed top 1 bits (of 3) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$834 ($eq).
-Removed top 3 bits (of 6) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$1141 ($eq).
-Removed top 3 bits (of 5) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$1137 ($eq).
-Removed top 2 bits (of 5) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$1133 ($eq).
-Removed top 3 bits (of 6) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$1125 ($eq).
-Removed top 3 bits (of 5) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$1121 ($eq).
-Removed top 3 bits (of 7) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$1119 ($eq).
-Removed top 4 bits (of 9) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$1115 ($eq).
-Removed top 31 bits (of 32) from port B of cell SystemConnect.$flatten\instance1.$sub$TestVerilogZ.sv.v:258$297 ($sub).
-Removed top 26 bits (of 32) from port Y of cell SystemConnect.$flatten\instance1.$sub$TestVerilogZ.sv.v:258$297 ($sub).
-Removed top 1 bits (of 4) from port B of cell SystemConnect.$flatten\instance1.$eq$TestVerilogZ.sv.v:257$296 ($eq).
-Removed top 4 bits (of 8) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$1111 ($eq).
-Removed top 31 bits (of 32) from port B of cell SystemConnect.$flatten\instance1.$sub$TestVerilogZ.sv.v:207$268 ($sub).
-Removed top 28 bits (of 32) from port Y of cell SystemConnect.$flatten\instance1.$sub$TestVerilogZ.sv.v:207$268 ($sub).
-Removed top 31 bits (of 32) from port B of cell SystemConnect.$flatten\instance1.$gt$TestVerilogZ.sv.v:206$267 ($gt).
-Removed top 31 bits (of 32) from port B of cell SystemConnect.$flatten\instance1.$add$TestVerilogZ.sv.v:205$266 ($add).
-Removed top 28 bits (of 32) from port Y of cell SystemConnect.$flatten\instance1.$add$TestVerilogZ.sv.v:205$266 ($add).
-Removed top 31 bits (of 32) from port B of cell SystemConnect.$flatten\instance1.$gt$TestVerilogZ.sv.v:192$263 ($gt).
-Removed top 3 bits (of 6) from port B of cell SystemConnect.$flatten\instance1.$lt$TestVerilogZ.sv.v:192$262 ($lt).
-Removed top 31 bits (of 32) from port B of cell SystemConnect.$flatten\instance1.$add$TestVerilogZ.sv.v:178$250 ($add).
-Removed top 30 bits (of 32) from port Y of cell SystemConnect.$flatten\instance1.$add$TestVerilogZ.sv.v:178$250 ($add).
-Removed top 30 bits (of 32) from wire SystemConnect.$flatten\instance1.$add$TestVerilogZ.sv.v:178$250_Y.
-Removed top 28 bits (of 32) from wire SystemConnect.$flatten\instance1.$add$TestVerilogZ.sv.v:205$266_Y.
+Removed top 2 bits (of 4) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$1002 ($eq).
+Removed top 1 bits (of 6) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$1000 ($eq).
+Removed top 1 bits (of 5) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$994 ($eq).
+Removed top 1 bits (of 6) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$988 ($eq).
+Removed top 3 bits (of 7) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$984 ($eq).
+Removed top 2 bits (of 9) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$982 ($eq).
+Removed top 1 bits (of 7) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$978 ($eq).
+Removed top 2 bits (of 5) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$974 ($eq).
+Removed top 1 bits (of 7) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$970 ($eq).
+Removed top 2 bits (of 4) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$784 ($eq).
+Removed top 1 bits (of 2) from port B of cell SystemConnect.$auto$opt_dff.cc:195:make_patterns_logic$1187 ($ne).
+Removed top 2 bits (of 5) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$931 ($eq).
+Removed top 1 bits (of 6) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$919 ($eq).
+Removed top 3 bits (of 6) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$882 ($eq).
+Removed top 3 bits (of 7) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$878 ($eq).
+Removed top 3 bits (of 6) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$874 ($eq).
+Removed top 3 bits (of 7) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$870 ($eq).
+Removed top 3 bits (of 6) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$866 ($eq).
+Removed top 2 bits (of 6) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$1131 ($eq).
+Removed top 1 bits (of 5) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$1127 ($eq).
+Removed top 3 bits (of 6) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$1123 ($eq).
+Removed top 3 bits (of 5) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$1119 ($eq).
+Removed top 1 bits (of 3) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$816 ($eq).
+Removed top 2 bits (of 5) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$1115 ($eq).
+Removed top 3 bits (of 6) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$1107 ($eq).
+Removed top 3 bits (of 5) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$1103 ($eq).
+Removed top 3 bits (of 7) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$1101 ($eq).
+Removed top 4 bits (of 9) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$1097 ($eq).
+Removed top 4 bits (of 8) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$1093 ($eq).
+Removed top 31 bits (of 32) from port B of cell SystemConnect.$flatten\instance1.$sub$TestVerilogZ.sv.v:254$297 ($sub).
+Removed top 26 bits (of 32) from port Y of cell SystemConnect.$flatten\instance1.$sub$TestVerilogZ.sv.v:254$297 ($sub).
+Removed top 1 bits (of 4) from port B of cell SystemConnect.$flatten\instance1.$eq$TestVerilogZ.sv.v:253$296 ($eq).
+Removed top 31 bits (of 32) from port B of cell SystemConnect.$flatten\instance1.$sub$TestVerilogZ.sv.v:204$268 ($sub).
+Removed top 28 bits (of 32) from port Y of cell SystemConnect.$flatten\instance1.$sub$TestVerilogZ.sv.v:204$268 ($sub).
+Removed top 31 bits (of 32) from port B of cell SystemConnect.$flatten\instance1.$gt$TestVerilogZ.sv.v:203$267 ($gt).
+Removed top 31 bits (of 32) from port B of cell SystemConnect.$flatten\instance1.$add$TestVerilogZ.sv.v:202$266 ($add).
+Removed top 28 bits (of 32) from port Y of cell SystemConnect.$flatten\instance1.$add$TestVerilogZ.sv.v:202$266 ($add).
+Removed top 31 bits (of 32) from port B of cell SystemConnect.$flatten\instance1.$gt$TestVerilogZ.sv.v:189$263 ($gt).
+Removed top 3 bits (of 6) from port B of cell SystemConnect.$flatten\instance1.$lt$TestVerilogZ.sv.v:189$262 ($lt).
+Removed top 31 bits (of 32) from port B of cell SystemConnect.$flatten\instance1.$add$TestVerilogZ.sv.v:141$239 ($add).
+Removed top 30 bits (of 32) from port Y of cell SystemConnect.$flatten\instance1.$add$TestVerilogZ.sv.v:141$239 ($add).
+Removed top 30 bits (of 32) from wire SystemConnect.$flatten\instance1.$add$TestVerilogZ.sv.v:141$239_Y.
+Removed top 28 bits (of 32) from wire SystemConnect.$flatten\instance1.$add$TestVerilogZ.sv.v:202$266_Y.
+Removed top 26 bits (of 32) from wire SystemConnect.$flatten\instance1.$sub$TestVerilogZ.sv.v:254$297_Y.
 
 2.16. Executing PEEPOPT pass (run peephole optimizers).
 
 2.17. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \SystemConnect..
-Removed 0 unused cells and 2 unused wires.
+Removed 0 unused cells and 3 unused wires.
 <suppressed ~1 debug messages>
 
 2.18. Executing SHARE pass (SAT-based resource sharing).
@@ -1416,26 +1422,26 @@ No more expansions possible.
 2.23. Executing ALUMACC pass (create $alu and $macc cells).
 Extracting $alu and $macc cells in module SystemConnect:
   creating $macc model for $add$TestVerilogZ.sv.v:40$232 ($add).
-  creating $macc model for $flatten\instance1.$add$TestVerilogZ.sv.v:178$250 ($add).
-  creating $macc model for $flatten\instance1.$add$TestVerilogZ.sv.v:205$266 ($add).
-  creating $macc model for $flatten\instance1.$sub$TestVerilogZ.sv.v:207$268 ($sub).
-  creating $macc model for $flatten\instance1.$sub$TestVerilogZ.sv.v:258$297 ($sub).
-  creating $alu model for $macc $flatten\instance1.$sub$TestVerilogZ.sv.v:258$297.
-  creating $alu model for $macc $flatten\instance1.$sub$TestVerilogZ.sv.v:207$268.
-  creating $alu model for $macc $flatten\instance1.$add$TestVerilogZ.sv.v:205$266.
-  creating $alu model for $macc $flatten\instance1.$add$TestVerilogZ.sv.v:178$250.
+  creating $macc model for $flatten\instance1.$add$TestVerilogZ.sv.v:141$239 ($add).
+  creating $macc model for $flatten\instance1.$add$TestVerilogZ.sv.v:202$266 ($add).
+  creating $macc model for $flatten\instance1.$sub$TestVerilogZ.sv.v:204$268 ($sub).
+  creating $macc model for $flatten\instance1.$sub$TestVerilogZ.sv.v:254$297 ($sub).
+  creating $alu model for $macc $flatten\instance1.$sub$TestVerilogZ.sv.v:254$297.
+  creating $alu model for $macc $flatten\instance1.$sub$TestVerilogZ.sv.v:204$268.
+  creating $alu model for $macc $flatten\instance1.$add$TestVerilogZ.sv.v:202$266.
+  creating $alu model for $macc $flatten\instance1.$add$TestVerilogZ.sv.v:141$239.
   creating $alu model for $macc $add$TestVerilogZ.sv.v:40$232.
-  creating $alu model for $flatten\instance1.$gt$TestVerilogZ.sv.v:192$263 ($gt): new $alu
-  creating $alu model for $flatten\instance1.$lt$TestVerilogZ.sv.v:192$262 ($lt): new $alu
+  creating $alu model for $flatten\instance1.$gt$TestVerilogZ.sv.v:189$263 ($gt): new $alu
+  creating $alu model for $flatten\instance1.$lt$TestVerilogZ.sv.v:189$262 ($lt): new $alu
   creating $alu model for $lt$TestVerilogZ.sv.v:39$231 ($lt): new $alu
-  creating $alu cell for $lt$TestVerilogZ.sv.v:39$231: $auto$alumacc.cc:485:replace_alu$1246
-  creating $alu cell for $flatten\instance1.$lt$TestVerilogZ.sv.v:192$262: $auto$alumacc.cc:485:replace_alu$1257
-  creating $alu cell for $flatten\instance1.$gt$TestVerilogZ.sv.v:192$263: $auto$alumacc.cc:485:replace_alu$1268
-  creating $alu cell for $add$TestVerilogZ.sv.v:40$232: $auto$alumacc.cc:485:replace_alu$1273
-  creating $alu cell for $flatten\instance1.$add$TestVerilogZ.sv.v:178$250: $auto$alumacc.cc:485:replace_alu$1276
-  creating $alu cell for $flatten\instance1.$add$TestVerilogZ.sv.v:205$266: $auto$alumacc.cc:485:replace_alu$1279
-  creating $alu cell for $flatten\instance1.$sub$TestVerilogZ.sv.v:207$268: $auto$alumacc.cc:485:replace_alu$1282
-  creating $alu cell for $flatten\instance1.$sub$TestVerilogZ.sv.v:258$297: $auto$alumacc.cc:485:replace_alu$1285
+  creating $alu cell for $lt$TestVerilogZ.sv.v:39$231: $auto$alumacc.cc:485:replace_alu$1233
+  creating $alu cell for $flatten\instance1.$lt$TestVerilogZ.sv.v:189$262: $auto$alumacc.cc:485:replace_alu$1244
+  creating $alu cell for $flatten\instance1.$gt$TestVerilogZ.sv.v:189$263: $auto$alumacc.cc:485:replace_alu$1255
+  creating $alu cell for $add$TestVerilogZ.sv.v:40$232: $auto$alumacc.cc:485:replace_alu$1260
+  creating $alu cell for $flatten\instance1.$add$TestVerilogZ.sv.v:141$239: $auto$alumacc.cc:485:replace_alu$1263
+  creating $alu cell for $flatten\instance1.$add$TestVerilogZ.sv.v:202$266: $auto$alumacc.cc:485:replace_alu$1266
+  creating $alu cell for $flatten\instance1.$sub$TestVerilogZ.sv.v:204$268: $auto$alumacc.cc:485:replace_alu$1269
+  creating $alu cell for $flatten\instance1.$sub$TestVerilogZ.sv.v:254$297: $auto$alumacc.cc:485:replace_alu$1272
   created 8 $alu and 0 $macc cells.
 
 2.24. Executing OPT pass (performing simple optimizations).
@@ -1454,7 +1460,7 @@ Running muxtree optimizer on module \SystemConnect..
   Evaluating internal representation of mux trees.
   Analyzing evaluation results.
 Removed 0 multiplexer ports.
-<suppressed ~11 debug messages>
+<suppressed ~9 debug messages>
 
 2.24.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
   Optimizing cells in module \SystemConnect.
@@ -1482,7 +1488,7 @@ Running muxtree optimizer on module \SystemConnect..
   Evaluating internal representation of mux trees.
   Analyzing evaluation results.
 Removed 0 multiplexer ports.
-<suppressed ~11 debug messages>
+<suppressed ~9 debug messages>
 
 2.24.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
   Optimizing cells in module \SystemConnect.
@@ -1563,8 +1569,8 @@ Finding identical cells in module `\SystemConnect'.
 Removed a total of 1 cells.
 
 2.29.3. Executing OPT_DFF pass (perform DFF optimizations).
-Adding SRST signal on $auto$ff.cc:266:slice$1214 ($dffe) from module SystemConnect (D = $flatten\instance1.$procmux$684_Y, Q = \instance1.receiving, rval = 1'1).
-Setting constant 0-bit at position 0 on $auto$ff.cc:266:slice$1199 ($sdffe) from module SystemConnect.
+Adding SRST signal on $auto$ff.cc:266:slice$1196 ($dffe) from module SystemConnect (D = $flatten\instance1.$procmux$684_Y, Q = \instance1.receiving, rval = 1'1).
+Setting constant 0-bit at position 0 on $auto$ff.cc:266:slice$1181 ($sdffe) from module SystemConnect.
 
 2.29.4. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \SystemConnect..
@@ -1607,7 +1613,7 @@ Running muxtree optimizer on module \SystemConnect..
   Evaluating internal representation of mux trees.
   Analyzing evaluation results.
 Removed 0 multiplexer ports.
-<suppressed ~9 debug messages>
+<suppressed ~7 debug messages>
 
 2.31.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
   Optimizing cells in module \SystemConnect.
@@ -1667,9 +1673,9 @@ Using extmapper simplemap for cells of type $not.
 Using extmapper simplemap for cells of type $logic_not.
 Using extmapper simplemap for cells of type $logic_or.
 Using extmapper simplemap for cells of type $tribuf.
-Using extmapper simplemap for cells of type $and.
 Using template $paramod$7af24cf7f572852703f08ef7a936c59efa2c57af\_90_alu for cells of type $alu.
 Using template $paramod$175e67c02b86e96b1288b9dc100122520d7240d8\_90_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $and.
 Using extmapper simplemap for cells of type $sdffe.
 Using extmapper simplemap for cells of type $reduce_and.
 Using extmapper simplemap for cells of type $ne.
@@ -1689,21 +1695,21 @@ Using template $paramod$constmap:8cab8cd37efbce96701e681e00bcbc727c8b2779$paramo
 Using template $paramod$a04dd9d4d8b430140c4ff94b50470fb380fda2a0\_80_ecp5_alu for cells of type $alu.
 Using template $paramod$1eea76d7a4c6ac9eb7ee572e075cc080fc50bca4\_80_ecp5_alu for cells of type $alu.
 Using template $paramod$32efbfac1c4dc57230cf86180788fdfd12e3b511\_80_ecp5_alu for cells of type $alu.
-Using template $paramod$32a7b7b86c07519b7537abc18e96f0331f97914d\_90_alu for cells of type $alu.
 Using extmapper simplemap for cells of type $logic_and.
+Using template $paramod$32a7b7b86c07519b7537abc18e96f0331f97914d\_90_alu for cells of type $alu.
 Using extmapper simplemap for cells of type $pos.
 Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000000010 for cells of type $lcu.
 Using extmapper simplemap for cells of type $xor.
 Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000000011 for cells of type $lcu.
 Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000000100 for cells of type $lcu.
 No more expansions possible.
-<suppressed ~1475 debug messages>
+<suppressed ~1465 debug messages>
 
 2.33. Executing OPT pass (performing simple optimizations).
 
 2.33.1. Executing OPT_EXPR pass (perform const folding).
 Optimizing module SystemConnect.
-<suppressed ~719 debug messages>
+<suppressed ~704 debug messages>
 
 2.33.2. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\SystemConnect'.
@@ -1806,7 +1812,7 @@ Using template $paramod\$_DFF_P_\_TECHMAP_WIREINIT_Q_=1'x for cells of type $_DF
 Using template \$_SDFFE_PP1P_ for cells of type $_SDFFE_PP1P_.
 Using template \$_SDFF_PP1_ for cells of type $_SDFF_PP1_.
 No more expansions possible.
-<suppressed ~150 debug messages>
+<suppressed ~145 debug messages>
 
 2.37. Executing OPT_EXPR pass (perform const folding).
 Optimizing module SystemConnect.
@@ -1821,7 +1827,7 @@ Handling GSR in SystemConnect.
 
 2.41. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \SystemConnect..
-Removed 2 unused cells and 355 unused wires.
+Removed 2 unused cells and 330 unused wires.
 <suppressed ~3 debug messages>
 
 2.42. Executing TECHMAP pass (map to technology primitives).
@@ -1843,7 +1849,7 @@ No more expansions possible.
 2.43.2. Executing ABC9_OPS pass (helper functions for ABC9).
 
 2.43.3. Executing SCC pass (detecting logic loops).
-Found an SCC: $auto$simplemap.cc:38:simplemap_not$3277 $auto$ff.cc:266:slice$2231 $auto$simplemap.cc:38:simplemap_not$3279 $auto$ff.cc:266:slice$2233 $auto$simplemap.cc:126:simplemap_reduce$1592 $auto$simplemap.cc:38:simplemap_not$3278 $auto$ff.cc:266:slice$2232 $auto$simplemap.cc:38:simplemap_not$3281 $auto$ff.cc:266:slice$2235 $auto$simplemap.cc:38:simplemap_not$3284 $auto$ff.cc:266:slice$2238 $auto$simplemap.cc:38:simplemap_not$3282 $auto$ff.cc:266:slice$2236 $auto$simplemap.cc:126:simplemap_reduce$1595 $auto$simplemap.cc:38:simplemap_not$3285 $auto$ff.cc:266:slice$2239 $auto$ff.cc:266:slice$2206 $auto$simplemap.cc:126:simplemap_reduce$1594 $auto$simplemap.cc:38:simplemap_not$3283 $auto$ff.cc:266:slice$2237 $auto$simplemap.cc:126:simplemap_reduce$1604 $auto$simplemap.cc:126:simplemap_reduce$1593 $auto$simplemap.cc:38:simplemap_not$3280 $auto$ff.cc:266:slice$2234 $auto$simplemap.cc:126:simplemap_reduce$1579 $auto$simplemap.cc:38:simplemap_not$3253 $auto$ff.cc:266:slice$2207 $auto$alumacc.cc:485:replace_alu$1246.slice[0].ccu2c_i $auto$ff.cc:266:slice$2208 $auto$simplemap.cc:126:simplemap_reduce$1597 $auto$simplemap.cc:126:simplemap_reduce$1580 $auto$simplemap.cc:38:simplemap_not$3631 $auto$ff.cc:266:slice$2209 $auto$alumacc.cc:485:replace_alu$1246.slice[2].ccu2c_i $auto$simplemap.cc:38:simplemap_not$3256 $auto$ff.cc:266:slice$2210 $auto$simplemap.cc:126:simplemap_reduce$1581 $auto$simplemap.cc:38:simplemap_not$3257 $auto$ff.cc:266:slice$2211 $auto$alumacc.cc:485:replace_alu$1246.slice[4].ccu2c_i $auto$simplemap.cc:38:simplemap_not$3258 $auto$ff.cc:266:slice$2212 $auto$simplemap.cc:126:simplemap_reduce$1606 $auto$simplemap.cc:126:simplemap_reduce$1598 $auto$simplemap.cc:126:simplemap_reduce$1582 $auto$simplemap.cc:38:simplemap_not$3259 $auto$ff.cc:266:slice$2213 $auto$alumacc.cc:485:replace_alu$1246.slice[6].ccu2c_i $auto$simplemap.cc:38:simplemap_not$3636 $auto$ff.cc:266:slice$2214 $auto$simplemap.cc:126:simplemap_reduce$1583 $auto$simplemap.cc:38:simplemap_not$3637 $auto$ff.cc:266:slice$2215 $auto$alumacc.cc:485:replace_alu$1246.slice[8].ccu2c_i $auto$simplemap.cc:38:simplemap_not$3262 $auto$ff.cc:266:slice$2216 $auto$simplemap.cc:126:simplemap_reduce$1599 $auto$simplemap.cc:126:simplemap_reduce$1584 $auto$simplemap.cc:38:simplemap_not$3263 $auto$ff.cc:266:slice$2217 $auto$alumacc.cc:485:replace_alu$1246.slice[10].ccu2c_i $auto$simplemap.cc:38:simplemap_not$3264 $auto$ff.cc:266:slice$2218 $auto$simplemap.cc:38:simplemap_not$3266 $auto$ff.cc:266:slice$2220 $auto$alumacc.cc:485:replace_alu$1246.slice[12].ccu2c_i $auto$simplemap.cc:126:simplemap_reduce$1585 $auto$simplemap.cc:38:simplemap_not$3641 $auto$ff.cc:266:slice$2219 $auto$simplemap.cc:126:simplemap_reduce$1611 $auto$simplemap.cc:126:simplemap_reduce$1607 $auto$simplemap.cc:126:simplemap_reduce$1600 $auto$simplemap.cc:126:simplemap_reduce$1586 $auto$simplemap.cc:38:simplemap_not$3643 $auto$ff.cc:266:slice$2221 $auto$alumacc.cc:485:replace_alu$1246.slice[14].ccu2c_i $auto$simplemap.cc:38:simplemap_not$3644 $auto$ff.cc:266:slice$2222 $auto$simplemap.cc:126:simplemap_reduce$1587 $auto$simplemap.cc:38:simplemap_not$3645 $auto$ff.cc:266:slice$2223 $auto$alumacc.cc:485:replace_alu$1246.slice[16].ccu2c_i $auto$ff.cc:266:slice$2224 $auto$simplemap.cc:38:simplemap_not$3272 $auto$ff.cc:266:slice$2226 $auto$alumacc.cc:485:replace_alu$1246.slice[18].ccu2c_i $auto$simplemap.cc:38:simplemap_not$3647 $auto$ff.cc:266:slice$2225 $auto$simplemap.cc:126:simplemap_reduce$1589 $auto$simplemap.cc:38:simplemap_not$3273 $auto$ff.cc:266:slice$2227 $auto$alumacc.cc:485:replace_alu$1246.slice[20].ccu2c_i $auto$simplemap.cc:38:simplemap_not$3274 $auto$ff.cc:266:slice$2228 $auto$simplemap.cc:126:simplemap_reduce$1602 $auto$simplemap.cc:126:simplemap_reduce$1590 $auto$simplemap.cc:38:simplemap_not$3275 $auto$ff.cc:266:slice$2229 $auto$simplemap.cc:38:simplemap_not$1977 $auto$simplemap.cc:225:simplemap_logbin$3118 $auto$alumacc.cc:485:replace_alu$1246.slice[30].ccu2c_i $auto$alumacc.cc:485:replace_alu$1246.slice[28].ccu2c_i $auto$alumacc.cc:485:replace_alu$1246.slice[26].ccu2c_i $auto$alumacc.cc:485:replace_alu$1246.slice[24].ccu2c_i $auto$alumacc.cc:485:replace_alu$1246.slice[22].ccu2c_i $auto$simplemap.cc:126:simplemap_reduce$1609 $auto$simplemap.cc:126:simplemap_reduce$1603 $auto$simplemap.cc:126:simplemap_reduce$1591 $auto$simplemap.cc:38:simplemap_not$3276 $auto$ff.cc:266:slice$2230 $auto$simplemap.cc:126:simplemap_reduce$3062 $auto$simplemap.cc:75:simplemap_bitop$1958 $auto$simplemap.cc:126:simplemap_reduce$1616 $auto$simplemap.cc:126:simplemap_reduce$1614 $auto$simplemap.cc:126:simplemap_reduce$1612 $auto$simplemap.cc:126:simplemap_reduce$1608 $auto$simplemap.cc:126:simplemap_reduce$1601 $auto$simplemap.cc:126:simplemap_reduce$1588 $auto$simplemap.cc:38:simplemap_not$3646
+Found an SCC: $auto$ff.cc:266:slice$2193 $auto$simplemap.cc:38:simplemap_not$3574 $auto$ff.cc:266:slice$2200 $auto$simplemap.cc:38:simplemap_not$3220 $auto$ff.cc:266:slice$2222 $auto$simplemap.cc:38:simplemap_not$3195 $auto$ff.cc:266:slice$2197 $auto$simplemap.cc:38:simplemap_not$3569 $auto$ff.cc:266:slice$2195 $auto$simplemap.cc:38:simplemap_not$3222 $auto$ff.cc:266:slice$2224 $auto$simplemap.cc:126:simplemap_reduce$1565 $auto$simplemap.cc:38:simplemap_not$3568 $auto$ff.cc:266:slice$2194 $auto$simplemap.cc:126:simplemap_reduce$1580 $auto$simplemap.cc:38:simplemap_not$3221 $auto$ff.cc:266:slice$2223 $auto$simplemap.cc:126:simplemap_reduce$1567 $auto$simplemap.cc:38:simplemap_not$3196 $auto$ff.cc:266:slice$2198 $auto$simplemap.cc:126:simplemap_reduce$1579 $auto$simplemap.cc:38:simplemap_not$3595 $auto$ff.cc:266:slice$2221 $auto$simplemap.cc:38:simplemap_not$3593 $auto$ff.cc:266:slice$2219 $auto$simplemap.cc:126:simplemap_reduce$1589 $auto$simplemap.cc:126:simplemap_reduce$1578 $auto$simplemap.cc:38:simplemap_not$3594 $auto$ff.cc:266:slice$2220 $auto$simplemap.cc:38:simplemap_not$3592 $auto$ff.cc:266:slice$2218 $auto$simplemap.cc:126:simplemap_reduce$1577 $auto$simplemap.cc:38:simplemap_not$3591 $auto$ff.cc:266:slice$2217 $auto$simplemap.cc:38:simplemap_not$3584 $auto$ff.cc:266:slice$2210 $auto$simplemap.cc:38:simplemap_not$3585 $auto$ff.cc:266:slice$2211 $auto$simplemap.cc:126:simplemap_reduce$1574 $auto$simplemap.cc:38:simplemap_not$3210 $auto$ff.cc:266:slice$2212 $auto$simplemap.cc:38:simplemap_not$3587 $auto$ff.cc:266:slice$2213 $auto$simplemap.cc:126:simplemap_reduce$1587 $auto$simplemap.cc:126:simplemap_reduce$1575 $auto$simplemap.cc:38:simplemap_not$3588 $auto$ff.cc:266:slice$2214 $auto$simplemap.cc:38:simplemap_not$3589 $auto$ff.cc:266:slice$2215 $auto$simplemap.cc:126:simplemap_reduce$1594 $auto$simplemap.cc:126:simplemap_reduce$1588 $auto$simplemap.cc:126:simplemap_reduce$1576 $auto$simplemap.cc:38:simplemap_not$3590 $auto$ff.cc:266:slice$2216 $auto$simplemap.cc:38:simplemap_not$3199 $auto$ff.cc:266:slice$2201 $auto$simplemap.cc:126:simplemap_reduce$1569 $auto$simplemap.cc:38:simplemap_not$3200 $auto$ff.cc:266:slice$2202 $auto$simplemap.cc:38:simplemap_not$3201 $auto$ff.cc:266:slice$2203 $auto$simplemap.cc:126:simplemap_reduce$1570 $auto$simplemap.cc:38:simplemap_not$3578 $auto$ff.cc:266:slice$2204 $auto$simplemap.cc:38:simplemap_not$3203 $auto$ff.cc:266:slice$2205 $auto$simplemap.cc:126:simplemap_reduce$1585 $auto$simplemap.cc:126:simplemap_reduce$1571 $auto$simplemap.cc:38:simplemap_not$3204 $auto$ff.cc:266:slice$2206 $auto$simplemap.cc:38:simplemap_not$3205 $auto$ff.cc:266:slice$2207 $auto$simplemap.cc:126:simplemap_reduce$1572 $auto$simplemap.cc:38:simplemap_not$3206 $auto$ff.cc:266:slice$2208 $auto$simplemap.cc:126:simplemap_reduce$1597 $auto$simplemap.cc:126:simplemap_reduce$1593 $auto$simplemap.cc:126:simplemap_reduce$1586 $auto$simplemap.cc:126:simplemap_reduce$1573 $auto$simplemap.cc:38:simplemap_not$3207 $auto$ff.cc:266:slice$2209 $auto$ff.cc:266:slice$2191 $auto$simplemap.cc:126:simplemap_reduce$1592 $auto$simplemap.cc:126:simplemap_reduce$1584 $auto$simplemap.cc:126:simplemap_reduce$1568 $auto$simplemap.cc:38:simplemap_not$3573 $auto$ff.cc:266:slice$2199 $auto$simplemap.cc:126:simplemap_reduce$1583 $auto$simplemap.cc:126:simplemap_reduce$1566 $auto$simplemap.cc:38:simplemap_not$3194 $auto$ff.cc:266:slice$2196 $auto$alumacc.cc:485:replace_alu$1233.slice[30].ccu2c_i $auto$alumacc.cc:485:replace_alu$1233.slice[28].ccu2c_i $auto$alumacc.cc:485:replace_alu$1233.slice[26].ccu2c_i $auto$alumacc.cc:485:replace_alu$1233.slice[24].ccu2c_i $auto$alumacc.cc:485:replace_alu$1233.slice[22].ccu2c_i $auto$alumacc.cc:485:replace_alu$1233.slice[20].ccu2c_i $auto$alumacc.cc:485:replace_alu$1233.slice[18].ccu2c_i $auto$alumacc.cc:485:replace_alu$1233.slice[16].ccu2c_i $auto$alumacc.cc:485:replace_alu$1233.slice[14].ccu2c_i $auto$alumacc.cc:485:replace_alu$1233.slice[12].ccu2c_i $auto$alumacc.cc:485:replace_alu$1233.slice[10].ccu2c_i $auto$alumacc.cc:485:replace_alu$1233.slice[8].ccu2c_i $auto$alumacc.cc:485:replace_alu$1233.slice[6].ccu2c_i $auto$alumacc.cc:485:replace_alu$1233.slice[4].ccu2c_i $auto$alumacc.cc:485:replace_alu$1233.slice[2].ccu2c_i $auto$alumacc.cc:485:replace_alu$1233.slice[0].ccu2c_i $auto$simplemap.cc:126:simplemap_reduce$1601 $auto$simplemap.cc:126:simplemap_reduce$1599 $auto$simplemap.cc:126:simplemap_reduce$1596 $auto$simplemap.cc:126:simplemap_reduce$1591 $auto$simplemap.cc:126:simplemap_reduce$1582 $auto$simplemap.cc:126:simplemap_reduce$1564 $auto$simplemap.cc:38:simplemap_not$3190 $auto$ff.cc:266:slice$2192 $auto$simplemap.cc:126:simplemap_reduce$2968 $auto$simplemap.cc:75:simplemap_bitop$1943 $auto$simplemap.cc:38:simplemap_not$1962 $auto$simplemap.cc:225:simplemap_logbin$3055
 Found 1 SCCs in module SystemConnect.
 Found 1 SCCs.
 
@@ -2080,21 +2086,21 @@ Module SystemConnect: replaced 18 cells with 120 new cells, skipped 39 cells.
        4 $_AND_
 
 2.43.16. Executing AIGMAP pass (map logic to AIG).
-Module SystemConnect: replaced 285 cells with 1379 new cells, skipped 352 cells.
+Module SystemConnect: replaced 240 cells with 1064 new cells, skipped 347 cells.
   replaced 4 cell types:
      204 $_OR_
        6 $_XOR_
        1 $_ORNOT_
-      74 $_MUX_
+      29 $_MUX_
   not replaced 8 cell types:
        2 $scopeinfo
      101 $_NOT_
      139 $_AND_
        1 $_TBUF_
-      68 TRELLIS_FF
+      63 TRELLIS_FF
        1 EHXPLLL
-      39 $paramod$838872d5a4bab89607f53482b205c0fd50d8b82e\CCU2C
        1 $__ABC9_SCC_BREAKER
+      39 $paramod$838872d5a4bab89607f53482b205c0fd50d8b82e\CCU2C
 
 2.43.16.1. Executing ABC9_OPS pass (helper functions for ABC9).
 
@@ -2102,7 +2108,7 @@ Module SystemConnect: replaced 285 cells with 1379 new cells, skipped 352 cells.
 
 2.43.16.3. Executing XAIGER backend.
 <suppressed ~11 debug messages>
-Extracted 584 AND gates and 1851 wires from module `SystemConnect' to a netlist network with 81 inputs and 93 outputs.
+Extracted 449 AND gates and 1531 wires from module `SystemConnect' to a netlist network with 76 inputs and 88 outputs.
 
 2.43.16.4. Executing ABC9_EXE pass (technology mapping using ABC9).
 
@@ -2114,44 +2120,44 @@ ABC: + read_lut <abc-temp-dir>/input.lut
 ABC: + read_box <abc-temp-dir>/input.box 
 ABC: + &read <abc-temp-dir>/input.xaig 
 ABC: + &ps 
-ABC: <abc-temp-dir>/input : i/o =     81/     93  and =     518  lev =   23 (0.68)  mem = 0.02 MB  box = 39  bb = 0
+ABC: <abc-temp-dir>/input : i/o =     76/     88  and =     410  lev =   23 (0.51)  mem = 0.02 MB  box = 39  bb = 0
 ABC: + &scorr 
 ABC: Warning: The network is combinational.
 ABC: + &sweep 
 ABC: + &dc2 
 ABC: + &dch -f 
 ABC: + &ps 
-ABC: <abc-temp-dir>/input : i/o =     81/     93  and =     294  lev =   11 (0.42)  mem = 0.01 MB  ch =   37  box = 39  bb = 0
+ABC: <abc-temp-dir>/input : i/o =     76/     88  and =     287  lev =   12 (0.35)  mem = 0.01 MB  ch =   46  box = 39  bb = 0
 ABC: + &if -W 300 -v 
 ABC: K = 7. Memory (bytes): Truth =    0. Cut =   64. Obj =  148. Set =  672. CutMin = no
-ABC: Node =     294.  Ch =    34.  Total mem =    0.15 MB. Peak cut mem =    0.03 MB.
-ABC: P:  Del = 2174.00.  Ar =     316.0.  Edge =      405.  Cut =     2634.  T =     0.00 sec
-ABC: P:  Del = 2174.00.  Ar =     316.0.  Edge =      405.  Cut =     2631.  T =     0.00 sec
-ABC: P:  Del = 2174.00.  Ar =     197.0.  Edge =      356.  Cut =     5454.  T =     0.00 sec
-ABC: F:  Del = 2174.00.  Ar =     134.0.  Edge =      329.  Cut =     3749.  T =     0.00 sec
-ABC: A:  Del = 2174.00.  Ar =     133.0.  Edge =      320.  Cut =     2878.  T =     0.00 sec
-ABC: A:  Del = 2174.00.  Ar =     133.0.  Edge =      319.  Cut =     2812.  T =     0.00 sec
-ABC: Total time =     0.01 sec
+ABC: Node =     287.  Ch =    40.  Total mem =    0.14 MB. Peak cut mem =    0.03 MB.
+ABC: P:  Del = 2171.00.  Ar =     276.0.  Edge =      349.  Cut =     2994.  T =     0.00 sec
+ABC: P:  Del = 2171.00.  Ar =     276.0.  Edge =      349.  Cut =     2990.  T =     0.00 sec
+ABC: P:  Del = 2171.00.  Ar =     191.0.  Edge =      336.  Cut =     5728.  T =     0.00 sec
+ABC: F:  Del = 2156.00.  Ar =     140.0.  Edge =      328.  Cut =     3708.  T =     0.00 sec
+ABC: A:  Del = 2156.00.  Ar =     138.0.  Edge =      311.  Cut =     3453.  T =     0.00 sec
+ABC: A:  Del = 2156.00.  Ar =     134.0.  Edge =      309.  Cut =     3296.  T =     0.00 sec
+ABC: Total time =     0.00 sec
 ABC: + &write -n <abc-temp-dir>/output.aig 
 ABC: + &mfs 
 ABC: + &ps -l 
-ABC: <abc-temp-dir>/input : i/o =     81/     93  and =     216  lev =   14 (0.43)  mem = 0.01 MB  box = 39  bb = 0
-ABC: Mapping (K=7)  :  lut =     66  edge =     241  lev =    4 (0.19)  Boxes are not in a topological order. Switching to level computation without boxes.
-ABC: levB =   14  mem = 0.00 MB
-ABC: LUT = 66 : 2=13 19.7 %  3=20 30.3 %  4=19 28.8 %  5=7 10.6 %  6=5 7.6 %  7=2 3.0 %  Ave = 3.65
+ABC: <abc-temp-dir>/input : i/o =     76/     88  and =     195  lev =   11 (0.33)  mem = 0.01 MB  box = 39  bb = 0
+ABC: Mapping (K=7)  :  lut =     61  edge =     224  lev =    4 (0.16)  Boxes are not in a topological order. Switching to level computation without boxes.
+ABC: levB =   11  mem = 0.00 MB
+ABC: LUT = 61 : 2=15 24.6 %  3=16 26.2 %  4=14 23.0 %  5=8 13.1 %  6=6 9.8 %  7=2 3.3 %  Ave = 3.67
 ABC: + &write -n <abc-temp-dir>/output.aig 
 ABC: + time 
-ABC: elapse: 0.10 seconds, total: 0.10 seconds
+ABC: elapse: 0.03 seconds, total: 0.03 seconds
 
 2.43.16.6. Executing AIGER frontend.
-<suppressed ~360 debug messages>
-Removed 283 unused cells and 983 unused wires.
+<suppressed ~340 debug messages>
+Removed 259 unused cells and 939 unused wires.
 
 2.43.16.7. Executing ABC9_OPS pass (helper functions for ABC9).
-ABC RESULTS:              $lut cells:       73
+ABC RESULTS:              $lut cells:       68
 ABC RESULTS:   $paramod$838872d5a4bab89607f53482b205c0fd50d8b82e\CCU2C cells:       39
 ABC RESULTS:           input signals:       15
-ABC RESULTS:          output signals:       32
+ABC RESULTS:          output signals:       31
 Removing temp directory.
 
 2.43.17. Executing TECHMAP pass (map to technology primitives).
@@ -2167,7 +2173,7 @@ Using template $paramod$838872d5a4bab89607f53482b205c0fd50d8b82e\CCU2C for cells
 Using template $paramod\$__ABC9_SCC_BREAKER\WIDTH=32'00000000000000000000000000000001 for cells of type $__ABC9_SCC_BREAKER.
 No more expansions possible.
 <suppressed ~57 debug messages>
-Removed 16 unused cells and 2307 unused wires.
+Removed 15 unused cells and 1982 unused wires.
 
 2.44. Executing TECHMAP pass (map to technology primitives).
 
@@ -2246,104 +2252,99 @@ Generating RTLIL representation for module `\$lut'.
 Successfully finished Verilog frontend.
 
 2.44.2. Continuing TECHMAP pass.
-Using template $paramod$a5516fc31d1e552de2435200bb732b4d4ad63a9c\$lut for cells of type $lut.
-Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000010\LUT=4'0001 for cells of type $lut.
 Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'10000000 for cells of type $lut.
-Using template $paramod$14f974524b5f147582c86c7d4800b3673d5b8bc5\$lut for cells of type $lut.
-Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000010\LUT=4'0111 for cells of type $lut.
 Using template $paramod$7bb6a37e65823eeb4b38c370fec30ab082759a14\$lut for cells of type $lut.
-Using template $paramod$0bf131eed8bed21421fa5f6ad47a855d913cbc96\$lut for cells of type $lut.
-Using template $paramod$e91b01f9349714d55057bc22c604be26aa38a50d\$lut for cells of type $lut.
-Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'00000001 for cells of type $lut.
-Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'00000100 for cells of type $lut.
-Using template $paramod$b8a686063acae2d699945c89a7834de76ed6658a\$lut for cells of type $lut.
-Using template $paramod$dfa1fbdda348719e1700b12456bc51a2a324dee4\$lut for cells of type $lut.
+Using template $paramod$a5516fc31d1e552de2435200bb732b4d4ad63a9c\$lut for cells of type $lut.
 Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000010\LUT=4'0100 for cells of type $lut.
-Using template $paramod$b83d3de526f4a825f3a8290baf8e728c6a7e3536\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000010\LUT=4'0001 for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000010\LUT=4'0111 for cells of type $lut.
+Using template $paramod$6c0ad11fad2bdc0c57edb068dbdb0128bc2ce57c\$lut for cells of type $lut.
+Using template $paramod$5b81528c67b9cdd3ac3797bb4da5f8a12a87a694\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'00000001 for cells of type $lut.
 Using template $paramod$658b9ed803f0d3d335616d3858b53e0a2522f1e8\$lut for cells of type $lut.
-Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'00000110 for cells of type $lut.
-Using template $paramod$a8b9523b256193b8ef4d76806da37359144a62fd\$lut for cells of type $lut.
-Using template $paramod$30305e55a780880b9c824fe3509a4d981acb0f2b\$lut for cells of type $lut.
-Using template $paramod$7aa8140c7d6de3160b21e7ff84e0f93f69f7fcc6\$lut for cells of type $lut.
-Using template $paramod$d6ca727e39f31d51d29072e0f33aa09c65e37336\$lut for cells of type $lut.
-Using template $paramod$aabc38448f9289a9f09f7f433eb20ae11e3f6ed9\$lut for cells of type $lut.
-Using template $paramod$4e2c6702ac4e04ec09e98452472aa90e68ad31d4\$lut for cells of type $lut.
-Using template $paramod$11d98a734fddb972e4bcf061987d6c0007a7bbfa\$lut for cells of type $lut.
-Using template $paramod$62ec1a148c27e5ef172509cb03e906eb99b934a5\$lut for cells of type $lut.
-Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'01101010 for cells of type $lut.
-Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'01000000 for cells of type $lut.
-Using template $paramod$47b2f5a9f58cb4be072657772748a1ab82d6819a\$lut for cells of type $lut.
-Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000010\LUT=4'0110 for cells of type $lut.
-Using template $paramod$f3cb4ef29527f51d59a2973d386f3cd521ca47c6\$lut for cells of type $lut.
-Using template $paramod$c217e185eb8e6463ca272982ba8c5940fa90d81f\$lut for cells of type $lut.
-Using template $paramod$8962ee99a12aec44570b3cd442b3f1aab8321c47\$lut for cells of type $lut.
-Using template $paramod$c5c49020910b92ff4373b705f131c82fdde71644\$lut for cells of type $lut.
-Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000010\LUT=4'1000 for cells of type $lut.
-Using template $paramod$5d16e795d6c582b27c818459b159f81a7f4525c4\$lut for cells of type $lut.
-Using template $paramod$6fc4df889b39de4af325330d108505e319b11d59\$lut for cells of type $lut.
-Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'11101111 for cells of type $lut.
-Using template $paramod$01d0c3cfd224c9ef32ad09713053f287fc504628\$lut for cells of type $lut.
-Using template $paramod$ca8af12f4cdd89fde7000ed2c34f922aa2484840\$lut for cells of type $lut.
-Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000010\LUT=4'1110 for cells of type $lut.
-Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'11000100 for cells of type $lut.
-Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'11100000 for cells of type $lut.
-Using template $paramod$6d6beead1425af15cf78b27fd9b11b41b5d4bce8\$lut for cells of type $lut.
-Using template $paramod$a38b8e7c733351fee3f6fef675d9256ee1d5e8a6\$lut for cells of type $lut.
-Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'00001110 for cells of type $lut.
-Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000010\LUT=4'1001 for cells of type $lut.
 Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'00001000 for cells of type $lut.
-Using template $paramod$77a0fa154baa792138485c951f1ad29ac4468b14\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'00010011 for cells of type $lut.
+Using template $paramod$e1735d0804484e51215b022408880d9924ceca39\$lut for cells of type $lut.
+Using template $paramod$d6ca727e39f31d51d29072e0f33aa09c65e37336\$lut for cells of type $lut.
+Using template $paramod$0bda4778367f358017e50d9a6ff476bd0939de70\$lut for cells of type $lut.
+Using template $paramod$d185cb6a75b4466ce6d63de9210fa226b4bd3b32\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000001\LUT=2'01 for cells of type $lut.
+Using template $paramod$4c274551372e5e846c5a80986ee03383a4d3b57e\$lut for cells of type $lut.
+Using template $paramod$5348912da867a611a8088b6b8b27a62d65f1de6e\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000010\LUT=4'0010 for cells of type $lut.
+Using template $paramod$2e531d1356eaca9cd791bd7df744fbee66461688\$lut for cells of type $lut.
+Using template $paramod$18df3812bc12364e5ebcb6c3ed05c0294e4c26fc\$lut for cells of type $lut.
 Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'10101001 for cells of type $lut.
 Using template $paramod$a63353f4d6dc92c802dc9ce9e386b8f6d246076e\$lut for cells of type $lut.
-Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'00000010 for cells of type $lut.
-Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'10001010 for cells of type $lut.
-Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000001\LUT=2'01 for cells of type $lut.
+Using template $paramod$597bb5f24871ddeada7efd4abc486f6f6433215c\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000010\LUT=4'1001 for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'00100000 for cells of type $lut.
+Using template $paramod$09deb89cf77b6e37f6ed7fef8d797dc05c0b2eee\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'11010000 for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000010\LUT=4'1000 for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'00000100 for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'11100000 for cells of type $lut.
+Using template $paramod$6d6beead1425af15cf78b27fd9b11b41b5d4bce8\$lut for cells of type $lut.
+Using template $paramod$101238f3d8d49ab12a9b49a2f01cd503b26e9c61\$lut for cells of type $lut.
+Using template $paramod$9cc51547ab44a72dd506ee5bb84a864365a103da\$lut for cells of type $lut.
+Using template $paramod$ee027be034f17b4a3101947a266b05925d77c12f\$lut for cells of type $lut.
+Using template $paramod$063b535950dbdc6e6eb1cf64e00afa869735f5f9\$lut for cells of type $lut.
+Using template $paramod$77b7ad06a5b0768aae6548ab1295e6623f713b6f\$lut for cells of type $lut.
+Using template $paramod$0b27130d85b60fa1d3e464fce84a2e5201741f05\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'01101010 for cells of type $lut.
+Using template $paramod$675f967d0328377ec619f892c2e802f8fc338d43\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000010\LUT=4'0110 for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'11101111 for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000010\LUT=4'1110 for cells of type $lut.
+Using template $paramod$6fc4df889b39de4af325330d108505e319b11d59\$lut for cells of type $lut.
+Using template $paramod$9750e16f3e098edd3aae4fa4112f9c7d170a1631\$lut for cells of type $lut.
+Using template $paramod$40fb9bb6bea67992ba5ef849f26d51fce967c3af\$lut for cells of type $lut.
 No more expansions possible.
-<suppressed ~820 debug messages>
+<suppressed ~750 debug messages>
 
 2.45. Executing OPT_LUT_INS pass (discard unused LUT inputs).
 Optimizing LUTs in SystemConnect.
-  Optimizing lut $abc$7274$lut$aiger7273$245.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 0)
-  Optimizing lut $abc$7274$lut$aiger7273$245.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut4 (4 -> 0)
-  Optimizing lut $abc$7274$lut$aiger7273$245.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut5 (4 -> 0)
-  Optimizing lut $abc$7274$lut$aiger7273$245.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut6 (4 -> 0)
-  Optimizing lut $abc$7274$lut$aiger7273$245.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut7 (4 -> 0)
-  Optimizing lut $auto$abc9_ops.cc:1549:reintegrate$7279.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 2)
-  Optimizing lut $auto$abc9_ops.cc:1549:reintegrate$7279.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 3)
-  Optimizing lut $auto$abc9_ops.cc:1549:reintegrate$7279.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut4 (4 -> 2)
-  Optimizing lut $auto$abc9_ops.cc:1549:reintegrate$7279.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut5 (4 -> 2)
-  Optimizing lut $auto$abc9_ops.cc:1549:reintegrate$7279.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut6 (4 -> 3)
-  Optimizing lut $auto$abc9_ops.cc:1549:reintegrate$7279.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut7 (4 -> 3)
-  Optimizing lut $auto$abc9_ops.cc:1549:reintegrate$7277.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 2)
-  Optimizing lut $auto$abc9_ops.cc:1549:reintegrate$7276.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 3)
-  Optimizing lut $abc$7274$lut$aiger7273$324.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 0)
-  Optimizing lut $abc$7274$lut$aiger7273$324.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 0)
-  Optimizing lut $abc$7274$lut$aiger7273$232.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 0)
-  Optimizing lut $abc$7274$lut$aiger7273$232.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 0)
-  Optimizing lut $abc$7274$lut$aiger7273$226.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
-  Optimizing lut $abc$7274$lut$aiger7273$222.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 0)
-  Optimizing lut $abc$7274$lut$aiger7273$222.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 0)
-  Optimizing lut $abc$7274$lut$aiger7273$232.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 3)
-  Optimizing lut $abc$7274$lut$aiger7273$245.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 3)
-  Optimizing lut $abc$7274$lut$aiger7273$245.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
-  Optimizing lut $auto$abc9_ops.cc:1549:reintegrate$7276.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 1)
-  Optimizing lut $abc$7274$lut$aiger7273$276.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 3)
-  Optimizing lut $abc$7274$lut$aiger7273$292.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 3)
-  Optimizing lut $abc$7274$lut$aiger7273$283.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
-  Optimizing lut $abc$7274$lut$aiger7273$324.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 3)
-  Optimizing lut $abc$7274$lut$aiger7273$384.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
-  Optimizing lut $abc$7274$lut$auto$fsm_map.cc:170:map_fsm$781[2].genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 3)
-  Optimizing lut $auto$abc9_ops.cc:1549:reintegrate$7277.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 3)
-  Optimizing lut $auto$abc9_ops.cc:1549:reintegrate$7276.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
-  Optimizing lut $auto$abc9_ops.cc:1549:reintegrate$7277.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
-  Optimizing lut $auto$abc9_ops.cc:1549:reintegrate$7279.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
-  Optimizing lut $auto$abc9_ops.cc:1549:reintegrate$7279.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 2)
-  Optimizing lut $abc$7274$lut$aiger7273$222.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
-Removed 0 unused cells and 158 unused wires.
+  Optimizing lut $auto$abc9_ops.cc:1549:reintegrate$6589.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 0)
+  Optimizing lut $auto$abc9_ops.cc:1549:reintegrate$6589.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 0)
+  Optimizing lut $auto$abc9_ops.cc:1549:reintegrate$6587.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 3)
+  Optimizing lut $auto$abc9_ops.cc:1549:reintegrate$6582.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 3)
+  Optimizing lut $auto$abc9_ops.cc:1549:reintegrate$6582.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 3)
+  Optimizing lut $auto$abc9_ops.cc:1549:reintegrate$6582.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut4 (4 -> 2)
+  Optimizing lut $auto$abc9_ops.cc:1549:reintegrate$6582.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut5 (4 -> 3)
+  Optimizing lut $auto$abc9_ops.cc:1549:reintegrate$6582.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut6 (4 -> 2)
+  Optimizing lut $auto$abc9_ops.cc:1549:reintegrate$6582.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut7 (4 -> 3)
+  Optimizing lut $auto$abc9_ops.cc:1549:reintegrate$6580.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 0)
+  Optimizing lut $auto$abc9_ops.cc:1549:reintegrate$6580.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 0)
+  Optimizing lut $auto$abc9_ops.cc:1549:reintegrate$6579.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 2)
+  Optimizing lut $auto$abc9_ops.cc:1549:reintegrate$6578.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 2)
+  Optimizing lut $abc$6576$lut$aiger6575$380.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 0)
+  Optimizing lut $abc$6576$lut$auto$fsm_map.cc:170:map_fsm$763[4].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 2)
+  Optimizing lut $abc$6576$lut$auto$fsm_map.cc:170:map_fsm$763[4].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 0)
+  Optimizing lut $abc$6576$lut$aiger6575$243.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 0)
+  Optimizing lut $abc$6576$lut$aiger6575$243.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 0)
+  Optimizing lut $abc$6576$lut$aiger6575$243.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut4 (4 -> 0)
+  Optimizing lut $abc$6576$lut$aiger6575$243.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut5 (4 -> 0)
+  Optimizing lut $abc$6576$lut$aiger6575$243.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut6 (4 -> 0)
+  Optimizing lut $abc$6576$lut$aiger6575$243.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut7 (4 -> 0)
+  Optimizing lut $abc$6576$lut$aiger6575$235.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
+  Optimizing lut $abc$6576$lut$aiger6575$229.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
+  Optimizing lut $abc$6576$lut$aiger6575$243.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 3)
+  Optimizing lut $abc$6576$lut$aiger6575$274.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 3)
+  Optimizing lut $abc$6576$lut$aiger6575$380.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
+  Optimizing lut $abc$6576$lut$aiger6575$380.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 3)
+  Optimizing lut $abc$6576$lut$aiger6575$384.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 0)
+  Optimizing lut $abc$6576$lut$auto$fsm_map.cc:170:map_fsm$763[4].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 2)
+  Optimizing lut $abc$6576$lut$auto$fsm_map.cc:170:map_fsm$763[6].genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 2)
+  Optimizing lut $auto$abc9_ops.cc:1549:reintegrate$6579.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 2)
+  Optimizing lut $auto$abc9_ops.cc:1549:reintegrate$6580.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 1)
+  Optimizing lut $auto$abc9_ops.cc:1549:reintegrate$6582.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 2)
+  Optimizing lut $auto$abc9_ops.cc:1549:reintegrate$6582.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 2)
+  Optimizing lut $auto$abc9_ops.cc:1549:reintegrate$6589.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 3)
+Removed 0 unused cells and 154 unused wires.
 
 2.46. Executing AUTONAME pass.
-Renamed 5324 objects in module SystemConnect (70 iterations).
-<suppressed ~444 debug messages>
+Renamed 8028 objects in module SystemConnect (83 iterations).
+<suppressed ~431 debug messages>
 
 2.47. Executing HIERARCHY pass (managing design hierarchy).
 Attribute `top' found on module `SystemConnect'. Setting top module to SystemConnect.
@@ -2359,24 +2360,24 @@ Removed 0 unused modules.
 
 === SystemConnect ===
 
-   Number of wires:                233
-   Number of wire bits:            463
-   Number of public wires:         233
-   Number of public wire bits:     463
+   Number of wires:                228
+   Number of wire bits:            441
+   Number of public wires:         228
+   Number of public wire bits:     441
    Number of ports:                  5
    Number of port bits:             18
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
-   Number of cells:                254
+   Number of cells:                246
      $_TBUF_                         1
      $scopeinfo                      2
      CCU2C                          39
      EHXPLLL                         1
      L6MUX21                        11
-     LUT4                          108
-     PFUMX                          25
-     TRELLIS_FF                     67
+     LUT4                          104
+     PFUMX                          26
+     TRELLIS_FF                     62
 
 2.49. Executing CHECK pass (checking for obvious problems).
 Checking module SystemConnect...
@@ -2385,6 +2386,6 @@ Found and reported 0 problems.
 2.50. Executing JSON backend.
 
 Warnings: 1 unique messages, 1 total
-End of script. Logfile hash: c184079993, CPU: user 1.48s system 0.04s, MEM: 40.43 MB peak
+End of script. Logfile hash: a3909637cd, CPU: user 0.61s system 0.01s, MEM: 39.82 MB peak
 Yosys 0.48+57 (git sha1 d37449605, clang++ 18.1.8 -fPIC -O3)
-Time spent: 22% 21x read_verilog (0 sec), 14% 11x techmap (0 sec), ...
+Time spent: 24% 21x read_verilog (0 sec), 12% 11x techmap (0 sec), ...
