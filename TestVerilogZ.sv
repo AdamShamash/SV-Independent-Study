@@ -6,15 +6,18 @@ module SystemConnect (
     output wire [7:0] led,
     input wire [6:0] btn,
     inout wire gpdi_sda,
-    output wire gpdi_scl
+    output wire gpdi_scl,
+    inout wire [26:0] gp
 );
+
 
 wire [3:0] btnExtract = {btn[3],btn[5],btn[4],btn[6]};
 wire [7:0] ledTest;
 wire [4:0] debug;
 wire receiving, sda_o;
 
-/*assign led[0] = 1;
+/*
+assign led[0] = 1;
 assign led[1] = rst;
 assign led[2] = gpdi_scl;
 assign led[7:3] = debug;
@@ -23,6 +26,7 @@ assign led = ledTest;
 
 `ifndef SIMULATION
     assign gpdi_sda = (receiving) ? 1'bZ : sda_o;
+    assign gp[26] = (receiving) ? 1'bZ : sda_o;
 `endif
 
 wire clk_locked, clk_5MHz, clk_1_4MHz;
@@ -62,11 +66,13 @@ always_ff @(posedge clk_4MHz) begin
 end */
 
 wire ignore;
+wire invert;
+//assign gp[25] = ~invert;
 
-I2C_main instance1 (.sda_i(gpdi_sda), 
+I2C_main instance1 (.sda_i(gp[26]), 
                     .sda_o(sda_o), 
                     .scl_4x(clk_400KHz), 
-                    .scl_o(gpdi_scl), 
+                    .scl_o(gp[25]), 
                     .addressI2C(btnExtract), 
                     .ledByte(ledTest), 
                     .debug(debug), 
@@ -255,13 +261,14 @@ always_ff @(posedge scl_4x) begin
     if(reset) begin
         // user input:
         rw <= 1; // 0 = write, 1 = read
-        addressFromMaster <= 7'h50;
-        registerAddress [7:0] <= 8'h50;
+        addressFromMaster <= 7'h6B; // h50 for HDMI
+        registerAddress [7:0] <= 8'h6B; // h50 for HDMI
         dataByte [7:0] <= 8'b10101100;
         debug <= 31;
 
         // Initial Conditions (don't change)
         state <= 0;
+        receiving <= 0;
         address_check <= 7;
         bit_count <= 0;
         sda_o <= 1;
@@ -299,7 +306,6 @@ always_ff @(posedge scl_4x) begin
             sendStart <= 0;
         end
 
-        
         if(counter == 0) begin
 
             if(sendStop) begin

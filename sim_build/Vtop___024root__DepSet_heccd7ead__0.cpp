@@ -126,6 +126,7 @@ VL_INLINE_OPT void Vtop___024root___nba_sequent__TOP__0(Vtop___024root* vlSelf) 
     if (vlSelfRef.reset) {
         vlSelfRef.I2C_main__DOT__debug = 0x1fU;
         __Vdly__I2C_main__DOT__state = 0U;
+        vlSelfRef.I2C_main__DOT__receiving = 0U;
         __Vdly__I2C_main__DOT__address_check = 7U;
         __Vdly__I2C_main__DOT__bit_count = 0U;
         vlSelfRef.I2C_main__DOT__sda_o = 1U;
@@ -137,9 +138,9 @@ VL_INLINE_OPT void Vtop___024root___nba_sequent__TOP__0(Vtop___024root* vlSelf) 
         __Vdly__I2C_main__DOT__repeated_start = 0U;
         __Vdly__I2C_main__DOT__byte_count = 7U;
         __Vdly__I2C_main__DOT__mem_count = 0x3fU;
-        vlSelfRef.I2C_main__DOT__addressFromMaster = 0x50U;
+        vlSelfRef.I2C_main__DOT__addressFromMaster = 0x6bU;
         vlSelfRef.I2C_main__DOT__rw = 1U;
-        vlSelfRef.I2C_main__DOT__registerAddress = 0x50U;
+        vlSelfRef.I2C_main__DOT__registerAddress = 0x6bU;
         vlSelfRef.I2C_main__DOT__dataByte = 0xacU;
     } else {
         if (((2U == (IData)(vlSelfRef.I2C_main__DOT__counter)) 
@@ -289,8 +290,8 @@ VL_INLINE_OPT void Vtop___024root___nba_sequent__TOP__0(Vtop___024root* vlSelf) 
     vlSelfRef.I2C_main__DOT__mem_count = __Vdly__I2C_main__DOT__mem_count;
     vlSelfRef.I2C_main__DOT__counter = __Vdly__I2C_main__DOT__counter;
     vlSelfRef.debug = vlSelfRef.I2C_main__DOT__debug;
-    vlSelfRef.sda_o = vlSelfRef.I2C_main__DOT__sda_o;
     vlSelfRef.receiving = vlSelfRef.I2C_main__DOT__receiving;
+    vlSelfRef.sda_o = vlSelfRef.I2C_main__DOT__sda_o;
     vlSelfRef.I2C_main__DOT__scl_o = (1U & ((IData)(vlSelfRef.I2C_main__DOT__counter) 
                                             >> 1U));
     vlSelfRef.scl_o = vlSelfRef.I2C_main__DOT__scl_o;
@@ -363,7 +364,7 @@ void Vtop___024root___eval(Vtop___024root* vlSelf) {
 #ifdef VL_DEBUG
             Vtop___024root___dump_triggers__ico(vlSelf);
 #endif
-            VL_FATAL_MT("/MYSTUFF/SV-Independent-Study/TestVerilogZ.sv", 177, "", "Input combinational region did not converge.");
+            VL_FATAL_MT("/MYSTUFF/SV-Independent-Study/TestVerilogZ.sv", 199, "", "Input combinational region did not converge.");
         }
         __VicoIterCount = ((IData)(1U) + __VicoIterCount);
         __VicoContinue = 0U;
@@ -379,7 +380,7 @@ void Vtop___024root___eval(Vtop___024root* vlSelf) {
 #ifdef VL_DEBUG
             Vtop___024root___dump_triggers__nba(vlSelf);
 #endif
-            VL_FATAL_MT("/MYSTUFF/SV-Independent-Study/TestVerilogZ.sv", 177, "", "NBA region did not converge.");
+            VL_FATAL_MT("/MYSTUFF/SV-Independent-Study/TestVerilogZ.sv", 199, "", "NBA region did not converge.");
         }
         __VnbaIterCount = ((IData)(1U) + __VnbaIterCount);
         __VnbaContinue = 0U;
@@ -390,7 +391,7 @@ void Vtop___024root___eval(Vtop___024root* vlSelf) {
 #ifdef VL_DEBUG
                 Vtop___024root___dump_triggers__act(vlSelf);
 #endif
-                VL_FATAL_MT("/MYSTUFF/SV-Independent-Study/TestVerilogZ.sv", 177, "", "Active region did not converge.");
+                VL_FATAL_MT("/MYSTUFF/SV-Independent-Study/TestVerilogZ.sv", 199, "", "Active region did not converge.");
             }
             vlSelfRef.__VactIterCount = ((IData)(1U) 
                                          + vlSelfRef.__VactIterCount);
