@@ -56,12 +56,12 @@ async def test_writeByte(dut):
     i2c_memory = I2cMemory(sda=dut.sda_o, sda_o=dut.sda_i,
                            scl=dut.scl_o, scl_o=dut.scl_1x, addr=0x50, size = 256)
 
-    # Write the byte 0xAA to the slave with address 0x50
-    i2c_memory.write_mem(0x50, b'\xab\xaa\xdb')
-
     # Create and start a clock on scl_2x
     proc_clock = Clock(dut.scl_4x, 4)
     cocotb.start_soon(proc_clock.start(start_high=True))
+
+    # Write the byte 0xAA to the slave with address 0x50
+    i2c_memory.write_mem(0x00, b'\xab\xaa\xdb')
 
     dut.reset.value = 1
     await ClockCycles(dut.scl_4x, 2)
@@ -71,6 +71,10 @@ async def test_writeByte(dut):
     await ClockCycles(dut.scl_4x, 500)
 
     # Optionally, verify the write by reading back from the simulated memory.
-    read_byte = i2c_memory.read_mem(0x50, 1)
+    read_byte = i2c_memory.read_mem(0x00, 1)
     print(read_byte)
+
+    print(f"hi {int(dut.my_mem.value):#X}")
+
+    assert 0xab == ((int(dut.my_mem.value) >> 56) & 0x00FF)
     

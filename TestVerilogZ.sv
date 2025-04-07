@@ -27,9 +27,10 @@ assign led = ledTest;
 `ifndef SIMULATION
     assign gpdi_sda = (receiving) ? 1'bZ : sda_o;
     assign gp[26] = (receiving) ? 1'bZ : sda_o;
+    
 `endif
 
-wire clk_locked, clk_5MHz, clk_1_4MHz;
+wire clk_locked, clk_5MHz, clk_1_4MHz, Test_clk;
 wire rst = ~btn[0] || !clk_locked;
 logic clk_400KHz;
 
@@ -47,6 +48,12 @@ CLKDIVF #(.DIV("3.5")) clkdiv1 (
 ,.CLKI(clk_1_4MHz)
 ,.ALIGNWD(1'b0)
 ,.CDIVX(clk_400KHz));
+
+CLKDIVF #(.DIV("2.0")) clkdiv2 (
+.RST(1'b0)
+,.CLKI(clk_400KHz)
+,.ALIGNWD(1'b0)
+,.CDIVX(Test_clk));
 
 
 
@@ -214,7 +221,7 @@ module I2C_main (
 // 2. Check if some of the repetative cases when writing address bits can be converted to for loops
 // 3. Make seperate modules/classes to refer to for ease of main file reading and simulating
 
-logic scl_1x, rw, writeComplete, repeated_start, sendStart, sendStop, tester; 
+logic scl_1x, rw, writeComplete, repeated_start, sendStart, sendStop, tester, ackCount; 
 logic [1:0] counter;
 logic [2:0] address_check;
 logic [3:0] bit_count;
@@ -222,10 +229,9 @@ logic [6:0] addressFromMaster;
 logic [7:0] registerAddress, dataByte;
 
 logic [((byte_count_max+1)*8)-1:0] my_mem;
-logic [5:0] mem_count, byte_count;
-localparam bit [5:0] byte_count_max = 7; // set to total # bytes expected to read (0 inclusive)
-
-
+logic [6:0] mem_count;
+localparam bit [5:0] byte_count_max = 8; // set to total # bytes expected to read
+logic [5:0] byte_count;
 
 // Variables:
 // rw = sets read/write bit (w = 0, r = 1)
@@ -261,8 +267,8 @@ always_ff @(posedge scl_4x) begin
     if(reset) begin
         // user input:
         rw <= 1; // 0 = write, 1 = read
-        addressFromMaster <= 7'h6B; // h50 for HDMI
-        registerAddress [7:0] <= 8'h6B; // h50 for HDMI
+        addressFromMaster <= 7'h50; // h50 for HDMI
+        registerAddress [7:0] <= 8'h00; // h50 for HDMI
         dataByte [7:0] <= 8'b10101100;
         debug <= 31;
 
@@ -279,7 +285,8 @@ always_ff @(posedge scl_4x) begin
         sendStop <= 0;
         repeated_start <= 0;
         byte_count <= byte_count_max; 
-        mem_count <= (byte_count_max+1)*8 - 1; // total # bits to be read from device (0 inclusive)
+        mem_count <= (byte_count_max+1)*8 - 1; // total # bits to be read from device
+        ackCount <= 0;
     end
     else begin
         // btn memory extraction
@@ -296,10 +303,10 @@ always_ff @(posedge scl_4x) begin
                 //debug <= 10; 
         end
         if(counter == 2 && state == 3'b111) begin
+            //sendStop <= sendStop^1;
             sendStop <= 1;
             if(sendStop) begin
                 state <= 0;
-                sendStop <= 0;
                 debug <= 8;
             end
             sda_o <= 1;
@@ -314,16 +321,19 @@ always_ff @(posedge scl_4x) begin
 
             //check for ACK/NACK after byte of info (1 = NACK, 0 = ACK)
             else if(bit_count == 8) begin
-                tester <= 1;
-                if(sda_i | writeComplete | byte_count == 0) begin
+                ackCount <= ackCount + 1;
+                if((sda_i && (byte_count == byte_count_max))|| writeComplete || byte_count == 0) begin
                     state <= 3'b111; // activate STOP condition
                     writeComplete <= 0;
+                    receiving <= 0;
+                    
                 end
                 if(repeated_start) begin
                     state <= 3'b101;
+                    receiving <= 1;
                     //debug <= 4;
                 end
-                if((byte_count < byte_count_max) & byte_count > 0) begin // if in read state, master will send ACK bit
+                if((byte_count < byte_count_max) && byte_count > 0) begin // if in read state, master will send ACK bit
                     sda_o <= 0;
                     state <= 3'b110;
                     //debug <= 22;
@@ -385,7 +395,7 @@ always_ff @(posedge scl_4x) begin
                         address_check <= address_check - 1;
                         // after data byte sent, go to next state
                         if(address_check == 0) begin
-                            state [2:0] <= 3'b100; // can remove line if writeComplete set to 1 here
+                            //state [2:0] <= 3'b100; // can remove line if writeComplete set to 1 here
                             address_check <= 7;
                             writeComplete <= 1; // IMPORTANT: set writeComplete to 1 whenever done sending data
                         end
@@ -406,11 +416,13 @@ always_ff @(posedge scl_4x) begin
                     mem_count <= mem_count - 1;
                     if(bit_count == 7) begin
                         byte_count <= byte_count - 1;
+                        receiving <= 0;
                     end
                 end
 
                 // send SDA high for repeated start condition
                 if(state == 3'b101) begin
+                    receiving <= 0;
                     sda_o <= 1;
                     state <= 0;
                     //debug <= 12;

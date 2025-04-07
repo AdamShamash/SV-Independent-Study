@@ -1,13 +1,13 @@
 Info: constraining clock net 'external_clk_25MHz' to 25.00 MHz
 
 Info: Logic utilisation before packing:
-Info:     Total LUT4s:       393/83640     0%
-Info:         logic LUTs:    373/83640     0%
+Info:     Total LUT4s:       420/83640     0%
+Info:         logic LUTs:    400/83640     0%
 Info:         carry LUTs:     20/83640     0%
 Info:           RAM LUTs:      0/10455     0%
 Info:          RAMW LUTs:      0/20910     0%
 
-Info:      Total DFFs:       105/83640     0%
+Info:      Total DFFs:       114/83640     0%
 
 Info: Packing IOs..
 Info: $gpdi_sda$iobuf_i: gpdi_sda_$_TBUF__Y.Y
@@ -63,7 +63,7 @@ Info: Packing carries...
 Info: Packing LUTs...
 Info: Packing LUT5-7s...
 Info: Packing FFs...
-Info:     34 FFs paired with LUTs.
+Info:     36 FFs paired with LUTs.
 Info: Generating derived timing constraints...
 Info:     Input frequency of PLL 'mcg.pll_i' is constrained to 25.0 MHz
 Info:     Derived frequency constraint of 5.0 MHz for net clk_5MHz
@@ -71,7 +71,7 @@ Info:     Derived frequency constraint of 1.4 MHz for net clk_1_4MHz
 Info:     Derived frequency constraint of 0.4 MHz for net clk_400KHz
 Info: Promoting globals...
 Info:     promoting clock net clk_400KHz to global network
-Info: Checksum: 0x70c8639b
+Info: Checksum: 0x487247a2
 
 Info: Device utilisation:
 Info: 	          TRELLIS_IO:      45/    365    12%
@@ -99,173 +99,157 @@ Info: 	             DQSBUFM:       0/     14     0%
 Info: 	     TRELLIS_ECLKBUF:       0/      8     0%
 Info: 	        ECLKBRIDGECS:       0/      2     0%
 Info: 	                DCSC:       0/      2     0%
-Info: 	          TRELLIS_FF:     105/  83640     0%
-Info: 	        TRELLIS_COMB:     409/  83640     0%
+Info: 	          TRELLIS_FF:     114/  83640     0%
+Info: 	        TRELLIS_COMB:     436/  83640     0%
 Info: 	        TRELLIS_RAMW:       0/  10455     0%
 
 Info: Placed 46 cells based on constraints.
-Info: Creating initial analytic placement for 261 cells, random placement wirelen = 28426.
-Info:     at initial placer iter 0, wirelen = 1390
-Info:     at initial placer iter 1, wirelen = 1254
-Info:     at initial placer iter 2, wirelen = 1195
-Info:     at initial placer iter 3, wirelen = 1173
-Info: Running main analytical placer, max placement attempts per cell = 39621.
-Info:     at iteration #1, type ALL: wirelen solved = 1147, spread = 2003, legal = 2401; time = 0.02s
-Info:     at iteration #2, type ALL: wirelen solved = 1277, spread = 1835, legal = 1993; time = 0.01s
-Info:     at iteration #3, type ALL: wirelen solved = 1287, spread = 1801, legal = 2198; time = 0.01s
-Info:     at iteration #4, type ALL: wirelen solved = 1390, spread = 1756, legal = 1897; time = 0.01s
-Info:     at iteration #5, type ALL: wirelen solved = 1330, spread = 1737, legal = 2120; time = 0.01s
-Info:     at iteration #6, type ALL: wirelen solved = 1409, spread = 1691, legal = 1816; time = 0.01s
-Info:     at iteration #7, type ALL: wirelen solved = 1370, spread = 1656, legal = 1828; time = 0.01s
-Info:     at iteration #8, type ALL: wirelen solved = 1365, spread = 1625, legal = 2041; time = 0.01s
-Info:     at iteration #9, type ALL: wirelen solved = 1425, spread = 1670, legal = 1792; time = 0.01s
-Info:     at iteration #10, type ALL: wirelen solved = 1389, spread = 1666, legal = 1798; time = 0.01s
-Info:     at iteration #11, type ALL: wirelen solved = 1424, spread = 1636, legal = 1777; time = 0.01s
-Info: HeAP Placer Time: 0.19s
-Info:   of which solving equations: 0.08s
-Info:   of which spreading cells: 0.02s
-Info:   of which strict legalisation: 0.01s
+Info: Creating initial analytic placement for 297 cells, random placement wirelen = 33533.
+Info:     at initial placer iter 0, wirelen = 1702
+Info:     at initial placer iter 1, wirelen = 1553
+Info:     at initial placer iter 2, wirelen = 1535
+Info:     at initial placer iter 3, wirelen = 1526
+Info: Running main analytical placer, max placement attempts per cell = 44850.
+Info:     at iteration #1, type ALL: wirelen solved = 1496, spread = 2423, legal = 2587; time = 0.02s
+Info:     at iteration #2, type ALL: wirelen solved = 1611, spread = 2225, legal = 2387; time = 0.01s
+Info:     at iteration #3, type ALL: wirelen solved = 1637, spread = 2154, legal = 2660; time = 0.01s
+Info:     at iteration #4, type ALL: wirelen solved = 1704, spread = 2090, legal = 2277; time = 0.01s
+Info:     at iteration #5, type ALL: wirelen solved = 1700, spread = 2063, legal = 2226; time = 0.01s
+Info:     at iteration #6, type ALL: wirelen solved = 1701, spread = 1974, legal = 2115; time = 0.01s
+Info: HeAP Placer Time: 0.15s
+Info:   of which solving equations: 0.05s
+Info:   of which spreading cells: 0.01s
+Info:   of which strict legalisation: 0.00s
 
 Info: Running simulated annealing placer for refinement.
-Info:   at iteration #1: temp = 0.000000, timing cost = 115, wirelen = 1777
-Info:   at iteration #2: temp = 0.000000, timing cost = 67, wirelen = 1802 
+Info:   at iteration #1: temp = 0.000000, timing cost = 104, wirelen = 2115
+Info:   at iteration #2: temp = 0.000000, timing cost = 61, wirelen = 2366 
 Info: SA placement time 0.03s
 
-Info: Max frequency for clock '$glbnet$clk_400KHz': 148.08 MHz (PASS at 0.41 MHz)
+Info: Max frequency for clock '$glbnet$clk_400KHz': 107.38 MHz (PASS at 0.41 MHz)
 
-Info: Max delay <async>                    -> posedge $glbnet$clk_400KHz: 13.92 ns
-Info: Max delay posedge $glbnet$clk_400KHz -> <async>                   : 12.28 ns
+Info: Max delay <async>                    -> posedge $glbnet$clk_400KHz: 16.24 ns
+Info: Max delay posedge $glbnet$clk_400KHz -> <async>                   : 11.48 ns
 
 Info: Slack histogram:
 Info:  legend: * represents 1 endpoint(s)
 Info:          + represents [1,1) endpoint(s)
-Info: [2443247, 2443547) |********* 
-Info: [2443547, 2443847) |******************************* 
-Info: [2443847, 2444147) |******************************** 
-Info: [2444147, 2444447) |************** 
-Info: [2444447, 2444747) |******************** 
-Info: [2444747, 2445047) |********************** 
-Info: [2445047, 2445347) |************ 
-Info: [2445347, 2445647) |** 
-Info: [2445647, 2445947) |*** 
-Info: [2445947, 2446247) |* 
-Info: [2446247, 2446547) |*** 
-Info: [2446547, 2446847) |****************** 
-Info: [2446847, 2447147) |**** 
-Info: [2447147, 2447447) | 
-Info: [2447447, 2447747) |** 
-Info: [2447747, 2448047) |******** 
-Info: [2448047, 2448347) | 
-Info: [2448347, 2448647) |* 
-Info: [2448647, 2448947) |**** 
-Info: [2448947, 2449247) |***** 
-Info: Checksum: 0x8424836a
+Info: [2440687, 2441115) |********** 
+Info: [2441115, 2441543) |******************************************************* 
+Info: [2441543, 2441971) |************** 
+Info: [2441971, 2442399) | 
+Info: [2442399, 2442827) |** 
+Info: [2442827, 2443255) |******** 
+Info: [2443255, 2443683) |****************** 
+Info: [2443683, 2444111) |******************* 
+Info: [2444111, 2444539) |********************** 
+Info: [2444539, 2444967) |********* 
+Info: [2444967, 2445395) |***** 
+Info: [2445395, 2445823) |** 
+Info: [2445823, 2446251) |********** 
+Info: [2446251, 2446679) |************** 
+Info: [2446679, 2447107) |* 
+Info: [2447107, 2447535) | 
+Info: [2447535, 2447963) |********* 
+Info: [2447963, 2448391) |* 
+Info: [2448391, 2448819) |***** 
+Info: [2448819, 2449247) |**** 
+Info: Checksum: 0x2d87e19a
 Info: Routing globals...
 Info:     routing clock net $glbnet$clk_400KHz using global 0
 
 Info: Routing..
 Info: Setting up routing queue.
-Info: Routing 1622 arcs.
+Info: Routing 1649 arcs.
 Info:            |   (re-)routed arcs  |   delta    | remaining|       time spent     |
 Info:    IterCnt |  w/ripup   wo/ripup |  w/r  wo/r |      arcs| batch(sec) total(sec)|
-Info:       1000 |      268        727 |  268   727 |       984|       0.14       0.14|
-Info:       2000 |      394       1465 |  126   738 |       119|       0.10       0.24|
-Info:       2124 |      400       1568 |    6   103 |         0|       0.10       0.34|
+Info:       1000 |      153        809 |  153   809 |       828|       0.14       0.14|
+Info:       1969 |      243       1569 |   90   760 |         0|       0.20       0.34|
 Info: Routing complete.
 Info: Router1 time 0.34s
-Info: Checksum: 0xa5ed75a2
+Info: Checksum: 0xa4df8d97
 
 Info: Critical path report for clock '$glbnet$clk_400KHz' (posedge -> posedge):
 Info:       type curr  total name
-Info:   clk-to-q  0.52  0.52 Source instance1.bit_count_TRELLIS_FF_Q_1.Q
-Info:    routing  1.09  1.62 Net instance1.bit_count[2] (2,4) -> (3,4)
-Info:                          Sink instance1.bit_count_LUT4_A.B
+Info:   clk-to-q  0.52  0.52 Source instance1.bit_count_TRELLIS_FF_Q_2.Q
+Info:    routing  0.86  1.38 Net instance1.bit_count[1] (30,5) -> (30,5)
+Info:                          Sink instance1.counter_LUT4_C_Z_LUT4_Z_1.C
 Info:                          Defined in:
-Info:                               TestVerilogZ.sv.v:131.12-131.21
-Info:      logic  0.24  1.85 Source instance1.bit_count_LUT4_A.F
-Info:    routing  0.44  2.29 Net clk_locked_LUT4_D_Z_PFUMX_BLUT_Z_L6MUX21_D0_Z_LUT4_Z_1_C[1] (3,4) -> (3,4)
-Info:                          Sink clk_locked_LUT4_D_Z_PFUMX_BLUT_Z_L6MUX21_D0_Z_LUT4_Z_1.D
-Info:                          Defined in:
-Info:                               /tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_map.v:108.23-108.24
-Info:      logic  0.24  2.52 Source clk_locked_LUT4_D_Z_PFUMX_BLUT_Z_L6MUX21_D0_Z_LUT4_Z_1.F
-Info:    routing  2.10  4.62 Net clk_locked_LUT4_D_Z_PFUMX_BLUT_Z_L6MUX21_D0_Z[3] (3,4) -> (6,26)
-Info:                          Sink clk_locked_LUT4_D_Z_PFUMX_BLUT_Z_L6MUX21_D0_Z_LUT4_D.D
+Info:                               TestVerilogZ.sv.v:139.12-139.21
+Info:      logic  0.24  1.62 Source instance1.counter_LUT4_C_Z_LUT4_Z_1.F
+Info:    routing  0.77  2.39 Net instance1.bit_count_TRELLIS_FF_Q_CE_LUT4_Z_B[3] (30,5) -> (24,5)
+Info:                          Sink clk_locked_L6MUX21_SD_Z_L6MUX21_D1_Z_LUT4_Z_1.C
 Info:                          Defined in:
 Info:                               /tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_map.v:108.23-108.24
-Info:      logic  0.24  4.86 Source clk_locked_LUT4_D_Z_PFUMX_BLUT_Z_L6MUX21_D0_Z_LUT4_D.F
-Info:    routing  1.28  6.15 Net instance1.my_mem_TRELLIS_FF_Q_CE (6,26) -> (3,23)
-Info:                          Sink instance1.my_mem_TRELLIS_FF_Q_35.CE
-Info:      setup  0.00  6.15 Source instance1.my_mem_TRELLIS_FF_Q_35.CE
-Info: 1.23 ns logic, 4.91 ns routing
+Info:      logic  0.24  2.63 Source clk_locked_L6MUX21_SD_Z_L6MUX21_D1_Z_LUT4_Z_1.F
+Info:    routing  2.91  5.54 Net clk_locked_L6MUX21_SD_Z_L6MUX21_D1_Z[0] (24,5) -> (5,28)
+Info:                          Sink clk_locked_L6MUX21_SD_Z_L6MUX21_D1_Z_LUT4_D.D
+Info:                          Defined in:
+Info:                               /tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_map.v:108.23-108.24
+Info:      logic  0.24  5.78 Source clk_locked_L6MUX21_SD_Z_L6MUX21_D1_Z_LUT4_D.F
+Info:    routing  1.11  6.89 Net clk_locked_L6MUX21_SD_Z_L6MUX21_D1_Z_LUT4_D_Z (5,28) -> (5,32)
+Info:                          Sink instance1.my_mem_TRELLIS_FF_Q_59.CE
+Info:      setup  0.00  6.89 Source instance1.my_mem_TRELLIS_FF_Q_59.CE
+Info: 1.23 ns logic, 5.66 ns routing
 
 Info: Critical path report for cross-domain path '<async>' -> 'posedge $glbnet$clk_400KHz':
 Info:       type curr  total name
-Info:     source  0.00  0.00 Source btn[6]$tr_io.O
-Info:    routing  7.55  7.55 Net btnExtract[0] (126,17) -> (6,29)
-Info:                          Sink instance1.ledByte_TRELLIS_FF_Q_DI_LUT4_Z_2_B_PFUMX_Z_ALUT_LUT4_Z.A
+Info:     source  0.00  0.00 Source btn[3]$tr_io.O
+Info:    routing  10.47  10.47 Net btnExtract[3] (126,89) -> (2,29)
+Info:                          Sink instance1.ledByte_TRELLIS_FF_Q_DI_LUT4_Z_1.A
 Info:                          Defined in:
 Info:                               /tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_map.v:108.23-108.24
-Info:      logic  0.24  7.78 Source instance1.ledByte_TRELLIS_FF_Q_DI_LUT4_Z_2_B_PFUMX_Z_ALUT_LUT4_Z.F
-Info:    routing  0.00  7.78 Net instance1.ledByte_TRELLIS_FF_Q_DI_LUT4_Z_2_B_PFUMX_Z_ALUT (6,29) -> (6,29)
-Info:                          Sink instance1.ledByte_TRELLIS_FF_Q_DI_LUT4_Z_2_B_PFUMX_Z_BLUT_LUT4_Z.F1
-Info:                          Defined in:
-Info:                               /tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_map.v:133.22-133.24
-Info:      logic  0.17  7.95 Source instance1.ledByte_TRELLIS_FF_Q_DI_LUT4_Z_2_B_PFUMX_Z_BLUT_LUT4_Z.OFX
-Info:    routing  1.09  9.04 Net instance1.ledByte_TRELLIS_FF_Q_DI_LUT4_Z_2_B[3] (6,29) -> (5,28)
-Info:                          Sink instance1.ledByte_TRELLIS_FF_Q_DI_LUT4_Z_2.D
-Info:                          Defined in:
-Info:                               /tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_map.v:108.23-108.24
-Info:      logic  0.24  9.27 Source instance1.ledByte_TRELLIS_FF_Q_DI_LUT4_Z_2.F
-Info:    routing  0.13  9.40 Net instance1.ledByte_TRELLIS_FF_Q_DI[5] (5,28) -> (5,28)
-Info:                          Sink instance1.ledByte_TRELLIS_FF_Q_2.DI
+Info:      logic  0.24  10.70 Source instance1.ledByte_TRELLIS_FF_Q_DI_LUT4_Z_1.F
+Info:    routing  0.13  10.83 Net instance1.ledByte_TRELLIS_FF_Q_DI[1] (2,29) -> (2,29)
+Info:                          Sink instance1.ledByte_TRELLIS_FF_Q_6.DI
 Info:                          Defined in:
 Info:                               TestVerilogZ.sv.v:0.0-0.0
 Info:                               /tools/oss-cad-suite/lib/../share/yosys/techmap.v:137.23-137.24
-Info:      setup  0.00  9.40 Source instance1.ledByte_TRELLIS_FF_Q_2.DI
-Info: 0.64 ns logic, 8.77 ns routing
+Info:      setup  0.00  10.83 Source instance1.ledByte_TRELLIS_FF_Q_6.DI
+Info: 0.24 ns logic, 10.60 ns routing
 
 Info: Critical path report for cross-domain path 'posedge $glbnet$clk_400KHz' -> '<async>':
 Info:       type curr  total name
 Info:   clk-to-q  0.52  0.52 Source instance1.receiving_TRELLIS_FF_Q.Q
-Info:    routing  0.47  1.00 Net receiving (8,3) -> (8,3)
+Info:    routing  0.78  1.30 Net receiving (28,4) -> (32,4)
 Info:                          Sink instance1.receiving_LUT4_D.D
 Info:                          Defined in:
 Info:                               TestVerilogZ.sv.v:19.7-19.16
-Info:      logic  0.24  1.24 Source instance1.receiving_LUT4_D.F
-Info:    routing  5.76  7.00 Net gp_$_TBUF__Y_E (8,3) -> (118,3)
+Info:      logic  0.24  1.54 Source instance1.receiving_LUT4_D.F
+Info:    routing  4.45  5.99 Net gp_$_TBUF__Y_E (32,4) -> (113,2)
 Info:                          Sink gpdi_sda$tr_io$invert_T.A
-Info:      logic  0.24  7.23 Source gpdi_sda$tr_io$invert_T.F
-Info:    routing  1.03  8.27 Net gpdi_sda$tr_io$invert_T$conn$Z (118,3) -> (119,0)
+Info:      logic  0.24  6.22 Source gpdi_sda$tr_io$invert_T.F
+Info:    routing  1.17  7.39 Net gpdi_sda$tr_io$invert_T$conn$Z (113,2) -> (119,0)
 Info:                          Sink gpdi_sda$tr_io.T
-Info: 1.00 ns logic, 7.27 ns routing
+Info: 1.00 ns logic, 6.39 ns routing
 
-Info: Max frequency for clock '$glbnet$clk_400KHz': 162.71 MHz (PASS at 0.41 MHz)
+Info: Max frequency for clock '$glbnet$clk_400KHz': 145.16 MHz (PASS at 0.41 MHz)
 
-Info: Max delay <async>                    -> posedge $glbnet$clk_400KHz: 9.40 ns
-Info: Max delay posedge $glbnet$clk_400KHz -> <async>                   : 8.27 ns
+Info: Max delay <async>                    -> posedge $glbnet$clk_400KHz: 10.83 ns
+Info: Max delay posedge $glbnet$clk_400KHz -> <async>                   : 7.39 ns
 
 Info: Slack histogram:
 Info:  legend: * represents 1 endpoint(s)
 Info:          + represents [1,1) endpoint(s)
-Info: [2443854, 2444106) |******** 
-Info: [2444106, 2444358) |*************************** 
-Info: [2444358, 2444610) |********************************************************* 
-Info: [2444610, 2444862) |************************ 
-Info: [2444862, 2445114) |******************* 
-Info: [2445114, 2445366) |****** 
-Info: [2445366, 2445618) | 
-Info: [2445618, 2445870) |*** 
-Info: [2445870, 2446122) |** 
-Info: [2446122, 2446374) |******** 
-Info: [2446374, 2446626) |**** 
-Info: [2446626, 2446878) |************ 
-Info: [2446878, 2447130) |** 
-Info: [2447130, 2447382) |* 
-Info: [2447382, 2447634) |***** 
-Info: [2447634, 2447886) |* 
-Info: [2447886, 2448138) |** 
-Info: [2448138, 2448390) |*** 
-Info: [2448390, 2448642) |** 
-Info: [2448642, 2448894) |***** 
+Info: [2443111, 2443400) |*******+
+Info: [2443400, 2443689) |************************************************************ 
+Info: [2443689, 2443978) |******************+
+Info: [2443978, 2444267) |*****************+
+Info: [2444267, 2444556) |*************+
+Info: [2444556, 2444845) |*****+
+Info: [2444845, 2445134) |*+
+Info: [2445134, 2445423) |*+
+Info: [2445423, 2445712) |*+
+Info: [2445712, 2446001) |********+
+Info: [2446001, 2446290) |****+
+Info: [2446290, 2446579) |*******+
+Info: [2446579, 2446868) |**+
+Info: [2446868, 2447157) | 
+Info: [2447157, 2447446) | 
+Info: [2447446, 2447735) |****+
+Info: [2447735, 2448024) |*+
+Info: [2448024, 2448313) |****+
+Info: [2448313, 2448602) |+
+Info: [2448602, 2448891) |**+
 
 Info: Program finished normally.

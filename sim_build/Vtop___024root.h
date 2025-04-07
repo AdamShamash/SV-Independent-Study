@@ -39,21 +39,23 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final : public VerilatedModule
     CData/*0:0*/ I2C_main__DOT__sendStart;
     CData/*0:0*/ I2C_main__DOT__sendStop;
     CData/*0:0*/ I2C_main__DOT__tester;
+    CData/*0:0*/ I2C_main__DOT__ackCount;
     CData/*1:0*/ I2C_main__DOT__counter;
     CData/*2:0*/ I2C_main__DOT__address_check;
     CData/*3:0*/ I2C_main__DOT__bit_count;
     CData/*6:0*/ I2C_main__DOT__addressFromMaster;
     CData/*7:0*/ I2C_main__DOT__registerAddress;
     CData/*7:0*/ I2C_main__DOT__dataByte;
-    CData/*5:0*/ I2C_main__DOT__mem_count;
+    CData/*6:0*/ I2C_main__DOT__mem_count;
     CData/*5:0*/ I2C_main__DOT__byte_count;
     CData/*2:0*/ I2C_main__DOT__state;
+    CData/*0:0*/ I2C_main__DOT____Vlvbound_hba3991b9__0;
     CData/*0:0*/ __VstlFirstIteration;
     CData/*0:0*/ __VicoFirstIteration;
     CData/*0:0*/ __Vtrigprevexpr___TOP__scl_4x__0;
     CData/*0:0*/ __VactContinue;
+    VlWide<3>/*71:0*/ I2C_main__DOT__my_mem;
     IData/*31:0*/ __VactIterCount;
-    QData/*63:0*/ I2C_main__DOT__my_mem;
     VlTriggerVec<1> __VstlTriggered;
     VlTriggerVec<1> __VicoTriggered;
     VlTriggerVec<1> __VactTriggered;
@@ -63,7 +65,7 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final : public VerilatedModule
     Vtop__Syms* const vlSymsp;
 
     // PARAMETERS
-    static constexpr CData/*5:0*/ I2C_main__DOT__byte_count_max = 7U;
+    static constexpr CData/*5:0*/ I2C_main__DOT__byte_count_max = 8U;
 
     // CONSTRUCTORS
     Vtop___024root(Vtop__Syms* symsp, const char* v__name);

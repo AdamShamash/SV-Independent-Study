@@ -38,17 +38,18 @@ VL_ATTR_COLD void Vtop___024root__trace_init_sub__TOP__0(Vtop___024root* vlSelf,
     tracep->declBit(c+23,0,"sendStart",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::VAR, VerilatedTraceSigType::LOGIC, false,-1);
     tracep->declBit(c+24,0,"sendStop",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::VAR, VerilatedTraceSigType::LOGIC, false,-1);
     tracep->declBit(c+25,0,"tester",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::VAR, VerilatedTraceSigType::LOGIC, false,-1);
-    tracep->declBus(c+26,0,"counter",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::VAR, VerilatedTraceSigType::LOGIC, false,-1, 1,0);
-    tracep->declBus(c+27,0,"address_check",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::VAR, VerilatedTraceSigType::LOGIC, false,-1, 2,0);
-    tracep->declBus(c+28,0,"bit_count",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::VAR, VerilatedTraceSigType::LOGIC, false,-1, 3,0);
-    tracep->declBus(c+29,0,"addressFromMaster",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::VAR, VerilatedTraceSigType::LOGIC, false,-1, 6,0);
-    tracep->declBus(c+30,0,"registerAddress",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::VAR, VerilatedTraceSigType::LOGIC, false,-1, 7,0);
-    tracep->declBus(c+31,0,"dataByte",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::VAR, VerilatedTraceSigType::LOGIC, false,-1, 7,0);
-    tracep->declQuad(c+32,0,"my_mem",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::VAR, VerilatedTraceSigType::LOGIC, false,-1, 63,0);
-    tracep->declBus(c+34,0,"mem_count",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::VAR, VerilatedTraceSigType::LOGIC, false,-1, 5,0);
-    tracep->declBus(c+35,0,"byte_count",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::VAR, VerilatedTraceSigType::LOGIC, false,-1, 5,0);
-    tracep->declBus(c+37,0,"byte_count_max",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::BIT, false,-1, 5,0);
-    tracep->declBus(c+36,0,"state",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::VAR, VerilatedTraceSigType::LOGIC, false,-1, 2,0);
+    tracep->declBit(c+26,0,"ackCount",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::VAR, VerilatedTraceSigType::LOGIC, false,-1);
+    tracep->declBus(c+27,0,"counter",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::VAR, VerilatedTraceSigType::LOGIC, false,-1, 1,0);
+    tracep->declBus(c+28,0,"address_check",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::VAR, VerilatedTraceSigType::LOGIC, false,-1, 2,0);
+    tracep->declBus(c+29,0,"bit_count",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::VAR, VerilatedTraceSigType::LOGIC, false,-1, 3,0);
+    tracep->declBus(c+30,0,"addressFromMaster",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::VAR, VerilatedTraceSigType::LOGIC, false,-1, 6,0);
+    tracep->declBus(c+31,0,"registerAddress",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::VAR, VerilatedTraceSigType::LOGIC, false,-1, 7,0);
+    tracep->declBus(c+32,0,"dataByte",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::VAR, VerilatedTraceSigType::LOGIC, false,-1, 7,0);
+    tracep->declArray(c+33,0,"my_mem",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::VAR, VerilatedTraceSigType::LOGIC, false,-1, 71,0);
+    tracep->declBus(c+36,0,"mem_count",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::VAR, VerilatedTraceSigType::LOGIC, false,-1, 6,0);
+    tracep->declBus(c+39,0,"byte_count_max",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::BIT, false,-1, 5,0);
+    tracep->declBus(c+37,0,"byte_count",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::VAR, VerilatedTraceSigType::LOGIC, false,-1, 5,0);
+    tracep->declBus(c+38,0,"state",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::VAR, VerilatedTraceSigType::LOGIC, false,-1, 2,0);
     tracep->popPrefix();
 }
 
@@ -97,7 +98,7 @@ VL_ATTR_COLD void Vtop___024root__trace_const_0_sub_0(Vtop___024root* vlSelf, Ve
     // Init
     uint32_t* const oldp VL_ATTR_UNUSED = bufp->oldp(vlSymsp->__Vm_baseCode);
     // Body
-    bufp->fullCData(oldp+37,(7U),6);
+    bufp->fullCData(oldp+39,(8U),6);
 }
 
 VL_ATTR_COLD void Vtop___024root__trace_full_0_sub_0(Vtop___024root* vlSelf, VerilatedFst::Buffer* bufp);
@@ -144,14 +145,15 @@ VL_ATTR_COLD void Vtop___024root__trace_full_0_sub_0(Vtop___024root* vlSelf, Ver
     bufp->fullBit(oldp+23,(vlSelfRef.I2C_main__DOT__sendStart));
     bufp->fullBit(oldp+24,(vlSelfRef.I2C_main__DOT__sendStop));
     bufp->fullBit(oldp+25,(vlSelfRef.I2C_main__DOT__tester));
-    bufp->fullCData(oldp+26,(vlSelfRef.I2C_main__DOT__counter),2);
-    bufp->fullCData(oldp+27,(vlSelfRef.I2C_main__DOT__address_check),3);
-    bufp->fullCData(oldp+28,(vlSelfRef.I2C_main__DOT__bit_count),4);
-    bufp->fullCData(oldp+29,(vlSelfRef.I2C_main__DOT__addressFromMaster),7);
-    bufp->fullCData(oldp+30,(vlSelfRef.I2C_main__DOT__registerAddress),8);
-    bufp->fullCData(oldp+31,(vlSelfRef.I2C_main__DOT__dataByte),8);
-    bufp->fullQData(oldp+32,(vlSelfRef.I2C_main__DOT__my_mem),64);
-    bufp->fullCData(oldp+34,(vlSelfRef.I2C_main__DOT__mem_count),6);
-    bufp->fullCData(oldp+35,(vlSelfRef.I2C_main__DOT__byte_count),6);
-    bufp->fullCData(oldp+36,(vlSelfRef.I2C_main__DOT__state),3);
+    bufp->fullBit(oldp+26,(vlSelfRef.I2C_main__DOT__ackCount));
+    bufp->fullCData(oldp+27,(vlSelfRef.I2C_main__DOT__counter),2);
+    bufp->fullCData(oldp+28,(vlSelfRef.I2C_main__DOT__address_check),3);
+    bufp->fullCData(oldp+29,(vlSelfRef.I2C_main__DOT__bit_count),4);
+    bufp->fullCData(oldp+30,(vlSelfRef.I2C_main__DOT__addressFromMaster),7);
+    bufp->fullCData(oldp+31,(vlSelfRef.I2C_main__DOT__registerAddress),8);
+    bufp->fullCData(oldp+32,(vlSelfRef.I2C_main__DOT__dataByte),8);
+    bufp->fullWData(oldp+33,(vlSelfRef.I2C_main__DOT__my_mem),72);
+    bufp->fullCData(oldp+36,(vlSelfRef.I2C_main__DOT__mem_count),7);
+    bufp->fullCData(oldp+37,(vlSelfRef.I2C_main__DOT__byte_count),6);
+    bufp->fullCData(oldp+38,(vlSelfRef.I2C_main__DOT__state),3);
 }

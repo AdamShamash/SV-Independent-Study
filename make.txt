@@ -1,0 +1,2908 @@
+sv2v TestVerilogZ.sv --write=TestVerilogZ.sv.v --top=SystemConnect
+mkdir -p fpga_build
+bash -c "set -o pipefail; yosys -p \"read -vlog2k TestVerilogZ.sv.v; synth_ecp5 -top SystemConnect -json fpga_build/SystemConnect-netlist.json\" 2>&1 | tee fpga_build/synth.log"
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2024  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.48+57 (git sha1 d37449605, clang++ 18.1.8 -fPIC -O3)
+
+-- Running command `read -vlog2k TestVerilogZ.sv.v; synth_ecp5 -top SystemConnect -json fpga_build/SystemConnect-netlist.json' --
+
+1. Executing Verilog-2005 frontend: TestVerilogZ.sv.v
+Parsing Verilog input from `TestVerilogZ.sv.v' to AST representation.
+Warning: Yosys has only limited support for tri-state logic at the moment. (TestVerilogZ.sv.v:22)
+Warning: Yosys has only limited support for tri-state logic at the moment. (TestVerilogZ.sv.v:23)
+Storing AST representation for module `$abstract\SystemConnect'.
+Storing AST representation for module `$abstract\MyClockGen'.
+Storing AST representation for module `$abstract\I2C_main'.
+Successfully finished Verilog frontend.
+
+2. Executing SYNTH_ECP5 pass.
+
+2.1. Executing Verilog-2005 frontend: /tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v
+Parsing Verilog input from `/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v' to AST representation.
+Generating RTLIL representation for module `\LUT4'.
+Generating RTLIL representation for module `\$__ABC9_LUT5'.
+Generating RTLIL representation for module `\$__ABC9_LUT6'.
+Generating RTLIL representation for module `\$__ABC9_LUT7'.
+Generating RTLIL representation for module `\L6MUX21'.
+Generating RTLIL representation for module `\CCU2C'.
+Generating RTLIL representation for module `\TRELLIS_RAM16X2'.
+Generating RTLIL representation for module `\PFUMX'.
+Generating RTLIL representation for module `\TRELLIS_DPR16X4'.
+Generating RTLIL representation for module `\DPR16X4C'.
+Generating RTLIL representation for module `\LUT2'.
+Generating RTLIL representation for module `\TRELLIS_FF'.
+Generating RTLIL representation for module `\TRELLIS_IO'.
+Generating RTLIL representation for module `\INV'.
+Generating RTLIL representation for module `\TRELLIS_COMB'.
+Generating RTLIL representation for module `\DP16KD'.
+Generating RTLIL representation for module `\FD1P3AX'.
+Generating RTLIL representation for module `\FD1P3AY'.
+Generating RTLIL representation for module `\FD1P3BX'.
+Generating RTLIL representation for module `\FD1P3DX'.
+Generating RTLIL representation for module `\FD1P3IX'.
+Generating RTLIL representation for module `\FD1P3JX'.
+Generating RTLIL representation for module `\FD1S3AX'.
+Generating RTLIL representation for module `\FD1S3AY'.
+Generating RTLIL representation for module `\FD1S3BX'.
+Generating RTLIL representation for module `\FD1S3DX'.
+Generating RTLIL representation for module `\FD1S3IX'.
+Generating RTLIL representation for module `\FD1S3JX'.
+Generating RTLIL representation for module `\IFS1P3BX'.
+Generating RTLIL representation for module `\IFS1P3DX'.
+Generating RTLIL representation for module `\IFS1P3IX'.
+Generating RTLIL representation for module `\IFS1P3JX'.
+Generating RTLIL representation for module `\OFS1P3BX'.
+Generating RTLIL representation for module `\OFS1P3DX'.
+Generating RTLIL representation for module `\OFS1P3IX'.
+Generating RTLIL representation for module `\OFS1P3JX'.
+Generating RTLIL representation for module `\IB'.
+Generating RTLIL representation for module `\IBPU'.
+Generating RTLIL representation for module `\IBPD'.
+Generating RTLIL representation for module `\OB'.
+Generating RTLIL representation for module `\OBZ'.
+Generating RTLIL representation for module `\OBZPU'.
+Generating RTLIL representation for module `\OBZPD'.
+Generating RTLIL representation for module `\OBCO'.
+Generating RTLIL representation for module `\BB'.
+Generating RTLIL representation for module `\BBPU'.
+Generating RTLIL representation for module `\BBPD'.
+Generating RTLIL representation for module `\ILVDS'.
+Generating RTLIL representation for module `\OLVDS'.
+Successfully finished Verilog frontend.
+
+2.2. Executing Verilog-2005 frontend: /tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_bb.v
+Parsing Verilog input from `/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_bb.v' to AST representation.
+Generating RTLIL representation for module `\MULT18X18D'.
+Generating RTLIL representation for module `\ALU54B'.
+Generating RTLIL representation for module `\EHXPLLL'.
+Generating RTLIL representation for module `\DTR'.
+Generating RTLIL representation for module `\OSCG'.
+Generating RTLIL representation for module `\USRMCLK'.
+Generating RTLIL representation for module `\JTAGG'.
+Generating RTLIL representation for module `\DELAYF'.
+Generating RTLIL representation for module `\DELAYG'.
+Generating RTLIL representation for module `\IDDRX1F'.
+Generating RTLIL representation for module `\IDDRX2F'.
+Generating RTLIL representation for module `\IDDR71B'.
+Generating RTLIL representation for module `\IDDRX2DQA'.
+Generating RTLIL representation for module `\ODDRX1F'.
+Generating RTLIL representation for module `\ODDRX2F'.
+Generating RTLIL representation for module `\ODDR71B'.
+Generating RTLIL representation for module `\OSHX2A'.
+Generating RTLIL representation for module `\ODDRX2DQA'.
+Generating RTLIL representation for module `\ODDRX2DQSB'.
+Generating RTLIL representation for module `\TSHX2DQA'.
+Generating RTLIL representation for module `\TSHX2DQSA'.
+Generating RTLIL representation for module `\DQSBUFM'.
+Generating RTLIL representation for module `\DDRDLLA'.
+Generating RTLIL representation for module `\DLLDELD'.
+Generating RTLIL representation for module `\CLKDIVF'.
+Generating RTLIL representation for module `\ECLKSYNCB'.
+Generating RTLIL representation for module `\ECLKBRIDGECS'.
+Generating RTLIL representation for module `\DCCA'.
+Generating RTLIL representation for module `\DCSC'.
+Generating RTLIL representation for module `\DCUA'.
+Generating RTLIL representation for module `\EXTREFB'.
+Generating RTLIL representation for module `\PCSCLKDIV'.
+Generating RTLIL representation for module `\PUR'.
+Generating RTLIL representation for module `\GSR'.
+Generating RTLIL representation for module `\SGSR'.
+Generating RTLIL representation for module `\PDPW16KD'.
+Successfully finished Verilog frontend.
+
+2.3. Executing HIERARCHY pass (managing design hierarchy).
+
+2.4. Executing AST frontend in derive mode using pre-parsed AST for module `\SystemConnect'.
+Generating RTLIL representation for module `\SystemConnect'.
+
+2.4.1. Analyzing design hierarchy..
+Top module:  \SystemConnect
+
+2.4.2. Executing AST frontend in derive mode using pre-parsed AST for module `\I2C_main'.
+Generating RTLIL representation for module `\I2C_main'.
+
+2.4.3. Executing AST frontend in derive mode using pre-parsed AST for module `\MyClockGen'.
+Generating RTLIL representation for module `\MyClockGen'.
+
+2.4.4. Analyzing design hierarchy..
+Top module:  \SystemConnect
+Used module:     \I2C_main
+Used module:     \MyClockGen
+
+2.4.5. Analyzing design hierarchy..
+Top module:  \SystemConnect
+Used module:     \I2C_main
+Used module:     \MyClockGen
+Removing unused module `$abstract\I2C_main'.
+Removing unused module `$abstract\MyClockGen'.
+Removing unused module `$abstract\SystemConnect'.
+Removed 3 unused modules.
+
+2.5. Executing PROC pass (convert processes to netlists).
+
+2.5.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\TRELLIS_DPR16X4.$proc$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:213$117'.
+Cleaned up 1 empty switch.
+
+2.5.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:350$224 in module TRELLIS_FF.
+Marked 1 switch rules as full_case in process $proc$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:285$176 in module DPR16X4C.
+Marked 1 switch rules as full_case in process $proc$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:221$118 in module TRELLIS_DPR16X4.
+Marked 9 switch rules as full_case in process $proc$TestVerilogZ.sv.v:144$233 in module I2C_main.
+Removed a total of 0 dead cases.
+
+2.5.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 45 assignments to connections.
+
+2.5.4. Executing PROC_INIT pass (extract init attributes).
+Found init rule in `\TRELLIS_FF.$proc$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:0$225'.
+  Set init value: \Q = 1'0
+
+2.5.5. Executing PROC_ARST pass (detect async resets in processes).
+
+2.5.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~30 debug messages>
+
+2.5.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\TRELLIS_FF.$proc$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:0$225'.
+Creating decoders for process `\TRELLIS_FF.$proc$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:350$224'.
+     1/1: $0\Q[0:0]
+Creating decoders for process `\DPR16X4C.$proc$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:0$199'.
+Creating decoders for process `\DPR16X4C.$proc$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:285$176'.
+     1/3: $1$memwr$\ram$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:287$175_EN[3:0]$182
+     2/3: $1$memwr$\ram$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:287$175_DATA[3:0]$181
+     3/3: $1$memwr$\ram$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:287$175_ADDR[3:0]$180
+Creating decoders for process `\TRELLIS_DPR16X4.$proc$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:0$142'.
+Creating decoders for process `\TRELLIS_DPR16X4.$proc$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:221$118'.
+     1/3: $1$memwr$\mem$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:223$116_EN[3:0]$124
+     2/3: $1$memwr$\mem$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:223$116_DATA[3:0]$123
+     3/3: $1$memwr$\mem$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:223$116_ADDR[3:0]$122
+Creating decoders for process `\TRELLIS_DPR16X4.$proc$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:213$117'.
+Creating decoders for process `\I2C_main.$proc$TestVerilogZ.sv.v:144$233'.
+     1/30: $5$lookahead\my_mem$232[71:0]$285
+     2/30: $5$bitselwrite$pos$TestVerilogZ.sv.v:259$231[6:0]$284
+     3/30: $4$lookahead\my_mem$232[71:0]$255
+     4/30: $4$bitselwrite$pos$TestVerilogZ.sv.v:259$231[6:0]$254
+     5/30: $3$lookahead\my_mem$232[71:0]$252
+     6/30: $3$bitselwrite$pos$TestVerilogZ.sv.v:259$231[6:0]$251
+     7/30: $2$lookahead\my_mem$232[71:0]$250
+     8/30: $2$bitselwrite$pos$TestVerilogZ.sv.v:259$231[6:0]$249
+     9/30: $1$lookahead\my_mem$232[71:0]$238
+    10/30: $1$bitselwrite$pos$TestVerilogZ.sv.v:259$231[6:0]$237
+    11/30: $0\counter[1:0]
+    12/30: $0\state[2:0]
+    13/30: $0\byte_count[5:0]
+    14/30: $0\mem_count[6:0]
+    15/30: $0\dataByte[7:0]
+    16/30: $0\registerAddress[7:0]
+    17/30: $0\addressFromMaster[6:0]
+    18/30: $0\bit_count[3:0]
+    19/30: $0\address_check[2:0]
+    20/30: $0\ackCount[0:0]
+    21/30: $0\tester[0:0]
+    22/30: $0\sendStop[0:0]
+    23/30: $0\sendStart[0:0]
+    24/30: $0\repeated_start[0:0]
+    25/30: $0\writeComplete[0:0]
+    26/30: $0\rw[0:0]
+    27/30: $0\ledByte[7:0]
+    28/30: $0\sda_o[0:0]
+    29/30: $0\receiving[0:0]
+    30/30: $0\debug[4:0]
+
+2.5.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+2.5.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\TRELLIS_FF.\Q' using process `\TRELLIS_FF.$proc$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:350$224'.
+  created $dff cell `$procdff$741' with positive edge clock.
+Creating register for signal `\DPR16X4C.\i' using process `\DPR16X4C.$proc$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:0$199'.
+  created direct connection (no actual register cell created).
+Creating register for signal `\DPR16X4C.$memwr$\ram$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:281$160_EN' using process `\DPR16X4C.$proc$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:0$199'.
+  created direct connection (no actual register cell created).
+Creating register for signal `\DPR16X4C.$memwr$\ram$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:281$161_EN' using process `\DPR16X4C.$proc$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:0$199'.
+  created direct connection (no actual register cell created).
+Creating register for signal `\DPR16X4C.$memwr$\ram$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:281$162_EN' using process `\DPR16X4C.$proc$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:0$199'.
+  created direct connection (no actual register cell created).
+Creating register for signal `\DPR16X4C.$memwr$\ram$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:281$163_EN' using process `\DPR16X4C.$proc$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:0$199'.
+  created direct connection (no actual register cell created).
+Creating register for signal `\DPR16X4C.$memwr$\ram$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:281$164_EN' using process `\DPR16X4C.$proc$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:0$199'.
+  created direct connection (no actual register cell created).
+Creating register for signal `\DPR16X4C.$memwr$\ram$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:281$165_EN' using process `\DPR16X4C.$proc$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:0$199'.
+  created direct connection (no actual register cell created).
+Creating register for signal `\DPR16X4C.$memwr$\ram$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:281$166_EN' using process `\DPR16X4C.$proc$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:0$199'.
+  created direct connection (no actual register cell created).
+Creating register for signal `\DPR16X4C.$memwr$\ram$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:281$167_EN' using process `\DPR16X4C.$proc$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:0$199'.
+  created direct connection (no actual register cell created).
+Creating register for signal `\DPR16X4C.$memwr$\ram$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:281$168_EN' using process `\DPR16X4C.$proc$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:0$199'.
+  created direct connection (no actual register cell created).
+Creating register for signal `\DPR16X4C.$memwr$\ram$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:281$169_EN' using process `\DPR16X4C.$proc$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:0$199'.
+  created direct connection (no actual register cell created).
+Creating register for signal `\DPR16X4C.$memwr$\ram$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:281$170_EN' using process `\DPR16X4C.$proc$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:0$199'.
+  created direct connection (no actual register cell created).
+Creating register for signal `\DPR16X4C.$memwr$\ram$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:281$171_EN' using process `\DPR16X4C.$proc$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:0$199'.
+  created direct connection (no actual register cell created).
+Creating register for signal `\DPR16X4C.$memwr$\ram$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:281$172_EN' using process `\DPR16X4C.$proc$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:0$199'.
+  created direct connection (no actual register cell created).
+Creating register for signal `\DPR16X4C.$memwr$\ram$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:281$173_EN' using process `\DPR16X4C.$proc$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:0$199'.
+  created direct connection (no actual register cell created).
+Creating register for signal `\DPR16X4C.$memwr$\ram$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:281$174_EN' using process `\DPR16X4C.$proc$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:0$199'.
+  created direct connection (no actual register cell created).
+Creating register for signal `\DPR16X4C.$memwr$\ram$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:287$175_ADDR' using process `\DPR16X4C.$proc$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:285$176'.
+  created $dff cell `$procdff$742' with positive edge clock.
+Creating register for signal `\DPR16X4C.$memwr$\ram$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:287$175_DATA' using process `\DPR16X4C.$proc$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:285$176'.
+  created $dff cell `$procdff$743' with positive edge clock.
+Creating register for signal `\DPR16X4C.$memwr$\ram$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:287$175_EN' using process `\DPR16X4C.$proc$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:285$176'.
+  created $dff cell `$procdff$744' with positive edge clock.
+Creating register for signal `\TRELLIS_DPR16X4.\i' using process `\TRELLIS_DPR16X4.$proc$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:0$142'.
+  created direct connection (no actual register cell created).
+Creating register for signal `\TRELLIS_DPR16X4.$memwr$\mem$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:207$100_EN' using process `\TRELLIS_DPR16X4.$proc$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:0$142'.
+  created direct connection (no actual register cell created).
+Creating register for signal `\TRELLIS_DPR16X4.$memwr$\mem$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:207$101_EN' using process `\TRELLIS_DPR16X4.$proc$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:0$142'.
+  created direct connection (no actual register cell created).
+Creating register for signal `\TRELLIS_DPR16X4.$memwr$\mem$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:207$102_EN' using process `\TRELLIS_DPR16X4.$proc$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:0$142'.
+  created direct connection (no actual register cell created).
+Creating register for signal `\TRELLIS_DPR16X4.$memwr$\mem$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:207$103_EN' using process `\TRELLIS_DPR16X4.$proc$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:0$142'.
+  created direct connection (no actual register cell created).
+Creating register for signal `\TRELLIS_DPR16X4.$memwr$\mem$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:207$104_EN' using process `\TRELLIS_DPR16X4.$proc$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:0$142'.
+  created direct connection (no actual register cell created).
+Creating register for signal `\TRELLIS_DPR16X4.$memwr$\mem$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:207$105_EN' using process `\TRELLIS_DPR16X4.$proc$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:0$142'.
+  created direct connection (no actual register cell created).
+Creating register for signal `\TRELLIS_DPR16X4.$memwr$\mem$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:207$106_EN' using process `\TRELLIS_DPR16X4.$proc$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:0$142'.
+  created direct connection (no actual register cell created).
+Creating register for signal `\TRELLIS_DPR16X4.$memwr$\mem$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:207$107_EN' using process `\TRELLIS_DPR16X4.$proc$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:0$142'.
+  created direct connection (no actual register cell created).
+Creating register for signal `\TRELLIS_DPR16X4.$memwr$\mem$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:207$108_EN' using process `\TRELLIS_DPR16X4.$proc$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:0$142'.
+  created direct connection (no actual register cell created).
+Creating register for signal `\TRELLIS_DPR16X4.$memwr$\mem$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:207$109_EN' using process `\TRELLIS_DPR16X4.$proc$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:0$142'.
+  created direct connection (no actual register cell created).
+Creating register for signal `\TRELLIS_DPR16X4.$memwr$\mem$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:207$110_EN' using process `\TRELLIS_DPR16X4.$proc$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:0$142'.
+  created direct connection (no actual register cell created).
+Creating register for signal `\TRELLIS_DPR16X4.$memwr$\mem$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:207$111_EN' using process `\TRELLIS_DPR16X4.$proc$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:0$142'.
+  created direct connection (no actual register cell created).
+Creating register for signal `\TRELLIS_DPR16X4.$memwr$\mem$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:207$112_EN' using process `\TRELLIS_DPR16X4.$proc$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:0$142'.
+  created direct connection (no actual register cell created).
+Creating register for signal `\TRELLIS_DPR16X4.$memwr$\mem$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:207$113_EN' using process `\TRELLIS_DPR16X4.$proc$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:0$142'.
+  created direct connection (no actual register cell created).
+Creating register for signal `\TRELLIS_DPR16X4.$memwr$\mem$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:207$114_EN' using process `\TRELLIS_DPR16X4.$proc$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:0$142'.
+  created direct connection (no actual register cell created).
+Creating register for signal `\TRELLIS_DPR16X4.$memwr$\mem$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:207$115_EN' using process `\TRELLIS_DPR16X4.$proc$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:0$142'.
+  created direct connection (no actual register cell created).
+Creating register for signal `\TRELLIS_DPR16X4.$memwr$\mem$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:223$116_ADDR' using process `\TRELLIS_DPR16X4.$proc$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:221$118'.
+  created $dff cell `$procdff$745' with positive edge clock.
+Creating register for signal `\TRELLIS_DPR16X4.$memwr$\mem$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:223$116_DATA' using process `\TRELLIS_DPR16X4.$proc$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:221$118'.
+  created $dff cell `$procdff$746' with positive edge clock.
+Creating register for signal `\TRELLIS_DPR16X4.$memwr$\mem$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:223$116_EN' using process `\TRELLIS_DPR16X4.$proc$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:221$118'.
+  created $dff cell `$procdff$747' with positive edge clock.
+Creating register for signal `\TRELLIS_DPR16X4.\muxwre' using process `\TRELLIS_DPR16X4.$proc$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:213$117'.
+  created direct connection (no actual register cell created).
+Creating register for signal `\I2C_main.\debug' using process `\I2C_main.$proc$TestVerilogZ.sv.v:144$233'.
+  created $dff cell `$procdff$748' with positive edge clock.
+Creating register for signal `\I2C_main.\receiving' using process `\I2C_main.$proc$TestVerilogZ.sv.v:144$233'.
+  created $dff cell `$procdff$749' with positive edge clock.
+Creating register for signal `\I2C_main.\sda_o' using process `\I2C_main.$proc$TestVerilogZ.sv.v:144$233'.
+  created $dff cell `$procdff$750' with positive edge clock.
+Creating register for signal `\I2C_main.\ledByte' using process `\I2C_main.$proc$TestVerilogZ.sv.v:144$233'.
+  created $dff cell `$procdff$751' with positive edge clock.
+Creating register for signal `\I2C_main.\rw' using process `\I2C_main.$proc$TestVerilogZ.sv.v:144$233'.
+  created $dff cell `$procdff$752' with positive edge clock.
+Creating register for signal `\I2C_main.\writeComplete' using process `\I2C_main.$proc$TestVerilogZ.sv.v:144$233'.
+  created $dff cell `$procdff$753' with positive edge clock.
+Creating register for signal `\I2C_main.\repeated_start' using process `\I2C_main.$proc$TestVerilogZ.sv.v:144$233'.
+  created $dff cell `$procdff$754' with positive edge clock.
+Creating register for signal `\I2C_main.\sendStart' using process `\I2C_main.$proc$TestVerilogZ.sv.v:144$233'.
+  created $dff cell `$procdff$755' with positive edge clock.
+Creating register for signal `\I2C_main.\sendStop' using process `\I2C_main.$proc$TestVerilogZ.sv.v:144$233'.
+  created $dff cell `$procdff$756' with positive edge clock.
+Creating register for signal `\I2C_main.\tester' using process `\I2C_main.$proc$TestVerilogZ.sv.v:144$233'.
+  created $dff cell `$procdff$757' with positive edge clock.
+Creating register for signal `\I2C_main.\ackCount' using process `\I2C_main.$proc$TestVerilogZ.sv.v:144$233'.
+  created $dff cell `$procdff$758' with positive edge clock.
+Creating register for signal `\I2C_main.\counter' using process `\I2C_main.$proc$TestVerilogZ.sv.v:144$233'.
+  created $dff cell `$procdff$759' with positive edge clock.
+Creating register for signal `\I2C_main.\address_check' using process `\I2C_main.$proc$TestVerilogZ.sv.v:144$233'.
+  created $dff cell `$procdff$760' with positive edge clock.
+Creating register for signal `\I2C_main.\bit_count' using process `\I2C_main.$proc$TestVerilogZ.sv.v:144$233'.
+  created $dff cell `$procdff$761' with positive edge clock.
+Creating register for signal `\I2C_main.\addressFromMaster' using process `\I2C_main.$proc$TestVerilogZ.sv.v:144$233'.
+  created $dff cell `$procdff$762' with positive edge clock.
+Creating register for signal `\I2C_main.\registerAddress' using process `\I2C_main.$proc$TestVerilogZ.sv.v:144$233'.
+  created $dff cell `$procdff$763' with positive edge clock.
+Creating register for signal `\I2C_main.\dataByte' using process `\I2C_main.$proc$TestVerilogZ.sv.v:144$233'.
+  created $dff cell `$procdff$764' with positive edge clock.
+Creating register for signal `\I2C_main.\my_mem' using process `\I2C_main.$proc$TestVerilogZ.sv.v:144$233'.
+  created $dff cell `$procdff$765' with positive edge clock.
+Creating register for signal `\I2C_main.\mem_count' using process `\I2C_main.$proc$TestVerilogZ.sv.v:144$233'.
+  created $dff cell `$procdff$766' with positive edge clock.
+Creating register for signal `\I2C_main.\byte_count' using process `\I2C_main.$proc$TestVerilogZ.sv.v:144$233'.
+  created $dff cell `$procdff$767' with positive edge clock.
+Creating register for signal `\I2C_main.\state' using process `\I2C_main.$proc$TestVerilogZ.sv.v:144$233'.
+  created $dff cell `$procdff$768' with positive edge clock.
+Creating register for signal `\I2C_main.$bitselwrite$pos$TestVerilogZ.sv.v:259$231' using process `\I2C_main.$proc$TestVerilogZ.sv.v:144$233'.
+  created $dff cell `$procdff$769' with positive edge clock.
+Creating register for signal `\I2C_main.$lookahead\my_mem$232' using process `\I2C_main.$proc$TestVerilogZ.sv.v:144$233'.
+  created $dff cell `$procdff$770' with positive edge clock.
+
+2.5.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+2.5.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `TRELLIS_FF.$proc$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:0$225'.
+Found and cleaned up 2 empty switches in `\TRELLIS_FF.$proc$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:350$224'.
+Removing empty process `TRELLIS_FF.$proc$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:350$224'.
+Removing empty process `DPR16X4C.$proc$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:0$199'.
+Found and cleaned up 1 empty switch in `\DPR16X4C.$proc$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:285$176'.
+Removing empty process `TRELLIS_DPR16X4.$proc$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:0$142'.
+Found and cleaned up 1 empty switch in `\TRELLIS_DPR16X4.$proc$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:221$118'.
+Removing empty process `TRELLIS_DPR16X4.$proc$/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_sim.v:213$117'.
+Found and cleaned up 26 empty switches in `\I2C_main.$proc$TestVerilogZ.sv.v:144$233'.
+Removing empty process `I2C_main.$proc$TestVerilogZ.sv.v:144$233'.
+Cleaned up 30 empty switches.
+
+2.5.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module MyClockGen.
+Optimizing module I2C_main.
+<suppressed ~13 debug messages>
+Optimizing module SystemConnect.
+
+2.6. Executing FLATTEN pass (flatten design).
+Deleting now unused module MyClockGen.
+Deleting now unused module I2C_main.
+<suppressed ~2 debug messages>
+
+2.7. Executing TRIBUF pass.
+
+2.8. Executing DEMINOUT pass (demote inout ports to input or output).
+
+2.9. Executing OPT_EXPR pass (perform const folding).
+Optimizing module SystemConnect.
+<suppressed ~3 debug messages>
+
+2.10. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \SystemConnect..
+Removed 29 unused cells and 227 unused wires.
+<suppressed ~36 debug messages>
+
+2.11. Executing CHECK pass (checking for obvious problems).
+Checking module SystemConnect...
+Warning: Wire SystemConnect.\gpdi_scl is used but has no driver.
+Found and reported 1 problems.
+
+2.12. Executing OPT pass (performing simple optimizations).
+
+2.12.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module SystemConnect.
+
+2.12.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\SystemConnect'.
+<suppressed ~33 debug messages>
+Removed a total of 11 cells.
+
+2.12.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \SystemConnect..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+      Replacing known input bits on port A of cell $flatten\instance1.$procmux$607: \instance1.repeated_start -> 1'0
+  Analyzing evaluation results.
+    dead port 1/2 on $mux $flatten\instance1.$procmux$328.
+    dead port 1/2 on $mux $flatten\instance1.$procmux$331.
+    dead port 2/2 on $mux $flatten\instance1.$procmux$333.
+    dead port 1/2 on $mux $flatten\instance1.$procmux$336.
+    dead port 1/2 on $mux $flatten\instance1.$procmux$358.
+    dead port 2/2 on $mux $flatten\instance1.$procmux$360.
+    dead port 1/2 on $mux $flatten\instance1.$procmux$363.
+    dead port 2/2 on $mux $flatten\instance1.$procmux$381.
+    dead port 1/2 on $mux $flatten\instance1.$procmux$384.
+    dead port 1/2 on $mux $flatten\instance1.$procmux$399.
+Removed 10 multiplexer ports.
+<suppressed ~36 debug messages>
+
+2.12.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \SystemConnect.
+  Optimizing cells in module \SystemConnect.
+Performed a total of 1 changes.
+
+2.12.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\SystemConnect'.
+<suppressed ~3 debug messages>
+Removed a total of 1 cells.
+
+2.12.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.12.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \SystemConnect..
+Removed 0 unused cells and 25 unused wires.
+<suppressed ~3 debug messages>
+
+2.12.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module SystemConnect.
+
+2.12.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+2.12.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \SystemConnect..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~37 debug messages>
+
+2.12.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \SystemConnect.
+Performed a total of 0 changes.
+
+2.12.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\SystemConnect'.
+Removed a total of 0 cells.
+
+2.12.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.12.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \SystemConnect..
+
+2.12.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module SystemConnect.
+
+2.12.16. Finished OPT passes. (There is nothing left to do.)
+
+2.13. Executing FSM pass (extract and optimize FSM).
+
+2.13.1. Executing FSM_DETECT pass (finding FSMs in design).
+Not marking SystemConnect.instance1.addressFromMaster as FSM state register:
+    Users of register don't seem to benefit from recoding.
+Not marking SystemConnect.instance1.dataByte as FSM state register:
+    Users of register don't seem to benefit from recoding.
+Not marking SystemConnect.instance1.registerAddress as FSM state register:
+    Users of register don't seem to benefit from recoding.
+Found FSM state register SystemConnect.instance1.state.
+
+2.13.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+Extracting FSM `\instance1.state' from module `\SystemConnect'.
+  found $dff cell for state register: $flatten\instance1.$procdff$768
+  root of input selection tree: $flatten\instance1.$0\state[2:0]
+  found reset state: 3'000 (guessed from mux tree)
+  found ctrl input: \instance1.reset
+  found ctrl input: $flatten\instance1.$eq$TestVerilogZ.sv.v:184$248_Y
+  found ctrl input: $flatten\instance1.$logic_and$TestVerilogZ.sv.v:175$247_Y
+  found ctrl input: $flatten\instance1.$logic_and$TestVerilogZ.sv.v:169$244_Y
+  found ctrl input: \instance1.sendStart
+  found state code: 3'001
+  found ctrl input: \instance1.sendStop
+  found state code: 3'000
+  found ctrl input: $flatten\instance1.$eq$TestVerilogZ.sv.v:187$253_Y
+  found ctrl input: $flatten\instance1.$eq$TestVerilogZ.sv.v:275$299_Y
+  found ctrl input: $flatten\instance1.$eq$TestVerilogZ.sv.v:268$297_Y
+  found ctrl input: $flatten\instance1.$eq$TestVerilogZ.sv.v:255$283_Y
+  found ctrl input: $flatten\instance1.$eq$TestVerilogZ.sv.v:242$277_Y
+  found ctrl input: $flatten\instance1.$eq$TestVerilogZ.sv.v:229$271_Y
+  found ctrl input: $flatten\instance1.$eq$TestVerilogZ.sv.v:209$264_Y
+  found ctrl input: $flatten\instance1.$eq$TestVerilogZ.sv.v:216$270_Y
+  found ctrl input: \instance1.repeated_start
+  found state code: 3'010
+  found state code: 3'110
+  found ctrl input: \instance1.rw
+  found state code: 3'011
+  found ctrl input: $flatten\instance1.$eq$TestVerilogZ.sv.v:261$295_Y
+  found state code: 3'100
+  found ctrl input: \instance1.ackCount
+  found ctrl input: $flatten\instance1.$logic_and$TestVerilogZ.sv.v:198$263_Y
+  found ctrl input: $flatten\instance1.$logic_or$TestVerilogZ.sv.v:189$260_Y
+  found state code: 3'111
+  found state code: 3'101
+  found ctrl output: $flatten\instance1.$eq$TestVerilogZ.sv.v:275$299_Y
+  found ctrl output: $flatten\instance1.$eq$TestVerilogZ.sv.v:268$297_Y
+  found ctrl output: $flatten\instance1.$eq$TestVerilogZ.sv.v:255$283_Y
+  found ctrl output: $flatten\instance1.$eq$TestVerilogZ.sv.v:242$277_Y
+  found ctrl output: $flatten\instance1.$eq$TestVerilogZ.sv.v:229$271_Y
+  found ctrl output: $flatten\instance1.$eq$TestVerilogZ.sv.v:209$264_Y
+  found ctrl output: $flatten\instance1.$eq$TestVerilogZ.sv.v:175$246_Y
+  found ctrl output: $flatten\instance1.$eq$TestVerilogZ.sv.v:169$243_Y
+  ctrl inputs: { \instance1.reset \instance1.rw \instance1.repeated_start \instance1.sendStart \instance1.sendStop \instance1.ackCount $flatten\instance1.$logic_and$TestVerilogZ.sv.v:169$244_Y $flatten\instance1.$logic_and$TestVerilogZ.sv.v:175$247_Y $flatten\instance1.$eq$TestVerilogZ.sv.v:184$248_Y $flatten\instance1.$eq$TestVerilogZ.sv.v:187$253_Y $flatten\instance1.$logic_or$TestVerilogZ.sv.v:189$260_Y $flatten\instance1.$logic_and$TestVerilogZ.sv.v:198$263_Y $flatten\instance1.$eq$TestVerilogZ.sv.v:216$270_Y $flatten\instance1.$eq$TestVerilogZ.sv.v:261$295_Y }
+  ctrl outputs: { $flatten\instance1.$0\state[2:0] $flatten\instance1.$eq$TestVerilogZ.sv.v:169$243_Y $flatten\instance1.$eq$TestVerilogZ.sv.v:175$246_Y $flatten\instance1.$eq$TestVerilogZ.sv.v:209$264_Y $flatten\instance1.$eq$TestVerilogZ.sv.v:229$271_Y $flatten\instance1.$eq$TestVerilogZ.sv.v:242$277_Y $flatten\instance1.$eq$TestVerilogZ.sv.v:255$283_Y $flatten\instance1.$eq$TestVerilogZ.sv.v:268$297_Y $flatten\instance1.$eq$TestVerilogZ.sv.v:275$299_Y }
+  transition:      3'000 14'0-----000----- ->      3'000 11'00010000000
+  transition:      3'000 14'0--0--100----- ->      3'000 11'00010000000
+  transition:      3'000 14'0--1--100----- ->      3'001 11'00110000000
+  transition:      3'000 14'0---0-010----- ->      3'000 11'00010000000
+  transition:      3'000 14'0--00-110----- ->      3'000 11'00010000000
+  transition:      3'000 14'0--10-110----- ->      3'001 11'00110000000
+  transition:      3'000 14'0---1--10----- ->      3'000 11'00010000000
+  transition:      3'000 14'0---0-0010---- ->      3'000 11'00010000000
+  transition:      3'000 14'0--00-1010---- ->      3'000 11'00010000000
+  transition:      3'000 14'0--10-1010---- ->      3'001 11'00110000000
+  transition:      3'000 14'0---0-0110---- ->      3'000 11'00010000000
+  transition:      3'000 14'0--00-1110---- ->      3'000 11'00010000000
+  transition:      3'000 14'0--10-1110---- ->      3'001 11'00110000000
+  transition:      3'000 14'0-0-0-001100-- ->      3'000 11'00010000000
+  transition:      3'000 14'0-000-101100-- ->      3'000 11'00010000000
+  transition:      3'000 14'0-010-101100-- ->      3'001 11'00110000000
+  transition:      3'000 14'0-0-0-011100-- ->      3'000 11'00010000000
+  transition:      3'000 14'0-000-111100-- ->      3'000 11'00010000000
+  transition:      3'000 14'0-010-111100-- ->      3'001 11'00110000000
+  transition:      3'000 14'0-0-0---1110-- ->      3'111 11'11110000000
+  transition:      3'000 14'0-1-0---11-0-- ->      3'101 11'10110000000
+  transition:      3'000 14'0---0---11-1-- ->      3'110 11'11010000000
+  transition:      3'000 14'0---1-001----- ->      3'000 11'00010000000
+  transition:      3'000 14'0--01-101----- ->      3'000 11'00010000000
+  transition:      3'000 14'0--11-101----- ->      3'001 11'00110000000
+  transition:      3'000 14'0---1--11----- ->      3'000 11'00010000000
+  transition:      3'000 14'1------------- ->      3'000 11'00010000000
+  transition:      3'100 14'0-----000----- ->      3'100 11'10000000010
+  transition:      3'100 14'0--0--100----- ->      3'100 11'10000000010
+  transition:      3'100 14'0--1--100----- ->      3'001 11'00100000010
+  transition:      3'100 14'0---0-010----- ->      3'100 11'10000000010
+  transition:      3'100 14'0--00-110----- ->      3'100 11'10000000010
+  transition:      3'100 14'0--10-110----- ->      3'001 11'00100000010
+  transition:      3'100 14'0---1--10----- ->      3'000 11'00000000010
+  transition:      3'100 14'0---000010---- ->      3'100 11'10000000010
+  transition:      3'100 14'0--0001010---- ->      3'100 11'10000000010
+  transition:      3'100 14'0--1001010---- ->      3'001 11'00100000010
+  transition:      3'100 14'0---000110---- ->      3'100 11'10000000010
+  transition:      3'100 14'0--0001110---- ->      3'100 11'10000000010
+  transition:      3'100 14'0--1001110---- ->      3'001 11'00100000010
+  transition:      3'100 14'0---01--10---- ->      3'110 11'11000000010
+  transition:      3'100 14'0-0-0-001100-- ->      3'100 11'10000000010
+  transition:      3'100 14'0-000-101100-- ->      3'100 11'10000000010
+  transition:      3'100 14'0-010-101100-- ->      3'001 11'00100000010
+  transition:      3'100 14'0-0-0-011100-- ->      3'100 11'10000000010
+  transition:      3'100 14'0-000-111100-- ->      3'100 11'10000000010
+  transition:      3'100 14'0-010-111100-- ->      3'001 11'00100000010
+  transition:      3'100 14'0-0-0---1110-- ->      3'111 11'11100000010
+  transition:      3'100 14'0-1-0---11-0-- ->      3'101 11'10100000010
+  transition:      3'100 14'0---0---11-1-- ->      3'110 11'11000000010
+  transition:      3'100 14'0---1-001----- ->      3'100 11'10000000010
+  transition:      3'100 14'0--01-101----- ->      3'100 11'10000000010
+  transition:      3'100 14'0--11-101----- ->      3'001 11'00100000010
+  transition:      3'100 14'0---1--11----- ->      3'000 11'00000000010
+  transition:      3'100 14'1------------- ->      3'000 11'00000000010
+  transition:      3'010 14'0-----000----- ->      3'010 11'01000010000
+  transition:      3'010 14'0--0--100----- ->      3'010 11'01000010000
+  transition:      3'010 14'0--1--100----- ->      3'001 11'00100010000
+  transition:      3'010 14'0---0-010----- ->      3'010 11'01000010000
+  transition:      3'010 14'0--00-110----- ->      3'010 11'01000010000
+  transition:      3'010 14'0--10-110----- ->      3'001 11'00100010000
+  transition:      3'010 14'0---1--10----- ->      3'000 11'00000010000
+  transition:      3'010 14'0---0-0010--0- ->      3'010 11'01000010000
+  transition:      3'010 14'0--00-1010--0- ->      3'010 11'01000010000
+  transition:      3'010 14'0--10-1010--0- ->      3'001 11'00100010000
+  transition:      3'010 14'0---0-0110--0- ->      3'010 11'01000010000
+  transition:      3'010 14'0--00-1110--0- ->      3'010 11'01000010000
+  transition:      3'010 14'0--10-1110--0- ->      3'001 11'00100010000
+  transition:      3'010 14'00--0---10--1- ->      3'011 11'01100010000
+  transition:      3'010 14'01--0-0010--1- ->      3'010 11'01000010000
+  transition:      3'010 14'01-00-1010--1- ->      3'010 11'01000010000
+  transition:      3'010 14'01-10-1010--1- ->      3'001 11'00100010000
+  transition:      3'010 14'01--0-0110--1- ->      3'010 11'01000010000
+  transition:      3'010 14'01-00-1110--1- ->      3'010 11'01000010000
+  transition:      3'010 14'01-10-1110--1- ->      3'001 11'00100010000
+  transition:      3'010 14'0-0-0-001100-- ->      3'010 11'01000010000
+  transition:      3'010 14'0-000-101100-- ->      3'010 11'01000010000
+  transition:      3'010 14'0-010-101100-- ->      3'001 11'00100010000
+  transition:      3'010 14'0-0-0-011100-- ->      3'010 11'01000010000
+  transition:      3'010 14'0-000-111100-- ->      3'010 11'01000010000
+  transition:      3'010 14'0-010-111100-- ->      3'001 11'00100010000
+  transition:      3'010 14'0-0-0---1110-- ->      3'111 11'11100010000
+  transition:      3'010 14'0-1-0---11-0-- ->      3'101 11'10100010000
+  transition:      3'010 14'0---0---11-1-- ->      3'110 11'11000010000
+  transition:      3'010 14'0---1-001----- ->      3'010 11'01000010000
+  transition:      3'010 14'0--01-101----- ->      3'010 11'01000010000
+  transition:      3'010 14'0--11-101----- ->      3'001 11'00100010000
+  transition:      3'010 14'0---1--11----- ->      3'000 11'00000010000
+  transition:      3'010 14'1------------- ->      3'000 11'00000010000
+  transition:      3'110 14'0-----000----- ->      3'110 11'11000000100
+  transition:      3'110 14'0--0--100----- ->      3'110 11'11000000100
+  transition:      3'110 14'0--1--100----- ->      3'001 11'00100000100
+  transition:      3'110 14'0---0-010----- ->      3'110 11'11000000100
+  transition:      3'110 14'0--00-110----- ->      3'110 11'11000000100
+  transition:      3'110 14'0--10-110----- ->      3'001 11'00100000100
+  transition:      3'110 14'0---1--10----- ->      3'000 11'00000000100
+  transition:      3'110 14'0---0-0010---0 ->      3'110 11'11000000100
+  transition:      3'110 14'0--00-1010---0 ->      3'110 11'11000000100
+  transition:      3'110 14'0--10-1010---0 ->      3'001 11'00100000100
+  transition:      3'110 14'0---0-0110---0 ->      3'110 11'11000000100
+  transition:      3'110 14'0--00-1110---0 ->      3'110 11'11000000100
+  transition:      3'110 14'0--10-1110---0 ->      3'001 11'00100000100
+  transition:      3'110 14'0---0---10---1 ->      3'100 11'10000000100
+  transition:      3'110 14'0-0-0-001100-- ->      3'110 11'11000000100
+  transition:      3'110 14'0-000-101100-- ->      3'110 11'11000000100
+  transition:      3'110 14'0-010-101100-- ->      3'001 11'00100000100
+  transition:      3'110 14'0-0-0-011100-- ->      3'110 11'11000000100
+  transition:      3'110 14'0-000-111100-- ->      3'110 11'11000000100
+  transition:      3'110 14'0-010-111100-- ->      3'001 11'00100000100
+  transition:      3'110 14'0-0-0---1110-- ->      3'111 11'11100000100
+  transition:      3'110 14'0-1-0---11-0-- ->      3'101 11'10100000100
+  transition:      3'110 14'0---0---11-1-- ->      3'110 11'11000000100
+  transition:      3'110 14'0---1-001----- ->      3'110 11'11000000100
+  transition:      3'110 14'0--01-101----- ->      3'110 11'11000000100
+  transition:      3'110 14'0--11-101----- ->      3'001 11'00100000100
+  transition:      3'110 14'0---1--11----- ->      3'000 11'00000000100
+  transition:      3'110 14'1------------- ->      3'000 11'00000000100
+  transition:      3'001 14'0-----000----- ->      3'001 11'00100100000
+  transition:      3'001 14'0--0--100----- ->      3'001 11'00100100000
+  transition:      3'001 14'0--1--100----- ->      3'001 11'00100100000
+  transition:      3'001 14'0---0-010----- ->      3'001 11'00100100000
+  transition:      3'001 14'0--00-110----- ->      3'001 11'00100100000
+  transition:      3'001 14'0--10-110----- ->      3'001 11'00100100000
+  transition:      3'001 14'0---1--10----- ->      3'000 11'00000100000
+  transition:      3'001 14'0---0-0010--0- ->      3'001 11'00100100000
+  transition:      3'001 14'0--00-1010--0- ->      3'001 11'00100100000
+  transition:      3'001 14'0--10-1010--0- ->      3'001 11'00100100000
+  transition:      3'001 14'0---0-0110--0- ->      3'001 11'00100100000
+  transition:      3'001 14'0--00-1110--0- ->      3'001 11'00100100000
+  transition:      3'001 14'0--10-1110--0- ->      3'001 11'00100100000
+  transition:      3'001 14'0-0-0---10--1- ->      3'010 11'01000100000
+  transition:      3'001 14'0-1-0---10--1- ->      3'110 11'11000100000
+  transition:      3'001 14'0-0-0-001100-- ->      3'001 11'00100100000
+  transition:      3'001 14'0-000-101100-- ->      3'001 11'00100100000
+  transition:      3'001 14'0-010-101100-- ->      3'001 11'00100100000
+  transition:      3'001 14'0-0-0-011100-- ->      3'001 11'00100100000
+  transition:      3'001 14'0-000-111100-- ->      3'001 11'00100100000
+  transition:      3'001 14'0-010-111100-- ->      3'001 11'00100100000
+  transition:      3'001 14'0-0-0---1110-- ->      3'111 11'11100100000
+  transition:      3'001 14'0-1-0---11-0-- ->      3'101 11'10100100000
+  transition:      3'001 14'0---0---11-1-- ->      3'110 11'11000100000
+  transition:      3'001 14'0---1-001----- ->      3'001 11'00100100000
+  transition:      3'001 14'0--01-101----- ->      3'001 11'00100100000
+  transition:      3'001 14'0--11-101----- ->      3'001 11'00100100000
+  transition:      3'001 14'0---1--11----- ->      3'000 11'00000100000
+  transition:      3'001 14'1------------- ->      3'000 11'00000100000
+  transition:      3'101 14'0-----000----- ->      3'101 11'10100000001
+  transition:      3'101 14'0--0--100----- ->      3'101 11'10100000001
+  transition:      3'101 14'0--1--100----- ->      3'001 11'00100000001
+  transition:      3'101 14'0---0-010----- ->      3'101 11'10100000001
+  transition:      3'101 14'0--00-110----- ->      3'101 11'10100000001
+  transition:      3'101 14'0--10-110----- ->      3'001 11'00100000001
+  transition:      3'101 14'0---1--10----- ->      3'000 11'00000000001
+  transition:      3'101 14'0---0---10---- ->      3'000 11'00000000001
+  transition:      3'101 14'0-0-0-001100-- ->      3'101 11'10100000001
+  transition:      3'101 14'0-000-101100-- ->      3'101 11'10100000001
+  transition:      3'101 14'0-010-101100-- ->      3'001 11'00100000001
+  transition:      3'101 14'0-0-0-011100-- ->      3'101 11'10100000001
+  transition:      3'101 14'0-000-111100-- ->      3'101 11'10100000001
+  transition:      3'101 14'0-010-111100-- ->      3'001 11'00100000001
+  transition:      3'101 14'0-0-0---1110-- ->      3'111 11'11100000001
+  transition:      3'101 14'0-1-0---11-0-- ->      3'101 11'10100000001
+  transition:      3'101 14'0---0---11-1-- ->      3'110 11'11000000001
+  transition:      3'101 14'0---1-001----- ->      3'101 11'10100000001
+  transition:      3'101 14'0--01-101----- ->      3'101 11'10100000001
+  transition:      3'101 14'0--11-101----- ->      3'001 11'00100000001
+  transition:      3'101 14'0---1--11----- ->      3'000 11'00000000001
+  transition:      3'101 14'1------------- ->      3'000 11'00000000001
+  transition:      3'011 14'0-----000----- ->      3'011 11'01100001000
+  transition:      3'011 14'0--0--100----- ->      3'011 11'01100001000
+  transition:      3'011 14'0--1--100----- ->      3'001 11'00100001000
+  transition:      3'011 14'0---0-010----- ->      3'011 11'01100001000
+  transition:      3'011 14'0--00-110----- ->      3'011 11'01100001000
+  transition:      3'011 14'0--10-110----- ->      3'001 11'00100001000
+  transition:      3'011 14'0---1--10----- ->      3'000 11'00000001000
+  transition:      3'011 14'00--0-0010---- ->      3'011 11'01100001000
+  transition:      3'011 14'00-00-1010---- ->      3'011 11'01100001000
+  transition:      3'011 14'00-10-1010---- ->      3'001 11'00100001000
+  transition:      3'011 14'00--0-0110---- ->      3'011 11'01100001000
+  transition:      3'011 14'00-00-1110---- ->      3'011 11'01100001000
+  transition:      3'011 14'00-10-1110---- ->      3'001 11'00100001000
+  transition:      3'011 14'01--0---10---- ->      3'000 11'00000001000
+  transition:      3'011 14'0-0-0-001100-- ->      3'011 11'01100001000
+  transition:      3'011 14'0-000-101100-- ->      3'011 11'01100001000
+  transition:      3'011 14'0-010-101100-- ->      3'001 11'00100001000
+  transition:      3'011 14'0-0-0-011100-- ->      3'011 11'01100001000
+  transition:      3'011 14'0-000-111100-- ->      3'011 11'01100001000
+  transition:      3'011 14'0-010-111100-- ->      3'001 11'00100001000
+  transition:      3'011 14'0-0-0---1110-- ->      3'111 11'11100001000
+  transition:      3'011 14'0-1-0---11-0-- ->      3'101 11'10100001000
+  transition:      3'011 14'0---0---11-1-- ->      3'110 11'11000001000
+  transition:      3'011 14'0---1-001----- ->      3'011 11'01100001000
+  transition:      3'011 14'0--01-101----- ->      3'011 11'01100001000
+  transition:      3'011 14'0--11-101----- ->      3'001 11'00100001000
+  transition:      3'011 14'0---1--11----- ->      3'000 11'00000001000
+  transition:      3'011 14'1------------- ->      3'000 11'00000001000
+  transition:      3'111 14'0-----000----- ->      3'111 11'11101000000
+  transition:      3'111 14'0--0--100----- ->      3'111 11'11101000000
+  transition:      3'111 14'0--1--100----- ->      3'001 11'00101000000
+  transition:      3'111 14'0---0-010----- ->      3'111 11'11101000000
+  transition:      3'111 14'0--00-110----- ->      3'111 11'11101000000
+  transition:      3'111 14'0--10-110----- ->      3'001 11'00101000000
+  transition:      3'111 14'0---1--10----- ->      3'000 11'00001000000
+  transition:      3'111 14'0---0-0010---- ->      3'111 11'11101000000
+  transition:      3'111 14'0--00-1010---- ->      3'111 11'11101000000
+  transition:      3'111 14'0--10-1010---- ->      3'001 11'00101000000
+  transition:      3'111 14'0---0-0110---- ->      3'111 11'11101000000
+  transition:      3'111 14'0--00-1110---- ->      3'111 11'11101000000
+  transition:      3'111 14'0--10-1110---- ->      3'001 11'00101000000
+  transition:      3'111 14'0-0-0-001100-- ->      3'111 11'11101000000
+  transition:      3'111 14'0-000-101100-- ->      3'111 11'11101000000
+  transition:      3'111 14'0-010-101100-- ->      3'001 11'00101000000
+  transition:      3'111 14'0-0-0-011100-- ->      3'111 11'11101000000
+  transition:      3'111 14'0-000-111100-- ->      3'111 11'11101000000
+  transition:      3'111 14'0-010-111100-- ->      3'001 11'00101000000
+  transition:      3'111 14'0-0-0---1110-- ->      3'111 11'11101000000
+  transition:      3'111 14'0-1-0---11-0-- ->      3'101 11'10101000000
+  transition:      3'111 14'0---0---11-1-- ->      3'110 11'11001000000
+  transition:      3'111 14'0---1-001----- ->      3'111 11'11101000000
+  transition:      3'111 14'0--01-101----- ->      3'111 11'11101000000
+  transition:      3'111 14'0--11-101----- ->      3'001 11'00101000000
+  transition:      3'111 14'0---1--11----- ->      3'000 11'00001000000
+  transition:      3'111 14'1------------- ->      3'000 11'00001000000
+
+2.13.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+Optimizing FSM `$fsm$\instance1.state$777' from module `\SystemConnect'.
+  Merging pattern 14'0---1--10----- and 14'0---1--11----- from group (0 0 11'00010000000).
+  Merging pattern 14'0---1--11----- and 14'0---1--10----- from group (0 0 11'00010000000).
+  Merging pattern 14'0-0-0-001100-- and 14'0-0-0-011100-- from group (0 0 11'00010000000).
+  Merging pattern 14'0-000-101100-- and 14'0-000-111100-- from group (0 0 11'00010000000).
+  Merging pattern 14'0-0-0-011100-- and 14'0-0-0-001100-- from group (0 0 11'00010000000).
+  Merging pattern 14'0-000-111100-- and 14'0-000-101100-- from group (0 0 11'00010000000).
+  Merging pattern 14'0---0-0010---- and 14'0---0-0110---- from group (0 0 11'00010000000).
+  Merging pattern 14'0--00-1010---- and 14'0--00-1110---- from group (0 0 11'00010000000).
+  Merging pattern 14'0---0-0110---- and 14'0---0-0010---- from group (0 0 11'00010000000).
+  Merging pattern 14'0--00-1110---- and 14'0--00-1010---- from group (0 0 11'00010000000).
+  Merging pattern 14'0-010-101100-- and 14'0-010-111100-- from group (0 4 11'00110000000).
+  Merging pattern 14'0-010-111100-- and 14'0-010-101100-- from group (0 4 11'00110000000).
+  Merging pattern 14'0--10-1010---- and 14'0--10-1110---- from group (0 4 11'00110000000).
+  Merging pattern 14'0--10-1110---- and 14'0--10-1010---- from group (0 4 11'00110000000).
+  Merging pattern 14'0---1--10----- and 14'0---1--11----- from group (1 0 11'00000000010).
+  Merging pattern 14'0---1--11----- and 14'0---1--10----- from group (1 0 11'00000000010).
+  Merging pattern 14'0-0-0-001100-- and 14'0-0-0-011100-- from group (1 1 11'10000000010).
+  Merging pattern 14'0-000-101100-- and 14'0-000-111100-- from group (1 1 11'10000000010).
+  Merging pattern 14'0-0-0-011100-- and 14'0-0-0-001100-- from group (1 1 11'10000000010).
+  Merging pattern 14'0-000-111100-- and 14'0-000-101100-- from group (1 1 11'10000000010).
+  Merging pattern 14'0---000010---- and 14'0---000110---- from group (1 1 11'10000000010).
+  Merging pattern 14'0--0001010---- and 14'0--0001110---- from group (1 1 11'10000000010).
+  Merging pattern 14'0---000110---- and 14'0---000010---- from group (1 1 11'10000000010).
+  Merging pattern 14'0--0001110---- and 14'0--0001010---- from group (1 1 11'10000000010).
+  Merging pattern 14'0-010-101100-- and 14'0-010-111100-- from group (1 4 11'00100000010).
+  Merging pattern 14'0-010-111100-- and 14'0-010-101100-- from group (1 4 11'00100000010).
+  Merging pattern 14'0--1001010---- and 14'0--1001110---- from group (1 4 11'00100000010).
+  Merging pattern 14'0--1001110---- and 14'0--1001010---- from group (1 4 11'00100000010).
+  Merging pattern 14'0---1--10----- and 14'0---1--11----- from group (2 0 11'00000010000).
+  Merging pattern 14'0---1--11----- and 14'0---1--10----- from group (2 0 11'00000010000).
+  Merging pattern 14'0---0-0010--0- and 14'0---0-0110--0- from group (2 2 11'01000010000).
+  Merging pattern 14'0--00-1010--0- and 14'0--00-1110--0- from group (2 2 11'01000010000).
+  Merging pattern 14'0---0-0110--0- and 14'0---0-0010--0- from group (2 2 11'01000010000).
+  Merging pattern 14'0--00-1110--0- and 14'0--00-1010--0- from group (2 2 11'01000010000).
+  Merging pattern 14'01--0-0010--1- and 14'01--0-0110--1- from group (2 2 11'01000010000).
+  Merging pattern 14'01-00-1010--1- and 14'01-00-1110--1- from group (2 2 11'01000010000).
+  Merging pattern 14'01--0-0110--1- and 14'01--0-0010--1- from group (2 2 11'01000010000).
+  Merging pattern 14'01-00-1110--1- and 14'01-00-1010--1- from group (2 2 11'01000010000).
+  Merging pattern 14'0-0-0-001100-- and 14'0-0-0-011100-- from group (2 2 11'01000010000).
+  Merging pattern 14'0-000-101100-- and 14'0-000-111100-- from group (2 2 11'01000010000).
+  Merging pattern 14'0-0-0-011100-- and 14'0-0-0-001100-- from group (2 2 11'01000010000).
+  Merging pattern 14'0-000-111100-- and 14'0-000-101100-- from group (2 2 11'01000010000).
+  Merging pattern 14'0--10-1010--0- and 14'0--10-1110--0- from group (2 4 11'00100010000).
+  Merging pattern 14'0--10-1110--0- and 14'0--10-1010--0- from group (2 4 11'00100010000).
+  Merging pattern 14'01-10-1010--1- and 14'01-10-1110--1- from group (2 4 11'00100010000).
+  Merging pattern 14'01-10-1110--1- and 14'01-10-1010--1- from group (2 4 11'00100010000).
+  Merging pattern 14'0-010-101100-- and 14'0-010-111100-- from group (2 4 11'00100010000).
+  Merging pattern 14'0-010-111100-- and 14'0-010-101100-- from group (2 4 11'00100010000).
+  Merging pattern 14'0---1--10----- and 14'0---1--11----- from group (3 0 11'00000000100).
+  Merging pattern 14'0---1--11----- and 14'0---1--10----- from group (3 0 11'00000000100).
+  Merging pattern 14'0---0-0010---0 and 14'0---0-0110---0 from group (3 3 11'11000000100).
+  Merging pattern 14'0--00-1010---0 and 14'0--00-1110---0 from group (3 3 11'11000000100).
+  Merging pattern 14'0---0-0110---0 and 14'0---0-0010---0 from group (3 3 11'11000000100).
+  Merging pattern 14'0--00-1110---0 and 14'0--00-1010---0 from group (3 3 11'11000000100).
+  Merging pattern 14'0-0-0-001100-- and 14'0-0-0-011100-- from group (3 3 11'11000000100).
+  Merging pattern 14'0-000-101100-- and 14'0-000-111100-- from group (3 3 11'11000000100).
+  Merging pattern 14'0-0-0-011100-- and 14'0-0-0-001100-- from group (3 3 11'11000000100).
+  Merging pattern 14'0-000-111100-- and 14'0-000-101100-- from group (3 3 11'11000000100).
+  Merging pattern 14'0--10-1010---0 and 14'0--10-1110---0 from group (3 4 11'00100000100).
+  Merging pattern 14'0--10-1110---0 and 14'0--10-1010---0 from group (3 4 11'00100000100).
+  Merging pattern 14'0-010-101100-- and 14'0-010-111100-- from group (3 4 11'00100000100).
+  Merging pattern 14'0-010-111100-- and 14'0-010-101100-- from group (3 4 11'00100000100).
+  Merging pattern 14'0---1--10----- and 14'0---1--11----- from group (4 0 11'00000100000).
+  Merging pattern 14'0---1--11----- and 14'0---1--10----- from group (4 0 11'00000100000).
+  Merging pattern 14'0---0-0010--0- and 14'0---0-0110--0- from group (4 4 11'00100100000).
+  Merging pattern 14'0--00-1010--0- and 14'0--00-1110--0- from group (4 4 11'00100100000).
+  Merging pattern 14'0--10-1010--0- and 14'0--10-1110--0- from group (4 4 11'00100100000).
+  Merging pattern 14'0---0-0110--0- and 14'0---0-0010--0- from group (4 4 11'00100100000).
+  Merging pattern 14'0--00-1110--0- and 14'0--00-1010--0- from group (4 4 11'00100100000).
+  Merging pattern 14'0--10-1110--0- and 14'0--10-1010--0- from group (4 4 11'00100100000).
+  Merging pattern 14'0-0-0-001100-- and 14'0-0-0-011100-- from group (4 4 11'00100100000).
+  Merging pattern 14'0-000-101100-- and 14'0-000-111100-- from group (4 4 11'00100100000).
+  Merging pattern 14'0-010-101100-- and 14'0-010-111100-- from group (4 4 11'00100100000).
+  Merging pattern 14'0-0-0-011100-- and 14'0-0-0-001100-- from group (4 4 11'00100100000).
+  Merging pattern 14'0-000-111100-- and 14'0-000-101100-- from group (4 4 11'00100100000).
+  Merging pattern 14'0-010-111100-- and 14'0-010-101100-- from group (4 4 11'00100100000).
+  Merging pattern 14'0--00-1-10--0- and 14'0--10-1-10--0- from group (4 4 11'00100100000).
+  Merging pattern 14'0--10-1-10--0- and 14'0--00-1-10--0- from group (4 4 11'00100100000).
+  Merging pattern 14'0-000-1-1100-- and 14'0-010-1-1100-- from group (4 4 11'00100100000).
+  Merging pattern 14'0-010-1-1100-- and 14'0-000-1-1100-- from group (4 4 11'00100100000).
+  Merging pattern 14'0--0--100----- and 14'0--1--100----- from group (4 4 11'00100100000).
+  Merging pattern 14'0--1--100----- and 14'0--0--100----- from group (4 4 11'00100100000).
+  Merging pattern 14'0--00-110----- and 14'0--10-110----- from group (4 4 11'00100100000).
+  Merging pattern 14'0--10-110----- and 14'0--00-110----- from group (4 4 11'00100100000).
+  Merging pattern 14'0--01-101----- and 14'0--11-101----- from group (4 4 11'00100100000).
+  Merging pattern 14'0--11-101----- and 14'0--01-101----- from group (4 4 11'00100100000).
+  Merging pattern 14'0---0-0-10--0- and 14'0---0-1-10--0- from group (4 4 11'00100100000).
+  Merging pattern 14'0---0-1-10--0- and 14'0---0-0-10--0- from group (4 4 11'00100100000).
+  Merging pattern 14'0-0-0-0-1100-- and 14'0-0-0-1-1100-- from group (4 4 11'00100100000).
+  Merging pattern 14'0-0-0-1-1100-- and 14'0-0-0-0-1100-- from group (4 4 11'00100100000).
+  Merging pattern 14'0-----000----- and 14'0-----100----- from group (4 4 11'00100100000).
+  Merging pattern 14'0-----100----- and 14'0-----000----- from group (4 4 11'00100100000).
+  Merging pattern 14'0---0-010----- and 14'0---0-110----- from group (4 4 11'00100100000).
+  Merging pattern 14'0---0-110----- and 14'0---0-010----- from group (4 4 11'00100100000).
+  Merging pattern 14'0---1-001----- and 14'0---1-101----- from group (4 4 11'00100100000).
+  Merging pattern 14'0---1-101----- and 14'0---1-001----- from group (4 4 11'00100100000).
+  Merging pattern 14'0---1--10----- and 14'0---1--11----- from group (5 0 11'00000000001).
+  Merging pattern 14'0---1--11----- and 14'0---1--10----- from group (5 0 11'00000000001).
+  Merging pattern 14'0-010-101100-- and 14'0-010-111100-- from group (5 4 11'00100000001).
+  Merging pattern 14'0-010-111100-- and 14'0-010-101100-- from group (5 4 11'00100000001).
+  Merging pattern 14'0-0-0-001100-- and 14'0-0-0-011100-- from group (5 5 11'10100000001).
+  Merging pattern 14'0-000-101100-- and 14'0-000-111100-- from group (5 5 11'10100000001).
+  Merging pattern 14'0-0-0-011100-- and 14'0-0-0-001100-- from group (5 5 11'10100000001).
+  Merging pattern 14'0-000-111100-- and 14'0-000-101100-- from group (5 5 11'10100000001).
+  Merging pattern 14'0---1--10----- and 14'0---1--11----- from group (6 0 11'00000001000).
+  Merging pattern 14'0---1--11----- and 14'0---1--10----- from group (6 0 11'00000001000).
+  Merging pattern 14'0-010-101100-- and 14'0-010-111100-- from group (6 4 11'00100001000).
+  Merging pattern 14'0-010-111100-- and 14'0-010-101100-- from group (6 4 11'00100001000).
+  Merging pattern 14'00-10-1010---- and 14'00-10-1110---- from group (6 4 11'00100001000).
+  Merging pattern 14'00-10-1110---- and 14'00-10-1010---- from group (6 4 11'00100001000).
+  Merging pattern 14'0-0-0-001100-- and 14'0-0-0-011100-- from group (6 6 11'01100001000).
+  Merging pattern 14'0-000-101100-- and 14'0-000-111100-- from group (6 6 11'01100001000).
+  Merging pattern 14'0-0-0-011100-- and 14'0-0-0-001100-- from group (6 6 11'01100001000).
+  Merging pattern 14'0-000-111100-- and 14'0-000-101100-- from group (6 6 11'01100001000).
+  Merging pattern 14'00--0-0010---- and 14'00--0-0110---- from group (6 6 11'01100001000).
+  Merging pattern 14'00-00-1010---- and 14'00-00-1110---- from group (6 6 11'01100001000).
+  Merging pattern 14'00--0-0110---- and 14'00--0-0010---- from group (6 6 11'01100001000).
+  Merging pattern 14'00-00-1110---- and 14'00-00-1010---- from group (6 6 11'01100001000).
+  Merging pattern 14'0---1--10----- and 14'0---1--11----- from group (7 0 11'00001000000).
+  Merging pattern 14'0---1--11----- and 14'0---1--10----- from group (7 0 11'00001000000).
+  Merging pattern 14'0-010-101100-- and 14'0-010-111100-- from group (7 4 11'00101000000).
+  Merging pattern 14'0-010-111100-- and 14'0-010-101100-- from group (7 4 11'00101000000).
+  Merging pattern 14'0--10-1010---- and 14'0--10-1110---- from group (7 4 11'00101000000).
+  Merging pattern 14'0--10-1110---- and 14'0--10-1010---- from group (7 4 11'00101000000).
+  Merging pattern 14'0-0-0-001100-- and 14'0-0-0-011100-- from group (7 7 11'11101000000).
+  Merging pattern 14'0-000-101100-- and 14'0-000-111100-- from group (7 7 11'11101000000).
+  Merging pattern 14'0-0-0-011100-- and 14'0-0-0-001100-- from group (7 7 11'11101000000).
+  Merging pattern 14'0-000-111100-- and 14'0-000-101100-- from group (7 7 11'11101000000).
+  Merging pattern 14'0---0-0010---- and 14'0---0-0110---- from group (7 7 11'11101000000).
+  Merging pattern 14'0--00-1010---- and 14'0--00-1110---- from group (7 7 11'11101000000).
+  Merging pattern 14'0---0-0110---- and 14'0---0-0010---- from group (7 7 11'11101000000).
+  Merging pattern 14'0--00-1110---- and 14'0--00-1010---- from group (7 7 11'11101000000).
+
+2.13.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \SystemConnect..
+Removed 33 unused cells and 33 unused wires.
+<suppressed ~34 debug messages>
+
+2.13.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+Optimizing FSM `$fsm$\instance1.state$777' from module `\SystemConnect'.
+  Removing unused output signal $flatten\instance1.$0\state[2:0] [0].
+  Removing unused output signal $flatten\instance1.$0\state[2:0] [1].
+  Removing unused output signal $flatten\instance1.$0\state[2:0] [2].
+
+2.13.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+Recoding FSM `$fsm$\instance1.state$777' from module `\SystemConnect' using `auto' encoding:
+  mapping auto encoding to `one-hot` for this FSM.
+  000 -> -------1
+  100 -> ------1-
+  010 -> -----1--
+  110 -> ----1---
+  001 -> ---1----
+  101 -> --1-----
+  011 -> -1------
+  111 -> 1-------
+
+2.13.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+
+FSM `$fsm$\instance1.state$777' from module `SystemConnect':
+-------------------------------------
+
+  Information on FSM $fsm$\instance1.state$777 (\instance1.state):
+
+  Number of input signals:   14
+  Number of output signals:   8
+  Number of state bits:       8
+
+  Input signals:
+    0: $flatten\instance1.$eq$TestVerilogZ.sv.v:261$295_Y
+    1: $flatten\instance1.$eq$TestVerilogZ.sv.v:216$270_Y
+    2: $flatten\instance1.$logic_and$TestVerilogZ.sv.v:198$263_Y
+    3: $flatten\instance1.$logic_or$TestVerilogZ.sv.v:189$260_Y
+    4: $flatten\instance1.$eq$TestVerilogZ.sv.v:187$253_Y
+    5: $flatten\instance1.$eq$TestVerilogZ.sv.v:184$248_Y
+    6: $flatten\instance1.$logic_and$TestVerilogZ.sv.v:175$247_Y
+    7: $flatten\instance1.$logic_and$TestVerilogZ.sv.v:169$244_Y
+    8: \instance1.ackCount
+    9: \instance1.sendStop
+   10: \instance1.sendStart
+   11: \instance1.repeated_start
+   12: \instance1.rw
+   13: \instance1.reset
+
+  Output signals:
+    0: $flatten\instance1.$eq$TestVerilogZ.sv.v:275$299_Y
+    1: $flatten\instance1.$eq$TestVerilogZ.sv.v:268$297_Y
+    2: $flatten\instance1.$eq$TestVerilogZ.sv.v:255$283_Y
+    3: $flatten\instance1.$eq$TestVerilogZ.sv.v:242$277_Y
+    4: $flatten\instance1.$eq$TestVerilogZ.sv.v:229$271_Y
+    5: $flatten\instance1.$eq$TestVerilogZ.sv.v:209$264_Y
+    6: $flatten\instance1.$eq$TestVerilogZ.sv.v:175$246_Y
+    7: $flatten\instance1.$eq$TestVerilogZ.sv.v:169$243_Y
+
+  State encoding:
+    0: 8'-------1  <RESET STATE>
+    1: 8'------1-
+    2: 8'-----1--
+    3: 8'----1---
+    4: 8'---1----
+    5: 8'--1-----
+    6: 8'-1------
+    7: 8'1-------
+
+  Transition Table (state_in, ctrl_in, state_out, ctrl_out):
+      0:     0 14'0-0-0-0-1100--   ->     0 8'10000000
+      1:     0 14'0-000-1-1100--   ->     0 8'10000000
+      2:     0 14'0---0-0-10----   ->     0 8'10000000
+      3:     0 14'0--00-1-10----   ->     0 8'10000000
+      4:     0 14'0-----000-----   ->     0 8'10000000
+      5:     0 14'0--0--100-----   ->     0 8'10000000
+      6:     0 14'0---0-010-----   ->     0 8'10000000
+      7:     0 14'0--00-110-----   ->     0 8'10000000
+      8:     0 14'0---1-001-----   ->     0 8'10000000
+      9:     0 14'0--01-101-----   ->     0 8'10000000
+     10:     0 14'0---1--1------   ->     0 8'10000000
+     11:     0 14'1-------------   ->     0 8'10000000
+     12:     0 14'0---0---11-1--   ->     3 8'10000000
+     13:     0 14'0-010-1-1100--   ->     4 8'10000000
+     14:     0 14'0--10-1-10----   ->     4 8'10000000
+     15:     0 14'0--1--100-----   ->     4 8'10000000
+     16:     0 14'0--10-110-----   ->     4 8'10000000
+     17:     0 14'0--11-101-----   ->     4 8'10000000
+     18:     0 14'0-1-0---11-0--   ->     5 8'10000000
+     19:     0 14'0-0-0---1110--   ->     7 8'10000000
+     20:     1 14'0---1--1------   ->     0 8'00000010
+     21:     1 14'1-------------   ->     0 8'00000010
+     22:     1 14'0-0-0-0-1100--   ->     1 8'00000010
+     23:     1 14'0-000-1-1100--   ->     1 8'00000010
+     24:     1 14'0---000-10----   ->     1 8'00000010
+     25:     1 14'0--0001-10----   ->     1 8'00000010
+     26:     1 14'0-----000-----   ->     1 8'00000010
+     27:     1 14'0--0--100-----   ->     1 8'00000010
+     28:     1 14'0---0-010-----   ->     1 8'00000010
+     29:     1 14'0--00-110-----   ->     1 8'00000010
+     30:     1 14'0---1-001-----   ->     1 8'00000010
+     31:     1 14'0--01-101-----   ->     1 8'00000010
+     32:     1 14'0---0---11-1--   ->     3 8'00000010
+     33:     1 14'0---01--10----   ->     3 8'00000010
+     34:     1 14'0-010-1-1100--   ->     4 8'00000010
+     35:     1 14'0--1001-10----   ->     4 8'00000010
+     36:     1 14'0--1--100-----   ->     4 8'00000010
+     37:     1 14'0--10-110-----   ->     4 8'00000010
+     38:     1 14'0--11-101-----   ->     4 8'00000010
+     39:     1 14'0-1-0---11-0--   ->     5 8'00000010
+     40:     1 14'0-0-0---1110--   ->     7 8'00000010
+     41:     2 14'0---1--1------   ->     0 8'00010000
+     42:     2 14'1-------------   ->     0 8'00010000
+     43:     2 14'0---0-0-10--0-   ->     2 8'00010000
+     44:     2 14'0--00-1-10--0-   ->     2 8'00010000
+     45:     2 14'01--0-0-10--1-   ->     2 8'00010000
+     46:     2 14'01-00-1-10--1-   ->     2 8'00010000
+     47:     2 14'0-0-0-0-1100--   ->     2 8'00010000
+     48:     2 14'0-000-1-1100--   ->     2 8'00010000
+     49:     2 14'0-----000-----   ->     2 8'00010000
+     50:     2 14'0--0--100-----   ->     2 8'00010000
+     51:     2 14'0---0-010-----   ->     2 8'00010000
+     52:     2 14'0--00-110-----   ->     2 8'00010000
+     53:     2 14'0---1-001-----   ->     2 8'00010000
+     54:     2 14'0--01-101-----   ->     2 8'00010000
+     55:     2 14'0---0---11-1--   ->     3 8'00010000
+     56:     2 14'0--10-1-10--0-   ->     4 8'00010000
+     57:     2 14'01-10-1-10--1-   ->     4 8'00010000
+     58:     2 14'0-010-1-1100--   ->     4 8'00010000
+     59:     2 14'0--1--100-----   ->     4 8'00010000
+     60:     2 14'0--10-110-----   ->     4 8'00010000
+     61:     2 14'0--11-101-----   ->     4 8'00010000
+     62:     2 14'0-1-0---11-0--   ->     5 8'00010000
+     63:     2 14'00--0---10--1-   ->     6 8'00010000
+     64:     2 14'0-0-0---1110--   ->     7 8'00010000
+     65:     3 14'0---1--1------   ->     0 8'00000100
+     66:     3 14'1-------------   ->     0 8'00000100
+     67:     3 14'0---0---10---1   ->     1 8'00000100
+     68:     3 14'0---0-0-10---0   ->     3 8'00000100
+     69:     3 14'0--00-1-10---0   ->     3 8'00000100
+     70:     3 14'0-0-0-0-1100--   ->     3 8'00000100
+     71:     3 14'0-000-1-1100--   ->     3 8'00000100
+     72:     3 14'0---0---11-1--   ->     3 8'00000100
+     73:     3 14'0-----000-----   ->     3 8'00000100
+     74:     3 14'0--0--100-----   ->     3 8'00000100
+     75:     3 14'0---0-010-----   ->     3 8'00000100
+     76:     3 14'0--00-110-----   ->     3 8'00000100
+     77:     3 14'0---1-001-----   ->     3 8'00000100
+     78:     3 14'0--01-101-----   ->     3 8'00000100
+     79:     3 14'0--10-1-10---0   ->     4 8'00000100
+     80:     3 14'0-010-1-1100--   ->     4 8'00000100
+     81:     3 14'0--1--100-----   ->     4 8'00000100
+     82:     3 14'0--10-110-----   ->     4 8'00000100
+     83:     3 14'0--11-101-----   ->     4 8'00000100
+     84:     3 14'0-1-0---11-0--   ->     5 8'00000100
+     85:     3 14'0-0-0---1110--   ->     7 8'00000100
+     86:     4 14'0---1--1------   ->     0 8'00100000
+     87:     4 14'1-------------   ->     0 8'00100000
+     88:     4 14'0-0-0---10--1-   ->     2 8'00100000
+     89:     4 14'0-1-0---10--1-   ->     3 8'00100000
+     90:     4 14'0---0---11-1--   ->     3 8'00100000
+     91:     4 14'0---0---10--0-   ->     4 8'00100000
+     92:     4 14'0-0-0---1100--   ->     4 8'00100000
+     93:     4 14'0------00-----   ->     4 8'00100000
+     94:     4 14'0---0--10-----   ->     4 8'00100000
+     95:     4 14'0---1--01-----   ->     4 8'00100000
+     96:     4 14'0-1-0---11-0--   ->     5 8'00100000
+     97:     4 14'0-0-0---1110--   ->     7 8'00100000
+     98:     5 14'0---0---10----   ->     0 8'00000001
+     99:     5 14'0---1--1------   ->     0 8'00000001
+    100:     5 14'1-------------   ->     0 8'00000001
+    101:     5 14'0---0---11-1--   ->     3 8'00000001
+    102:     5 14'0-010-1-1100--   ->     4 8'00000001
+    103:     5 14'0--1--100-----   ->     4 8'00000001
+    104:     5 14'0--10-110-----   ->     4 8'00000001
+    105:     5 14'0--11-101-----   ->     4 8'00000001
+    106:     5 14'0-0-0-0-1100--   ->     5 8'00000001
+    107:     5 14'0-000-1-1100--   ->     5 8'00000001
+    108:     5 14'0-1-0---11-0--   ->     5 8'00000001
+    109:     5 14'0-----000-----   ->     5 8'00000001
+    110:     5 14'0--0--100-----   ->     5 8'00000001
+    111:     5 14'0---0-010-----   ->     5 8'00000001
+    112:     5 14'0--00-110-----   ->     5 8'00000001
+    113:     5 14'0---1-001-----   ->     5 8'00000001
+    114:     5 14'0--01-101-----   ->     5 8'00000001
+    115:     5 14'0-0-0---1110--   ->     7 8'00000001
+    116:     6 14'01--0---10----   ->     0 8'00001000
+    117:     6 14'0---1--1------   ->     0 8'00001000
+    118:     6 14'1-------------   ->     0 8'00001000
+    119:     6 14'0---0---11-1--   ->     3 8'00001000
+    120:     6 14'0-010-1-1100--   ->     4 8'00001000
+    121:     6 14'00-10-1-10----   ->     4 8'00001000
+    122:     6 14'0--1--100-----   ->     4 8'00001000
+    123:     6 14'0--10-110-----   ->     4 8'00001000
+    124:     6 14'0--11-101-----   ->     4 8'00001000
+    125:     6 14'0-1-0---11-0--   ->     5 8'00001000
+    126:     6 14'0-0-0-0-1100--   ->     6 8'00001000
+    127:     6 14'0-000-1-1100--   ->     6 8'00001000
+    128:     6 14'00--0-0-10----   ->     6 8'00001000
+    129:     6 14'00-00-1-10----   ->     6 8'00001000
+    130:     6 14'0-----000-----   ->     6 8'00001000
+    131:     6 14'0--0--100-----   ->     6 8'00001000
+    132:     6 14'0---0-010-----   ->     6 8'00001000
+    133:     6 14'0--00-110-----   ->     6 8'00001000
+    134:     6 14'0---1-001-----   ->     6 8'00001000
+    135:     6 14'0--01-101-----   ->     6 8'00001000
+    136:     6 14'0-0-0---1110--   ->     7 8'00001000
+    137:     7 14'0---1--1------   ->     0 8'01000000
+    138:     7 14'1-------------   ->     0 8'01000000
+    139:     7 14'0---0---11-1--   ->     3 8'01000000
+    140:     7 14'0-010-1-1100--   ->     4 8'01000000
+    141:     7 14'0--10-1-10----   ->     4 8'01000000
+    142:     7 14'0--1--100-----   ->     4 8'01000000
+    143:     7 14'0--10-110-----   ->     4 8'01000000
+    144:     7 14'0--11-101-----   ->     4 8'01000000
+    145:     7 14'0-1-0---11-0--   ->     5 8'01000000
+    146:     7 14'0-0-0-0-1100--   ->     7 8'01000000
+    147:     7 14'0-000-1-1100--   ->     7 8'01000000
+    148:     7 14'0-0-0---1110--   ->     7 8'01000000
+    149:     7 14'0---0-0-10----   ->     7 8'01000000
+    150:     7 14'0--00-1-10----   ->     7 8'01000000
+    151:     7 14'0-----000-----   ->     7 8'01000000
+    152:     7 14'0--0--100-----   ->     7 8'01000000
+    153:     7 14'0---0-010-----   ->     7 8'01000000
+    154:     7 14'0--00-110-----   ->     7 8'01000000
+    155:     7 14'0---1-001-----   ->     7 8'01000000
+    156:     7 14'0--01-101-----   ->     7 8'01000000
+
+-------------------------------------
+
+2.13.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+Mapping FSM `$fsm$\instance1.state$777' from module `\SystemConnect'.
+
+2.14. Executing OPT pass (performing simple optimizations).
+
+2.14.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module SystemConnect.
+<suppressed ~9 debug messages>
+
+2.14.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\SystemConnect'.
+<suppressed ~150 debug messages>
+Removed a total of 50 cells.
+
+2.14.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \SystemConnect..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~24 debug messages>
+
+2.14.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \SystemConnect.
+Performed a total of 0 changes.
+
+2.14.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\SystemConnect'.
+Removed a total of 0 cells.
+
+2.14.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $flatten\instance1.$procdff$767 ($dff) from module SystemConnect (D = $flatten\instance1.$procmux$485_Y, Q = \instance1.byte_count, rval = 6'001000).
+Adding EN signal on $auto$ff.cc:266:slice$1171 ($sdff) from module SystemConnect (D = $flatten\instance1.$sub$TestVerilogZ.sv.v:262$296_Y [5:0], Q = \instance1.byte_count).
+Adding SRST signal on $flatten\instance1.$procdff$766 ($dff) from module SystemConnect (D = $flatten\instance1.$procmux$500_Y, Q = \instance1.mem_count, rval = 7'1000111).
+Adding EN signal on $auto$ff.cc:266:slice$1179 ($sdff) from module SystemConnect (D = $flatten\instance1.$sub$TestVerilogZ.sv.v:260$294_Y [6:0], Q = \instance1.mem_count).
+Adding EN signal on $flatten\instance1.$procdff$765 ($dff) from module SystemConnect (D = $flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y, Q = \instance1.my_mem).
+Adding EN signal on $flatten\instance1.$procdff$764 ($dff) from module SystemConnect (D = 8'10101100, Q = \instance1.dataByte).
+Adding EN signal on $flatten\instance1.$procdff$763 ($dff) from module SystemConnect (D = 8'00000000, Q = \instance1.registerAddress).
+Adding EN signal on $flatten\instance1.$procdff$762 ($dff) from module SystemConnect (D = 7'1010000, Q = \instance1.addressFromMaster).
+Adding SRST signal on $flatten\instance1.$procdff$761 ($dff) from module SystemConnect (D = $flatten\instance1.$procmux$535_Y, Q = \instance1.bit_count, rval = 4'0000).
+Adding EN signal on $auto$ff.cc:266:slice$1199 ($sdff) from module SystemConnect (D = $flatten\instance1.$procmux$530_Y, Q = \instance1.bit_count).
+Adding SRST signal on $flatten\instance1.$procdff$760 ($dff) from module SystemConnect (D = $flatten\instance1.$procmux$564_Y, Q = \instance1.address_check, rval = 3'111).
+Adding EN signal on $auto$ff.cc:266:slice$1205 ($sdff) from module SystemConnect (D = $flatten\instance1.$procmux$556_Y, Q = \instance1.address_check).
+Adding SRST signal on $flatten\instance1.$procdff$759 ($dff) from module SystemConnect (D = $flatten\instance1.$add$TestVerilogZ.sv.v:145$236_Y [1:0], Q = { \gp [25] \instance1.counter [0] }, rval = 2'00).
+Adding SRST signal on $flatten\instance1.$procdff$758 ($dff) from module SystemConnect (D = $flatten\instance1.$procmux$578_Y, Q = \instance1.ackCount, rval = 1'0).
+Adding EN signal on $auto$ff.cc:266:slice$1214 ($sdff) from module SystemConnect (D = $flatten\instance1.$add$TestVerilogZ.sv.v:271$298_Y [0], Q = \instance1.ackCount).
+Adding SRST signal on $flatten\instance1.$procdff$756 ($dff) from module SystemConnect (D = $flatten\instance1.$procmux$595_Y, Q = \instance1.sendStop, rval = 1'0).
+Adding EN signal on $auto$ff.cc:266:slice$1222 ($sdff) from module SystemConnect (D = 1'1, Q = \instance1.sendStop).
+Adding SRST signal on $flatten\instance1.$procdff$755 ($dff) from module SystemConnect (D = $flatten\instance1.$procmux$600_Y, Q = \instance1.sendStart, rval = 1'1).
+Adding EN signal on $auto$ff.cc:266:slice$1224 ($sdff) from module SystemConnect (D = 1'0, Q = \instance1.sendStart).
+Adding SRST signal on $flatten\instance1.$procdff$754 ($dff) from module SystemConnect (D = $flatten\instance1.$procmux$626_Y, Q = \instance1.repeated_start, rval = 1'0).
+Adding EN signal on $auto$ff.cc:266:slice$1226 ($sdff) from module SystemConnect (D = $flatten\instance1.$procmux$618_Y, Q = \instance1.repeated_start).
+Adding SRST signal on $flatten\instance1.$procdff$753 ($dff) from module SystemConnect (D = $flatten\instance1.$procmux$647_Y, Q = \instance1.writeComplete, rval = 1'0).
+Adding EN signal on $auto$ff.cc:266:slice$1234 ($sdff) from module SystemConnect (D = $flatten\instance1.$procmux$642_Y, Q = \instance1.writeComplete).
+Adding EN signal on $flatten\instance1.$procdff$752 ($dff) from module SystemConnect (D = 1'1, Q = \instance1.rw).
+Adding EN signal on $flatten\instance1.$procdff$751 ($dff) from module SystemConnect (D = $flatten\instance1.$shiftx$TestVerilogZ.sv.v:0$241_Y, Q = \instance1.ledByte).
+Adding SRST signal on $flatten\instance1.$procdff$750 ($dff) from module SystemConnect (D = $flatten\instance1.$procmux$697_Y, Q = \instance1.sda_o, rval = 1'1).
+Adding SRST signal on $flatten\instance1.$procdff$749 ($dff) from module SystemConnect (D = $flatten\instance1.$procmux$729_Y, Q = \instance1.receiving, rval = 1'0).
+Adding EN signal on $auto$ff.cc:266:slice$1251 ($sdff) from module SystemConnect (D = $flatten\instance1.$procmux$724_Y, Q = \instance1.receiving).
+Setting constant 1-bit at position 0 on $auto$ff.cc:266:slice$1248 ($dffe) from module SystemConnect.
+Setting constant 0-bit at position 0 on $auto$ff.cc:266:slice$1198 ($dffe) from module SystemConnect.
+Setting constant 0-bit at position 1 on $auto$ff.cc:266:slice$1198 ($dffe) from module SystemConnect.
+Setting constant 0-bit at position 2 on $auto$ff.cc:266:slice$1198 ($dffe) from module SystemConnect.
+Setting constant 0-bit at position 3 on $auto$ff.cc:266:slice$1198 ($dffe) from module SystemConnect.
+Setting constant 1-bit at position 4 on $auto$ff.cc:266:slice$1198 ($dffe) from module SystemConnect.
+Setting constant 0-bit at position 5 on $auto$ff.cc:266:slice$1198 ($dffe) from module SystemConnect.
+Setting constant 1-bit at position 6 on $auto$ff.cc:266:slice$1198 ($dffe) from module SystemConnect.
+Setting constant 0-bit at position 0 on $auto$ff.cc:266:slice$1197 ($dffe) from module SystemConnect.
+Setting constant 0-bit at position 1 on $auto$ff.cc:266:slice$1197 ($dffe) from module SystemConnect.
+Setting constant 0-bit at position 2 on $auto$ff.cc:266:slice$1197 ($dffe) from module SystemConnect.
+Setting constant 0-bit at position 3 on $auto$ff.cc:266:slice$1197 ($dffe) from module SystemConnect.
+Setting constant 0-bit at position 4 on $auto$ff.cc:266:slice$1197 ($dffe) from module SystemConnect.
+Setting constant 0-bit at position 5 on $auto$ff.cc:266:slice$1197 ($dffe) from module SystemConnect.
+Setting constant 0-bit at position 6 on $auto$ff.cc:266:slice$1197 ($dffe) from module SystemConnect.
+Setting constant 0-bit at position 7 on $auto$ff.cc:266:slice$1197 ($dffe) from module SystemConnect.
+Setting constant 0-bit at position 0 on $auto$ff.cc:266:slice$1196 ($dffe) from module SystemConnect.
+Setting constant 0-bit at position 1 on $auto$ff.cc:266:slice$1196 ($dffe) from module SystemConnect.
+Setting constant 1-bit at position 2 on $auto$ff.cc:266:slice$1196 ($dffe) from module SystemConnect.
+Setting constant 1-bit at position 3 on $auto$ff.cc:266:slice$1196 ($dffe) from module SystemConnect.
+Setting constant 0-bit at position 4 on $auto$ff.cc:266:slice$1196 ($dffe) from module SystemConnect.
+Setting constant 1-bit at position 5 on $auto$ff.cc:266:slice$1196 ($dffe) from module SystemConnect.
+Setting constant 0-bit at position 6 on $auto$ff.cc:266:slice$1196 ($dffe) from module SystemConnect.
+Setting constant 1-bit at position 7 on $auto$ff.cc:266:slice$1196 ($dffe) from module SystemConnect.
+
+2.14.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \SystemConnect..
+Removed 49 unused cells and 111 unused wires.
+<suppressed ~50 debug messages>
+
+2.14.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module SystemConnect.
+<suppressed ~20 debug messages>
+
+2.14.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+2.14.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \SystemConnect..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 1/2 on $mux $flatten\instance1.$procmux$633.
+    dead port 2/2 on $mux $flatten\instance1.$procmux$633.
+Removed 2 multiplexer ports.
+<suppressed ~8 debug messages>
+
+2.14.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \SystemConnect.
+    New input vector for $reduce_or cell $auto$fsm_map.cc:144:implement_pattern_cache$1127: { $auto$fsm_map.cc:118:implement_pattern_cache$1117 $auto$fsm_map.cc:118:implement_pattern_cache$1121 $auto$fsm_map.cc:118:implement_pattern_cache$1125 $auto$fsm_map.cc:118:implement_pattern_cache$1089 $auto$fsm_map.cc:118:implement_pattern_cache$1093 $auto$fsm_map.cc:118:implement_pattern_cache$1105 $auto$fsm_map.cc:118:implement_pattern_cache$1113 $auto$fsm_map.cc:118:implement_pattern_cache$1109 }
+    New input vector for $reduce_or cell $auto$fsm_map.cc:144:implement_pattern_cache$1047: { $auto$fsm_map.cc:118:implement_pattern_cache$995 $auto$fsm_map.cc:118:implement_pattern_cache$999 $auto$fsm_map.cc:118:implement_pattern_cache$1003 $auto$fsm_map.cc:118:implement_pattern_cache$1007 $auto$fsm_map.cc:74:implement_pattern_cache$1009 $auto$fsm_map.cc:118:implement_pattern_cache$1013 $auto$fsm_map.cc:118:implement_pattern_cache$1017 $auto$fsm_map.cc:118:implement_pattern_cache$1027 $auto$fsm_map.cc:74:implement_pattern_cache$1029 $auto$fsm_map.cc:118:implement_pattern_cache$1033 $auto$fsm_map.cc:74:implement_pattern_cache$1035 $auto$fsm_map.cc:118:implement_pattern_cache$1039 $auto$fsm_map.cc:74:implement_pattern_cache$1041 $auto$fsm_map.cc:118:implement_pattern_cache$1045 }
+    New input vector for $reduce_and cell $auto$opt_dff.cc:220:make_patterns_logic$1247: { $auto$opt_dff.cc:194:make_patterns_logic$1242 $flatten\instance1.$eq$TestVerilogZ.sv.v:184$248_Y $auto$opt_dff.cc:194:make_patterns_logic$1236 $auto$rtlil.cc:2739:Not$1245 $auto$opt_dff.cc:194:make_patterns_logic$1240 }
+  Optimizing cells in module \SystemConnect.
+Performed a total of 3 changes.
+
+2.14.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\SystemConnect'.
+<suppressed ~48 debug messages>
+Removed a total of 16 cells.
+
+2.14.13. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $auto$ff.cc:266:slice$1200 ($sdffe) from module SystemConnect (D = $flatten\instance1.$procmux$530_Y, Q = \instance1.bit_count).
+
+2.14.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \SystemConnect..
+Removed 1 unused cells and 36 unused wires.
+<suppressed ~2 debug messages>
+
+2.14.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module SystemConnect.
+<suppressed ~1 debug messages>
+
+2.14.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+2.14.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \SystemConnect..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~9 debug messages>
+
+2.14.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \SystemConnect.
+    New input vector for $reduce_and cell $auto$opt_dff.cc:220:make_patterns_logic$1265: { $flatten\instance1.$eq$TestVerilogZ.sv.v:184$248_Y $auto$rtlil.cc:2739:Not$1176 $auto$opt_dff.cc:194:make_patterns_logic$1262 }
+  Optimizing cells in module \SystemConnect.
+Performed a total of 1 changes.
+
+2.14.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\SystemConnect'.
+Removed a total of 0 cells.
+
+2.14.20. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $auto$ff.cc:266:slice$1206 ($sdffe) from module SystemConnect (D = $flatten\instance1.$procmux$549_Y, Q = \instance1.address_check).
+
+2.14.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \SystemConnect..
+Removed 1 unused cells and 1 unused wires.
+<suppressed ~2 debug messages>
+
+2.14.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module SystemConnect.
+<suppressed ~1 debug messages>
+
+2.14.23. Rerunning OPT passes. (Maybe there is more to do..)
+
+2.14.24. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \SystemConnect..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~9 debug messages>
+
+2.14.25. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \SystemConnect.
+    New input vector for $reduce_and cell $auto$opt_dff.cc:220:make_patterns_logic$1272: { $flatten\instance1.$eq$TestVerilogZ.sv.v:184$248_Y $auto$rtlil.cc:2739:Not$1174 $auto$rtlil.cc:2739:Not$1176 $auto$opt_dff.cc:194:make_patterns_logic$1267 $auto$opt_dff.cc:194:make_patterns_logic$1269 }
+  Optimizing cells in module \SystemConnect.
+Performed a total of 1 changes.
+
+2.14.26. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\SystemConnect'.
+Removed a total of 0 cells.
+
+2.14.27. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.14.28. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \SystemConnect..
+
+2.14.29. Executing OPT_EXPR pass (perform const folding).
+Optimizing module SystemConnect.
+
+2.14.30. Rerunning OPT passes. (Maybe there is more to do..)
+
+2.14.31. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \SystemConnect..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~9 debug messages>
+
+2.14.32. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \SystemConnect.
+Performed a total of 0 changes.
+
+2.14.33. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\SystemConnect'.
+Removed a total of 0 cells.
+
+2.14.34. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.14.35. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \SystemConnect..
+
+2.14.36. Executing OPT_EXPR pass (perform const folding).
+Optimizing module SystemConnect.
+
+2.14.37. Finished OPT passes. (There is nothing left to do.)
+
+2.15. Executing WREDUCE pass (reducing word size of cells).
+Removed top 1 bits (of 4) from port B of cell SystemConnect.$auto$opt_dff.cc:195:make_patterns_logic$1256 ($ne).
+Removed top 2 bits (of 6) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$1167 ($eq).
+Removed top 1 bits (of 5) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$1163 ($eq).
+Removed top 3 bits (of 6) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$1159 ($eq).
+Removed top 3 bits (of 5) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$1155 ($eq).
+Removed top 2 bits (of 5) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$1151 ($eq).
+Removed top 1 bits (of 6) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$1057 ($eq).
+Removed top 1 bits (of 4) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$1044 ($eq).
+Removed top 1 bits (of 6) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$1042 ($eq).
+Removed top 2 bits (of 4) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$1038 ($eq).
+Removed top 1 bits (of 6) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$1036 ($eq).
+Removed top 1 bits (of 5) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$1030 ($eq).
+Removed top 1 bits (of 6) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$1024 ($eq).
+Removed top 4 bits (of 7) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$861 ($eq).
+Removed top 2 bits (of 4) from port B of cell SystemConnect.$auto$opt_dff.cc:195:make_patterns_logic$1270 ($ne).
+Removed top 1 bits (of 7) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$1016 ($eq).
+Removed top 3 bits (of 7) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$1012 ($eq).
+Removed top 2 bits (of 9) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$1010 ($eq).
+Removed top 1 bits (of 7) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$1006 ($eq).
+Removed top 2 bits (of 5) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$1002 ($eq).
+Removed top 1 bits (of 7) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$998 ($eq).
+Removed top 1 bits (of 7) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$994 ($eq).
+Removed top 2 bits (of 4) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$808 ($eq).
+Removed top 2 bits (of 5) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$965 ($eq).
+Removed top 2 bits (of 5) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$963 ($eq).
+Removed top 1 bits (of 6) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$951 ($eq).
+Removed top 3 bits (of 7) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$947 ($eq).
+Removed top 3 bits (of 6) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$943 ($eq).
+Removed top 4 bits (of 6) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$857 ($eq).
+Removed top 3 bits (of 6) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$906 ($eq).
+Removed top 3 bits (of 7) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$902 ($eq).
+Removed top 3 bits (of 6) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$898 ($eq).
+Removed top 3 bits (of 7) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$894 ($eq).
+Removed top 3 bits (of 6) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$890 ($eq).
+Removed top 3 bits (of 6) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$1143 ($eq).
+Removed top 3 bits (of 5) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$1139 ($eq).
+Removed top 3 bits (of 7) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$1137 ($eq).
+Removed top 4 bits (of 9) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$1133 ($eq).
+Removed top 2 bits (of 5) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$845 ($eq).
+Removed top 1 bits (of 3) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$840 ($eq).
+Removed top 4 bits (of 8) from port B of cell SystemConnect.$auto$fsm_map.cc:77:implement_pattern_cache$1129 ($eq).
+Removed top 1 bits (of 2) from port B of cell SystemConnect.$auto$opt_dff.cc:195:make_patterns_logic$1241 ($ne).
+Removed top 31 bits (of 32) from port B of cell SystemConnect.$flatten\instance1.$add$TestVerilogZ.sv.v:271$298 ($add).
+Removed top 31 bits (of 32) from port Y of cell SystemConnect.$flatten\instance1.$add$TestVerilogZ.sv.v:271$298 ($add).
+Removed top 31 bits (of 32) from port B of cell SystemConnect.$flatten\instance1.$sub$TestVerilogZ.sv.v:262$296 ($sub).
+Removed top 26 bits (of 32) from port Y of cell SystemConnect.$flatten\instance1.$sub$TestVerilogZ.sv.v:262$296 ($sub).
+Removed top 1 bits (of 4) from port B of cell SystemConnect.$flatten\instance1.$eq$TestVerilogZ.sv.v:261$295 ($eq).
+Removed top 31 bits (of 32) from port B of cell SystemConnect.$flatten\instance1.$sub$TestVerilogZ.sv.v:260$294 ($sub).
+Removed top 25 bits (of 32) from port Y of cell SystemConnect.$flatten\instance1.$sub$TestVerilogZ.sv.v:260$294 ($sub).
+Converting cell SystemConnect.$flatten\instance1.$neg$TestVerilogZ.sv.v:0$287 ($neg) from signed to unsigned.
+Removed top 1 bits (of 8) from port A of cell SystemConnect.$flatten\instance1.$neg$TestVerilogZ.sv.v:0$287 ($neg).
+Removed top 31 bits (of 32) from port B of cell SystemConnect.$flatten\instance1.$sub$TestVerilogZ.sv.v:213$267 ($sub).
+Removed top 28 bits (of 32) from port Y of cell SystemConnect.$flatten\instance1.$sub$TestVerilogZ.sv.v:213$267 ($sub).
+Removed top 31 bits (of 32) from port B of cell SystemConnect.$flatten\instance1.$gt$TestVerilogZ.sv.v:212$266 ($gt).
+Removed top 31 bits (of 32) from port B of cell SystemConnect.$flatten\instance1.$add$TestVerilogZ.sv.v:211$265 ($add).
+Removed top 28 bits (of 32) from port Y of cell SystemConnect.$flatten\instance1.$add$TestVerilogZ.sv.v:211$265 ($add).
+Removed top 31 bits (of 32) from port B of cell SystemConnect.$flatten\instance1.$gt$TestVerilogZ.sv.v:198$262 ($gt).
+Removed top 2 bits (of 6) from port B of cell SystemConnect.$flatten\instance1.$lt$TestVerilogZ.sv.v:198$261 ($lt).
+Removed top 2 bits (of 6) from port B of cell SystemConnect.$flatten\instance1.$eq$TestVerilogZ.sv.v:189$256 ($eq).
+Removed top 24 bits (of 32) from port B of cell SystemConnect.$flatten\instance1.$shiftx$TestVerilogZ.sv.v:0$241 ($shiftx).
+Removed top 31 bits (of 32) from port B of cell SystemConnect.$flatten\instance1.$add$TestVerilogZ.sv.v:145$236 ($add).
+Removed top 30 bits (of 32) from port Y of cell SystemConnect.$flatten\instance1.$add$TestVerilogZ.sv.v:145$236 ($add).
+Removed top 30 bits (of 32) from wire SystemConnect.$flatten\instance1.$add$TestVerilogZ.sv.v:145$236_Y.
+Removed top 28 bits (of 32) from wire SystemConnect.$flatten\instance1.$add$TestVerilogZ.sv.v:211$265_Y.
+Removed top 31 bits (of 32) from wire SystemConnect.$flatten\instance1.$add$TestVerilogZ.sv.v:271$298_Y.
+Removed top 5 bits (of 8) from wire SystemConnect.$flatten\instance1.$shiftx$TestVerilogZ.sv.v:0$241_Y.
+Removed top 25 bits (of 32) from wire SystemConnect.$flatten\instance1.$sub$TestVerilogZ.sv.v:260$294_Y.
+
+2.16. Executing PEEPOPT pass (run peephole optimizers).
+
+2.17. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \SystemConnect..
+Removed 0 unused cells and 5 unused wires.
+<suppressed ~1 debug messages>
+
+2.18. Executing SHARE pass (SAT-based resource sharing).
+
+2.19. Executing TECHMAP pass (map to technology primitives).
+
+2.19.1. Executing Verilog-2005 frontend: /tools/oss-cad-suite/lib/../share/yosys/cmp2lut.v
+Parsing Verilog input from `/tools/oss-cad-suite/lib/../share/yosys/cmp2lut.v' to AST representation.
+Generating RTLIL representation for module `\_90_lut_cmp_'.
+Successfully finished Verilog frontend.
+
+2.19.2. Continuing TECHMAP pass.
+Using template $paramod$145abe87336b813af869805af52840f8eaed9f1a\_90_lut_cmp_ for cells of type $gt.
+No more expansions possible.
+<suppressed ~92 debug messages>
+
+2.20. Executing OPT_EXPR pass (perform const folding).
+Optimizing module SystemConnect.
+
+2.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \SystemConnect..
+Removed 0 unused cells and 3 unused wires.
+<suppressed ~1 debug messages>
+
+2.22. Executing TECHMAP pass (map to technology primitives).
+
+2.22.1. Executing Verilog-2005 frontend: /tools/oss-cad-suite/lib/../share/yosys/mul2dsp.v
+Parsing Verilog input from `/tools/oss-cad-suite/lib/../share/yosys/mul2dsp.v' to AST representation.
+Generating RTLIL representation for module `\_80_mul'.
+Generating RTLIL representation for module `\_90_soft_mul'.
+Successfully finished Verilog frontend.
+
+2.22.2. Executing Verilog-2005 frontend: /tools/oss-cad-suite/lib/../share/yosys/ecp5/dsp_map.v
+Parsing Verilog input from `/tools/oss-cad-suite/lib/../share/yosys/ecp5/dsp_map.v' to AST representation.
+Generating RTLIL representation for module `\$__MUL18X18'.
+Successfully finished Verilog frontend.
+
+2.22.3. Continuing TECHMAP pass.
+No more expansions possible.
+<suppressed ~5 debug messages>
+
+2.23. Executing ALUMACC pass (create $alu and $macc cells).
+Extracting $alu and $macc cells in module SystemConnect:
+  creating $macc model for $flatten\instance1.$add$TestVerilogZ.sv.v:145$236 ($add).
+  creating $macc model for $flatten\instance1.$add$TestVerilogZ.sv.v:211$265 ($add).
+  creating $macc model for $flatten\instance1.$add$TestVerilogZ.sv.v:271$298 ($add).
+  creating $macc model for $flatten\instance1.$neg$TestVerilogZ.sv.v:0$287 ($neg).
+  creating $macc model for $flatten\instance1.$sub$TestVerilogZ.sv.v:213$267 ($sub).
+  creating $macc model for $flatten\instance1.$sub$TestVerilogZ.sv.v:260$294 ($sub).
+  creating $macc model for $flatten\instance1.$sub$TestVerilogZ.sv.v:262$296 ($sub).
+  creating $alu model for $macc $flatten\instance1.$sub$TestVerilogZ.sv.v:262$296.
+  creating $alu model for $macc $flatten\instance1.$sub$TestVerilogZ.sv.v:260$294.
+  creating $alu model for $macc $flatten\instance1.$sub$TestVerilogZ.sv.v:213$267.
+  creating $alu model for $macc $flatten\instance1.$neg$TestVerilogZ.sv.v:0$287.
+  creating $alu model for $macc $flatten\instance1.$add$TestVerilogZ.sv.v:271$298.
+  creating $alu model for $macc $flatten\instance1.$add$TestVerilogZ.sv.v:211$265.
+  creating $alu model for $macc $flatten\instance1.$add$TestVerilogZ.sv.v:145$236.
+  creating $alu model for $flatten\instance1.$gt$TestVerilogZ.sv.v:198$262 ($gt): new $alu
+  creating $alu model for $flatten\instance1.$lt$TestVerilogZ.sv.v:198$261 ($lt): new $alu
+  creating $alu model for $flatten\instance1.$eq$TestVerilogZ.sv.v:189$256 ($eq): merged with $flatten\instance1.$lt$TestVerilogZ.sv.v:198$261.
+  creating $alu cell for $flatten\instance1.$lt$TestVerilogZ.sv.v:198$261, $flatten\instance1.$eq$TestVerilogZ.sv.v:189$256: $auto$alumacc.cc:485:replace_alu$1283
+  creating $alu cell for $flatten\instance1.$gt$TestVerilogZ.sv.v:198$262: $auto$alumacc.cc:485:replace_alu$1294
+  creating $alu cell for $flatten\instance1.$add$TestVerilogZ.sv.v:145$236: $auto$alumacc.cc:485:replace_alu$1299
+  creating $alu cell for $flatten\instance1.$add$TestVerilogZ.sv.v:211$265: $auto$alumacc.cc:485:replace_alu$1302
+  creating $alu cell for $flatten\instance1.$add$TestVerilogZ.sv.v:271$298: $auto$alumacc.cc:485:replace_alu$1305
+  creating $alu cell for $flatten\instance1.$neg$TestVerilogZ.sv.v:0$287: $auto$alumacc.cc:485:replace_alu$1308
+  creating $alu cell for $flatten\instance1.$sub$TestVerilogZ.sv.v:213$267: $auto$alumacc.cc:485:replace_alu$1311
+  creating $alu cell for $flatten\instance1.$sub$TestVerilogZ.sv.v:260$294: $auto$alumacc.cc:485:replace_alu$1314
+  creating $alu cell for $flatten\instance1.$sub$TestVerilogZ.sv.v:262$296: $auto$alumacc.cc:485:replace_alu$1317
+  created 9 $alu and 0 $macc cells.
+
+2.24. Executing OPT pass (performing simple optimizations).
+
+2.24.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module SystemConnect.
+
+2.24.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\SystemConnect'.
+Removed a total of 0 cells.
+
+2.24.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \SystemConnect..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~9 debug messages>
+
+2.24.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \SystemConnect.
+Performed a total of 0 changes.
+
+2.24.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\SystemConnect'.
+Removed a total of 0 cells.
+
+2.24.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.24.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \SystemConnect..
+Removed 0 unused cells and 3 unused wires.
+<suppressed ~1 debug messages>
+
+2.24.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module SystemConnect.
+
+2.24.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+2.24.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \SystemConnect..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~9 debug messages>
+
+2.24.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \SystemConnect.
+Performed a total of 0 changes.
+
+2.24.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\SystemConnect'.
+Removed a total of 0 cells.
+
+2.24.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.24.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \SystemConnect..
+
+2.24.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module SystemConnect.
+
+2.24.16. Finished OPT passes. (There is nothing left to do.)
+
+2.25. Executing MEMORY pass.
+
+2.25.1. Executing OPT_MEM pass (optimize memories).
+Performed a total of 0 transformations.
+
+2.25.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+Performed a total of 0 transformations.
+
+2.25.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+
+2.25.4. Executing MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+
+2.25.5. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+
+2.25.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \SystemConnect..
+
+2.25.7. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+
+2.25.8. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+Performed a total of 0 transformations.
+
+2.25.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \SystemConnect..
+
+2.25.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+2.26. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \SystemConnect..
+
+2.27. Executing MEMORY_LIBMAP pass (mapping memories to cells).
+
+2.28. Executing TECHMAP pass (map to technology primitives).
+
+2.28.1. Executing Verilog-2005 frontend: /tools/oss-cad-suite/lib/../share/yosys/ecp5/lutrams_map.v
+Parsing Verilog input from `/tools/oss-cad-suite/lib/../share/yosys/ecp5/lutrams_map.v' to AST representation.
+Generating RTLIL representation for module `\$__TRELLIS_DPR16X4_'.
+Successfully finished Verilog frontend.
+
+2.28.2. Executing Verilog-2005 frontend: /tools/oss-cad-suite/lib/../share/yosys/ecp5/brams_map.v
+Parsing Verilog input from `/tools/oss-cad-suite/lib/../share/yosys/ecp5/brams_map.v' to AST representation.
+Generating RTLIL representation for module `\$__ECP5_DP16KD_'.
+Generating RTLIL representation for module `\$__ECP5_PDPW16KD_'.
+Successfully finished Verilog frontend.
+
+2.28.3. Continuing TECHMAP pass.
+No more expansions possible.
+<suppressed ~5 debug messages>
+
+2.29. Executing OPT pass (performing simple optimizations).
+
+2.29.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module SystemConnect.
+<suppressed ~10 debug messages>
+
+2.29.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\SystemConnect'.
+<suppressed ~3 debug messages>
+Removed a total of 1 cells.
+
+2.29.3. Executing OPT_DFF pass (perform DFF optimizations).
+Setting constant 0-bit at position 0 on $auto$ff.cc:266:slice$1235 ($sdffe) from module SystemConnect.
+
+2.29.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \SystemConnect..
+Removed 4 unused cells and 13 unused wires.
+<suppressed ~5 debug messages>
+
+2.29.5. Rerunning OPT passes. (Removed registers in this run.)
+
+2.29.6. Executing OPT_EXPR pass (perform const folding).
+Optimizing module SystemConnect.
+<suppressed ~3 debug messages>
+
+2.29.7. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\SystemConnect'.
+Removed a total of 0 cells.
+
+2.29.8. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.29.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \SystemConnect..
+Removed 0 unused cells and 3 unused wires.
+<suppressed ~1 debug messages>
+
+2.29.10. Finished fast OPT passes.
+
+2.30. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+2.31. Executing OPT pass (performing simple optimizations).
+
+2.31.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module SystemConnect.
+
+2.31.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\SystemConnect'.
+Removed a total of 0 cells.
+
+2.31.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \SystemConnect..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~7 debug messages>
+
+2.31.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \SystemConnect.
+Performed a total of 0 changes.
+
+2.31.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\SystemConnect'.
+Removed a total of 0 cells.
+
+2.31.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.31.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \SystemConnect..
+
+2.31.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module SystemConnect.
+
+2.31.9. Finished OPT passes. (There is nothing left to do.)
+
+2.32. Executing TECHMAP pass (map to technology primitives).
+
+2.32.1. Executing Verilog-2005 frontend: /tools/oss-cad-suite/lib/../share/yosys/techmap.v
+Parsing Verilog input from `/tools/oss-cad-suite/lib/../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `\$__div_mod_u'.
+Generating RTLIL representation for module `\$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `\$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_pmux'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Successfully finished Verilog frontend.
+
+2.32.2. Executing Verilog-2005 frontend: /tools/oss-cad-suite/lib/../share/yosys/ecp5/arith_map.v
+Parsing Verilog input from `/tools/oss-cad-suite/lib/../share/yosys/ecp5/arith_map.v' to AST representation.
+Generating RTLIL representation for module `\_80_ecp5_alu'.
+Successfully finished Verilog frontend.
+
+2.32.3. Continuing TECHMAP pass.
+Using extmapper simplemap for cells of type $reduce_and.
+Using extmapper simplemap for cells of type $and.
+Using extmapper simplemap for cells of type $tribuf.
+Using extmapper simplemap for cells of type $not.
+Using extmapper simplemap for cells of type $logic_not.
+Using extmapper simplemap for cells of type $logic_or.
+Using extmapper simplemap for cells of type $reduce_bool.
+Using extmapper simplemap for cells of type $ne.
+Using extmapper simplemap for cells of type $reduce_or.
+Using extmapper simplemap for cells of type $eq.
+Using extmapper simplemap for cells of type $lut.
+Using extmapper simplemap for cells of type $sdffe.
+Using extmapper simplemap for cells of type $or.
+Using template $paramod$5bb6c3f3e4a5303115f41a182fad517280ea0b25\_80_ecp5_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $dff.
+Using extmapper simplemap for cells of type $dffe.
+Using extmapper simplemap for cells of type $sdff.
+Using extmapper simplemap for cells of type $mux.
+Using template $paramod$c9d98d2d0793a6d8797b9c088dbedb26a7be7121\_80_ecp5_alu for cells of type $alu.
+Using template $paramod$a04dd9d4d8b430140c4ff94b50470fb380fda2a0\_80_ecp5_alu for cells of type $alu.
+Using template $paramod$constmap:0ead6f5ca7ca43fe4400020e18ccd1626fd60fba$paramod$ecd66f5f19d598f1089be1d5dba45d8af43427b8\_90_shift_shiftx for cells of type $shift.
+Analyzing pattern of constant bits for this cell:
+  Constant input on bit 0 of port A: 1'1
+Creating constmapped module `$paramod$constmap:948d0edc14477ac11207e128371ceca84f96ebc4$paramod$ecd66f5f19d598f1089be1d5dba45d8af43427b8\_90_shift_shiftx'.
+
+2.32.15. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod$constmap:948d0edc14477ac11207e128371ceca84f96ebc4$paramod$ecd66f5f19d598f1089be1d5dba45d8af43427b8\_90_shift_shiftx..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 2/2 on $mux $procmux$2947.
+    dead port 2/2 on $mux $procmux$2941.
+    dead port 2/2 on $mux $procmux$2935.
+    dead port 2/2 on $mux $procmux$2929.
+    dead port 2/2 on $mux $procmux$2923.
+    dead port 2/2 on $mux $procmux$2917.
+    dead port 2/2 on $mux $procmux$2911.
+Removed 7 multiplexer ports.
+<suppressed ~507 debug messages>
+
+2.32.16. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$constmap:948d0edc14477ac11207e128371ceca84f96ebc4$paramod$ecd66f5f19d598f1089be1d5dba45d8af43427b8\_90_shift_shiftx.
+<suppressed ~2 debug messages>
+Removed 0 unused cells and 12 unused wires.
+Using template $paramod$constmap:948d0edc14477ac11207e128371ceca84f96ebc4$paramod$ecd66f5f19d598f1089be1d5dba45d8af43427b8\_90_shift_shiftx for cells of type $shift.
+Using template $paramod$1a9b2adc0e90ccf2d22dba8d72430d10741e65ed\_90_alu for cells of type $alu.
+Using template $paramod$constmap:64ca6b482d5872b63b313c41c2f8f350648b2a48$paramod$92adee9538f2381d8e5006822c900eb986d754e8\_90_shift_shiftx for cells of type $shiftx.
+Using template $paramod$constmap:8cab8cd37efbce96701e681e00bcbc727c8b2779$paramod$56a48bd44e86d08fefdee460d5d35297c232a9bd\_90_shift_shiftx for cells of type $shiftx.
+Using template $paramod$10ed987432f06055e5279101f9ec60a49861b43c\_80_ecp5_alu for cells of type $alu.
+Using template $paramod$fc972a7a46956c1788f3cb5257b53c8f1df2d0cc\_90_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $logic_and.
+Using template $paramod$175e67c02b86e96b1288b9dc100122520d7240d8\_90_alu for cells of type $alu.
+Using template $paramod$32efbfac1c4dc57230cf86180788fdfd12e3b511\_80_ecp5_alu for cells of type $alu.
+Using template $paramod$constmap:a613a988efaee6fe68bd2154434accbfa7125b32$paramod$c414f9c4e0e82e8c11577c1142e59cbae97a9ea8\_90_shift_shiftx for cells of type $shiftx.
+Using template $paramod$32a7b7b86c07519b7537abc18e96f0331f97914d\_90_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $xor.
+Using extmapper simplemap for cells of type $pos.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000000100 for cells of type $lcu.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000000001 for cells of type $lcu.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000000010 for cells of type $lcu.
+No more expansions possible.
+<suppressed ~1277 debug messages>
+
+2.33. Executing OPT pass (performing simple optimizations).
+
+2.33.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module SystemConnect.
+<suppressed ~3803 debug messages>
+
+2.33.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\SystemConnect'.
+<suppressed ~522 debug messages>
+Removed a total of 174 cells.
+
+2.33.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.33.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \SystemConnect..
+Removed 414 unused cells and 552 unused wires.
+<suppressed ~415 debug messages>
+
+2.33.5. Finished fast OPT passes.
+
+2.34. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \SystemConnect..
+
+2.35. Executing DFFLEGALIZE pass (convert FFs to types supported by the target).
+
+2.36. Executing TECHMAP pass (map to technology primitives).
+
+2.36.1. Executing Verilog-2005 frontend: /tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_map.v
+Parsing Verilog input from `/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_map.v' to AST representation.
+Generating RTLIL representation for module `\$_DFF_N_'.
+Generating RTLIL representation for module `\$_DFF_P_'.
+Generating RTLIL representation for module `\$_DFFE_NN_'.
+Generating RTLIL representation for module `\$_DFFE_PN_'.
+Generating RTLIL representation for module `\$_DFFE_NP_'.
+Generating RTLIL representation for module `\$_DFFE_PP_'.
+Generating RTLIL representation for module `\$_DFF_NP0_'.
+Generating RTLIL representation for module `\$_DFF_NP1_'.
+Generating RTLIL representation for module `\$_DFF_PP0_'.
+Generating RTLIL representation for module `\$_DFF_PP1_'.
+Generating RTLIL representation for module `\$_SDFF_NP0_'.
+Generating RTLIL representation for module `\$_SDFF_NP1_'.
+Generating RTLIL representation for module `\$_SDFF_PP0_'.
+Generating RTLIL representation for module `\$_SDFF_PP1_'.
+Generating RTLIL representation for module `\$_DFFE_NP0P_'.
+Generating RTLIL representation for module `\$_DFFE_NP1P_'.
+Generating RTLIL representation for module `\$_DFFE_PP0P_'.
+Generating RTLIL representation for module `\$_DFFE_PP1P_'.
+Generating RTLIL representation for module `\$_DFFE_NP0N_'.
+Generating RTLIL representation for module `\$_DFFE_NP1N_'.
+Generating RTLIL representation for module `\$_DFFE_PP0N_'.
+Generating RTLIL representation for module `\$_DFFE_PP1N_'.
+Generating RTLIL representation for module `\$_SDFFE_NP0P_'.
+Generating RTLIL representation for module `\$_SDFFE_NP1P_'.
+Generating RTLIL representation for module `\$_SDFFE_PP0P_'.
+Generating RTLIL representation for module `\$_SDFFE_PP1P_'.
+Generating RTLIL representation for module `\$_SDFFE_NP0N_'.
+Generating RTLIL representation for module `\$_SDFFE_NP1N_'.
+Generating RTLIL representation for module `\$_SDFFE_PP0N_'.
+Generating RTLIL representation for module `\$_SDFFE_PP1N_'.
+Generating RTLIL representation for module `\$_ALDFF_NP_'.
+Generating RTLIL representation for module `\$_ALDFF_PP_'.
+Generating RTLIL representation for module `\$_ALDFFE_NPN_'.
+Generating RTLIL representation for module `\$_ALDFFE_NPP_'.
+Generating RTLIL representation for module `\$_ALDFFE_PPN_'.
+Generating RTLIL representation for module `\$_ALDFFE_PPP_'.
+Generating RTLIL representation for module `\FD1P3AX'.
+Generating RTLIL representation for module `\FD1P3AY'.
+Generating RTLIL representation for module `\FD1P3BX'.
+Generating RTLIL representation for module `\FD1P3DX'.
+Generating RTLIL representation for module `\FD1P3IX'.
+Generating RTLIL representation for module `\FD1P3JX'.
+Generating RTLIL representation for module `\FD1S3AX'.
+Generating RTLIL representation for module `\FD1S3AY'.
+Generating RTLIL representation for module `\FD1S3BX'.
+Generating RTLIL representation for module `\FD1S3DX'.
+Generating RTLIL representation for module `\FD1S3IX'.
+Generating RTLIL representation for module `\FD1S3JX'.
+Generating RTLIL representation for module `\IFS1P3BX'.
+Generating RTLIL representation for module `\IFS1P3DX'.
+Generating RTLIL representation for module `\IFS1P3IX'.
+Generating RTLIL representation for module `\IFS1P3JX'.
+Generating RTLIL representation for module `\OFS1P3BX'.
+Generating RTLIL representation for module `\OFS1P3DX'.
+Generating RTLIL representation for module `\OFS1P3IX'.
+Generating RTLIL representation for module `\OFS1P3JX'.
+Generating RTLIL representation for module `\IB'.
+Generating RTLIL representation for module `\IBPU'.
+Generating RTLIL representation for module `\IBPD'.
+Generating RTLIL representation for module `\OB'.
+Generating RTLIL representation for module `\OBZ'.
+Generating RTLIL representation for module `\OBZPU'.
+Generating RTLIL representation for module `\OBZPD'.
+Generating RTLIL representation for module `\OBCO'.
+Generating RTLIL representation for module `\BB'.
+Generating RTLIL representation for module `\BBPU'.
+Generating RTLIL representation for module `\BBPD'.
+Generating RTLIL representation for module `\ILVDS'.
+Generating RTLIL representation for module `\OLVDS'.
+Successfully finished Verilog frontend.
+
+2.36.2. Continuing TECHMAP pass.
+Using template \$_SDFFE_PP1P_ for cells of type $_SDFFE_PP1P_.
+Using template $paramod\$_DFF_P_\_TECHMAP_WIREINIT_Q_=1'x for cells of type $_DFF_P_.
+Using template $paramod\$_DFFE_PP_\_TECHMAP_WIREINIT_Q_=1'x for cells of type $_DFFE_PP_.
+Using template \$_SDFFE_PP0P_ for cells of type $_SDFFE_PP0P_.
+Using template \$_SDFF_PP0_ for cells of type $_SDFF_PP0_.
+Using template $paramod\$_DFFE_PN_\_TECHMAP_WIREINIT_Q_=1'x for cells of type $_DFFE_PN_.
+Using template \$_SDFF_PP1_ for cells of type $_SDFF_PP1_.
+No more expansions possible.
+<suppressed ~220 debug messages>
+
+2.37. Executing OPT_EXPR pass (perform const folding).
+Optimizing module SystemConnect.
+<suppressed ~31 debug messages>
+
+2.38. Executing SIMPLEMAP pass (map simple cells to gate primitives).
+
+2.39. Executing LATTICE_GSR pass (implement FF init values).
+Handling GSR in SystemConnect.
+
+2.40. Executing ATTRMVCP pass (move or copy attributes).
+
+2.41. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \SystemConnect..
+Removed 2 unused cells and 601 unused wires.
+<suppressed ~3 debug messages>
+
+2.42. Executing TECHMAP pass (map to technology primitives).
+
+2.42.1. Executing Verilog-2005 frontend: /tools/oss-cad-suite/lib/../share/yosys/ecp5/latches_map.v
+Parsing Verilog input from `/tools/oss-cad-suite/lib/../share/yosys/ecp5/latches_map.v' to AST representation.
+Generating RTLIL representation for module `\$_DLATCH_N_'.
+Generating RTLIL representation for module `\$_DLATCH_P_'.
+Successfully finished Verilog frontend.
+
+2.42.2. Continuing TECHMAP pass.
+No more expansions possible.
+<suppressed ~4 debug messages>
+
+2.43. Executing ABC9 pass.
+
+2.43.1. Executing ABC9_OPS pass (helper functions for ABC9).
+
+2.43.2. Executing ABC9_OPS pass (helper functions for ABC9).
+
+2.43.3. Executing SCC pass (detecting logic loops).
+Found 0 SCCs in module SystemConnect.
+Found 0 SCCs.
+
+2.43.4. Executing ABC9_OPS pass (helper functions for ABC9).
+
+2.43.5. Executing PROC pass (convert processes to netlists).
+
+2.43.5.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+2.43.5.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+2.43.5.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 0 assignments to connections.
+
+2.43.5.4. Executing PROC_INIT pass (extract init attributes).
+
+2.43.5.5. Executing PROC_ARST pass (detect async resets in processes).
+
+2.43.5.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+2.43.5.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+
+2.43.5.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+2.43.5.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+2.43.5.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+2.43.5.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+2.43.5.12. Executing OPT_EXPR pass (perform const folding).
+
+2.43.6. Executing TECHMAP pass (map to technology primitives).
+
+2.43.6.1. Executing Verilog-2005 frontend: /tools/oss-cad-suite/lib/../share/yosys/techmap.v
+Parsing Verilog input from `/tools/oss-cad-suite/lib/../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `\$__div_mod_u'.
+Generating RTLIL representation for module `\$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `\$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_pmux'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Successfully finished Verilog frontend.
+
+2.43.6.2. Continuing TECHMAP pass.
+No more expansions possible.
+<suppressed ~160 debug messages>
+
+2.43.7. Executing OPT pass (performing simple optimizations).
+
+2.43.7.1. Executing OPT_EXPR pass (perform const folding).
+
+2.43.7.2. Executing OPT_MERGE pass (detect identical cells).
+Removed a total of 0 cells.
+
+2.43.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Removed 0 multiplexer ports.
+
+2.43.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+Performed a total of 0 changes.
+
+2.43.7.5. Executing OPT_MERGE pass (detect identical cells).
+Removed a total of 0 cells.
+
+2.43.7.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.43.7.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+
+2.43.7.8. Executing OPT_EXPR pass (perform const folding).
+
+2.43.7.9. Finished OPT passes. (There is nothing left to do.)
+
+2.43.8. Executing TECHMAP pass (map to technology primitives).
+
+2.43.8.1. Executing Verilog-2005 frontend: /tools/oss-cad-suite/lib/../share/yosys/abc9_map.v
+Parsing Verilog input from `/tools/oss-cad-suite/lib/../share/yosys/abc9_map.v' to AST representation.
+Successfully finished Verilog frontend.
+
+2.43.8.2. Continuing TECHMAP pass.
+No more expansions possible.
+<suppressed ~2 debug messages>
+
+2.43.9. Executing Verilog-2005 frontend: /tools/oss-cad-suite/lib/../share/yosys/abc9_model.v
+Parsing Verilog input from `/tools/oss-cad-suite/lib/../share/yosys/abc9_model.v' to AST representation.
+Generating RTLIL representation for module `$__ABC9_DELAY'.
+Generating RTLIL representation for module `$__ABC9_SCC_BREAKER'.
+Generating RTLIL representation for module `$__DFF_N__$abc9_flop'.
+Generating RTLIL representation for module `$__DFF_P__$abc9_flop'.
+Successfully finished Verilog frontend.
+
+2.43.10. Executing ABC9_OPS pass (helper functions for ABC9).
+<suppressed ~2 debug messages>
+
+2.43.11. Executing ABC9_OPS pass (helper functions for ABC9).
+
+2.43.12. Executing ABC9_OPS pass (helper functions for ABC9).
+<suppressed ~2 debug messages>
+
+2.43.13. Executing TECHMAP pass (map to technology primitives).
+
+2.43.13.1. Executing Verilog-2005 frontend: /tools/oss-cad-suite/lib/../share/yosys/techmap.v
+Parsing Verilog input from `/tools/oss-cad-suite/lib/../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `\$__div_mod_u'.
+Generating RTLIL representation for module `\$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `\$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_pmux'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Successfully finished Verilog frontend.
+
+2.43.13.2. Continuing TECHMAP pass.
+Using template $paramod$838872d5a4bab89607f53482b205c0fd50d8b82e\CCU2C for cells of type $paramod$838872d5a4bab89607f53482b205c0fd50d8b82e\CCU2C.
+Using template $paramod\LUT2\INIT=4'1010 for cells of type LUT2.
+Using extmapper simplemap for cells of type $or.
+Using extmapper simplemap for cells of type $and.
+Using extmapper simplemap for cells of type $xor.
+Using template $paramod\LUT4\INIT=16'1001011010101010 for cells of type LUT4.
+Using extmapper simplemap for cells of type $not.
+Using extmapper simplemap for cells of type $mux.
+No more expansions possible.
+<suppressed ~199 debug messages>
+
+2.43.14. Executing OPT pass (performing simple optimizations).
+
+2.43.14.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module SystemConnect.
+<suppressed ~18 debug messages>
+
+2.43.14.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\SystemConnect'.
+<suppressed ~6 debug messages>
+Removed a total of 2 cells.
+
+2.43.14.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \SystemConnect..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+2.43.14.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \SystemConnect.
+Performed a total of 0 changes.
+
+2.43.14.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\SystemConnect'.
+Removed a total of 0 cells.
+
+2.43.14.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.43.14.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \SystemConnect..
+Removed 0 unused cells and 55 unused wires.
+<suppressed ~1 debug messages>
+
+2.43.14.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module SystemConnect.
+
+2.43.14.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+2.43.14.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \SystemConnect..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+2.43.14.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \SystemConnect.
+Performed a total of 0 changes.
+
+2.43.14.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\SystemConnect'.
+Removed a total of 0 cells.
+
+2.43.14.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.43.14.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \SystemConnect..
+
+2.43.14.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module SystemConnect.
+
+2.43.14.16. Finished OPT passes. (There is nothing left to do.)
+
+2.43.15. Executing AIGMAP pass (map logic to AIG).
+Module SystemConnect: replaced 18 cells with 120 new cells, skipped 39 cells.
+  replaced 3 cell types:
+       2 $_OR_
+       2 $_XOR_
+      14 $_MUX_
+  not replaced 3 cell types:
+      31 $specify2
+       4 $_NOT_
+       4 $_AND_
+
+2.43.16. Executing AIGMAP pass (map logic to AIG).
+Module SystemConnect: replaced 825 cells with 4866 new cells, skipped 477 cells.
+  replaced 3 cell types:
+     303 $_OR_
+       6 $_XOR_
+     516 $_MUX_
+  not replaced 8 cell types:
+       2 $scopeinfo
+     150 $_NOT_
+     188 $_AND_
+       2 $_TBUF_
+     116 TRELLIS_FF
+       1 EHXPLLL
+       1 CLKDIVF
+      17 $paramod$838872d5a4bab89607f53482b205c0fd50d8b82e\CCU2C
+
+2.43.16.1. Executing ABC9_OPS pass (helper functions for ABC9).
+
+2.43.16.2. Executing ABC9_OPS pass (helper functions for ABC9).
+
+2.43.16.3. Executing XAIGER backend.
+<suppressed ~11 debug messages>
+Extracted 2057 AND gates and 5524 wires from module `SystemConnect' to a netlist network with 155 inputs and 166 outputs.
+
+2.43.16.4. Executing ABC9_EXE pass (technology mapping using ABC9).
+
+2.43.16.5. Executing ABC9.
+Running ABC command: "<yosys-exe-dir>/yosys-abc" -s -f <abc-temp-dir>/abc.script 2>&1
+ABC: ABC command line: "source <abc-temp-dir>/abc.script".
+ABC: 
+ABC: + read_lut <abc-temp-dir>/input.lut 
+ABC: + read_box <abc-temp-dir>/input.box 
+ABC: + &read <abc-temp-dir>/input.xaig 
+ABC: + &ps 
+ABC: <abc-temp-dir>/input : i/o =    155/    166  and =    1179  lev =   23 (2.99)  mem = 0.02 MB  box = 17  bb = 0
+ABC: + &scorr 
+ABC: Warning: The network is combinational.
+ABC: + &sweep 
+ABC: + &dc2 
+ABC: + &dch -f 
+ABC: + &ps 
+ABC: <abc-temp-dir>/input : i/o =    155/    166  and =    1255  lev =   11 (2.66)  mem = 0.02 MB  ch =  143  box = 13  bb = 0
+ABC: + &if -W 300 -v 
+ABC: K = 7. Memory (bytes): Truth =    0. Cut =   64. Obj =  148. Set =  672. CutMin = no
+ABC: Node =    1255.  Ch =   142.  Total mem =    0.27 MB. Peak cut mem =    0.03 MB.
+ABC: P:  Del = 2118.00.  Ar =    1052.0.  Edge =     1096.  Cut =    12358.  T =     0.00 sec
+ABC: P:  Del = 2118.00.  Ar =    1061.0.  Edge =     1110.  Cut =    12337.  T =     0.00 sec
+ABC: P:  Del = 2118.00.  Ar =     904.0.  Edge =     1130.  Cut =    20136.  T =     0.00 sec
+ABC: F:  Del = 2118.00.  Ar =     456.0.  Edge =      971.  Cut =    16437.  T =     0.00 sec
+ABC: A:  Del = 2118.00.  Ar =     456.0.  Edge =      961.  Cut =    15527.  T =     0.00 sec
+ABC: A:  Del = 2118.00.  Ar =     456.0.  Edge =      961.  Cut =    15467.  T =     0.00 sec
+ABC: Total time =     0.02 sec
+ABC: + &write -n <abc-temp-dir>/output.aig 
+ABC: + &mfs 
+ABC: + &ps -l 
+ABC: <abc-temp-dir>/input : i/o =    155/    166  and =    1026  lev =   12 (2.55)  mem = 0.02 MB  box = 10  bb = 0
+ABC: Mapping (K=7)  :  lut =    212  edge =     914  lev =    4 (0.93)  Boxes are not in a topological order. Switching to level computation without boxes.
+ABC: levB =   12  mem = 0.01 MB
+ABC: LUT = 212 : 2=17 8.0 %  3=43 20.3 %  4=59 27.8 %  5=47 22.2 %  6=42 19.8 %  7=4 1.9 %  Ave = 4.31
+ABC: + &write -n <abc-temp-dir>/output.aig 
+ABC: + time 
+ABC: elapse: 0.11 seconds, total: 0.11 seconds
+
+2.43.16.6. Executing AIGER frontend.
+<suppressed ~661 debug messages>
+Removed 1388 unused cells and 1928 unused wires.
+
+2.43.16.7. Executing ABC9_OPS pass (helper functions for ABC9).
+ABC RESULTS:              $lut cells:      224
+ABC RESULTS:   $paramod$838872d5a4bab89607f53482b205c0fd50d8b82e\CCU2C cells:       10
+ABC RESULTS:           input signals:       19
+ABC RESULTS:          output signals:       32
+Removing temp directory.
+
+2.43.17. Executing TECHMAP pass (map to technology primitives).
+
+2.43.17.1. Executing Verilog-2005 frontend: /tools/oss-cad-suite/lib/../share/yosys/abc9_unmap.v
+Parsing Verilog input from `/tools/oss-cad-suite/lib/../share/yosys/abc9_unmap.v' to AST representation.
+Generating RTLIL representation for module `\$__DFF_x__$abc9_flop'.
+Generating RTLIL representation for module `\$__ABC9_SCC_BREAKER'.
+Successfully finished Verilog frontend.
+
+2.43.17.2. Continuing TECHMAP pass.
+Using template $paramod$838872d5a4bab89607f53482b205c0fd50d8b82e\CCU2C for cells of type $paramod$838872d5a4bab89607f53482b205c0fd50d8b82e\CCU2C.
+No more expansions possible.
+<suppressed ~16 debug messages>
+Removed 28 unused cells and 5600 unused wires.
+
+2.44. Executing TECHMAP pass (map to technology primitives).
+
+2.44.1. Executing Verilog-2005 frontend: /tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_map.v
+Parsing Verilog input from `/tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_map.v' to AST representation.
+Generating RTLIL representation for module `\$_DFF_N_'.
+Generating RTLIL representation for module `\$_DFF_P_'.
+Generating RTLIL representation for module `\$_DFFE_NN_'.
+Generating RTLIL representation for module `\$_DFFE_PN_'.
+Generating RTLIL representation for module `\$_DFFE_NP_'.
+Generating RTLIL representation for module `\$_DFFE_PP_'.
+Generating RTLIL representation for module `\$_DFF_NP0_'.
+Generating RTLIL representation for module `\$_DFF_NP1_'.
+Generating RTLIL representation for module `\$_DFF_PP0_'.
+Generating RTLIL representation for module `\$_DFF_PP1_'.
+Generating RTLIL representation for module `\$_SDFF_NP0_'.
+Generating RTLIL representation for module `\$_SDFF_NP1_'.
+Generating RTLIL representation for module `\$_SDFF_PP0_'.
+Generating RTLIL representation for module `\$_SDFF_PP1_'.
+Generating RTLIL representation for module `\$_DFFE_NP0P_'.
+Generating RTLIL representation for module `\$_DFFE_NP1P_'.
+Generating RTLIL representation for module `\$_DFFE_PP0P_'.
+Generating RTLIL representation for module `\$_DFFE_PP1P_'.
+Generating RTLIL representation for module `\$_DFFE_NP0N_'.
+Generating RTLIL representation for module `\$_DFFE_NP1N_'.
+Generating RTLIL representation for module `\$_DFFE_PP0N_'.
+Generating RTLIL representation for module `\$_DFFE_PP1N_'.
+Generating RTLIL representation for module `\$_SDFFE_NP0P_'.
+Generating RTLIL representation for module `\$_SDFFE_NP1P_'.
+Generating RTLIL representation for module `\$_SDFFE_PP0P_'.
+Generating RTLIL representation for module `\$_SDFFE_PP1P_'.
+Generating RTLIL representation for module `\$_SDFFE_NP0N_'.
+Generating RTLIL representation for module `\$_SDFFE_NP1N_'.
+Generating RTLIL representation for module `\$_SDFFE_PP0N_'.
+Generating RTLIL representation for module `\$_SDFFE_PP1N_'.
+Generating RTLIL representation for module `\$_ALDFF_NP_'.
+Generating RTLIL representation for module `\$_ALDFF_PP_'.
+Generating RTLIL representation for module `\$_ALDFFE_NPN_'.
+Generating RTLIL representation for module `\$_ALDFFE_NPP_'.
+Generating RTLIL representation for module `\$_ALDFFE_PPN_'.
+Generating RTLIL representation for module `\$_ALDFFE_PPP_'.
+Generating RTLIL representation for module `\FD1P3AX'.
+Generating RTLIL representation for module `\FD1P3AY'.
+Generating RTLIL representation for module `\FD1P3BX'.
+Generating RTLIL representation for module `\FD1P3DX'.
+Generating RTLIL representation for module `\FD1P3IX'.
+Generating RTLIL representation for module `\FD1P3JX'.
+Generating RTLIL representation for module `\FD1S3AX'.
+Generating RTLIL representation for module `\FD1S3AY'.
+Generating RTLIL representation for module `\FD1S3BX'.
+Generating RTLIL representation for module `\FD1S3DX'.
+Generating RTLIL representation for module `\FD1S3IX'.
+Generating RTLIL representation for module `\FD1S3JX'.
+Generating RTLIL representation for module `\IFS1P3BX'.
+Generating RTLIL representation for module `\IFS1P3DX'.
+Generating RTLIL representation for module `\IFS1P3IX'.
+Generating RTLIL representation for module `\IFS1P3JX'.
+Generating RTLIL representation for module `\OFS1P3BX'.
+Generating RTLIL representation for module `\OFS1P3DX'.
+Generating RTLIL representation for module `\OFS1P3IX'.
+Generating RTLIL representation for module `\OFS1P3JX'.
+Generating RTLIL representation for module `\IB'.
+Generating RTLIL representation for module `\IBPU'.
+Generating RTLIL representation for module `\IBPD'.
+Generating RTLIL representation for module `\OB'.
+Generating RTLIL representation for module `\OBZ'.
+Generating RTLIL representation for module `\OBZPU'.
+Generating RTLIL representation for module `\OBZPD'.
+Generating RTLIL representation for module `\OBCO'.
+Generating RTLIL representation for module `\BB'.
+Generating RTLIL representation for module `\BBPU'.
+Generating RTLIL representation for module `\BBPD'.
+Generating RTLIL representation for module `\ILVDS'.
+Generating RTLIL representation for module `\OLVDS'.
+Generating RTLIL representation for module `\$lut'.
+Successfully finished Verilog frontend.
+
+2.44.2. Continuing TECHMAP pass.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000010\LUT=4'0110 for cells of type $lut.
+Using template $paramod$a1d323730045824cfc84bb9f4ee8031f1c4dcc9e\$lut for cells of type $lut.
+Using template $paramod$5502a85110dbca29ac631107f0b0635e7fade476\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'00000001 for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'00100111 for cells of type $lut.
+Using template $paramod$018d71a0fe325d6362687fe53ac13dd6340e400d\$lut for cells of type $lut.
+Using template $paramod$c52228221673cb40e85e683314eb992be6bc9613\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000010\LUT=4'0111 for cells of type $lut.
+Using template $paramod$127b563ea375cd12535449b3d17fc728fc8885cd\$lut for cells of type $lut.
+Using template $paramod$6b1d36f4277d381d748d4217cc5ce170d6643752\$lut for cells of type $lut.
+Using template $paramod$a5516fc31d1e552de2435200bb732b4d4ad63a9c\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'00100000 for cells of type $lut.
+Using template $paramod$d6ca727e39f31d51d29072e0f33aa09c65e37336\$lut for cells of type $lut.
+Using template $paramod$6d6beead1425af15cf78b27fd9b11b41b5d4bce8\$lut for cells of type $lut.
+Using template $paramod$364c9ffbffac467d60dfec81bba4e18476c15602\$lut for cells of type $lut.
+Using template $paramod$101238f3d8d49ab12a9b49a2f01cd503b26e9c61\$lut for cells of type $lut.
+Using template $paramod$2ddbf6a0ca1cb5bde363865067906cbfb93dcaed\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000001\LUT=2'01 for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'01101010 for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000010\LUT=4'0100 for cells of type $lut.
+Using template $paramod$f9813472aa48e533b3838c6f2316dc2e78c66111\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000010\LUT=4'1000 for cells of type $lut.
+Using template $paramod$29bdeeeb3e868d646b6d028335f7f7fa61680353\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'01000000 for cells of type $lut.
+Using template $paramod$b1c6ac5f9fc1c0132244e9af9f496008f4a29bd1\$lut for cells of type $lut.
+Using template $paramod$6e238df02989b317f10820a22773676e71120644\$lut for cells of type $lut.
+Using template $paramod$d390f8b718b2522043154cabaa79a3cffbf52888\$lut for cells of type $lut.
+Using template $paramod$47a8214374025465e226fa66bee690ff33268a25\$lut for cells of type $lut.
+Using template $paramod$30305e55a780880b9c824fe3509a4d981acb0f2b\$lut for cells of type $lut.
+Using template $paramod$571404c0889eaf57f492cb5e37f8acb5df5852f9\$lut for cells of type $lut.
+Using template $paramod$2693264f6c2674c7282b2394414462b689bf04c1\$lut for cells of type $lut.
+Using template $paramod$474b0f9f94e72c10a8852ab8f15bb7f4f07cbd3f\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'00000100 for cells of type $lut.
+Using template $paramod$e51a8a571bee774247b38f52d6e85fd62ae52cea\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'00010000 for cells of type $lut.
+Using template $paramod$7233c15e5f8b60cd1b640302e45a46fd96c0de74\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'00001000 for cells of type $lut.
+Using template $paramod$f503ae6dd13af4ce255f26a38c5b2bb42d3444fc\$lut for cells of type $lut.
+Using template $paramod$977fddf6069a17a00d133624ddc52311321d5c54\$lut for cells of type $lut.
+Using template $paramod$baa939b0bd5b3e0c8760492528669bd58f640542\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'10000000 for cells of type $lut.
+Using template $paramod$3cd7ba4e37ac845a21f7d679f20c35087949289b\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000010\LUT=4'0001 for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'00010101 for cells of type $lut.
+Using template $paramod$f3cb4ef29527f51d59a2973d386f3cd521ca47c6\$lut for cells of type $lut.
+Using template $paramod$6079281eb3c0533bc4a87290e614c85106033d62\$lut for cells of type $lut.
+Using template $paramod$609ff53b8e25fddda2f58be8d19c2d47b81baf45\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'10001010 for cells of type $lut.
+Using template $paramod$272652f6c6fbe9a75eff76e45cc7e2788835518b\$lut for cells of type $lut.
+Using template $paramod$7e8d331d1e06632d29fbdf6c3afc2de1856d3c67\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'11001010 for cells of type $lut.
+Using template $paramod$658b9ed803f0d3d335616d3858b53e0a2522f1e8\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'00000010 for cells of type $lut.
+Using template $paramod$09878f36329fc53a02cb48c16dacf0e57d52e1be\$lut for cells of type $lut.
+Using template $paramod$dbd6bfc0079f30bdbd8251243755394b48ae1fbb\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000010\LUT=4'0010 for cells of type $lut.
+Using template $paramod$c1a323bdee6ba44e23ade80b2cf1c15d0a735a42\$lut for cells of type $lut.
+Using template $paramod$6fc4df889b39de4af325330d108505e319b11d59\$lut for cells of type $lut.
+Using template $paramod$1c43f935d46b4b25b83cb09185612146566a0da7\$lut for cells of type $lut.
+Using template $paramod$83f3fef49fd68dae74b5d46c7d9aacc225937540\$lut for cells of type $lut.
+Using template $paramod$d78bdf57c900ec499c38847ca03e9036bde809ac\$lut for cells of type $lut.
+Using template $paramod$d6b3e7c2e42ca25ace97df60cfb9ff152ae6abeb\$lut for cells of type $lut.
+Using template $paramod$6d00af3b4567219d6bde40930d56d5bb4fd68672\$lut for cells of type $lut.
+Using template $paramod$eebc4379fc0d49f56a7e5e4e0618eaa30a29d2d5\$lut for cells of type $lut.
+Using template $paramod$00fad7e479db907cb4a92a30de5f4e7708f6cf23\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000010\LUT=4'1001 for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'10101001 for cells of type $lut.
+Using template $paramod$39b152c23ff13b5f73c75d9562771e9c0580756b\$lut for cells of type $lut.
+Using template $paramod$d1a112f3a45a2c394bc0444399d9f74b66a26f6a\$lut for cells of type $lut.
+Using template $paramod$a152a406df3cbebab413e01ed6eb5f1b2ae58cff\$lut for cells of type $lut.
+Using template $paramod$e29dca818122692ab979a0314c862402b72995c4\$lut for cells of type $lut.
+Using template $paramod$59b82400332f383ccecb2a1cbb38dd69a1e61f44\$lut for cells of type $lut.
+Using template $paramod$54a853cac0e65b945d96d7dd0e9cca8bb9f3a21e\$lut for cells of type $lut.
+Using template $paramod$cae9623997d1b028fc0d823230d23be4ffc4dcc2\$lut for cells of type $lut.
+No more expansions possible.
+<suppressed ~1258 debug messages>
+
+2.45. Executing OPT_LUT_INS pass (discard unused LUT inputs).
+Optimizing LUTs in SystemConnect.
+  Optimizing lut $auto$abc9_ops.cc:1549:reintegrate$18535.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 3)
+  Optimizing lut $auto$abc9_ops.cc:1549:reintegrate$18535.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 3)
+  Optimizing lut $auto$abc9_ops.cc:1549:reintegrate$18535.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut4 (4 -> 0)
+  Optimizing lut $auto$abc9_ops.cc:1549:reintegrate$18535.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut5 (4 -> 0)
+  Optimizing lut $auto$abc9_ops.cc:1549:reintegrate$18535.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut6 (4 -> 0)
+  Optimizing lut $auto$abc9_ops.cc:1549:reintegrate$18535.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut7 (4 -> 0)
+  Optimizing lut $abc$18520$lut$auto$fsm_map.cc:170:map_fsm$787[4].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 3)
+  Optimizing lut $abc$18520$lut$auto$fsm_map.cc:170:map_fsm$787[4].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 3)
+  Optimizing lut $abc$18520$lut$aiger18519$526.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
+  Optimizing lut $abc$18520$lut$aiger18519$457.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 1)
+  Optimizing lut $abc$18520$lut$aiger18519$457.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 1)
+  Optimizing lut $abc$18520$lut$aiger18519$457.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut4 (4 -> 0)
+  Optimizing lut $abc$18520$lut$aiger18519$457.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut5 (4 -> 3)
+  Optimizing lut $abc$18520$lut$aiger18519$457.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut6 (4 -> 0)
+  Optimizing lut $abc$18520$lut$aiger18519$457.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut7 (4 -> 0)
+  Optimizing lut $abc$18520$lut$aiger18519$451.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 1)
+  Optimizing lut $abc$18520$lut$aiger18519$451.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 1)
+  Optimizing lut $abc$18520$lut$aiger18519$446.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
+  Optimizing lut $abc$18520$lut$aiger18519$446.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 0)
+  Optimizing lut $abc$18520$lut$aiger18519$446.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 0)
+  Optimizing lut $auto$abc9_ops.cc:1549:reintegrate$18522.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 1)
+  Optimizing lut $auto$abc9_ops.cc:1549:reintegrate$18522.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 1)
+  Optimizing lut $auto$abc9_ops.cc:1549:reintegrate$18523.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 1)
+  Optimizing lut $auto$abc9_ops.cc:1549:reintegrate$18523.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 1)
+  Optimizing lut $auto$abc9_ops.cc:1549:reintegrate$18524.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 1)
+  Optimizing lut $auto$abc9_ops.cc:1549:reintegrate$18524.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[44].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 1)
+  Optimizing lut $auto$abc9_ops.cc:1549:reintegrate$18544.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 3)
+  Optimizing lut $auto$abc9_ops.cc:1549:reintegrate$18544.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut4 (4 -> 2)
+  Optimizing lut $auto$abc9_ops.cc:1549:reintegrate$18544.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut5 (4 -> 2)
+  Optimizing lut $auto$abc9_ops.cc:1549:reintegrate$18544.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut6 (4 -> 2)
+  Optimizing lut $auto$abc9_ops.cc:1549:reintegrate$18544.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut7 (4 -> 2)
+  Optimizing lut $auto$abc9_ops.cc:1549:reintegrate$18545.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
+  Optimizing lut $auto$abc9_ops.cc:1549:reintegrate$18546.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
+  Optimizing lut $auto$abc9_ops.cc:1549:reintegrate$18546.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 3)
+  Optimizing lut $auto$abc9_ops.cc:1549:reintegrate$18532.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 1)
+  Optimizing lut $auto$abc9_ops.cc:1549:reintegrate$18532.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 1)
+  Optimizing lut $auto$abc9_ops.cc:1549:reintegrate$18528.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 1)
+  Optimizing lut $auto$abc9_ops.cc:1549:reintegrate$18528.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[50].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[52].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[52].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[54].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[54].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[56].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[56].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[58].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[58].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[60].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[60].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[62].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[62].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[64].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[64].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[66].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[66].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[68].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[68].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[70].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[70].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 1)
+  Optimizing lut $abc$18520$lut$aiger18519$236.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 0)
+  Optimizing lut $abc$18520$lut$aiger18519$236.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 0)
+  Optimizing lut $abc$18520$lut$aiger18519$312.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 3)
+  Optimizing lut $auto$abc9_ops.cc:1549:reintegrate$18538.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 0)
+  Optimizing lut $auto$abc9_ops.cc:1549:reintegrate$18537.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[46].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[48].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[48].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 1)
+  Optimizing lut $abc$18520$lut$aiger18519$654.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[8].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[10].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[10].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[12].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[12].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[14].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[14].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[16].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[16].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[18].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[18].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[20].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[20].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[22].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[22].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[24].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[24].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[26].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[26].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[28].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[28].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[30].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[32].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[40].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[42].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 1)
+  Optimizing lut $auto$abc9_ops.cc:1549:reintegrate$18540.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 0)
+  Optimizing lut $abc$18520$lut$aiger18519$262.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 0)
+  Optimizing lut $abc$18520$lut$aiger18519$262.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 0)
+  Optimizing lut $abc$18520$lut$aiger18519$262.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut4 (4 -> 0)
+  Optimizing lut $abc$18520$lut$aiger18519$262.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut5 (4 -> 0)
+  Optimizing lut $abc$18520$lut$aiger18519$262.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut6 (4 -> 0)
+  Optimizing lut $abc$18520$lut$aiger18519$262.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut7 (4 -> 0)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[46].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 1)
+  Optimizing lut $abc$18520$lut$aiger18519$236.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
+  Optimizing lut $abc$18520$lut$aiger18519$247.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $auto$abc9_ops.cc:1549:reintegrate$18537.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 1)
+  Optimizing lut $abc$18520$lut$aiger18519$262.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 3)
+  Optimizing lut $abc$18520$lut$aiger18519$319.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 1)
+  Optimizing lut $auto$abc9_ops.cc:1549:reintegrate$18538.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
+  Optimizing lut $abc$18520$lut$aiger18519$451.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 0)
+  Optimizing lut $abc$18520$lut$aiger18519$457.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[44].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 1)
+  Optimizing lut $abc$18520$lut$aiger18519$560.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 0)
+  Optimizing lut $auto$abc9_ops.cc:1549:reintegrate$18530.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[40].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 1)
+  Optimizing lut $abc$18520$lut$aiger18519$650.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 0)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[8].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[42].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[30].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[32].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 1)
+  Optimizing lut $abc$18520$lut$auto$fsm_map.cc:170:map_fsm$787[4].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 2)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[10].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[11].genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[12].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[13].genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[14].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[15].genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[16].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[17].genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[18].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[19].genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[1].genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[20].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[21].genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[22].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[23].genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[24].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[25].genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[26].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[27].genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[28].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[29].genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[30].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[31].genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[32].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[33].genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[35].genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[37].genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[39].genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[3].genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[40].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[41].genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[42].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[43].genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[44].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[45].genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[46].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[47].genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[48].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[49].genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[50].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[51].genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[52].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[53].genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[54].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[55].genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[56].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[57].genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[58].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[59].genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[5].genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[60].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[61].genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[62].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[63].genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[64].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[65].genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[66].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[67].genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[68].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[69].genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[70].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[71].genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[7].genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[8].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[9].genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $auto$abc9_ops.cc:1549:reintegrate$18540.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
+  Optimizing lut $auto$abc9_ops.cc:1549:reintegrate$18522.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $auto$abc9_ops.cc:1549:reintegrate$18523.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $auto$abc9_ops.cc:1549:reintegrate$18524.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $auto$abc9_ops.cc:1549:reintegrate$18526.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 0)
+  Optimizing lut $auto$abc9_ops.cc:1549:reintegrate$18528.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $auto$abc9_ops.cc:1549:reintegrate$18532.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $auto$abc9_ops.cc:1549:reintegrate$18534.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 3)
+  Optimizing lut $auto$abc9_ops.cc:1549:reintegrate$18535.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 2)
+  Optimizing lut $auto$abc9_ops.cc:1549:reintegrate$18537.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $auto$abc9_ops.cc:1549:reintegrate$18538.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 3)
+  Optimizing lut $auto$abc9_ops.cc:1549:reintegrate$18540.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 3)
+  Optimizing lut $auto$abc9_ops.cc:1549:reintegrate$18546.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 0)
+  Optimizing lut $abc$18520$lut$flatten\instance1.$or$TestVerilogZ.sv.v:0$293_Y[50].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 1)
+Removed 0 unused cells and 495 unused wires.
+
+2.46. Executing AUTONAME pass.
+Renamed 21340 objects in module SystemConnect (66 iterations).
+<suppressed ~1261 debug messages>
+
+2.47. Executing HIERARCHY pass (managing design hierarchy).
+Attribute `top' found on module `SystemConnect'. Setting top module to SystemConnect.
+
+2.47.1. Analyzing design hierarchy..
+Top module:  \SystemConnect
+
+2.47.2. Analyzing design hierarchy..
+Top module:  \SystemConnect
+Removed 0 unused modules.
+
+2.48. Printing statistics.
+
+=== SystemConnect ===
+
+   Number of wires:                550
+   Number of wire bits:           1056
+   Number of public wires:         550
+   Number of public wire bits:    1056
+   Number of ports:                  6
+   Number of port bits:             45
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                758
+     $_TBUF_                         2
+     $scopeinfo                      2
+     CCU2C                          10
+     CLKDIVF                         1
+     EHXPLLL                         1
+     L6MUX21                        54
+     LUT4                          425
+     PFUMX                         147
+     TRELLIS_FF                    116
+
+2.49. Executing CHECK pass (checking for obvious problems).
+Checking module SystemConnect...
+Found and reported 0 problems.
+
+2.50. Executing JSON backend.
+
+Warnings: 3 unique messages, 3 total
+End of script. Logfile hash: bc15066482, CPU: user 1.66s system 0.03s, MEM: 52.13 MB peak
+Yosys 0.48+57 (git sha1 d37449605, clang++ 18.1.8 -fPIC -O3)
+Time spent: 16% 21x read_verilog (0 sec), 13% 11x techmap (0 sec), ...
+bash -c "set -o pipefail; nextpnr-ecp5 --report fpga_build/report.json --85k --package CABGA381 --json fpga_build/SystemConnect-netlist.json --textcfg fpga_build/SystemConnect.config --lpf ulx3s.lpf 2>&1 | tee fpga_build/pnr.log"
+Info: constraining clock net 'external_clk_25MHz' to 25.00 MHz
+
+Info: Logic utilisation before packing:
+Info:     Total LUT4s:       445/83640     0%
+Info:         logic LUTs:    425/83640     0%
+Info:         carry LUTs:     20/83640     0%
+Info:           RAM LUTs:      0/10455     0%
+Info:          RAMW LUTs:      0/20910     0%
+
+Info:      Total DFFs:       116/83640     0%
+
+Info: Packing IOs..
+Info: $gpdi_sda$iobuf_i: gpdi_sda_$_TBUF__Y.Y
+Info: pin 'gpdi_sda$tr_io' constrained to Bel 'X119/Y0/PIOB'.
+Info: $gp[26]$iobuf_i: gp_$_TBUF__Y.Y
+Info: pin 'gp[26]$tr_io' constrained to Bel 'X78/Y0/PIOA'.
+Info: $gp[25]$iobuf_i: gp_TRELLIS_FF_Q.Q
+Info: pin 'gp[25]$tr_io' constrained to Bel 'X85/Y0/PIOA'.
+Info: pin 'gp[24]$tr_io' constrained to Bel 'X112/Y0/PIOA'.
+Info: pin 'gp[23]$tr_io' constrained to Bel 'X114/Y0/PIOA'.
+Info: pin 'gp[22]$tr_io' constrained to Bel 'X105/Y0/PIOA'.
+Info: pin 'gp[21]$tr_io' constrained to Bel 'X126/Y11/PIOA'.
+Info: pin 'gp[20]$tr_io' constrained to Bel 'X126/Y14/PIOA'.
+Info: pin 'gp[19]$tr_io' constrained to Bel 'X126/Y17/PIOA'.
+Info: pin 'gp[18]$tr_io' constrained to Bel 'X126/Y20/PIOA'.
+Info: pin 'gp[17]$tr_io' constrained to Bel 'X126/Y50/PIOA'.
+Info: pin 'gp[16]$tr_io' constrained to Bel 'X126/Y53/PIOA'.
+Info: pin 'gp[15]$tr_io' constrained to Bel 'X126/Y56/PIOA'.
+Info: pin 'gp[14]$tr_io' constrained to Bel 'X126/Y92/PIOA'.
+Info: pin 'gp[13]$tr_io' constrained to Bel 'X0/Y41/PIOA'.
+Info: pin 'gp[12]$tr_io' constrained to Bel 'X0/Y44/PIOA'.
+Info: pin 'gp[11]$tr_io' constrained to Bel 'X0/Y20/PIOA'.
+Info: pin 'gp[10]$tr_io' constrained to Bel 'X0/Y14/PIOA'.
+Info: pin 'gp[9]$tr_io' constrained to Bel 'X0/Y35/PIOA'.
+Info: pin 'gp[8]$tr_io' constrained to Bel 'X0/Y11/PIOA'.
+Info: pin 'gp[7]$tr_io' constrained to Bel 'X4/Y0/PIOA'.
+Info: pin 'gp[6]$tr_io' constrained to Bel 'X11/Y0/PIOA'.
+Info: pin 'gp[5]$tr_io' constrained to Bel 'X15/Y0/PIOA'.
+Info: pin 'gp[4]$tr_io' constrained to Bel 'X18/Y0/PIOA'.
+Info: pin 'gp[3]$tr_io' constrained to Bel 'X58/Y0/PIOA'.
+Info: pin 'gp[2]$tr_io' constrained to Bel 'X60/Y0/PIOA'.
+Info: pin 'gp[1]$tr_io' constrained to Bel 'X63/Y0/PIOA'.
+Info: pin 'gp[0]$tr_io' constrained to Bel 'X65/Y0/PIOA'.
+Info: pin 'led[7]$tr_io' constrained to Bel 'X0/Y41/PIOD'.
+Info: pin 'led[6]$tr_io' constrained to Bel 'X0/Y38/PIOD'.
+Info: pin 'led[5]$tr_io' constrained to Bel 'X0/Y44/PIOD'.
+Info: pin 'led[4]$tr_io' constrained to Bel 'X0/Y38/PIOB'.
+Info: pin 'led[3]$tr_io' constrained to Bel 'X0/Y38/PIOC'.
+Info: pin 'led[2]$tr_io' constrained to Bel 'X0/Y38/PIOA'.
+Info: pin 'led[1]$tr_io' constrained to Bel 'X0/Y35/PIOD'.
+Info: pin 'led[0]$tr_io' constrained to Bel 'X0/Y35/PIOC'.
+Info: pin 'gpdi_scl$tr_io' constrained to Bel 'X74/Y0/PIOB'.
+Info: pin 'external_clk_25MHz$tr_io' constrained to Bel 'X0/Y47/PIOA'.
+Info: pin 'btn[6]$tr_io' constrained to Bel 'X126/Y17/PIOD'.
+Info: pin 'btn[5]$tr_io' constrained to Bel 'X6/Y95/PIOA'.
+Info: pin 'btn[4]$tr_io' constrained to Bel 'X6/Y95/PIOB'.
+Info: pin 'btn[3]$tr_io' constrained to Bel 'X126/Y89/PIOB'.
+Info: pin 'btn[2]$tr_io' constrained to Bel 'X4/Y95/PIOB'.
+Info: pin 'btn[1]$tr_io' constrained to Bel 'X4/Y95/PIOA'.
+Info: pin 'btn[0]$tr_io' constrained to Bel 'X6/Y0/PIOB'.
+Info: Packing constants..
+Info: Packing carries...
+Info: Packing LUTs...
+Info: Packing LUT5-7s...
+Info: Packing FFs...
+Info:     35 FFs paired with LUTs.
+Info: Generating derived timing constraints...
+Info:     Input frequency of PLL 'mcg.pll_i' is constrained to 25.0 MHz
+Info:     Derived frequency constraint of 5.0 MHz for net clk_5MHz
+Info:     Derived frequency constraint of 1.4 MHz for net clk_1_4MHz
+Info: Promoting globals...
+Info:     promoting clock net clk_1_4MHz to global network
+Info: Checksum: 0xe6533c5c
+
+Info: Device utilisation:
+Info: 	          TRELLIS_IO:      45/    365    12%
+Info: 	                DCCA:       1/     56     1%
+Info: 	              DP16KD:       0/    208     0%
+Info: 	          MULT18X18D:       0/    156     0%
+Info: 	              ALU54B:       0/     78     0%
+Info: 	             EHXPLLL:       1/      4    25%
+Info: 	             EXTREFB:       0/      2     0%
+Info: 	                DCUA:       0/      2     0%
+Info: 	           PCSCLKDIV:       0/      2     0%
+Info: 	             IOLOGIC:       0/    224     0%
+Info: 	            SIOLOGIC:       0/    141     0%
+Info: 	                 GSR:       0/      1     0%
+Info: 	               JTAGG:       0/      1     0%
+Info: 	                OSCG:       0/      1     0%
+Info: 	               SEDGA:       0/      1     0%
+Info: 	                 DTR:       0/      1     0%
+Info: 	             USRMCLK:       0/      1     0%
+Info: 	             CLKDIVF:       1/      4    25%
+Info: 	           ECLKSYNCB:       0/     10     0%
+Info: 	             DLLDELD:       0/      8     0%
+Info: 	              DDRDLL:       0/      4     0%
+Info: 	             DQSBUFM:       0/     14     0%
+Info: 	     TRELLIS_ECLKBUF:       0/      8     0%
+Info: 	        ECLKBRIDGECS:       0/      2     0%
+Info: 	                DCSC:       0/      2     0%
+Info: 	          TRELLIS_FF:     116/  83640     0%
+Info: 	        TRELLIS_COMB:     461/  83640     0%
+Info: 	        TRELLIS_RAMW:       0/  10455     0%
+
+Info: Placed 46 cells based on constraints.
+Info: Creating initial analytic placement for 313 cells, random placement wirelen = 34281.
+Info:     at initial placer iter 0, wirelen = 1576
+Info:     at initial placer iter 1, wirelen = 1442
+Info:     at initial placer iter 2, wirelen = 1342
+Info:     at initial placer iter 3, wirelen = 1312
+Info: Running main analytical placer, max placement attempts per cell = 48828.
+Info:     at iteration #1, type ALL: wirelen solved = 1312, spread = 2316, legal = 2470; time = 0.03s
+Info:     at iteration #2, type ALL: wirelen solved = 1477, spread = 2185, legal = 2583; time = 0.02s
+Info:     at iteration #3, type ALL: wirelen solved = 1484, spread = 2227, legal = 2370; time = 0.02s
+Info:     at iteration #4, type ALL: wirelen solved = 1574, spread = 2216, legal = 2382; time = 0.02s
+Info:     at iteration #5, type ALL: wirelen solved = 1587, spread = 2131, legal = 2543; time = 0.02s
+Info:     at iteration #6, type ALL: wirelen solved = 1658, spread = 2116, legal = 2473; time = 0.02s
+Info:     at iteration #7, type ALL: wirelen solved = 1692, spread = 2059, legal = 2408; time = 0.02s
+Info:     at iteration #8, type ALL: wirelen solved = 1693, spread = 2057, legal = 2149; time = 0.02s
+Info:     at iteration #9, type ALL: wirelen solved = 1635, spread = 1939, legal = 2100; time = 0.02s
+Info:     at iteration #10, type ALL: wirelen solved = 1650, spread = 1937, legal = 2308; time = 0.02s
+Info:     at iteration #11, type ALL: wirelen solved = 1711, spread = 1987, legal = 2091; time = 0.02s
+Info: HeAP Placer Time: 0.33s
+Info:   of which solving equations: 0.15s
+Info:   of which spreading cells: 0.04s
+Info:   of which strict legalisation: 0.01s
+
+Info: Running simulated annealing placer for refinement.
+Info:   at iteration #1: temp = 0.000000, timing cost = 168, wirelen = 2091
+Info:   at iteration #5: temp = 0.000000, timing cost = 129, wirelen = 2018
+Info:   at iteration #6: temp = 0.000000, timing cost = 93, wirelen = 1995 
+Info: SA placement time 0.15s
+
+Info: Max frequency for clock '$glbnet$clk_1_4MHz': 143.08 MHz (PASS at 1.43 MHz)
+
+Info: Max delay <async>                    -> posedge $glbnet$clk_1_4MHz: 16.56 ns
+Info: Max delay posedge $glbnet$clk_1_4MHz -> <async>                   : 12.84 ns
+
+Info: Slack histogram:
+Info:  legend: * represents 1 endpoint(s)
+Info:          + represents [1,1) endpoint(s)
+Info: [693011, 693323) |******* 
+Info: [693323, 693635) |************** 
+Info: [693635, 693947) |******************************** 
+Info: [693947, 694259) |************************************************ 
+Info: [694259, 694571) |********************************** 
+Info: [694571, 694883) |***************** 
+Info: [694883, 695195) |*********** 
+Info: [695195, 695507) |**** 
+Info: [695507, 695819) | 
+Info: [695819, 696131) |******* 
+Info: [696131, 696443) |*** 
+Info: [696443, 696755) |*** 
+Info: [696755, 697067) |********* 
+Info: [697067, 697379) |**** 
+Info: [697379, 697691) |** 
+Info: [697691, 698003) |***** 
+Info: [698003, 698315) |* 
+Info: [698315, 698627) |*** 
+Info: [698627, 698939) |** 
+Info: [698939, 699251) |***** 
+Info: Checksum: 0x4cc147a8
+Info: Routing globals...
+Info:     routing clock net $glbnet$clk_1_4MHz using global 0
+
+Info: Routing..
+Info: Setting up routing queue.
+Info: Routing 1755 arcs.
+Info:            |   (re-)routed arcs  |   delta    | remaining|       time spent     |
+Info:    IterCnt |  w/ripup   wo/ripup |  w/r  wo/r |      arcs| batch(sec) total(sec)|
+Info:       1000 |      253        733 |  253   733 |      1061|       0.19       0.19|
+Info:       2000 |      370       1487 |  117   754 |       200|       0.11       0.30|
+Info:       2215 |      386       1666 |   16   179 |         0|       0.15       0.45|
+Info: Routing complete.
+Info: Router1 time 0.45s
+Info: Checksum: 0x382ded94
+
+Info: Critical path report for clock '$glbnet$clk_1_4MHz' (posedge -> posedge):
+Info:       type curr  total name
+Info:   clk-to-q  0.52  0.52 Source instance1.bit_count_TRELLIS_FF_Q_2.Q
+Info:    routing  0.88  1.40 Net instance1.bit_count[1] (8,4) -> (8,4)
+Info:                          Sink clk_locked_LUT4_B_D_LUT4_Z.C
+Info:                          Defined in:
+Info:                               TestVerilogZ.sv.v:133.12-133.21
+Info:      logic  0.24  1.64 Source clk_locked_LUT4_B_D_LUT4_Z.F
+Info:    routing  0.71  2.35 Net clk_locked_LUT4_B_D[5] (8,4) -> (6,4)
+Info:                          Sink instance1.repeated_start_TRELLIS_FF_Q_CE_LUT4_Z.D
+Info:                          Defined in:
+Info:                               /tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_map.v:108.23-108.24
+Info:      logic  0.24  2.59 Source instance1.repeated_start_TRELLIS_FF_Q_CE_LUT4_Z.F
+Info:    routing  1.59  4.17 Net instance1.ackCount_LUT4_A_Z_PFUMX_C0_Z_L6MUX21_D1_Z_L6MUX21_Z_SD_LUT4_Z_1_C[3] (6,4) -> (5,14)
+Info:                          Sink instance1.mem_count_TRELLIS_FF_Q_CE_LUT4_Z.D
+Info:                          Defined in:
+Info:                               /tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_map.v:108.23-108.24
+Info:      logic  0.24  4.41 Source instance1.mem_count_TRELLIS_FF_Q_CE_LUT4_Z.F
+Info:    routing  1.35  5.76 Net instance1.mem_count_TRELLIS_FF_Q_CE[1] (5,14) -> (4,5)
+Info:                          Sink instance1.ackCount_LUT4_A_Z_LUT4_Z_C_LUT4_C.D
+Info:                          Defined in:
+Info:                               /tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_map.v:108.23-108.24
+Info:      logic  0.24  6.00 Source instance1.ackCount_LUT4_A_Z_LUT4_Z_C_LUT4_C.F
+Info:    routing  0.65  6.65 Net instance1.byte_count_TRELLIS_FF_Q_CE (4,5) -> (3,5)
+Info:                          Sink instance1.byte_count_TRELLIS_FF_Q_4.CE
+Info:      setup  0.00  6.65 Source instance1.byte_count_TRELLIS_FF_Q_4.CE
+Info: 1.47 ns logic, 5.18 ns routing
+
+Info: Critical path report for cross-domain path '<async>' -> 'posedge $glbnet$clk_1_4MHz':
+Info:       type curr  total name
+Info:     source  0.00  0.00 Source btn[3]$tr_io.O
+Info:    routing  10.78  10.78 Net btnExtract[3] (126,89) -> (3,24)
+Info:                          Sink instance1.ledByte_TRELLIS_FF_Q_DI_LUT4_Z_6.A
+Info:                          Defined in:
+Info:                               /tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_map.v:108.23-108.24
+Info:      logic  0.24  11.02 Source instance1.ledByte_TRELLIS_FF_Q_DI_LUT4_Z_6.F
+Info:    routing  0.13  11.15 Net instance1.ledByte_TRELLIS_FF_Q_DI[6] (3,24) -> (3,24)
+Info:                          Sink instance1.ledByte_TRELLIS_FF_Q_1.DI
+Info:                          Defined in:
+Info:                               TestVerilogZ.sv.v:0.0-0.0
+Info:                               /tools/oss-cad-suite/lib/../share/yosys/techmap.v:137.23-137.24
+Info:      setup  0.00  11.15 Source instance1.ledByte_TRELLIS_FF_Q_1.DI
+Info: 0.24 ns logic, 10.91 ns routing
+
+Info: Critical path report for cross-domain path 'posedge $glbnet$clk_1_4MHz' -> '<async>':
+Info:       type curr  total name
+Info:   clk-to-q  0.52  0.52 Source instance1.receiving_TRELLIS_FF_Q.Q
+Info:    routing  1.00  1.53 Net receiving (8,2) -> (13,2)
+Info:                          Sink instance1.receiving_LUT4_D.D
+Info:                          Defined in:
+Info:                               TestVerilogZ.sv.v:19.7-19.16
+Info:      logic  0.24  1.76 Source instance1.receiving_LUT4_D.F
+Info:    routing  5.21  6.97 Net gp_$_TBUF__Y_E (13,2) -> (111,2)
+Info:                          Sink gpdi_sda$tr_io$invert_T.A
+Info:      logic  0.24  7.21 Source gpdi_sda$tr_io$invert_T.F
+Info:    routing  1.24  8.45 Net gpdi_sda$tr_io$invert_T$conn$Z (111,2) -> (119,0)
+Info:                          Sink gpdi_sda$tr_io.T
+Info: 1.00 ns logic, 7.45 ns routing
+
+Info: Max frequency for clock '$glbnet$clk_1_4MHz': 150.44 MHz (PASS at 1.43 MHz)
+
+Info: Max delay <async>                    -> posedge $glbnet$clk_1_4MHz: 11.15 ns
+Info: Max delay posedge $glbnet$clk_1_4MHz -> <async>                   : 8.45 ns
+
+Info: Slack histogram:
+Info:  legend: * represents 1 endpoint(s)
+Info:          + represents [1,1) endpoint(s)
+Info: [693353, 693630) |*****+
+Info: [693630, 693907) |+
+Info: [693907, 694184) |*****+
+Info: [694184, 694461) |******************************+
+Info: [694461, 694738) |************************************************************ 
+Info: [694738, 695015) |***********************************************+
+Info: [695015, 695292) |**********+
+Info: [695292, 695569) | 
+Info: [695569, 695846) |***+
+Info: [695846, 696123) |*****+
+Info: [696123, 696400) |******+
+Info: [696400, 696677) |****+
+Info: [696677, 696954) |*+
+Info: [696954, 697231) |*+
+Info: [697231, 697508) |+
+Info: [697508, 697785) |*****+
+Info: [697785, 698062) |+
+Info: [698062, 698339) |**+
+Info: [698339, 698616) |**+
+Info: [698616, 698893) |***+
+
+Info: Program finished normally.
+python3 -m json.tool fpga_build/report.json > fpga_build/resource-report.json
+bash -c "set -o pipefail; ecppack --compress --freq 62.0 --input fpga_build/SystemConnect.config --bit fpga_build/SystemConnect.bit 2>&1 | tee fpga_build/ecppack.log"
