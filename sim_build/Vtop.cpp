@@ -13,12 +13,16 @@ Vtop::Vtop(VerilatedContext* _vcontextp__, const char* _vcname__)
     , scl_4x{vlSymsp->TOP.scl_4x}
     , sda_i{vlSymsp->TOP.sda_i}
     , sda_o{vlSymsp->TOP.sda_o}
+    , scl_i{vlSymsp->TOP.scl_i}
     , scl_o{vlSymsp->TOP.scl_o}
     , addressI2C{vlSymsp->TOP.addressI2C}
     , ledByte{vlSymsp->TOP.ledByte}
     , debug{vlSymsp->TOP.debug}
     , reset{vlSymsp->TOP.reset}
     , receiving{vlSymsp->TOP.receiving}
+    , reading{vlSymsp->TOP.reading}
+    , switchTest{vlSymsp->TOP.switchTest}
+    , f_drive_c{vlSymsp->TOP.f_drive_c}
     , rootp{&(vlSymsp->TOP)}
 {
     // Register model with the context

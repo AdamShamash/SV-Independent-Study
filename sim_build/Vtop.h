@@ -33,12 +33,16 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop VL_NOT_FINAL : public VerilatedModel {
     VL_IN8(&scl_4x,0,0);
     VL_IN8(&sda_i,0,0);
     VL_OUT8(&sda_o,0,0);
+    VL_IN8(&scl_i,0,0);
     VL_OUT8(&scl_o,0,0);
     VL_IN8(&addressI2C,3,0);
     VL_OUT8(&ledByte,7,0);
     VL_OUT8(&debug,4,0);
     VL_IN8(&reset,0,0);
     VL_OUT8(&receiving,0,0);
+    VL_OUT8(&reading,0,0);
+    VL_OUT8(&switchTest,0,0);
+    VL_OUT8(&f_drive_c,0,0);
 
     // CELLS
     // Public to allow access to /* verilator public */ items.

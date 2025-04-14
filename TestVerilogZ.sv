@@ -6,7 +6,7 @@ module SystemConnect (
     output wire [7:0] led,
     input wire [6:0] btn,
     inout wire gpdi_sda,
-    output wire gpdi_scl,
+    inout wire gpdi_scl,
     inout wire [26:0] gp
 );
 
@@ -14,7 +14,7 @@ module SystemConnect (
 wire [3:0] btnExtract = {btn[3],btn[5],btn[4],btn[6]};
 wire [7:0] ledTest;
 wire [4:0] debug;
-wire receiving, sda_o;
+wire receiving, sda_o, scl_o, reading, switchTest, f_drive_c;  
 
 /*
 assign led[0] = 1;
@@ -25,9 +25,18 @@ assign led[7:3] = debug;
 assign led = ledTest;
 
 `ifndef SIMULATION
+    // HDMI port
     assign gpdi_sda = (receiving) ? 1'bZ : sda_o;
+    assign gpdi_scl = (receiving) ? 1'bZ : clk_400KHz;
+    // FPGA testing
     assign gp[26] = (receiving) ? 1'bZ : sda_o;
-    
+    //assign gp[25] = (~receiving && reading) ? 1'bZ : scl_o;
+    assign gp[25] = (f_drive_c) ? 1'bZ : scl_o;
+
+    assign gp[24] = receiving;
+
+    //assign gp[25] = (switchTest) ? 1'bZ : scl_o; // test clk of slave
+
 `endif
 
 wire clk_locked, clk_5MHz, clk_1_4MHz, Test_clk;
@@ -79,12 +88,16 @@ wire invert;
 I2C_main instance1 (.sda_i(gp[26]), 
                     .sda_o(sda_o), 
                     .scl_4x(clk_400KHz), 
-                    .scl_o(gp[25]), 
+                    .scl_i(gp[25]),
+                    .scl_o(scl_o), 
                     .addressI2C(btnExtract), 
                     .ledByte(ledTest), 
                     .debug(debug), 
                     .reset(rst),
-                    .receiving(receiving)
+                    .receiving(receiving),
+                    .reading(reading),
+                    .switchTest(switchTest),
+                    .f_drive_c(f_drive_c)
                     );
 
 endmodule 
@@ -207,12 +220,16 @@ module I2C_main (
     input  wire sda_i,
     output logic sda_o,
     input wire scl_4x, // phantom wire at 4x the clock speed
+    input wire scl_i,
     output wire scl_o,
     input wire [3:0] addressI2C,
     output logic [7:0] ledByte,
     output logic [4:0] debug,
     input wire reset, 
-    output logic receiving
+    output logic receiving,
+    output logic reading,
+    output logic switchTest,
+    output logic f_drive_c
 );
 
 // TODO: 
@@ -256,13 +273,19 @@ logic [2:0] state;
 
 
 assign scl_1x = counter[1]; // DO NOT DELETE THIS CLOCK. NECESSARY FOR TESTBENCH
-assign scl_o = counter[1]; // establish regular clk at half speed of scl_2x
+assign scl_o =  counter[1]; // establish regular clk at half speed of scl_2x
 
 
 always_ff @(posedge scl_4x) begin
 
     // establishing the counter
     counter <= counter + 1;
+
+    // clk stetching test
+    if(bit_count == 8)
+        switchTest <= 1;
+    else
+        switchTest <= 0;
 
     if(reset) begin
         // user input:
@@ -287,6 +310,9 @@ always_ff @(posedge scl_4x) begin
         byte_count <= byte_count_max; 
         mem_count <= (byte_count_max+1)*8 - 1; // total # bits to be read from device
         ackCount <= 0;
+        reading <= 0;
+        switchTest <= 0;
+        f_drive_c <= 0;
     end
     else begin
         // btn memory extraction
@@ -322,20 +348,24 @@ always_ff @(posedge scl_4x) begin
             //check for ACK/NACK after byte of info (1 = NACK, 0 = ACK)
             else if(bit_count == 8) begin
                 ackCount <= ackCount + 1;
+
                 if((sda_i && (byte_count == byte_count_max))|| writeComplete || byte_count == 0) begin
                     state <= 3'b111; // activate STOP condition
                     writeComplete <= 0;
                     receiving <= 0;
                     
                 end
-                if(repeated_start) begin
+                else if(repeated_start) begin
                     state <= 3'b101;
                     receiving <= 1;
                     //debug <= 4;
                 end
-                if((byte_count < byte_count_max) && byte_count > 0) begin // if in read state, master will send ACK bit
+                else if((byte_count < byte_count_max) && byte_count > 0) begin // if in read state, master will send ACK bit
                     sda_o <= 0;
                     state <= 3'b110;
+                    receiving <= 0;
+                    f_drive_c <= 1;
+
                     //debug <= 22;
                 end
                 else begin
@@ -407,6 +437,9 @@ always_ff @(posedge scl_4x) begin
 
                 // reading byte from register
                 if(state == 3'b110) begin 
+                    reading <= 1;
+                    f_drive_c <= 0;
+
                     //debug <= 5;
                     bit_count <= bit_count + 1;
                     sda_o <= sda_i;
@@ -416,7 +449,6 @@ always_ff @(posedge scl_4x) begin
                     mem_count <= mem_count - 1;
                     if(bit_count == 7) begin
                         byte_count <= byte_count - 1;
-                        receiving <= 0;
                     end
                 end
 
