@@ -7,7 +7,7 @@
 #include "Vtop___024root.h"
 
 // Parameter definitions for Vtop___024root
-constexpr CData/*5:0*/ Vtop___024root::I2C_main__DOT__byte_count_max;
+constexpr SData/*9:0*/ Vtop___024root::I2C_main__DOT__byte_count_max;
 
 
 void Vtop___024root___ctor_var_reset(Vtop___024root* vlSelf);

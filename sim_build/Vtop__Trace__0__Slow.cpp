@@ -17,8 +17,8 @@ VL_ATTR_COLD void Vtop___024root__trace_init_sub__TOP__0(Vtop___024root* vlSelf,
     tracep->declBit(c+3,0,"scl_4x",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, false,-1);
     tracep->declBit(c+4,0,"scl_i",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, false,-1);
     tracep->declBit(c+5,0,"scl_o",-1, VerilatedTraceSigDirection::OUTPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, false,-1);
-    tracep->declBus(c+6,0,"addressI2C",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, false,-1, 3,0);
-    tracep->declBus(c+7,0,"ledByte",-1, VerilatedTraceSigDirection::OUTPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, false,-1, 7,0);
+    tracep->declBus(c+6,0,"addressI2C",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, false,-1, 7,0);
+    tracep->declBus(c+7,0,"tx_data",-1, VerilatedTraceSigDirection::OUTPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, false,-1, 7,0);
     tracep->declBus(c+8,0,"debug",-1, VerilatedTraceSigDirection::OUTPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, false,-1, 4,0);
     tracep->declBit(c+9,0,"reset",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, false,-1);
     tracep->declBit(c+10,0,"receiving",-1, VerilatedTraceSigDirection::OUTPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, false,-1);
@@ -31,8 +31,8 @@ VL_ATTR_COLD void Vtop___024root__trace_init_sub__TOP__0(Vtop___024root* vlSelf,
     tracep->declBit(c+16,0,"scl_4x",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, false,-1);
     tracep->declBit(c+17,0,"scl_i",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, false,-1);
     tracep->declBit(c+18,0,"scl_o",-1, VerilatedTraceSigDirection::OUTPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, false,-1);
-    tracep->declBus(c+19,0,"addressI2C",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, false,-1, 3,0);
-    tracep->declBus(c+20,0,"ledByte",-1, VerilatedTraceSigDirection::OUTPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, false,-1, 7,0);
+    tracep->declBus(c+19,0,"addressI2C",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, false,-1, 7,0);
+    tracep->declBus(c+20,0,"tx_data",-1, VerilatedTraceSigDirection::OUTPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, false,-1, 7,0);
     tracep->declBus(c+21,0,"debug",-1, VerilatedTraceSigDirection::OUTPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, false,-1, 4,0);
     tracep->declBit(c+22,0,"reset",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, false,-1);
     tracep->declBit(c+23,0,"receiving",-1, VerilatedTraceSigDirection::OUTPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, false,-1);
@@ -53,11 +53,11 @@ VL_ATTR_COLD void Vtop___024root__trace_init_sub__TOP__0(Vtop___024root* vlSelf,
     tracep->declBus(c+38,0,"addressFromMaster",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::VAR, VerilatedTraceSigType::LOGIC, false,-1, 6,0);
     tracep->declBus(c+39,0,"registerAddress",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::VAR, VerilatedTraceSigType::LOGIC, false,-1, 7,0);
     tracep->declBus(c+40,0,"dataByte",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::VAR, VerilatedTraceSigType::LOGIC, false,-1, 7,0);
-    tracep->declArray(c+41,0,"my_mem",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::VAR, VerilatedTraceSigType::LOGIC, false,-1, 71,0);
-    tracep->declBus(c+44,0,"mem_count",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::VAR, VerilatedTraceSigType::LOGIC, false,-1, 6,0);
-    tracep->declBus(c+47,0,"byte_count_max",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::BIT, false,-1, 5,0);
-    tracep->declBus(c+45,0,"byte_count",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::VAR, VerilatedTraceSigType::LOGIC, false,-1, 5,0);
-    tracep->declBus(c+46,0,"state",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::VAR, VerilatedTraceSigType::LOGIC, false,-1, 2,0);
+    tracep->declArray(c+41,0,"my_mem",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::VAR, VerilatedTraceSigType::LOGIC, false,-1, 2055,0);
+    tracep->declBus(c+106,0,"mem_count",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::VAR, VerilatedTraceSigType::LOGIC, false,-1, 11,0);
+    tracep->declBus(c+109,0,"byte_count_max",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::BIT, false,-1, 9,0);
+    tracep->declBus(c+107,0,"byte_count",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::VAR, VerilatedTraceSigType::LOGIC, false,-1, 9,0);
+    tracep->declBus(c+108,0,"state",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::VAR, VerilatedTraceSigType::LOGIC, false,-1, 2,0);
     tracep->popPrefix();
 }
 
@@ -106,7 +106,7 @@ VL_ATTR_COLD void Vtop___024root__trace_const_0_sub_0(Vtop___024root* vlSelf, Ve
     // Init
     uint32_t* const oldp VL_ATTR_UNUSED = bufp->oldp(vlSymsp->__Vm_baseCode);
     // Body
-    bufp->fullCData(oldp+47,(8U),6);
+    bufp->fullSData(oldp+109,(0x100U),10);
 }
 
 VL_ATTR_COLD void Vtop___024root__trace_full_0_sub_0(Vtop___024root* vlSelf, VerilatedFst::Buffer* bufp);
@@ -133,8 +133,8 @@ VL_ATTR_COLD void Vtop___024root__trace_full_0_sub_0(Vtop___024root* vlSelf, Ver
     bufp->fullBit(oldp+3,(vlSelfRef.scl_4x));
     bufp->fullBit(oldp+4,(vlSelfRef.scl_i));
     bufp->fullBit(oldp+5,(vlSelfRef.scl_o));
-    bufp->fullCData(oldp+6,(vlSelfRef.addressI2C),4);
-    bufp->fullCData(oldp+7,(vlSelfRef.ledByte),8);
+    bufp->fullCData(oldp+6,(vlSelfRef.addressI2C),8);
+    bufp->fullCData(oldp+7,(vlSelfRef.tx_data),8);
     bufp->fullCData(oldp+8,(vlSelfRef.debug),5);
     bufp->fullBit(oldp+9,(vlSelfRef.reset));
     bufp->fullBit(oldp+10,(vlSelfRef.receiving));
@@ -146,8 +146,8 @@ VL_ATTR_COLD void Vtop___024root__trace_full_0_sub_0(Vtop___024root* vlSelf, Ver
     bufp->fullBit(oldp+16,(vlSelfRef.I2C_main__DOT__scl_4x));
     bufp->fullBit(oldp+17,(vlSelfRef.I2C_main__DOT__scl_i));
     bufp->fullBit(oldp+18,(vlSelfRef.I2C_main__DOT__scl_o));
-    bufp->fullCData(oldp+19,(vlSelfRef.I2C_main__DOT__addressI2C),4);
-    bufp->fullCData(oldp+20,(vlSelfRef.I2C_main__DOT__ledByte),8);
+    bufp->fullCData(oldp+19,(vlSelfRef.I2C_main__DOT__addressI2C),8);
+    bufp->fullCData(oldp+20,(vlSelfRef.I2C_main__DOT__tx_data),8);
     bufp->fullCData(oldp+21,(vlSelfRef.I2C_main__DOT__debug),5);
     bufp->fullBit(oldp+22,(vlSelfRef.I2C_main__DOT__reset));
     bufp->fullBit(oldp+23,(vlSelfRef.I2C_main__DOT__receiving));
@@ -168,8 +168,8 @@ VL_ATTR_COLD void Vtop___024root__trace_full_0_sub_0(Vtop___024root* vlSelf, Ver
     bufp->fullCData(oldp+38,(vlSelfRef.I2C_main__DOT__addressFromMaster),7);
     bufp->fullCData(oldp+39,(vlSelfRef.I2C_main__DOT__registerAddress),8);
     bufp->fullCData(oldp+40,(vlSelfRef.I2C_main__DOT__dataByte),8);
-    bufp->fullWData(oldp+41,(vlSelfRef.I2C_main__DOT__my_mem),72);
-    bufp->fullCData(oldp+44,(vlSelfRef.I2C_main__DOT__mem_count),7);
-    bufp->fullCData(oldp+45,(vlSelfRef.I2C_main__DOT__byte_count),6);
-    bufp->fullCData(oldp+46,(vlSelfRef.I2C_main__DOT__state),3);
+    bufp->fullWData(oldp+41,(vlSelfRef.I2C_main__DOT__my_mem),2056);
+    bufp->fullSData(oldp+106,(vlSelfRef.I2C_main__DOT__mem_count),12);
+    bufp->fullSData(oldp+107,(vlSelfRef.I2C_main__DOT__byte_count),10);
+    bufp->fullCData(oldp+108,(vlSelfRef.I2C_main__DOT__state),3);
 }

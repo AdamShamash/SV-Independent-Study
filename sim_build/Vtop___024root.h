@@ -19,8 +19,8 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final : public VerilatedModule
     VL_OUT8(sda_o,0,0);
     VL_IN8(scl_i,0,0);
     VL_OUT8(scl_o,0,0);
-    VL_IN8(addressI2C,3,0);
-    VL_OUT8(ledByte,7,0);
+    VL_IN8(addressI2C,7,0);
+    VL_OUT8(tx_data,7,0);
     VL_OUT8(debug,4,0);
     VL_IN8(reset,0,0);
     VL_OUT8(receiving,0,0);
@@ -32,8 +32,8 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final : public VerilatedModule
     CData/*0:0*/ I2C_main__DOT__scl_4x;
     CData/*0:0*/ I2C_main__DOT__scl_i;
     CData/*0:0*/ I2C_main__DOT__scl_o;
-    CData/*3:0*/ I2C_main__DOT__addressI2C;
-    CData/*7:0*/ I2C_main__DOT__ledByte;
+    CData/*7:0*/ I2C_main__DOT__addressI2C;
+    CData/*7:0*/ I2C_main__DOT__tx_data;
     CData/*4:0*/ I2C_main__DOT__debug;
     CData/*0:0*/ I2C_main__DOT__reset;
     CData/*0:0*/ I2C_main__DOT__receiving;
@@ -54,15 +54,15 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final : public VerilatedModule
     CData/*6:0*/ I2C_main__DOT__addressFromMaster;
     CData/*7:0*/ I2C_main__DOT__registerAddress;
     CData/*7:0*/ I2C_main__DOT__dataByte;
-    CData/*6:0*/ I2C_main__DOT__mem_count;
-    CData/*5:0*/ I2C_main__DOT__byte_count;
     CData/*2:0*/ I2C_main__DOT__state;
-    CData/*0:0*/ I2C_main__DOT____Vlvbound_hba3991b9__0;
+    CData/*0:0*/ I2C_main__DOT____Vlvbound_hf9aceb47__0;
     CData/*0:0*/ __VstlFirstIteration;
     CData/*0:0*/ __VicoFirstIteration;
     CData/*0:0*/ __Vtrigprevexpr___TOP__scl_4x__0;
     CData/*0:0*/ __VactContinue;
-    VlWide<3>/*71:0*/ I2C_main__DOT__my_mem;
+    SData/*11:0*/ I2C_main__DOT__mem_count;
+    SData/*9:0*/ I2C_main__DOT__byte_count;
+    VlWide<65>/*2055:0*/ I2C_main__DOT__my_mem;
     IData/*31:0*/ __VactIterCount;
     VlTriggerVec<1> __VstlTriggered;
     VlTriggerVec<1> __VicoTriggered;
@@ -73,7 +73,7 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final : public VerilatedModule
     Vtop__Syms* const vlSymsp;
 
     // PARAMETERS
-    static constexpr CData/*5:0*/ I2C_main__DOT__byte_count_max = 8U;
+    static constexpr SData/*9:0*/ I2C_main__DOT__byte_count_max = 0x0100U;
 
     // CONSTRUCTORS
     Vtop___024root(Vtop__Syms* symsp, const char* v__name);

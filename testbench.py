@@ -62,14 +62,23 @@ async def test_writeByte(dut):
     cocotb.start_soon(proc_clock.start(start_high=True))
 
     # Write the byte 0xAA to the slave with address 0x50
-    i2c_memory.write_mem(0x00, b'\xab\xaa\xdb')
+    i2c_memory.write_mem(0x00, b'\xab\xaa\xdb\xEE\xFF\xCC')
 
     dut.reset.value = 1
     await ClockCycles(dut.scl_4x, 2)
     dut.reset.value = 0
 
+    dut.addressI2C.value = 0
+    await ClockCycles(dut.scl_4x, 200)
+
+    for i in range(10):
+        current = int(dut.addressI2C.value)
+        print(f"Here is the value of current {current}")
+        dut.addressI2C.value = current + 1
+        await ClockCycles(dut.scl_4x, 40)
+
     # wait for some additional clock cycles to observe behavior
-    await ClockCycles(dut.scl_4x, 500)
+    await ClockCycles(dut.scl_4x, 300)
 
     # Optionally, verify the write by reading back from the simulated memory.
     read_byte = i2c_memory.read_mem(0x00, 1)

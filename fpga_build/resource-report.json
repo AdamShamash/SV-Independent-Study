@@ -6,80 +6,39 @@
                 {
                     "delay": 0.5249999761581421,
                     "from": {
-                        "cell": "instance1.counter_TRELLIS_FF_Q",
+                        "cell": "uart1.addressI2C_TRELLIS_FF_Q_7",
                         "loc": [
-                            74,
-                            7
+                            61,
+                            19
                         ],
                         "port": "Q"
                     },
                     "to": {
-                        "cell": "instance1.counter_TRELLIS_FF_Q",
+                        "cell": "uart1.addressI2C_TRELLIS_FF_Q_7",
                         "loc": [
-                            74,
-                            7
+                            61,
+                            19
                         ],
                         "port": "Q"
                     },
                     "type": "clk-to-q"
                 },
                 {
-                    "delay": 0.8809999823570251,
+                    "delay": 1.25600004196167,
                     "from": {
-                        "cell": "instance1.counter_TRELLIS_FF_Q",
+                        "cell": "uart1.addressI2C_TRELLIS_FF_Q_7",
                         "loc": [
-                            74,
-                            7
+                            61,
+                            19
                         ],
                         "port": "Q"
                     },
-                    "net": "instance1.counter[0]",
+                    "net": "addressI2C[0]",
                     "to": {
-                        "cell": "instance1.sda_o_LUT4_D_Z_LUT4_Z_2",
+                        "cell": "instance1.tx_data_TRELLIS_FF_Q_DI_LUT4_Z_C_CCU2C_S1_CIN_CCU2C_COUT_S0_CCU2C_S1_CIN_CCU2C_COUT_CIN_CCU2C_COUT_B1_LUT4_Z",
                         "loc": [
-                            74,
-                            6
-                        ],
-                        "port": "C"
-                    },
-                    "type": "routing"
-                },
-                {
-                    "delay": 0.23600000143051147,
-                    "from": {
-                        "cell": "instance1.sda_o_LUT4_D_Z_LUT4_Z_2",
-                        "loc": [
-                            74,
-                            6
-                        ],
-                        "port": "C"
-                    },
-                    "to": {
-                        "cell": "instance1.sda_o_LUT4_D_Z_LUT4_Z_2",
-                        "loc": [
-                            74,
-                            6
-                        ],
-                        "port": "F"
-                    },
-                    "type": "logic"
-                },
-                {
-                    "delay": 0.6499999761581421,
-                    "from": {
-                        "cell": "instance1.sda_o_LUT4_D_Z_LUT4_Z_2",
-                        "loc": [
-                            74,
-                            6
-                        ],
-                        "port": "F"
-                    },
-                    "net": "gp_TRELLIS_FF_Q_CE_LUT4_Z_D[1]",
-                    "to": {
-                        "cell": "instance1.mem_count_TRELLIS_FF_Q_CE_LUT4_Z",
-                        "loc": [
-                            74,
-                            6
+                            58,
+                            16
                         ],
                         "port": "D"
                     },
@@ -88,102 +47,471 @@
                 {
                     "delay": 0.23600000143051147,
                     "from": {
-                        "cell": "instance1.mem_count_TRELLIS_FF_Q_CE_LUT4_Z",
+                        "cell": "instance1.tx_data_TRELLIS_FF_Q_DI_LUT4_Z_C_CCU2C_S1_CIN_CCU2C_COUT_S0_CCU2C_S1_CIN_CCU2C_COUT_CIN_CCU2C_COUT_B1_LUT4_Z",
                         "loc": [
-                            74,
-                            6
+                            58,
+                            16
                         ],
                         "port": "D"
                     },
                     "to": {
-                        "cell": "instance1.mem_count_TRELLIS_FF_Q_CE_LUT4_Z",
+                        "cell": "instance1.tx_data_TRELLIS_FF_Q_DI_LUT4_Z_C_CCU2C_S1_CIN_CCU2C_COUT_S0_CCU2C_S1_CIN_CCU2C_COUT_CIN_CCU2C_COUT_B1_LUT4_Z",
                         "loc": [
-                            74,
-                            6
+                            58,
+                            16
                         ],
                         "port": "F"
                     },
                     "type": "logic"
                 },
                 {
-                    "delay": 4.927000045776367,
+                    "delay": 1.3539999723434448,
                     "from": {
-                        "cell": "instance1.mem_count_TRELLIS_FF_Q_CE_LUT4_Z",
+                        "cell": "instance1.tx_data_TRELLIS_FF_Q_DI_LUT4_Z_C_CCU2C_S1_CIN_CCU2C_COUT_S0_CCU2C_S1_CIN_CCU2C_COUT_CIN_CCU2C_COUT_B1_LUT4_Z",
                         "loc": [
-                            74,
-                            6
+                            58,
+                            16
                         ],
                         "port": "F"
                     },
-                    "net": "instance1.f_drive_c_TRELLIS_FF_Q_CE_LUT4_Z_B[2]",
+                    "net": "instance1.tx_data_TRELLIS_FF_Q_DI_LUT4_Z_C_CCU2C_S1_CIN_CCU2C_COUT_S0_CCU2C_S1_CIN_CCU2C_COUT_CIN_CCU2C_COUT_B1",
                     "to": {
-                        "cell": "instance1.mem_count_TRELLIS_FF_Q_CE_LUT4_D",
+                        "cell": "instance1.tx_data_TRELLIS_FF_Q_DI_LUT4_Z_C_CCU2C_S1_CIN_CCU2C_COUT_S0_CCU2C_S1_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_COMB1",
                         "loc": [
-                            6,
-                            30
+                            61,
+                            19
                         ],
-                        "port": "D"
+                        "port": "B"
                     },
                     "type": "routing"
                 },
                 {
-                    "delay": 0.23600000143051147,
+                    "delay": 0.44699999690055847,
                     "from": {
-                        "cell": "instance1.mem_count_TRELLIS_FF_Q_CE_LUT4_D",
+                        "cell": "instance1.tx_data_TRELLIS_FF_Q_DI_LUT4_Z_C_CCU2C_S1_CIN_CCU2C_COUT_S0_CCU2C_S1_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_COMB1",
                         "loc": [
-                            6,
-                            30
+                            61,
+                            19
                         ],
-                        "port": "D"
+                        "port": "B"
                     },
                     "to": {
-                        "cell": "instance1.mem_count_TRELLIS_FF_Q_CE_LUT4_D",
+                        "cell": "instance1.tx_data_TRELLIS_FF_Q_DI_LUT4_Z_C_CCU2C_S1_CIN_CCU2C_COUT_S0_CCU2C_S1_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_COMB1",
                         "loc": [
-                            6,
-                            30
+                            61,
+                            19
+                        ],
+                        "port": "FCO"
+                    },
+                    "type": "logic"
+                },
+                {
+                    "delay": 0,
+                    "from": {
+                        "cell": "instance1.tx_data_TRELLIS_FF_Q_DI_LUT4_Z_C_CCU2C_S1_CIN_CCU2C_COUT_S0_CCU2C_S1_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_COMB1",
+                        "loc": [
+                            61,
+                            19
+                        ],
+                        "port": "FCO"
+                    },
+                    "net": "instance1.tx_data_TRELLIS_FF_Q_DI_LUT4_Z_C_CCU2C_S1_CIN_CCU2C_COUT_S0_CCU2C_S1_CIN_CCU2C_COUT_CIN",
+                    "to": {
+                        "cell": "instance1.tx_data_TRELLIS_FF_Q_DI_LUT4_Z_C_CCU2C_S1_CIN_CCU2C_COUT_S0_CCU2C_S1_CIN_CCU2C_COUT$CCU2_COMB0",
+                        "loc": [
+                            61,
+                            19
+                        ],
+                        "port": "FCI"
+                    },
+                    "type": "routing"
+                },
+                {
+                    "delay": 0.4429999887943268,
+                    "from": {
+                        "cell": "instance1.tx_data_TRELLIS_FF_Q_DI_LUT4_Z_C_CCU2C_S1_CIN_CCU2C_COUT_S0_CCU2C_S1_CIN_CCU2C_COUT$CCU2_COMB0",
+                        "loc": [
+                            61,
+                            19
+                        ],
+                        "port": "FCI"
+                    },
+                    "to": {
+                        "cell": "instance1.tx_data_TRELLIS_FF_Q_DI_LUT4_Z_C_CCU2C_S1_CIN_CCU2C_COUT_S0_CCU2C_S1_CIN_CCU2C_COUT$CCU2_COMB0",
+                        "loc": [
+                            61,
+                            19
                         ],
                         "port": "F"
                     },
                     "type": "logic"
                 },
                 {
-                    "delay": 1.0069999694824219,
+                    "delay": 2.763000011444092,
                     "from": {
-                        "cell": "instance1.mem_count_TRELLIS_FF_Q_CE_LUT4_D",
+                        "cell": "instance1.tx_data_TRELLIS_FF_Q_DI_LUT4_Z_C_CCU2C_S1_CIN_CCU2C_COUT_S0_CCU2C_S1_CIN_CCU2C_COUT$CCU2_COMB0",
                         "loc": [
-                            6,
-                            30
+                            61,
+                            19
                         ],
                         "port": "F"
                     },
-                    "net": "instance1.mem_count_TRELLIS_FF_Q_CE_LUT4_D_Z",
+                    "net": "instance1.tx_data_TRELLIS_FF_Q_DI_L6MUX21_Z_SD_PFUMX_Z_1_C0_LUT4_Z_B_LUT4_Z_1_A[2]",
                     "to": {
-                        "cell": "instance1.my_mem_TRELLIS_FF_Q_45",
+                        "cell": "instance1.tx_data_TRELLIS_FF_Q_DI_LUT4_Z_C_CCU2C_S1_CIN_CCU2C_COUT_S1_LUT4_Z_1_C_LUT4_Z_1_B_LUT4_Z_2_B_PFUMX_Z_BLUT_LUT4_Z",
                         "loc": [
-                            3,
+                            39,
                             29
                         ],
-                        "port": "CE"
+                        "port": "M"
+                    },
+                    "type": "routing"
+                },
+                {
+                    "delay": 0.25600001215934753,
+                    "from": {
+                        "cell": "instance1.tx_data_TRELLIS_FF_Q_DI_LUT4_Z_C_CCU2C_S1_CIN_CCU2C_COUT_S1_LUT4_Z_1_C_LUT4_Z_1_B_LUT4_Z_2_B_PFUMX_Z_BLUT_LUT4_Z",
+                        "loc": [
+                            39,
+                            29
+                        ],
+                        "port": "M"
+                    },
+                    "to": {
+                        "cell": "instance1.tx_data_TRELLIS_FF_Q_DI_LUT4_Z_C_CCU2C_S1_CIN_CCU2C_COUT_S1_LUT4_Z_1_C_LUT4_Z_1_B_LUT4_Z_2_B_PFUMX_Z_BLUT_LUT4_Z",
+                        "loc": [
+                            39,
+                            29
+                        ],
+                        "port": "OFX"
+                    },
+                    "type": "logic"
+                },
+                {
+                    "delay": 0.46700000762939453,
+                    "from": {
+                        "cell": "instance1.tx_data_TRELLIS_FF_Q_DI_LUT4_Z_C_CCU2C_S1_CIN_CCU2C_COUT_S1_LUT4_Z_1_C_LUT4_Z_1_B_LUT4_Z_2_B_PFUMX_Z_BLUT_LUT4_Z",
+                        "loc": [
+                            39,
+                            29
+                        ],
+                        "port": "OFX"
+                    },
+                    "net": "instance1.tx_data_TRELLIS_FF_Q_DI_LUT4_Z_C_CCU2C_S1_CIN_CCU2C_COUT_S1_LUT4_Z_1_C_LUT4_Z_1_B_LUT4_Z_2_B[3]",
+                    "to": {
+                        "cell": "instance1.tx_data_TRELLIS_FF_Q_DI_LUT4_Z_C_CCU2C_S1_CIN_CCU2C_COUT_S1_LUT4_Z_1_C_LUT4_Z_1_B_LUT4_Z_2",
+                        "loc": [
+                            40,
+                            28
+                        ],
+                        "port": "D"
+                    },
+                    "type": "routing"
+                },
+                {
+                    "delay": 0.23600000143051147,
+                    "from": {
+                        "cell": "instance1.tx_data_TRELLIS_FF_Q_DI_LUT4_Z_C_CCU2C_S1_CIN_CCU2C_COUT_S1_LUT4_Z_1_C_LUT4_Z_1_B_LUT4_Z_2",
+                        "loc": [
+                            40,
+                            28
+                        ],
+                        "port": "D"
+                    },
+                    "to": {
+                        "cell": "instance1.tx_data_TRELLIS_FF_Q_DI_LUT4_Z_C_CCU2C_S1_CIN_CCU2C_COUT_S1_LUT4_Z_1_C_LUT4_Z_1_B_LUT4_Z_2",
+                        "loc": [
+                            40,
+                            28
+                        ],
+                        "port": "F"
+                    },
+                    "type": "logic"
+                },
+                {
+                    "delay": 1.0230000019073486,
+                    "from": {
+                        "cell": "instance1.tx_data_TRELLIS_FF_Q_DI_LUT4_Z_C_CCU2C_S1_CIN_CCU2C_COUT_S1_LUT4_Z_1_C_LUT4_Z_1_B_LUT4_Z_2",
+                        "loc": [
+                            40,
+                            28
+                        ],
+                        "port": "F"
+                    },
+                    "net": "instance1.tx_data_TRELLIS_FF_Q_DI_LUT4_Z_C_CCU2C_S1_CIN_CCU2C_COUT_S1_LUT4_Z_1_C_LUT4_Z_1_B[3]",
+                    "to": {
+                        "cell": "instance1.tx_data_TRELLIS_FF_Q_DI_LUT4_Z_C_CCU2C_S1_CIN_CCU2C_COUT_S1_LUT4_Z_1_C_LUT4_Z_1",
+                        "loc": [
+                            43,
+                            27
+                        ],
+                        "port": "D"
+                    },
+                    "type": "routing"
+                },
+                {
+                    "delay": 0.23600000143051147,
+                    "from": {
+                        "cell": "instance1.tx_data_TRELLIS_FF_Q_DI_LUT4_Z_C_CCU2C_S1_CIN_CCU2C_COUT_S1_LUT4_Z_1_C_LUT4_Z_1",
+                        "loc": [
+                            43,
+                            27
+                        ],
+                        "port": "D"
+                    },
+                    "to": {
+                        "cell": "instance1.tx_data_TRELLIS_FF_Q_DI_LUT4_Z_C_CCU2C_S1_CIN_CCU2C_COUT_S1_LUT4_Z_1_C_LUT4_Z_1",
+                        "loc": [
+                            43,
+                            27
+                        ],
+                        "port": "F"
+                    },
+                    "type": "logic"
+                },
+                {
+                    "delay": 0.6230000257492065,
+                    "from": {
+                        "cell": "instance1.tx_data_TRELLIS_FF_Q_DI_LUT4_Z_C_CCU2C_S1_CIN_CCU2C_COUT_S1_LUT4_Z_1_C_LUT4_Z_1",
+                        "loc": [
+                            43,
+                            27
+                        ],
+                        "port": "F"
+                    },
+                    "net": "instance1.tx_data_TRELLIS_FF_Q_DI_LUT4_Z_C_CCU2C_S1_CIN_CCU2C_COUT_S1_LUT4_Z_1_C[3]",
+                    "to": {
+                        "cell": "instance1.tx_data_TRELLIS_FF_Q_DI_LUT4_Z_C_CCU2C_S1_CIN_CCU2C_COUT_S1_LUT4_Z_1",
+                        "loc": [
+                            43,
+                            27
+                        ],
+                        "port": "D"
+                    },
+                    "type": "routing"
+                },
+                {
+                    "delay": 0.23600000143051147,
+                    "from": {
+                        "cell": "instance1.tx_data_TRELLIS_FF_Q_DI_LUT4_Z_C_CCU2C_S1_CIN_CCU2C_COUT_S1_LUT4_Z_1",
+                        "loc": [
+                            43,
+                            27
+                        ],
+                        "port": "D"
+                    },
+                    "to": {
+                        "cell": "instance1.tx_data_TRELLIS_FF_Q_DI_LUT4_Z_C_CCU2C_S1_CIN_CCU2C_COUT_S1_LUT4_Z_1",
+                        "loc": [
+                            43,
+                            27
+                        ],
+                        "port": "F"
+                    },
+                    "type": "logic"
+                },
+                {
+                    "delay": 0.8889999985694885,
+                    "from": {
+                        "cell": "instance1.tx_data_TRELLIS_FF_Q_DI_LUT4_Z_C_CCU2C_S1_CIN_CCU2C_COUT_S1_LUT4_Z_1",
+                        "loc": [
+                            43,
+                            27
+                        ],
+                        "port": "F"
+                    },
+                    "net": "instance1.tx_data_TRELLIS_FF_Q_DI_LUT4_Z_C_CCU2C_S1_CIN_CCU2C_COUT_S1[3]",
+                    "to": {
+                        "cell": "instance1.tx_data_TRELLIS_FF_Q_DI_LUT4_Z_D_L6MUX21_Z_D1_L6MUX21_Z_D1_PFUMX_Z_BLUT_LUT4_Z",
+                        "loc": [
+                            43,
+                            26
+                        ],
+                        "port": "D"
+                    },
+                    "type": "routing"
+                },
+                {
+                    "delay": 0.4009999930858612,
+                    "from": {
+                        "cell": "instance1.tx_data_TRELLIS_FF_Q_DI_LUT4_Z_D_L6MUX21_Z_D1_L6MUX21_Z_D1_PFUMX_Z_BLUT_LUT4_Z",
+                        "loc": [
+                            43,
+                            26
+                        ],
+                        "port": "D"
+                    },
+                    "to": {
+                        "cell": "instance1.tx_data_TRELLIS_FF_Q_DI_LUT4_Z_D_L6MUX21_Z_D1_L6MUX21_Z_D1_PFUMX_Z_BLUT_LUT4_Z",
+                        "loc": [
+                            43,
+                            26
+                        ],
+                        "port": "OFX"
+                    },
+                    "type": "logic"
+                },
+                {
+                    "delay": 0,
+                    "from": {
+                        "cell": "instance1.tx_data_TRELLIS_FF_Q_DI_LUT4_Z_D_L6MUX21_Z_D1_L6MUX21_Z_D1_PFUMX_Z_BLUT_LUT4_Z",
+                        "loc": [
+                            43,
+                            26
+                        ],
+                        "port": "OFX"
+                    },
+                    "net": "instance1.tx_data_TRELLIS_FF_Q_DI_LUT4_Z_D_L6MUX21_Z_D1_L6MUX21_Z_D1",
+                    "to": {
+                        "cell": "instance1.tx_data_TRELLIS_FF_Q_DI_LUT4_Z_D_L6MUX21_Z_D1_L6MUX21_Z_D1_PFUMX_Z_ALUT_LUT4_Z",
+                        "loc": [
+                            43,
+                            26
+                        ],
+                        "port": "FXB"
+                    },
+                    "type": "routing"
+                },
+                {
+                    "delay": 0.24199999868869781,
+                    "from": {
+                        "cell": "instance1.tx_data_TRELLIS_FF_Q_DI_LUT4_Z_D_L6MUX21_Z_D1_L6MUX21_Z_D1_PFUMX_Z_ALUT_LUT4_Z",
+                        "loc": [
+                            43,
+                            26
+                        ],
+                        "port": "FXB"
+                    },
+                    "to": {
+                        "cell": "instance1.tx_data_TRELLIS_FF_Q_DI_LUT4_Z_D_L6MUX21_Z_D1_L6MUX21_Z_D1_PFUMX_Z_ALUT_LUT4_Z",
+                        "loc": [
+                            43,
+                            26
+                        ],
+                        "port": "OFX"
+                    },
+                    "type": "logic"
+                },
+                {
+                    "delay": 0,
+                    "from": {
+                        "cell": "instance1.tx_data_TRELLIS_FF_Q_DI_LUT4_Z_D_L6MUX21_Z_D1_L6MUX21_Z_D1_PFUMX_Z_ALUT_LUT4_Z",
+                        "loc": [
+                            43,
+                            26
+                        ],
+                        "port": "OFX"
+                    },
+                    "net": "instance1.tx_data_TRELLIS_FF_Q_DI_LUT4_Z_D_L6MUX21_Z_D1",
+                    "to": {
+                        "cell": "instance1.tx_data_TRELLIS_FF_Q_DI_LUT4_Z_D_L6MUX21_Z_D1_L6MUX21_Z_D0_PFUMX_Z_ALUT_LUT4_Z",
+                        "loc": [
+                            43,
+                            26
+                        ],
+                        "port": "FXB"
+                    },
+                    "type": "routing"
+                },
+                {
+                    "delay": 0.24199999868869781,
+                    "from": {
+                        "cell": "instance1.tx_data_TRELLIS_FF_Q_DI_LUT4_Z_D_L6MUX21_Z_D1_L6MUX21_Z_D0_PFUMX_Z_ALUT_LUT4_Z",
+                        "loc": [
+                            43,
+                            26
+                        ],
+                        "port": "FXB"
+                    },
+                    "to": {
+                        "cell": "instance1.tx_data_TRELLIS_FF_Q_DI_LUT4_Z_D_L6MUX21_Z_D1_L6MUX21_Z_D0_PFUMX_Z_ALUT_LUT4_Z",
+                        "loc": [
+                            43,
+                            26
+                        ],
+                        "port": "OFX"
+                    },
+                    "type": "logic"
+                },
+                {
+                    "delay": 0.7070000171661377,
+                    "from": {
+                        "cell": "instance1.tx_data_TRELLIS_FF_Q_DI_LUT4_Z_D_L6MUX21_Z_D1_L6MUX21_Z_D0_PFUMX_Z_ALUT_LUT4_Z",
+                        "loc": [
+                            43,
+                            26
+                        ],
+                        "port": "OFX"
+                    },
+                    "net": "instance1.tx_data_TRELLIS_FF_Q_DI_LUT4_Z_D[2]",
+                    "to": {
+                        "cell": "instance1.tx_data_TRELLIS_FF_Q_DI_LUT4_Z",
+                        "loc": [
+                            43,
+                            25
+                        ],
+                        "port": "D"
+                    },
+                    "type": "routing"
+                },
+                {
+                    "delay": 0.23600000143051147,
+                    "from": {
+                        "cell": "instance1.tx_data_TRELLIS_FF_Q_DI_LUT4_Z",
+                        "loc": [
+                            43,
+                            25
+                        ],
+                        "port": "D"
+                    },
+                    "to": {
+                        "cell": "instance1.tx_data_TRELLIS_FF_Q_DI_LUT4_Z",
+                        "loc": [
+                            43,
+                            25
+                        ],
+                        "port": "F"
+                    },
+                    "type": "logic"
+                },
+                {
+                    "delay": 0.12999999523162842,
+                    "from": {
+                        "cell": "instance1.tx_data_TRELLIS_FF_Q_DI_LUT4_Z",
+                        "loc": [
+                            43,
+                            25
+                        ],
+                        "port": "F"
+                    },
+                    "net": "instance1.tx_data_TRELLIS_FF_Q_DI[0]",
+                    "to": {
+                        "cell": "instance1.tx_data_TRELLIS_FF_Q_7",
+                        "loc": [
+                            43,
+                            25
+                        ],
+                        "port": "DI"
                     },
                     "type": "routing"
                 },
                 {
                     "delay": 0,
                     "from": {
-                        "cell": "instance1.my_mem_TRELLIS_FF_Q_45",
+                        "cell": "instance1.tx_data_TRELLIS_FF_Q_7",
                         "loc": [
-                            3,
-                            29
+                            43,
+                            25
                         ],
-                        "port": "CE"
+                        "port": "DI"
                     },
                     "to": {
-                        "cell": "instance1.my_mem_TRELLIS_FF_Q_45",
+                        "cell": "instance1.tx_data_TRELLIS_FF_Q_7",
                         "loc": [
-                            3,
-                            29
+                            43,
+                            25
                         ],
-                        "port": "CE"
+                        "port": "DI"
                     },
                     "type": "setup"
                 }
@@ -196,17 +524,17 @@
                 {
                     "delay": 0,
                     "from": {
-                        "cell": "gp[24]$tr_io",
+                        "cell": "btn[0]$tr_io",
                         "loc": [
-                            112,
+                            6,
                             0
                         ],
                         "port": "O"
                     },
                     "to": {
-                        "cell": "gp[24]$tr_io",
+                        "cell": "btn[0]$tr_io",
                         "loc": [
-                            112,
+                            6,
                             0
                         ],
                         "port": "O"
@@ -214,21 +542,103 @@
                     "type": "source"
                 },
                 {
-                    "delay": 0.9769999980926514,
+                    "delay": 5.375999927520752,
                     "from": {
-                        "cell": "gp[24]$tr_io",
+                        "cell": "btn[0]$tr_io",
                         "loc": [
-                            112,
+                            6,
                             0
                         ],
                         "port": "O"
                     },
-                    "net": "gp[24]$TRELLIS_IO_IN",
+                    "net": "btn[0]$TRELLIS_IO_IN",
                     "to": {
-                        "cell": "gp_$_TBUF__Y_1_E_LUT4_Z",
+                        "cell": "btn_LUT4_A",
                         "loc": [
-                            112,
-                            2
+                            93,
+                            4
+                        ],
+                        "port": "A"
+                    },
+                    "type": "routing"
+                },
+                {
+                    "delay": 0.23600000143051147,
+                    "from": {
+                        "cell": "btn_LUT4_A",
+                        "loc": [
+                            93,
+                            4
+                        ],
+                        "port": "A"
+                    },
+                    "to": {
+                        "cell": "btn_LUT4_A",
+                        "loc": [
+                            93,
+                            4
+                        ],
+                        "port": "F"
+                    },
+                    "type": "logic"
+                },
+                {
+                    "delay": 0.7870000004768372,
+                    "from": {
+                        "cell": "btn_LUT4_A",
+                        "loc": [
+                            93,
+                            4
+                        ],
+                        "port": "F"
+                    },
+                    "net": "btn_LUT4_A_Z[0]",
+                    "to": {
+                        "cell": "btn_LUT4_A_Z_LUT4_C",
+                        "loc": [
+                            95,
+                            3
+                        ],
+                        "port": "C"
+                    },
+                    "type": "routing"
+                },
+                {
+                    "delay": 0.23600000143051147,
+                    "from": {
+                        "cell": "btn_LUT4_A_Z_LUT4_C",
+                        "loc": [
+                            95,
+                            3
+                        ],
+                        "port": "C"
+                    },
+                    "to": {
+                        "cell": "btn_LUT4_A_Z_LUT4_C",
+                        "loc": [
+                            95,
+                            3
+                        ],
+                        "port": "F"
+                    },
+                    "type": "logic"
+                },
+                {
+                    "delay": 0.42500001192092896,
+                    "from": {
+                        "cell": "btn_LUT4_A_Z_LUT4_C",
+                        "loc": [
+                            95,
+                            3
+                        ],
+                        "port": "F"
+                    },
+                    "net": "btn_LUT4_A_Z_LUT4_C_Z[1]",
+                    "to": {
+                        "cell": "btn_LUT4_A_Z_LUT4_D_Z_LUT4_Z_2",
+                        "loc": [
+                            95,
+                            3
                         ],
                         "port": "D"
                     },
@@ -237,190 +647,102 @@
                 {
                     "delay": 0.23600000143051147,
                     "from": {
-                        "cell": "gp_$_TBUF__Y_1_E_LUT4_Z",
+                        "cell": "btn_LUT4_A_Z_LUT4_D_Z_LUT4_Z_2",
                         "loc": [
-                            112,
-                            2
+                            95,
+                            3
                         ],
                         "port": "D"
                     },
                     "to": {
-                        "cell": "gp_$_TBUF__Y_1_E_LUT4_Z",
+                        "cell": "btn_LUT4_A_Z_LUT4_D_Z_LUT4_Z_2",
                         "loc": [
-                            112,
-                            2
+                            95,
+                            3
                         ],
                         "port": "F"
                     },
                     "type": "logic"
                 },
                 {
-                    "delay": 2.187000036239624,
+                    "delay": 3.4079999923706055,
                     "from": {
-                        "cell": "gp_$_TBUF__Y_1_E_LUT4_Z",
+                        "cell": "btn_LUT4_A_Z_LUT4_D_Z_LUT4_Z_2",
                         "loc": [
-                            112,
-                            2
+                            95,
+                            3
                         ],
                         "port": "F"
                     },
-                    "net": "gp_$_TBUF__Y_1_E",
+                    "net": "btn_LUT4_A_Z_LUT4_D_Z[3]",
                     "to": {
-                        "cell": "gpdi_scl$tr_io$invert_T",
+                        "cell": "btn_LUT4_A_Z_LUT4_D_Z_LUT4_D",
                         "loc": [
-                            78,
-                            2
+                            54,
+                            13
                         ],
-                        "port": "A"
+                        "port": "D"
                     },
                     "type": "routing"
                 },
                 {
                     "delay": 0.23600000143051147,
                     "from": {
-                        "cell": "gpdi_scl$tr_io$invert_T",
+                        "cell": "btn_LUT4_A_Z_LUT4_D_Z_LUT4_D",
                         "loc": [
-                            78,
-                            2
+                            54,
+                            13
                         ],
-                        "port": "A"
+                        "port": "D"
                     },
                     "to": {
-                        "cell": "gpdi_scl$tr_io$invert_T",
+                        "cell": "btn_LUT4_A_Z_LUT4_D_Z_LUT4_D",
                         "loc": [
-                            78,
-                            2
+                            54,
+                            13
                         ],
                         "port": "F"
                     },
                     "type": "logic"
                 },
                 {
-                    "delay": 1.1749999523162842,
+                    "delay": 3.053999900817871,
                     "from": {
-                        "cell": "gpdi_scl$tr_io$invert_T",
+                        "cell": "btn_LUT4_A_Z_LUT4_D_Z_LUT4_D",
                         "loc": [
-                            78,
-                            2
+                            54,
+                            13
                         ],
                         "port": "F"
                     },
-                    "net": "gpdi_scl$tr_io$invert_T$conn$Z",
+                    "net": "btn_LUT4_A_Z_LUT4_D_Z_LUT4_D_Z",
                     "to": {
-                        "cell": "gpdi_scl$tr_io",
+                        "cell": "instance1.my_mem_TRELLIS_FF_Q_497",
                         "loc": [
-                            74,
-                            0
+                            76,
+                            29
                         ],
-                        "port": "T"
-                    },
-                    "type": "routing"
-                }
-            ],
-            "to": "<async>"
-        },
-        {
-            "from": "<async>",
-            "path": [
-                {
-                    "delay": 0,
-                    "from": {
-                        "cell": "btn[3]$tr_io",
-                        "loc": [
-                            126,
-                            89
-                        ],
-                        "port": "O"
-                    },
-                    "to": {
-                        "cell": "btn[3]$tr_io",
-                        "loc": [
-                            126,
-                            89
-                        ],
-                        "port": "O"
-                    },
-                    "type": "source"
-                },
-                {
-                    "delay": 10.295999526977539,
-                    "from": {
-                        "cell": "btn[3]$tr_io",
-                        "loc": [
-                            126,
-                            89
-                        ],
-                        "port": "O"
-                    },
-                    "net": "btnExtract[3]",
-                    "to": {
-                        "cell": "instance1.ledByte_TRELLIS_FF_Q_DI_LUT4_Z",
-                        "loc": [
-                            6,
-                            28
-                        ],
-                        "port": "A"
-                    },
-                    "type": "routing"
-                },
-                {
-                    "delay": 0.23600000143051147,
-                    "from": {
-                        "cell": "instance1.ledByte_TRELLIS_FF_Q_DI_LUT4_Z",
-                        "loc": [
-                            6,
-                            28
-                        ],
-                        "port": "A"
-                    },
-                    "to": {
-                        "cell": "instance1.ledByte_TRELLIS_FF_Q_DI_LUT4_Z",
-                        "loc": [
-                            6,
-                            28
-                        ],
-                        "port": "F"
-                    },
-                    "type": "logic"
-                },
-                {
-                    "delay": 0.12999999523162842,
-                    "from": {
-                        "cell": "instance1.ledByte_TRELLIS_FF_Q_DI_LUT4_Z",
-                        "loc": [
-                            6,
-                            28
-                        ],
-                        "port": "F"
-                    },
-                    "net": "instance1.ledByte_TRELLIS_FF_Q_DI[0]",
-                    "to": {
-                        "cell": "instance1.ledByte_TRELLIS_FF_Q_7",
-                        "loc": [
-                            6,
-                            28
-                        ],
-                        "port": "DI"
+                        "port": "CE"
                     },
                     "type": "routing"
                 },
                 {
                     "delay": 0,
                     "from": {
-                        "cell": "instance1.ledByte_TRELLIS_FF_Q_7",
+                        "cell": "instance1.my_mem_TRELLIS_FF_Q_497",
                         "loc": [
-                            6,
-                            28
+                            76,
+                            29
                         ],
-                        "port": "DI"
+                        "port": "CE"
                     },
                     "to": {
-                        "cell": "instance1.ledByte_TRELLIS_FF_Q_7",
+                        "cell": "instance1.my_mem_TRELLIS_FF_Q_497",
                         "loc": [
-                            6,
-                            28
+                            76,
+                            29
                         ],
-                        "port": "DI"
+                        "port": "CE"
                     },
                     "type": "setup"
                 }
@@ -433,39 +755,39 @@
                 {
                     "delay": 0.5249999761581421,
                     "from": {
-                        "cell": "instance1.sda_o_TRELLIS_FF_Q",
+                        "cell": "uart_transmit.o_uart_tx_TRELLIS_FF_Q",
                         "loc": [
-                            77,
-                            4
+                            48,
+                            24
                         ],
                         "port": "Q"
                     },
                     "to": {
-                        "cell": "instance1.sda_o_TRELLIS_FF_Q",
+                        "cell": "uart_transmit.o_uart_tx_TRELLIS_FF_Q",
                         "loc": [
-                            77,
-                            4
+                            48,
+                            24
                         ],
                         "port": "Q"
                     },
                     "type": "clk-to-q"
                 },
                 {
-                    "delay": 3.046999931335449,
+                    "delay": 5.142000198364258,
                     "from": {
-                        "cell": "instance1.sda_o_TRELLIS_FF_Q",
+                        "cell": "uart_transmit.o_uart_tx_TRELLIS_FF_Q",
                         "loc": [
-                            77,
-                            4
+                            48,
+                            24
                         ],
                         "port": "Q"
                     },
-                    "net": "sda_o",
+                    "net": "ftdi_rxd$TRELLIS_IO_OUT",
                     "to": {
-                        "cell": "gpdi_sda$tr_io",
+                        "cell": "ftdi_rxd$tr_io",
                         "loc": [
-                            119,
-                            0
+                            0,
+                            56
                         ],
                         "port": "I"
                     },
@@ -477,7 +799,7 @@
     ],
     "fmax": {
         "$glbnet$clk_400KHz": {
-            "achieved": 114.96895599365234,
+            "achieved": 77.23200225830078,
             "constraint": 0.40816327929496765
         }
     },
@@ -572,7 +894,7 @@
         },
         "TRELLIS_COMB": {
             "available": 83640,
-            "used": 483
+            "used": 5812
         },
         "TRELLIS_ECLKBUF": {
             "available": 8,
@@ -580,11 +902,11 @@
         },
         "TRELLIS_FF": {
             "available": 83640,
-            "used": 115
+            "used": 2163
         },
         "TRELLIS_IO": {
             "available": 365,
-            "used": 45
+            "used": 46
         },
         "TRELLIS_RAMW": {
             "available": 10455,

@@ -16,7 +16,7 @@ Vtop::Vtop(VerilatedContext* _vcontextp__, const char* _vcname__)
     , scl_i{vlSymsp->TOP.scl_i}
     , scl_o{vlSymsp->TOP.scl_o}
     , addressI2C{vlSymsp->TOP.addressI2C}
-    , ledByte{vlSymsp->TOP.ledByte}
+    , tx_data{vlSymsp->TOP.tx_data}
     , debug{vlSymsp->TOP.debug}
     , reset{vlSymsp->TOP.reset}
     , receiving{vlSymsp->TOP.receiving}

@@ -1,5 +1,6 @@
 //`define SIMULATION // turns on and off simulation mode
 `default_nettype none
+`include "txuartlite.v"
 
 module SystemConnect (
     input wire external_clk_25MHz,
@@ -7,14 +8,16 @@ module SystemConnect (
     input wire [6:0] btn,
     inout wire gpdi_sda,
     inout wire gpdi_scl,
-    inout wire [26:0] gp
+    inout wire [26:0] gp,
+    output wire ftdi_rxd
 );
 
 
-wire [3:0] btnExtract = {btn[3],btn[5],btn[4],btn[6]};
-wire [7:0] ledTest;
+//wire [3:0] btnExtract = {btn[3],btn[5],btn[4],btn[6]};
+wire [7:0] tx_data;
 wire [4:0] debug;
-wire receiving, sda_o, scl_o, reading, switchTest, f_drive_c;  
+wire [7:0] addressI2C;
+wire receiving, sda_o, scl_o, reading, switchTest, f_drive_c, tx_ready, tx_busy;  
 
 /*
 assign led[0] = 1;
@@ -22,8 +25,6 @@ assign led[1] = rst;
 assign led[2] = gpdi_scl;
 assign led[7:3] = debug;
 */
-assign led = ledTest;
-
 `ifndef SIMULATION
     // HDMI port
     assign gpdi_sda = (receiving) ? 1'bZ : sda_o;
@@ -33,7 +34,8 @@ assign led = ledTest;
     //assign gp[25] = (~receiving && reading) ? 1'bZ : scl_o;
     assign gp[25] = (f_drive_c) ? 1'bZ : scl_o;
 
-    assign gp[24] = receiving;
+    assign gp[24] = debug[0];
+    assign gp[23] = debug[1];
 
     //assign gp[25] = (switchTest) ? 1'bZ : scl_o; // test clk of slave
 
@@ -85,14 +87,31 @@ wire ignore;
 wire invert;
 //assign gp[25] = ~invert;
 
+txuartlite uart_transmit(
+    .i_clk(clk_400KHz),
+    .i_reset(1'b0),
+    .i_wr(tx_ready),
+    .i_data(tx_data),
+    .o_uart_tx(ftdi_rxd),
+    .o_busy(tx_busy)
+);
+
+uartConnect uart1 (
+    .tx_ready (tx_ready),
+    .tx_busy(tx_busy),
+    .addressI2C(addressI2C),
+    .scl_4x(clk_400KHz),
+    .reset(rst || !btn[6])
+);
+
 I2C_main instance1 (.sda_i(gp[26]), 
                     .sda_o(sda_o), 
                     .scl_4x(clk_400KHz), 
                     .scl_i(gp[25]),
                     .scl_o(scl_o), 
-                    .addressI2C(btnExtract), 
-                    .ledByte(ledTest), 
-                    .debug(debug), 
+                    .addressI2C(addressI2C), 
+                    .tx_data(tx_data),  
+                    .debug(debug),
                     .reset(rst),
                     .receiving(receiving),
                     .reading(reading),
@@ -147,74 +166,33 @@ EHXPLLL #(
         );
 endmodule
 
-/*module MyClockGen_Old4
-(
-    input input_clk_25MHz, // 25 MHz, 0 deg
-    output clk_4MHz, // 4.16667 MHz, 0 deg
-    output locked
+module uartConnect (
+    output logic tx_ready,
+    input wire tx_busy,
+    output logic [7:0] addressI2C,
+    input wire scl_4x,
+    input wire reset
 );
-wire clkfb;
-(* FREQUENCY_PIN_CLKI="25" *)
-(* FREQUENCY_PIN_CLKOP="4.16667" *)
-(* ICP_CURRENT="12" *) (* LPF_RESISTOR="8" *) (* MFG_ENABLE_FILTEROPAMP="1" *) (* MFG_GMCREF_SEL="2" *)
-EHXPLLL #(
-        .PLLRST_ENA("DISABLED"),
-        .INTFB_WAKE("DISABLED"),
-        .STDBY_ENABLE("DISABLED"),
-        .DPHASE_SOURCE("DISABLED"),
-        .OUTDIVIDER_MUXA("DIVA"),
-        .OUTDIVIDER_MUXB("DIVB"),
-        .OUTDIVIDER_MUXC("DIVC"),
-        .OUTDIVIDER_MUXD("DIVD"),
-        .CLKI_DIV(6),
-        .CLKOP_ENABLE("ENABLED"),
-        .CLKOP_DIV(128),
-        .CLKOP_CPHASE(64),
-        .CLKOP_FPHASE(0),
-        .FEEDBK_PATH("INT_OP"),
-        .CLKFB_DIV(1)
-    ) pll_i (
-        .RST(1'b0),
-        .STDBY(1'b0),
-        .CLKI(input_clk_25MHz),
-        .CLKOP(clk_4MHz),
-        .CLKFB(clkfb),
-        .CLKINTFB(clkfb),
-        .PHASESEL0(1'b0),
-        .PHASESEL1(1'b0),
-        .PHASEDIR(1'b1),
-        .PHASESTEP(1'b1),
-        .PHASELOADREG(1'b1),
-        .PLLWAKESYNC(1'b0),
-        .ENCLKOP(1'b0),
-        .LOCK(locked)
-);
-endmodule */
 
-module Ewnz (
-    input wire clk,
-    input wire rst,
-    input wire [7:0] signals,
-    output wire [7:0] ewnz
-);
-  localparam bit True = 1'b1;
-  logic [7:0] sticky_bits;
-  assign ewnz = sticky_bits;
-  always_ff @(posedge clk) begin
-    if (rst) begin
-        sticky_bits <= 0;
-    end else if (init_done) begin
-        if (signals[0]) sticky_bits[0] <= True;
-        if (signals[1]) sticky_bits[1] <= True;
-        if (signals[2]) sticky_bits[2] <= True;
-        if (signals[3]) sticky_bits[3] <= True;
-        if (signals[4]) sticky_bits[4] <= True;
-        if (signals[5]) sticky_bits[5] <= True;
-        if (signals[6]) sticky_bits[6] <= True;
-        if (signals[7]) sticky_bits[7] <= True;
+logic [7:0] counter; 
+
+always_ff@(posedge scl_4x) begin
+
+    if(reset) begin
+        tx_ready <= 0;
+        addressI2C <= 0;
+        counter <= 0;
     end
-  end
+    else begin
+        if(!tx_busy) begin
+            tx_ready <= 1;
+            counter <= counter + 1;
+            addressI2C <= counter;
+        end
+    end
+end
 endmodule
+
 
 module I2C_main (
     input  wire sda_i,
@@ -222,8 +200,8 @@ module I2C_main (
     input wire scl_4x, // phantom wire at 4x the clock speed
     input wire scl_i,
     output wire scl_o,
-    input wire [3:0] addressI2C,
-    output logic [7:0] ledByte,
+    input wire [7:0] addressI2C,
+    output logic [7:0] tx_data,
     output logic [4:0] debug,
     input wire reset, 
     output logic receiving,
@@ -246,9 +224,9 @@ logic [6:0] addressFromMaster;
 logic [7:0] registerAddress, dataByte;
 
 logic [((byte_count_max+1)*8)-1:0] my_mem;
-logic [6:0] mem_count;
-localparam bit [5:0] byte_count_max = 8; // set to total # bytes expected to read
-logic [5:0] byte_count;
+logic [11:0] mem_count;
+localparam bit [9:0] byte_count_max = 256; // set to total # bytes expected to read
+logic [9:0] byte_count;
 
 // Variables:
 // rw = sets read/write bit (w = 0, r = 1)
@@ -293,7 +271,6 @@ always_ff @(posedge scl_4x) begin
         addressFromMaster <= 7'h50; // h50 for HDMI
         registerAddress [7:0] <= 8'h00; // h50 for HDMI
         dataByte [7:0] <= 8'b10101100;
-        debug <= 31;
 
         // Initial Conditions (don't change)
         state <= 0;
@@ -308,15 +285,16 @@ always_ff @(posedge scl_4x) begin
         sendStop <= 0;
         repeated_start <= 0;
         byte_count <= byte_count_max; 
-        mem_count <= (byte_count_max+1)*8 - 1; // total # bits to be read from device
+        mem_count <= (byte_count_max)*8 - 1; // total # bits to be read from device
         ackCount <= 0;
         reading <= 0;
         switchTest <= 0;
         f_drive_c <= 0;
+        debug <= 0;
     end
     else begin
-        // btn memory extraction
-        ledByte <= my_mem[addressI2C*8 +: 8];
+        // memory extraction
+        tx_data <= my_mem[((byte_count_max*8 - 1) - addressI2C*8) -: 8];
 
         // start condition
         if(counter == 2 && state == 0) begin
@@ -333,7 +311,6 @@ always_ff @(posedge scl_4x) begin
             sendStop <= 1;
             if(sendStop) begin
                 state <= 0;
-                debug <= 8;
             end
             sda_o <= 1;
             sendStart <= 0;
@@ -349,15 +326,17 @@ always_ff @(posedge scl_4x) begin
             else if(bit_count == 8) begin
                 ackCount <= ackCount + 1;
 
-                if((sda_i && (byte_count == byte_count_max))|| writeComplete || byte_count == 0) begin
+                if(/*(sda_i && (byte_count == byte_count_max))|| */writeComplete || byte_count == 0) begin
                     state <= 3'b111; // activate STOP condition
                     writeComplete <= 0;
                     receiving <= 0;
+                    debug[1:0] <= 1;
                     
                 end
                 else if(repeated_start) begin
                     state <= 3'b101;
                     receiving <= 1;
+                    debug[1:0] <= 3;
                     //debug <= 4;
                 end
                 else if((byte_count < byte_count_max) && byte_count > 0) begin // if in read state, master will send ACK bit
@@ -365,6 +344,7 @@ always_ff @(posedge scl_4x) begin
                     state <= 3'b110;
                     receiving <= 0;
                     f_drive_c <= 1;
+                    debug[1:0] <= 2;
 
                     //debug <= 22;
                 end

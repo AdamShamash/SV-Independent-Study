@@ -35,8 +35,8 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop VL_NOT_FINAL : public VerilatedModel {
     VL_OUT8(&sda_o,0,0);
     VL_IN8(&scl_i,0,0);
     VL_OUT8(&scl_o,0,0);
-    VL_IN8(&addressI2C,3,0);
-    VL_OUT8(&ledByte,7,0);
+    VL_IN8(&addressI2C,7,0);
+    VL_OUT8(&tx_data,7,0);
     VL_OUT8(&debug,4,0);
     VL_IN8(&reset,0,0);
     VL_OUT8(&receiving,0,0);

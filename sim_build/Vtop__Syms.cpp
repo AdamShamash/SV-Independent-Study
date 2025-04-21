@@ -22,7 +22,7 @@ Vtop__Syms::Vtop__Syms(VerilatedContext* contextp, const char* namep, Vtop* mode
     , TOP{this, namep}
 {
         // Check resources
-        Verilated::stackCheck(47);
+        Verilated::stackCheck(51);
     // Configure time unit / time precision
     _vm_contextp__->timeunit(-12);
     _vm_contextp__->timeprecision(-12);
@@ -40,18 +40,17 @@ Vtop__Syms::Vtop__Syms(VerilatedContext* contextp, const char* namep, Vtop* mode
     for (int __Vfinal = 0; __Vfinal < 2; ++__Vfinal) {
         __Vscope_I2C_main.varInsert(__Vfinal,"ackCount", &(TOP.I2C_main__DOT__ackCount), false, VLVT_UINT8,VLVD_NODIR|VLVF_PUB_RW,0);
         __Vscope_I2C_main.varInsert(__Vfinal,"addressFromMaster", &(TOP.I2C_main__DOT__addressFromMaster), false, VLVT_UINT8,VLVD_NODIR|VLVF_PUB_RW,1 ,6,0);
-        __Vscope_I2C_main.varInsert(__Vfinal,"addressI2C", &(TOP.I2C_main__DOT__addressI2C), false, VLVT_UINT8,VLVD_NODIR|VLVF_PUB_RW,1 ,3,0);
+        __Vscope_I2C_main.varInsert(__Vfinal,"addressI2C", &(TOP.I2C_main__DOT__addressI2C), false, VLVT_UINT8,VLVD_NODIR|VLVF_PUB_RW,1 ,7,0);
         __Vscope_I2C_main.varInsert(__Vfinal,"address_check", &(TOP.I2C_main__DOT__address_check), false, VLVT_UINT8,VLVD_NODIR|VLVF_PUB_RW,1 ,2,0);
         __Vscope_I2C_main.varInsert(__Vfinal,"bit_count", &(TOP.I2C_main__DOT__bit_count), false, VLVT_UINT8,VLVD_NODIR|VLVF_PUB_RW,1 ,3,0);
-        __Vscope_I2C_main.varInsert(__Vfinal,"byte_count", &(TOP.I2C_main__DOT__byte_count), false, VLVT_UINT8,VLVD_NODIR|VLVF_PUB_RW,1 ,5,0);
-        __Vscope_I2C_main.varInsert(__Vfinal,"byte_count_max", const_cast<void*>(static_cast<const void*>(&(TOP.I2C_main__DOT__byte_count_max))), true, VLVT_UINT8,VLVD_NODIR|VLVF_PUB_RW|VLVF_DPI_CLAY,1 ,5,0);
+        __Vscope_I2C_main.varInsert(__Vfinal,"byte_count", &(TOP.I2C_main__DOT__byte_count), false, VLVT_UINT16,VLVD_NODIR|VLVF_PUB_RW,1 ,9,0);
+        __Vscope_I2C_main.varInsert(__Vfinal,"byte_count_max", const_cast<void*>(static_cast<const void*>(&(TOP.I2C_main__DOT__byte_count_max))), true, VLVT_UINT16,VLVD_NODIR|VLVF_PUB_RW|VLVF_DPI_CLAY,1 ,9,0);
         __Vscope_I2C_main.varInsert(__Vfinal,"counter", &(TOP.I2C_main__DOT__counter), false, VLVT_UINT8,VLVD_NODIR|VLVF_PUB_RW,1 ,1,0);
         __Vscope_I2C_main.varInsert(__Vfinal,"dataByte", &(TOP.I2C_main__DOT__dataByte), false, VLVT_UINT8,VLVD_NODIR|VLVF_PUB_RW,1 ,7,0);
         __Vscope_I2C_main.varInsert(__Vfinal,"debug", &(TOP.I2C_main__DOT__debug), false, VLVT_UINT8,VLVD_NODIR|VLVF_PUB_RW,1 ,4,0);
         __Vscope_I2C_main.varInsert(__Vfinal,"f_drive_c", &(TOP.I2C_main__DOT__f_drive_c), false, VLVT_UINT8,VLVD_NODIR|VLVF_PUB_RW,0);
-        __Vscope_I2C_main.varInsert(__Vfinal,"ledByte", &(TOP.I2C_main__DOT__ledByte), false, VLVT_UINT8,VLVD_NODIR|VLVF_PUB_RW,1 ,7,0);
-        __Vscope_I2C_main.varInsert(__Vfinal,"mem_count", &(TOP.I2C_main__DOT__mem_count), false, VLVT_UINT8,VLVD_NODIR|VLVF_PUB_RW,1 ,6,0);
-        __Vscope_I2C_main.varInsert(__Vfinal,"my_mem", &(TOP.I2C_main__DOT__my_mem), false, VLVT_WDATA,VLVD_NODIR|VLVF_PUB_RW,1 ,71,0);
+        __Vscope_I2C_main.varInsert(__Vfinal,"mem_count", &(TOP.I2C_main__DOT__mem_count), false, VLVT_UINT16,VLVD_NODIR|VLVF_PUB_RW,1 ,11,0);
+        __Vscope_I2C_main.varInsert(__Vfinal,"my_mem", &(TOP.I2C_main__DOT__my_mem), false, VLVT_WDATA,VLVD_NODIR|VLVF_PUB_RW,1 ,2055,0);
         __Vscope_I2C_main.varInsert(__Vfinal,"reading", &(TOP.I2C_main__DOT__reading), false, VLVT_UINT8,VLVD_NODIR|VLVF_PUB_RW,0);
         __Vscope_I2C_main.varInsert(__Vfinal,"receiving", &(TOP.I2C_main__DOT__receiving), false, VLVT_UINT8,VLVD_NODIR|VLVF_PUB_RW,0);
         __Vscope_I2C_main.varInsert(__Vfinal,"registerAddress", &(TOP.I2C_main__DOT__registerAddress), false, VLVT_UINT8,VLVD_NODIR|VLVF_PUB_RW,1 ,7,0);
@@ -69,11 +68,11 @@ Vtop__Syms::Vtop__Syms(VerilatedContext* contextp, const char* namep, Vtop* mode
         __Vscope_I2C_main.varInsert(__Vfinal,"state", &(TOP.I2C_main__DOT__state), false, VLVT_UINT8,VLVD_NODIR|VLVF_PUB_RW,1 ,2,0);
         __Vscope_I2C_main.varInsert(__Vfinal,"switchTest", &(TOP.I2C_main__DOT__switchTest), false, VLVT_UINT8,VLVD_NODIR|VLVF_PUB_RW,0);
         __Vscope_I2C_main.varInsert(__Vfinal,"tester", &(TOP.I2C_main__DOT__tester), false, VLVT_UINT8,VLVD_NODIR|VLVF_PUB_RW,0);
+        __Vscope_I2C_main.varInsert(__Vfinal,"tx_data", &(TOP.I2C_main__DOT__tx_data), false, VLVT_UINT8,VLVD_NODIR|VLVF_PUB_RW,1 ,7,0);
         __Vscope_I2C_main.varInsert(__Vfinal,"writeComplete", &(TOP.I2C_main__DOT__writeComplete), false, VLVT_UINT8,VLVD_NODIR|VLVF_PUB_RW,0);
-        __Vscope_TOP.varInsert(__Vfinal,"addressI2C", &(TOP.addressI2C), false, VLVT_UINT8,VLVD_IN|VLVF_PUB_RW,1 ,3,0);
+        __Vscope_TOP.varInsert(__Vfinal,"addressI2C", &(TOP.addressI2C), false, VLVT_UINT8,VLVD_IN|VLVF_PUB_RW,1 ,7,0);
         __Vscope_TOP.varInsert(__Vfinal,"debug", &(TOP.debug), false, VLVT_UINT8,VLVD_OUT|VLVF_PUB_RW,1 ,4,0);
         __Vscope_TOP.varInsert(__Vfinal,"f_drive_c", &(TOP.f_drive_c), false, VLVT_UINT8,VLVD_OUT|VLVF_PUB_RW,0);
-        __Vscope_TOP.varInsert(__Vfinal,"ledByte", &(TOP.ledByte), false, VLVT_UINT8,VLVD_OUT|VLVF_PUB_RW,1 ,7,0);
         __Vscope_TOP.varInsert(__Vfinal,"reading", &(TOP.reading), false, VLVT_UINT8,VLVD_OUT|VLVF_PUB_RW,0);
         __Vscope_TOP.varInsert(__Vfinal,"receiving", &(TOP.receiving), false, VLVT_UINT8,VLVD_OUT|VLVF_PUB_RW,0);
         __Vscope_TOP.varInsert(__Vfinal,"reset", &(TOP.reset), false, VLVT_UINT8,VLVD_IN|VLVF_PUB_RW,0);
@@ -83,5 +82,6 @@ Vtop__Syms::Vtop__Syms(VerilatedContext* contextp, const char* namep, Vtop* mode
         __Vscope_TOP.varInsert(__Vfinal,"sda_i", &(TOP.sda_i), false, VLVT_UINT8,VLVD_IN|VLVF_PUB_RW,0);
         __Vscope_TOP.varInsert(__Vfinal,"sda_o", &(TOP.sda_o), false, VLVT_UINT8,VLVD_OUT|VLVF_PUB_RW,0);
         __Vscope_TOP.varInsert(__Vfinal,"switchTest", &(TOP.switchTest), false, VLVT_UINT8,VLVD_OUT|VLVF_PUB_RW,0);
+        __Vscope_TOP.varInsert(__Vfinal,"tx_data", &(TOP.tx_data), false, VLVT_UINT8,VLVD_OUT|VLVF_PUB_RW,1 ,7,0);
     }
 }
